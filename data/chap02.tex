@@ -1,134 +1,500 @@
 \chapter{理论公式与数值求解方法}
-\label{cha:china}
-
+\label{cha:2}
+\section{等离子体模型}
 \section{流动稳定性求解框架}
-\subsection{边界层方程}
-\subsection{扰动方程}
-\subsubsection{线性稳定性理论}
-\subsubsection{抛物化扰动方程}
-\subsubsection{Floquet理论与二次失稳}
-\label{sec:other}
+在研究等离子体控制扰动的问题中，本文采用研究稳定性问题的相关数值方法，来解析控制前后边界层内扰动的发展情况。稳定性的相关理论虽然并不能给出精确的转捩位置，但是能够从理论方面给出流动失稳特性，并且具有计算效率高，转捩前流动解析精度高的优点。本文中通过研究流动在控制前后稳定性方面的特性变化，来甄别控制是否有效。本文采用的研究边界层流动稳定性的步骤如下：
+\begin{enumerate}
+  \item 采用高精度有限元程序求解无粘流场；
+  \item 以无粘流壁面上的流动参数作为边界层方程的边界条件，求解层流基本流动；
+  \item 基于线性稳定性理论，判断主导转捩的模态；
+  \item 采用抛物化扰动方程，求解边界层内扰动的演化；
+  \item 以受扰流场作为新的基本流动进行二次失稳分析。
+\end{enumerate}
 
-\section{扰动发展的敏感性分析}
-\subsection{基于线性稳定性理论的敏感性分析}
-\subsection{基于抛物化扰动方程的的敏感性分析}
-
-\section{充分发展槽道的直接数值模拟}
-在第~\ref{cha:intro} 章中我们学习了贝叶斯公式~(\ref{equ:chap1:bayes})，这里我们复
-习一下：
-\begin{equation}
-\label{equ:chap2:bayes}
-p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
-\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})}
+与前人所做的研究不同的是，本文的研究需要将等离子体产生的体积力也考虑进来。在详细介绍求解方法之前，这里先简要介绍一下本文中对体积力的处理方法。流动所满足的控制方程（N-S方程）为：
+\begin{equation}\label{EQ_NS}\left.
+\begin{aligned}
+    \frac{\p{\rho^*}}{\p{t^*}}
+    + {\nabla^*}\cdot\left({\rho^*}{\mathbf{V}^*}\right) & =0
+    \\
+    {\rho^*}\left( {\frac{\p{\mathbf{V}^*}}{\p{t^*}}
+    + \left( {{\mathbf{V}^*}\cdot{\nabla^*}}\right)
+    {\mathbf{V}^*}} \right) & =
+     - {\nabla^*}{p^*} + {\nabla^*}\left( {{\lambda ^*}\left( {{\nabla ^*} \cdot {\mathbf{V}^*}} \right)} \right) \\
+    & + {\nabla ^*} \cdot \left( {{\mu ^*}\left( {{\nabla ^*}{\mathbf{V}^*} + {\nabla ^*}{\mathbf{V}^*}^T} \right)} \right) + \mathbf{f}^*
+    \\
+    {\rho ^*}{C_p}^*\left( {\frac{{\p{T^*}}}{{\p{t^*}}} + \left( {{{\mathbf{V}}^*} \cdot {\nabla ^*}} \right){T^*}} \right) & =
+    {\nabla ^*} \cdot \left( {{\kappa ^*}{\nabla ^*}{T^*}} \right) \\
+    & + \frac{{\p{p^*}}}{{\p{t^*}}} + \left( {{{\mathbf{V}}^*} \cdot {\nabla ^*}} \right){p^*} + {\Phi ^*} + \mathbf{V}^* \cdot \mathbf{f}^*
+\end{aligned}~\right\}
 \end{equation}
 
-\subsection{绘图}
-\label{sec:draw}
+\noindent式（\ref{EQ_NS}）中能量方程的耗散函数为：
+\begin{equation}
+    {\Phi ^*} = {\lambda ^*}{{\left( {{\nabla ^*} \cdot {{{\mathbf{V}}}^*}} \right)}^2} + \frac{{{\mu ^*}}}{2}{{\left( {{\nabla ^*}{{{\mathbf{V}}}^*} + {\nabla ^*}{{{\mathbf{V}}}^*}^T} \right)}^2}
+\end{equation}
+方程中星号 $*$ 表示有量纲量，${\mathbf{V}}$ 表示速度矢量，其在$x,y,z$三个方向的分量为 $u$，$v$，$w$ 。${\mathbf{f}}$ 表示体积力矢量，其分量分别为 $f_x$，$f_y$，$f_z$ 。
 
-本模板不再预先装载任何绘图包（如 \pkg{pstricks，pgf} 等），完全由用户来决定。
-个人觉得 \pkg{pgf} 不错，不依赖于 Postscript。此外还有很多针对 \LaTeX{} 的
- GUI 作图工具，如 XFig(jFig), WinFig, Tpx, Ipe, Dia, Inkscape, LaTeXPiX,
-jPicEdt, jaxdraw 等等。
+为封闭 N-S 方程，分别引入状态方程、Sutherland 粘性律、Stokes 假设，假定流体是量热完全气体并具有恒定的 $Pr$ 数：
+\begin{equation}\left.
+\begin{aligned}
+p^*=\rho^*R^*T^* & \Leftrightarrow p=\frac{\rho T}{\gamma Ma^2} \\
+\mu^*=\mu_s^*\frac{T^*}{T^*_s}\frac{T^*_s+S^*}{T^*+S^*} & \Leftrightarrow \mu=\mu_s\frac{T}{T_s}\frac{T_s+S}{T+S} \\
+\lambda^*+2/3\mu^*=0 & \Leftrightarrow\lambda=-2/3\mu\\
+\textrm{Pr}=\frac{{C_p}^*\mu^*}{\kappa^*}={const} & \Leftrightarrow\mu=\kappa\\
+C_p^*=const,~ & R^*=const
+\end{aligned}~\right\}
+\end{equation}
+Sutherland 粘性律中 $T^*_s=273K,~\mu_s^*=1.71\times10^{-5}kg/(m\cdot s),~S^*=110.4K$。
 
-\subsection{插图}
-\label{sec:graphs}
+选取适当的参考长度 $l_{reff}$、参考速度 $U_{reff}$、参考密度 $\rho_{reff}$等特征量，可以对式（\ref{EQ_NS}）进行无量纲化。在本文中，分别研究了后掠Hiemenz流动和后掠翼流动。在这两个流动中我们选择的特征量是不一样的，之后我们会分别介绍。为了简洁，我们将无量纲化后的N-S方程记为：
+\begin{equation}
+    \label{e:NS}
+    \mathscr{N}(\mathbf{q})=\mathbf{F}
+\end{equation}
+这里， $\mathbf{q}=(\rho , u,v,w,T)^T$，即原始变量组成的5维矢量。$\mathbf{F}=(0,f_x,f_y,f_z,\mathbf{V} \cdot \mathbf{f})^T$。 上标 ``$T$" 表示转置。这里由于添加的体积力很小，我们假设其只影响扰动发展，并不影响基本流。即基本流依然满足N-S方程：
+\begin{equation}
+    \label{e:baseflow}
+    \mathscr{N}(\mathbf{q_0})=0
+\end{equation}
+$\mathbf{q_0}$ 为基本流流动原始变量组成的矢量，其与$\mathbf{q}$的差即为扰动量$\mathbf{\tilde{q}}$。令式(\ref{e:NS}) - 式(\ref{e:baseflow})，即可得到扰动的控制方程：
+\begin{equation}
+    \label{e:disturbance1}
+    \mathscr{S}(\mathbf{\tilde{q}})=\mathscr{N}(\mathbf{q_0}+\mathbf{\tilde{q}})-\mathscr{N}(\mathbf{q_0})=\mathbf{F}
+\end{equation}
+在之后的小节\ref{subsec:BLfun}和\ref{subsec:STBfun}中，将会分别介绍式（\ref{e:baseflow}）和（\ref{e:disturbance1}）所采用的求解方法。至于求解步骤1中提到的高精度有限元方法，将会在\ref{sec:DNS}节中介绍。
+\subsection{边界层方程}\label{subsec:BLfun}
+在边界层流动中，流向的特征尺度为常规尺度，而法向的特征尺度为边界层厚度尺度。利用这一特性，可将Navier-Stokes 方程式抛物化，得到层流边界层控制方程。本文研究的问题的基本流均满足展向均匀假设，即${\p}/{\p z^*}=0$ 。利用这些假设，式（\ref{e:baseflow}）可以写为\footnote{本节讨论的均为基本流的计算方法，为了简洁，表明基本流变量的下标0在本节中都被略去。即原本的$\rho_0,u_0,v_0,w_0,T_0$在本节被记为$\rho,u,v,w,T$。有量纲量类似。}：
+\begin{subequations}
+\begin{align}
+\frac{{\partial \left( {\rho^* u^*} \right)}}{{\partial x^* }} + \frac{{\partial \left( {\rho^* v^*} \right)}}{{\partial y^* }} &= 0 \\
+\rho ^* u^* \frac{{\partial u^* }}{{\partial x^* }} + \rho ^* v^* \frac{{\partial u^* }}{{\partial y^* }} &=  - \frac{{\partial p^* }}{{\partial x^* }} + \frac{\partial }{{\partial y^* }}\left( {\mu ^* \frac{{\partial u^* }}{{\partial y^* }}} \right)\\
+\rho ^* u^* \frac{{\partial w^* }}{{\partial x^* }} + \rho ^* v^* \frac{{\partial w^* }}{{\partial y^* }} &= \frac{\partial }{{\partial y^* }}\left( {\mu ^* \frac{{\partial w^* }}{{\partial y^* }}} \right)\\
+\frac{{\partial p^* }}{{\partial y^* }} &= 0\\
+\rho ^* u^* C_p^* \frac{{\partial T^* }}{{\partial x^* }} + \rho ^* v^* C_p^* \frac{{\partial T^* }}{{\partial y^* }} &= \frac{\partial }{{\partial y^* }}\left( {k^* \frac{{\partial T^* }}{{\partial y^* }}} \right) + u^* \frac{{\partial p^* }}{{\partial x^* }} + \mu ^* \left( {\frac{{\partial u^* }}{{\partial y^* }}} \right)^2  + \mu ^* \left( {\frac{{\partial w^* }}{{\partial y^* }}} \right)^2
+\end{align}
+\end{subequations}
 
-强烈推荐《\LaTeXe\ 插图指南》！关于子图形的使用细节请参看 \pkg{subcaption} 宏包的说明文档。
+在传统的边界层方程求解方法中，所有物理量都采用相同的参考量进行无量纲化，比如一般会采用来流的速度、密度等物理量进行无量纲化。然而，在本文研究的问题中，边界层外普遍有较大的压力梯度，这导致不同流向位置的边界层外物理量差异比较大，计算很难收敛。所以本文采用当地边界层外的物理量，即$U_e^*,T_e^*,\rho_e^*,k_e^*,\mu_e^*$，进行无量纲化，提高计算稳定性。这里边界层外的物理量是通过求解无粘流方程得到的，并作为边界层方程求解的边界条件。采用当地边界层外物理量无量纲化后的边界层方程为：
+\begin{subequations}
+\begin{equation}\label{e:BLE6}
+  \frac{{\partial \left( {\rho u} \right)}}{{\partial x^* }} + \frac{{\partial \left( {\rho v} \right)}}{{\partial y^* }} + \frac{{\rho u}}{{\rho _e^* U_e^* }}\frac{{\partial \left( {\rho _e^* U_e^* } \right)}}{{\partial x^* }} = 0
+\end{equation}
+\begin{equation}\label{e:BLE7}
+  \rho u\rho _e^* U_e^* U_e^* \frac{{\partial u}}{{\partial x^* }} + \rho uu\rho _e^* U_e^* \frac{{\partial U_e^* }}{{\partial x^* }} + \rho v\rho _e^* U_e^* U_e^* \frac{{\partial u}}{{\partial y^* }} = \rho _e^* U_e^* \frac{{dU_e^* }}{{dx^* }} + \mu _e^* U_e^* \frac{\partial }{{\partial y^* }}\left( {\mu \frac{{\partial u}}{{\partial y^* }}} \right)
+\end{equation}
+\begin{equation}\label{e:BLE8}
+  \rho u\frac{{\partial w}}{{\partial x^* }} + \rho v\frac{{\partial w}}{{\partial y^* }} = \frac{{\mu _e^* }}{{\rho _e^* U_e^* }}\frac{\partial }{{\partial y^* }}\left( {\mu \frac{{\partial w}}{{\partial y^* }}} \right)
+\end{equation}
+\begin{multline}\label{e:BLE9}
+    \rho u\rho _e^* U_e^* C_p^* \left( {T\frac{{\partial T_e^* }}{{\partial x^* }} + T_e^* \frac{{\partial T}}{{\partial x^* }}} \right) + \rho v\rho _e^* U_e^* C_p^* T_e^* \frac{{\partial T}}{{\partial y^* }} \\
+    = k_e^* T_e^* \frac{\partial }{{\partial y^* }}\left( {k\frac{{\partial T}}{{\partial y^* }}} \right) - \rho _e^* U_e^* U_e^* \frac{{dU_e^* }}{{x^* }}u + \mu \mu _e^* U_e^* U_e^* \left( {\frac{{\partial u}}{{\partial y^* }}} \right)^2  + \mu \mu _e^* W_e^* W_e^* \left( {\frac{{\partial w}}{{\partial y^* }}} \right)^2
+\end{multline}
+\end{subequations}
+注意到在上面的代换中，还用到了无粘势流中沿流线的伯努利方程：
+\begin{equation}
+  -\frac{\p p^*}{\p x^*}=\rho^*u^*_e\frac{du^*_e}{dx^*_e}
+\end{equation}
+和气体状态方程：
+\begin{equation}
+  \rho T=1
+\end{equation}
+为了消除上述边界层方程在驻点处的奇异性，引入如下相似变换：
+\begin{subequations}
+\begin{align}
+  \xi  &= x^* \\
+  \eta &= \sqrt{\frac{U_e^*}{x^*\rho_e^*\mu_e^*}}\int_{0}^{y^*}\rho^*dy^*
+  =\frac{1}{L^*}\int_{0}^{y^*}T^{-1}dy^*
+\end{align}
+\end{subequations}
+最终得到如下计算求解的方程：
+\begin{subequations}\label{e:ble10}
+\begin{equation}
+  \xi\frac{\p u}{\p \xi}+\frac{\p \Lambda}{\p \eta}+\frac{u}{2}\left[ 1+\frac{\xi}{\mu_e^*}\frac{\p \mu_e^*}{\p \xi} + \frac{\xi}{\rho_e^*\mu_e^*}\frac{\p (\rho_e^*\mu_e^*)}{\p \xi}\right]=0
+\end{equation}
+\begin{equation}
+  \xi u\frac{\p u}{\p \xi}+\Lambda\frac{\p u}{\p \eta} -\frac{\xi}{\mu_e^*}\frac{\p \mu_e^*}{\p \xi}(T-u^2)=\frac{\p}{\p\eta}(\frac{\mu}{T}\frac{\p u}{\p\eta})
+\end{equation}
+\begin{equation}
+  \xi u\frac{\p w}{\p \xi}+\Lambda\frac{\p w}{\p \eta}=\frac{\p}{\p\eta}(\frac{\mu}{T}\frac{\p w}{\p\eta})
+\end{equation}
+\begin{equation}
+  \xi u\frac{\p T}{\p \xi}+\Lambda\frac{\p T}{\p \eta} - \frac{1}{\rm Pr}\frac{\p}{\p\eta}(\frac{k}{T}\frac{\p T}{\p\eta})=(\gamma-1)\frac{\mu}{T}\left[ ({\rm Ma}_{ue}\frac{\p u}{\p \eta})^2 + ({\rm Ma}_{we}\frac{\p w}{\p \eta})^2  \right]
+\end{equation}
+\end{subequations}
+其中：
+\begin{subequations}
+  \begin{align}
+    L^* &= \sqrt{\frac{\mu_e^*x^*}{\rho_e^*u_e^*}} \\
+    \Lambda &= \xi u\frac{\p \eta}{\p x^*}+\frac{\xi \nu}{L^*T} \\
+    {\rm Ma}_{ue} &= \frac{u_e^*}{a_e^*} \\
+    {\rm Ma}_{we} &= \frac{w_e^*}{a_e^*} \\
+    a_e^* &= \sqrt{\gamma RT_e^*}
+  \end{align}
+\end{subequations}
+将方程（\ref{e:ble10}）在法方向采用谱方法进行离散，流向采用五阶差分格式，最后得到离散的方程简记为：
+\begin{equation}\label{e:ble_dis}
+  L_{dis}(\Phi)=0
+\end{equation}
+$\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组成的矩阵。上式对应的Jacobian矩阵为：
+\begin{equation}\label{e:jb}
+  \mathbf{J}_b = \frac{\p L_{dis}(\Phi)}{\p \Phi}
+\end{equation}
+本文采用拟牛顿法对式（\ref{e:ble_dis}）进行求解，迭代更新方法如下：
+\begin{equation}\label{e:ble_iter}
+  \Phi_{\rm new} = \Phi_{\rm old} - \mathbf{J}_b^{-1}L_{dis}(\Phi)
+\end{equation}
+式（\ref{e:ble_dis}）和（\ref{e:jb}）的具体形式将在附录\ref{app:ble}中给出。
 
-\subsubsection{一个图形}
-\label{sec:onefig}
-一般图形都是处在浮动环境中。之所以称为浮动是指最终排版效果图形的位置不一定与源文
-件中的位置对应\footnote{This is not a bug, but a feature of \LaTeX!}，这也是刚使
-用 \LaTeX{} 同学可能遇到的问题。如果要强制固定浮动图形的位置，请使用 \pkg{float} 宏包，
-它提供了 \texttt{[H]} 参数，比如图~\ref{fig:xfig1}。
-\begin{figure}[H] % use float package if you want it here
-  \centering
-  \includegraphics{thu-whole-logo}
-  \caption{利用 Xfig 制图}
-  \label{fig:xfig1}
-\end{figure}
-
-大学之道，在明明德，在亲民，在止于至善。知止而后有定；定而后能静；静而后能安；安
-而后能虑；虑而后能得。物有本末，事有终始。知所先后，则近道矣。古之欲明明德于天
-下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；
-欲正其心者，先诚其意；欲诚其意者，先致其知；致知在格物。物格而后知至；知至而后
-意诚；意诚而后心正；心正而后身 修；身修而后家齐；家齐而后国治；国治而后天下
-平。自天子以至于庶人，壹是皆以修身为本。其本乱而未治者 否矣。其所厚者薄，而其所
-薄者厚，未之有也！
-
-\hfill —— 《大学》
-
-
-\subsubsection{多个图形}
-\label{sec:multifig}
-
-如果多个图形相互独立，并不共用一个图形计数器，那么
-用 \texttt{minipage} 或者\texttt{parbox} 就可以。否则，请参看
-图~\ref{fig:big1-subcaptionbox}，它包含两个小图，分别是图~\ref{fig:subfig1}和
-图~\ref{fig:subfig2}。推荐使用 \cs{subcaptionbox}，因为可以像
-图~\ref{fig:big1-subcaptionbox} 那样对齐子图的标题，也可以使用 \pkg{subcaption}
-宏包的 \cs{subcaption}（放在 minipage中，用法同\cs{caption}）或
-是 \pkg{subfigure} 、\pkg{subtable}环境，像图~\ref{fig:big1-subfigure}，不要再
-用 \cs{subfloat}、\cs{subfigure} 和 \cs{subtable}。
-
+为了验证程序是否正确，首先将计算结果与零压力梯度平板上的相似性解进行对比。这里采用的计算工况为：
+\begin{equation}\label{}
+  U_\infty  = 100{\rm m/s},T_\infty  = 300{\rm K},\nu_\infty  = 1.5 \times 10^{ - 5} {\rm m^2 /s}
+\end{equation}
+对比$x=1$m，即$\Rey_x=6.67\times10^6$，位置处各个物理量延法向的分布如图\ref{f:0PreassureGradienPlate}所示。其中黑色由方框标记的线为边界层方程求解出来的结果，红色由三角标记出来的先为相似性解的结果。可以看到两种算法的结果几乎完全重合了。
 \begin{figure}[h]
   \centering%
-  \subcaptionbox{第一个小图形\label{fig:subfig1}}[3cm] %标题的长度，超过则会换行，如下一个小图。
-    {\includegraphics[height=3cm]{thu-fig-logo}}%
-  \hspace{4em}%
-  \subcaptionbox{第二个小图形，注意这个图略矮些。如果标题很长的话，它会自动换行\label{fig:subfig2}}
-      {\includegraphics[height=2cm]{thu-text-logo}}
-  \caption{包含子图形的大图形(subcaptionbox示例)}
-  \label{fig:big1-subcaptionbox}
-\end{figure}
-\begin{figure}[h]
-  \centering%
-  \begin{subfigure}{3cm}
-    \includegraphics[height=3cm]{thu-fig-logo}
-    \caption{第一个小图形}
-  \end{subfigure}%
-  \hspace{4em}%
+
   \begin{subfigure}{0.5\textwidth}
-    \includegraphics[height=2cm]{thu-text-logo}
-    \caption{第二个小图形，注意这个图略矮些。subfigure中同一行的子图在顶端对齐。}
-  \end{subfigure}
-  \caption{包含子图形的大图形(subfigure示例)}
-  \label{fig:big1-subfigure}
+    \includegraphics[width=\textwidth]{ch2/0PreassureGradienPlate_u.jpg}
+    \caption{流向速度对比}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{ch2/0PreassureGradienPlate_v.jpg}
+    \caption{法向速度对比}
+  \end{subfigure}%
+  \bigskip
+
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{ch2/0PreassureGradienPlate_T.jpg}
+    \caption{温度对比}
+  \end{subfigure}%
+  \caption{边界层方程计算结果与相似性解对比（黑线方框标记：边界层方程计算结果；红线三角标记：相似性解）}
+  \label{f:0PreassureGradienPlate}
 \end{figure}
 
-古之学者必有师。师者，所以传道受业解惑也。人非生而知之者，孰能无惑？惑而不从师，
-其为惑也，终不解矣。生乎吾前，其闻道也固先乎吾，吾从而师之；生乎吾後，其闻道也亦
-先乎吾，吾从而师之。吾师道也，夫庸知其年之先後生於吾乎！是故无贵无贱无长无少，道
-之所存，师之所存也。
+本文中主要进行的是三维边界层失稳的研究，所以针对三维边界层的计算也需要验证。清华大学徐胜金老师课题组为研究三维边界层转捩在低湍流度风洞中做了后掠NLF-0415翼型的绕流实验。实验相应参数可以参考文献？？？？？？。在实验自由来流为22.3m/s的工况中，翼型上表面直至70\%弦长处均为层流。采用边界层方程计算速度分布，并取40\%和60\%弦长处的速度剖面与实验对比，结果如图\ref{f:ble_vs_exp}。其中计算结果用线表示，实验结果用点表示。这里$U_{\rm wt}$表示延风洞方向的速度分量\footnote{注意这里并不是$u$，因为在后掠翼计算中，x方向与平行于风洞的流向有45$^\circ$夹角}。蓝色表示20\%弦长处的结果，红色为40\%处。从计算的结果可以看到，我们所采用的求解方法完全满足精度需求。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{ch2/compare_profiles.jpg}
+  \caption{后掠翼上边界层速度剖面对比（线：计算结果；点：实验结果）}\label{f:ble_vs_exp}
+\end{figure}
 
-嗟乎！师道之不传也久矣，欲人之无惑也难矣。古之圣人，其出人也远矣，犹且从师而问焉；
-今之众人，其下圣人也亦远矣，而耻学於师。是故圣益圣，愚益愚。圣人之所以为圣，愚
-人之所以为愚，其皆出於此乎？爱其子，择师而教之，於其身也，则耻师焉，惑焉。彼童子
-之师，授之书而习其句读者，非吾所谓传其道、解其惑者也。句读之不知，惑之不解，或师
-焉，或不焉，小学而大遗，吾未见其明也。巫医、乐师、百工之人不耻相师，  士大夫之族
-曰“师”曰“弟子”之云者，则群聚而笑之。问之，则曰：彼与彼年相若也，道相似也，位
-卑则足羞，官盛则近谀。呜呼！师道之不复，可知矣。巫医、乐师、百工之人。吾子不齿，
-今其智乃反不能及，其可怪也欤！圣人无常师。孔子师郯子、苌子、师襄、老聃。郯子之徒，
-其贤不及孔子。孔子曰：“三人行，必有我师。”是故弟子不必不如师，师不必贤於弟子。
-闻道有先後，术业有专攻，如是而已。
+\subsection{扰动方程}\label{subsec:STBfun}
+如之前所述，本文将流场基本变量 $\mathbf{q}=(\rho,~u,~v,~w,~T)$ 分解为基本流动 $\mathbf{q}_0$ 和扰动 $\tilde{\mathbf{q}}$ 两部分：
+\begin{equation}\label{EQ_STa}
+\mathbf{q}(x,y,z,t)=\mathbf{q}_0(x,y)
++\tilde{\mathbf{q}}(x,y,z,t)
+\end{equation}
+在小节\ref{subsec:BLfun}中已经探讨了基本流动的求解方法。在这一节中，重点讨论扰动方程（\ref{e:disturbance1}）的求解方法。先假设方程（\ref{e:disturbance1}）可以写成如下紧凑的形式：
+\begin{multline}
+ \label{e:EQ_ST}
+ {\mathbf{\Gamma }}\frac{{\partial {\mathbf{\tilde q}}}}
+ {{\partial t}} + {\mathbf{A}}\frac{{\partial {\mathbf{\tilde q}}}}
+ {{\partial x}} + {\mathbf{B}}\frac{{\partial {\mathbf{\tilde q}}}}
+ {{\partial y}} + {\mathbf{C}}\frac{{\partial {\mathbf{\tilde q}}}}
+ {{\partial z}} + {\mathbf{D\tilde q}}\\ = {\mathbf{H}}_{xx} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial x^2 }} + {\mathbf{H}}_{yz} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial z\,\partial y}} + {\mathbf{H}}_{xy} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial x\,\partial y}} + {\mathbf{H}}_{xz} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial x\,\partial z}} + {\mathbf{H}}_{yy} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial y^2 }} + {\mathbf{H}}_{zz} \frac{{\partial ^2 {\mathbf{\tilde q}}}}
+ {{\partial z^2 }} + {\mathbf{N}} + {\mathbf{F}}.
+\end{multline}
+其中 $5\times5$ 系数矩阵 $\mathbf{\Gamma},~\mathbf{A},~\mathbf{B},~
+\mathbf{C},~\mathbf{D},~\mathbf{H}_{xx},~
+\mathbf{H}_{yy},~\mathbf{H}_{zz},~\mathbf{H}_{xy},~
+\mathbf{H}_{xz},~\mathbf{H}_{yz}$ 是基本流动、流向曲率和 $\Rey,~\Ma,~\Prl$ 的函数，详细表达式可参见附录\ref{app:SE}。向量 $\mathbf{{N}}$ 表示非线性项，$\mathbf{F}$表示体积力产生的源项。
 
-如果要把编号的两个图形并排，那么小页就非常有用了：
+
+\subsubsection{线性稳定性理论}
+由于边界层流动中，边界层厚度增长缓慢，所以可将其近似为平行剪切流。假设扰动具有行波解：
+\begin{equation}\label{EQ_LST0}
+    \tilde{\mathbf{q}}(x,y,z,t)=
+    \hat{\mathbf{q}}(y)\exp\left(\ii (\alpha x+\beta z-\omega t)\right)+c.c.
+\end{equation}
+针对边界层失稳问题，其不稳定性通常是对流失稳，即边界层内的扰动并不是在原地增长，而是一边向下游传播一遍增长。针对这一类问题，通常采用空间模式求解，即给定 $\beta$ 和 $\omega$，求解$\alpha$。将式（\ref{EQ_LST0}）代入扰动方程（ \ref{e:EQ_ST}）， 忽略非线性项整理得到
+\begin{equation}\label{EQ_LST1}
+\mathbf{A}_L\hat{\mathbf{q}}+
+\mathbf{B}_L\frac{\p\hat{\mathbf{q}}}{\p y}
+-\mathbf{H}_{yy}\frac{\p^2 \hat{\mathbf{q}}}{\p y^2}=
+\alpha\left(
+\mathbf{M}_L\hat{\mathbf{q}}+
+\ii \mathbf{H}_{xy}\frac{\p\hat{\mathbf{q}}}{\p y}\right)
+-\alpha^2\mathbf{H}_{xz}\hat{\mathbf{q}}
+\end{equation}
+其中
+\begin{equation}\left.
+\begin{aligned}
+\mathbf{A}_L&= -\ii\omega\mathbf{\Gamma}
+         +\ii\beta\mathbf{C}
+         +\mathbf{D}
+         +\beta^2\mathbf{H}_{zz}\\
+\mathbf{B}_L&= \mathbf{B}-\ii\beta\mathbf{H}_{yz}\\
+\mathbf{M}_L&= -\ii\mathbf{A}-\beta\mathbf{H}_{xz}
+\end{aligned}~\right\}
+\end{equation}
+将上式中的几个微分算子记作：
+\begin{subequations}\label{e:LST_short}
+\begin{align}
+  \mathscr{L}_0 &=\mathbf{A}_L+
+  \mathbf{B}_L\frac{\p}{\p y}
+  -\mathbf{H}_{yy}\frac{\p^2 }{\p y^2} \\
+  \mathscr{L}_1 &=-\mathbf{M}_L-\ii \mathbf{H}_{xy}\frac{\p}{\p y}\\
+  \mathscr{L}_2 &=\mathbf{H}_{xz}
+\end{align}
+\end{subequations}
+则线性稳定性的控制方程可以写为：
+\begin{equation}\label{e:LST}
+  \mathscr{L}\hat{\mathbf{q}}=\mathscr{L}_0\hat{\mathbf{q}}+\alpha \mathscr{L}_1\hat{\mathbf{q}} + \alpha^2\mathscr{L}_2\hat{\mathbf{q}}=0
+\end{equation}
+引入一个辅助变量：
+\begin{equation}\label{}
+  \tilde{\mathbf{q}}_a = \alpha\tilde{\mathbf{q}}
+\end{equation}
+则式（\ref{e:LST}）可以改写为：
+\begin{equation}\label{}
+  \left(
+  \begin{array}{cc}
+    0 & 1 \\
+    \mathscr{L}_0 & \mathscr{L}_1
+  \end{array}
+  \right)
+  \left(
+  \begin{array}{c}
+    \tilde{\mathbf{q}} \\
+    \tilde{\mathbf{q}}_a
+  \end{array}
+  \right)
+  =\alpha
+  \left(
+  \begin{array}{cc}
+    1 & 0 \\
+    0 & -\mathscr{L}_2
+  \end{array}
+  \right)
+  \left( 
+  \begin{array}{c}
+    \tilde{\mathbf{q}} \\
+    \tilde{\mathbf{q}}_a
+  \end{array}
+  \right)
+\end{equation}
+很显然，式(\ref{EQ_LST1})是针对微分算子的广义特征值问题。对其进行离散求解，在法方向采用四阶精度中心差分格式：
+\begin{equation}\label{EQ_CF}\left.
+\begin{aligned}
+    \frac{\p{\hat{\mathbf{q}}_j}}{\p y} &= \frac{{
+    {\hat{\mathbf{q}}_{j - 2}}
+    - 8{\hat{\mathbf{q}}_{j - 1}}
+    + 8{\hat{\mathbf{q}}_{j + 1}}
+    - {\hat{\mathbf{q}}_{j + 2}}}}{{12\Delta y}}\\
+    \frac{{{\partial ^2}{\hat{\mathbf{q}}_j}}}{{\partial {y^2}}} &= \frac{{
+    - {\hat{\mathbf{q}}_{j - 2}}
+    + 16{\hat{\mathbf{q}}_{j - 1}}
+    - 30{\hat{\mathbf{q}}_j}
+    + 16{\hat{\mathbf{q}}_{j + 1}}
+    - {\hat{\mathbf{q}}_{j + 2}}}}{{12{{\left( {\Delta y} \right)}^2}}}
+\end{aligned}~\right\}
+\end{equation}
+便可以将这一个微分算子的广义特征值问题转化为矩阵的广义特征值问题。求解该特征值问题，得到特征向量 $\hat{\mathbf{q}}$ 即为扰动分布，特征值 $\alpha$ 虚部 $-\alpha_i$ 为扰动增长率，实部 $\alpha_r$ 为扰动流向波数。
+
+
+\subsubsection{抛物化扰动方程}
+线性稳定性理论有两个缺陷。首先，其采用平行流假设，导致边界层延流向的变化被忽略了。另外，线性假设忽略了非线性项，导致不同模态间的相互作用没有被考虑。抛物化扰动方程（PSE）可以克服上述 这两点缺陷，并且具有很高的求解效率。首先将物理扰动 $\mathbf{\tilde{q}}$ 和非线性项与外加源项之和 $\mathbf{{N}}+\mathbf{{F}}$ 进行 Fourier 展开：
+\begin{align}
+\label{e:Fourier1}
+    {\mathbf{\tilde q}}\left( {x,y,z,t} \right)& = \sum\limits_{m =  - M}^M {\sum\limits_{n =  - N}^N {{\mathbf{\hat q}}_{mn} \left( {x,y} \right)\Theta _{mn} } },\\
+%\end{equation}
+%\begin{equation}
+\label{e:Fourier2}
+    {\mathbf{N}} + {\mathbf{F}} &= \sum\limits_{m =  - M}^M {\sum\limits_{n =  - N}^N {{\mathbf{S}}_{mn} \left( {x,y} \right)\Theta _{mn} } },\\
+%\end{equation}
+%\begin{equation}
+\label{e:Fourier3}
+    \Theta _{mn}  &= \exp \!\left( {i\int_{x_0 }^x {\alpha _{mn} \left( \xi  \right)d\xi }  + in\beta z - im\omega t} \right).
+\end{align}
+其中$\Theta _{mn}$是波数函数。代入扰动方程（\ref{e:EQ_ST}），整理得到
+\begin{equation}
+\label{e:unPSE}
+    {\mathbf{\hat A}}\frac{{\partial {\mathbf{\hat q}}_{mn} }}{{\partial x}}
+  + {\mathbf{\hat B}}\frac{{\partial {\mathbf{\hat q}}_{mn} }}{{\partial y}}
+  + {\mathbf{\hat C}}\frac{{\partial^2 {\mathbf{\hat q}}_{mn} }}{{\partial x^2}}
+  + {\mathbf{\hat D\hat q}}_{mn}
+  - {\mathbf{H}}_{yy}\frac{{\partial ^2 {\mathbf{\hat q}}_{mn} }}{{\partial y^2 }}
+  = {\mathbf{S}}_{mn},
+\end{equation}
+其中
+\begin{equation}
+\begin{aligned}
+  \mathbf{\hat A} & = {\mathbf{A}} - 2i\alpha_{mn}{\mathbf{H}}_{xx} - in\beta{\mathbf{H}}_{xz}  , \\
+  \mathbf{\hat B} & = {\mathbf{B}} -  i\alpha_{mn}{\mathbf{H}}_{xy} - in\beta{\mathbf{H}}_{yz}   , \\
+  \mathbf{\hat C} & = {\mathbf{H}}_{xx} , \\
+  \mathbf{\hat D}  &= {\mathbf{D}} - im\omega {\mathbf{\Gamma }} + i\alpha_{mn} {\mathbf{A}} + in\beta {\mathbf{C}} + {\mathbf{H}}_{xx} \left( {\alpha_{mn}^2  - i\frac{{d\alpha }}{dx}} \right) + n^2\beta ^2 {\mathbf{H}}_{zz} + n\beta\alpha_{mn}{\mathbf{H}}_{xz} . \\
+\end{aligned}
+\end{equation}
+根据量级分析\cite{Malik1999}， ${{d\alpha }}/{dx}$ 这一项非常小可以忽略。为了使得形函数$\mathbf{\hat q}$在流向缓变，提出针对 $\alpha$的波数迭代条件：
+\begin{equation}
+\label{e:auxiliary}
+    \int_0^\infty  {{\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial {\mathbf{\hat q}}}}{{\partial x}}\,dy}  = 0\qquad\forall x.
+\end{equation}
+这里$\mathbf{M}=\mathrm{diag}(0,1,1,1,0)$， ``$H$''表示复共轭。式（\ref{e:auxiliary}）又可以叫做形函数的缓变条件，这一条件使得形函数在流向的二阶偏导数可以被忽略掉，即${{\partial ^2 {\mathbf{\hat q}}_{mn} }}/{{\partial x^2 }}=0$\cite{Malik1994}。虽然二阶偏导数项被忽略掉了，但是方程（\ref{e:unPSE}）依然有一些残余椭圆性\cite{LiMalik1996}。针对这一问题，将方程中的压力项修正为：
+\begin{equation}
+    \frac{\partial \tilde p_{mn}}{\partial x} = i\alpha_{mn}\hat p_{mn}\Theta_{mn}.
+\end{equation}
+采用上面所提到的诸多假设，方程（\ref{e:unPSE}）可以完全被抛物化，可以流向推进求解。完整的方程为：
+\begin{equation}
+\label{PSE1}
+    \mathscr{L}_{\rm PSE}{\mathbf{\hat q}}_{mn}  = {\mathbf{\hat A}}\frac{{\partial {\mathbf{\hat q}}_{mn} }}
+    {{\partial x}} + {\mathbf{\hat B}}\frac{{\partial {\mathbf{\hat q}}_{mn} }}
+    {{\partial y}} + {\mathbf{\hat D\hat q}}_{mn}  - {\mathbf{H}}_{yy} \frac{{\partial ^2 {\mathbf{\hat q}}_{mn} }}
+    {{\partial y^2 }} = {\mathbf{S}}_{mn},
+\end{equation}
+其中$\mathscr{L}_{\rm PSE}$线性PSE算子。本文对方程（\ref{PSE1}）在流向采用隐式欧拉差分，法向采用五阶中心差分进行离散求解。
+
+为了验证程序的正确性，我们与Malik等人1994年的工作\cite{Malik1994}进行对比。该工作重点研究了后掠Hiemenz流动的失稳，计算相关参数详见他们的文献。这里计算对比$\bar{R}=500$\footnote{这个符号采用与文献\cite{Malik1994}中相同的定义}工况中主模态的能量在流向的演化，结果如图\ref{f:com_malik}示。
 \begin{figure}
-\begin{minipage}{0.48\textwidth}
   \centering
-  \includegraphics[height=2cm]{thu-whole-logo}
-  \caption{并排第一个图}
-  \label{fig:parallel1}
-\end{minipage}\hfill
-\begin{minipage}{0.48\textwidth}
-  \centering
-  \includegraphics[height=2cm]{thu-whole-logo}
-  \caption{并排第二个图}
-  \label{fig:parallel2}
-\end{minipage}
+  \includegraphics[width=0.7\textwidth]{ch2/comparison_Malik.jpg}
+  \caption{PSE计算程序验证}\label{f:com_malik}
 \end{figure}
 
-李氏子蟠，年十七，好古文、六艺，经传皆通习之，不拘於时，学於余。余嘉其能行古
-道，作师说以贻之。
 
-\hfill —— 韩愈（唐）
+\subsection{扰动发展的敏感性分析}
+为了更好地理解流动，同时选取较优化的控制参数，本文中对三维边界层失稳进行了敏感性分析。关于流动失稳的敏感性分析最早始于2003年，是Bottaro\cite{Bottaro2003}等人针对Couette流动开展的。通过求解线性稳定性问题的伴随问题，他们找出了容易受基本流变化影响的失稳模态。之后，2008年Marquet等人\cite{Marquet2008}分析了圆柱尾迹流动对于基本流和外加体积力的敏感性，并采用这一结果进行了优化，降低了尾迹的湍流度。Alizard等人\cite{Alizard2010}2010年，对角域流动进行了分析，得到了不同失稳模态的敏感函数（敏感因子）的空间分布。2011年Brandt等人\cite{Brandt2011}对平板边界层做了相应的敏感性分析，之后学者们又对D形圆柱\cite{Meliga2012}，空腔\cite{Bromwne2014}，甚至湍流边界层的猝发过程进行了相应的分析\cite{Alizard2015}，更加深入的了解了其流动机理。本文分别从线性稳定性理论和抛物化扰动方程出发，推导他们的伴随方程，并进而分析三维边界层失稳的敏感性。
+\subsubsection{基于线性稳定性理论的敏感性分析}
+记方程（\ref{e:LST}）的伴随方程为：
+\begin{equation}\label{e:aLST}
+  \mathscr{L}^+\hat{\mathbf{p}}=\mathscr{L}_0^+\hat{\mathbf{p}}+\alpha \mathscr{L}_1^+\hat{\mathbf{p}} + \alpha^2\mathscr{L}_2^+\hat{\mathbf{p}}=0
+\end{equation}
+伴随方程与原方程的关系是，对于任意向量$\mathbf{a},\mathbf{b}$,都有：
+\begin{equation}
+    \int_{0}^{+\infty}\mathbf{a}\cdot(\mathscr{L}\mathbf{b})^Tdy=\int_{0}^{+\infty}(\mathscr{L}^+\mathbf{a})\cdot\mathbf{b}^Tdy
+\end{equation}
+若定义内积$<\mathbf{a},\mathbf{b}>=\int_{0}^{+\infty}\mathbf{a}\cdot\mathbf{b}^Tdy$,则有：
+\begin{equation}\label{}
+  <\mathbf{a},\mathscr{L}\mathbf{b}> = <\mathscr{L}^+\mathbf{a},\mathbf{b}>
+\end{equation}
+引入体积力后，方程变为：
+\begin{equation}\label{}
+  \left[\mathscr{L}_0+(\alpha + \delta\alpha) \mathscr{L}_1 + (\alpha + \delta\alpha)^2\mathscr{L}_2\right](\hat{\mathbf{q}}+\delta\hat{\mathbf{q}})=\mathbf{F}
+\end{equation}
+其中$\delta\alpha$和$\delta\hat{\mathbf{q}}$为因为引入体积力产生的特征值和特征向量的变化。由于本文中均采用的是微弱的体积力控制失稳，所以这两个量都是小量。将上式与伴随向量（伴随方程的解）做内积，并忽略高阶小量，得到：
+\begin{equation}\label{}
+  \begin{aligned}
+    <\hat{\mathbf{p}},\mathbf{F}> &= <\hat{\mathbf{p}},\left[\mathscr{L}_0+(\alpha + \delta\alpha) \mathscr{L}_1 + (\alpha + \delta\alpha)^2\mathscr{L}_2\right](\hat{\mathbf{q}}+\delta\hat{\mathbf{q}})> \\
+    &\approx  <\hat{\mathbf{p}},(\delta\alpha \mathscr{L}_1+2\delta\alpha\mathscr{L}_2)\hat{\mathbf{q}}>
+  \end{aligned}
+\end{equation}
+最终得到空间模式的复特征值关于体积力的敏感性为：
+\begin{equation}\label{}
+  \delta\alpha \approx \frac{<\hat{\mathbf{p}},\mathbf{F}>}{<\hat{\mathbf{p}},( \mathscr{L}_1+2\mathscr{L}_2)\hat{\mathbf{q}}>}
+\end{equation}
+\subsubsection{基于抛物化扰动方程的的敏感性分析}
+The sensitivity is usually defined as the gradient of the input of a system with respect to the output. Here, we chose the body force as the input while the disturbance energy at outlet as the output.
+%Here, the disturbance energy at the outlet is chosen as the output. Through sensitivity analysis, we can know how a manmade small changes of those inputs affects the evolution of the disturbance and the transition process. This kind of analysis is first used on  stability by Bottoaro \cite{Bottaro2003} and the the sensitivity of Orr-Sommerfeld operator's eigenvalues to modifications of the base flow in their results. Marquet \cite{Marquet2008} conducted the sensitivity analysis of the flow around a cylinder and find the most sensitive point with respect to the body force. Then they put an small cylinder at the most sensitive point to control the turbulence in the wake of the big cylinder. Their work inspires a lot of researchers to believe that the sensitivity analysis can give the important control parameters.
+Previous stability investigations \cite{Marquet2008} have demonstrated that sensitivity analyses can provide the key control parameters. The present method for sensitivity analyses refers to the work by Pralits \cite{pralits2000sensitivity}. Since the mode interaction is not considered, the term ${\mathbf{S}}_{mn}$ in Eq.~(\ref{PSE1}) only includes the body force term and excludes the nonlinear term. Thus, the governing equation of each mode is decoupled from the others, and thus the index $nm$, which denotes the spanwise wave number and frequency of the harmonic modes, can be discarded. Thus, the governing equation is written as the following:
+\begin{equation}
+\label{LPSE1}
+    \mathscr{L}{\mathbf{\hat q}}  = {\mathbf{\hat A}}\frac{{\partial {\mathbf{\hat q}} }}
+    {{\partial x}} + {\mathbf{\hat B}}\frac{{\partial {\mathbf{\hat q}} }}
+    {{\partial y}} + {\mathbf{\hat D\hat q}}  - {\mathbf{H}}_{yy} \frac{{\partial ^2 {\mathbf{\hat q}} }}
+    {{\partial y^2 }} = {\mathbf{S}}
+\end{equation}
+with the output defined as:
+\begin{equation}
+J = E = \left[ {\frac{1}
+{2}\int_0^{T_z } {\int_0^\infty  {{\mathbf{\tilde q}}^H {\mathbf{M\tilde q}}dydz} } } \right]_{x = x_1 }  %= \left[ {\frac{1}
+%{2}\int_0^{T_z } {\int_0^\infty  {\left( {{\mathbf{\hat q}}\Theta } \right)^H {\mathbf{M}}\left( {{\mathbf{\hat q}}\Theta } \right)dydz} } } \right]_{x = X_1 }
+= \frac{1}
+{2}\int_0^{T_z } {\int_0^\infty  {\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M\hat q}}_1 dydz} }
+\end{equation}
+The subscript `1' represents the quantities at the outlet. $T_z$ is the spanwise wave length of the instability mode. Then we differentiate the output function, the governing equation (\ref{LPSE1}) and the auxiliary condition (\ref{e:auxiliary}) with respect to the control variables, namely the distributed body force, and the state variables $\alpha$ and $\mathbf{\hat q}$:
+\begin{equation}
+\begin{aligned}
+\delta J & = \frac{1}
+{2}\int_0^{T_z } {\int_0^\infty  {\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M}}\delta {\mathbf{\hat q}}_1 dydz} }  \\
+         &+ \frac{1}{2}\int_0^{T_z } {\int_0^\infty  {\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M\hat q}}_1 \left( {{\rm i}\int_{x_0 }^{x_1 } {\delta \alpha (x')dx'} } \right)dydz} }  + c.c \\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\label{e:dLPSE}
+\mathscr{L}\delta {\mathbf{\hat q}} - \delta {\mathbf{S}} + \frac{{\partial {\mathscr{L}}}}
+{{\partial \alpha }}\delta \alpha {\mathbf{\hat q}} = 0
+\end{equation}
+\begin{equation}
+\label{e:dAuxilary}
+\int_0^\infty  {\left( {\delta {\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial {\mathbf{\hat q}}}}
+{{\partial x}} + {\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial \delta {\mathbf{\hat q}}}}
+{{\partial x}}} \right)dy}  = 0
+\end{equation}
+Here, $c.c.$ is the complex conjugate of all the terms in the equation, $x_0$ and $x_1$  the streamwise coordinates of the inlet and the outlet, respectively. Next, we define the inner product of two arbitrary vectors $\mathbf a$ and $\mathbf b$ as the following:
+\begin{equation}
+\label{e:innerproduct}
+<\mathbf{a},\mathbf{b}>=\int_{0}^{T_z}\int_{x_0}^{x_1}\int_{0}^\infty (\mathbf{a}^H\mathbf{b})dydxdz
+\end{equation}
+A complex adjoint vector ${\mathbf{\hat q}}^*$ and a complex function $r^*(x)$ are then introduced. Taking inner product of the adjoint vector with Eq.~(\ref{e:dLPSE}) and $r^*(x)$ with Eq.~(\ref{e:dAuxilary}), adding the complex conjugates of each term, we obtain the following identity:
+\begin{equation}
+\label{e:dadjoint1}
+\begin{aligned}
+     \int_{0}^{T_z} {\int_{x_0}^{x_1}{r^* \int_0^\infty  {\left( {\delta {\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial {\mathbf{\hat q}}}}{{\partial x}} + {\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial \delta {\mathbf{\hat q}}}}{{\partial x}}} \right)dydxdz} } }%\\
+     +<{\mathbf{\hat q}}^*,{\mathscr{L}}\delta {\mathbf{\hat q}}-\delta {\mathbf{S}} + \frac{{\partial {\mathscr{L}}}}{{\partial \alpha }}\delta \alpha {\mathbf{\hat q}} > + c.c. = 0
+\end{aligned}
+\end{equation}
+Any arbitrary vector $\mathbf{\hat q}^*$ and complex function $r^*$ can satisfy Eq.~(\ref{e:dadjoint1}). To eliminate unnecessary terms, appropriate $\mathbf{\hat q}^*$ and $r^*$ must be identified.  First, we let the adjoint vector satisfy the adjoint equation and the adjoint auxiliary condition shown in Eq.~{(\ref{e:adjointa}) and Eq.~{(\ref{e:adjoint})}. Due to the parabolic feature of the original equation, this adjoint equation is also parabolic and can be solved using a marching scheme. The only difference is that this equation should be marched from the outlet to the inlet.
+%To simplify the equation (\ref{e:dadjoint1}), firstly, we let the adjoint vector satisfy the adjoint equation and the adjoint auxiliary condition shown in (\ref{e:adjointa}). Due to the parabolic feature of the original equation, this adjoint equation is also parabolic and it can be solved using a marching scheme. The only difference is that this equation should be marched from the outlet to the inlet.
+\begin{equation}
+\label{e:adjoint}
+\mathscr{L}^* {\mathbf{\hat q}}^*  = \left( {\bar r^*  - r^* } \right){\mathbf{M}}\frac{{\partial {\mathbf{\hat q}}}}
+{{\partial x}} + \frac{{\partial \bar r^* }}
+{{\partial x}}{\mathbf{M\hat q}}
+\end{equation}
+\begin{equation}
+\label{e:adjointa}
+\int_0^\infty  {\left( {\mathbf{\hat q} ^{*H} \frac{{\partial {\mathscr{L}}}}
+{{\partial \alpha }}\mathbf{\hat q} } \right)dy}  = \int_0^\infty  {{\rm i}\left| {\Theta _1 } \right|^2 \mathbf{\hat q} _1 ^H \mathbf{M\hat q} _1 dy}
+\end{equation}
+the $\mathscr{L}^*$ is the adjoint operator of the linear PSE and the bar overhead means complex conjugate. The initial value of the adjoint vector and the function $r^*$ at the outlet is shown below:
+\begin{equation}
+\label{e:adjointini}
+%\begin{aligned}
+\begin{gathered}
+c = \frac{{ - \int_0^\infty  {{\rm i}\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M\hat q}}_1 dy} }}
+{{\left. {\int_0^\infty  {\left( {{\mathbf{\hat q}}_1 ^H {\mathbf{M}}\left( {{\mathbf{\hat A}}} \right)^{ - 1} \frac{{\partial {\mathscr{L}}}}{{\partial \alpha }}{\mathbf{\hat q}}} \right)dy} } \right|_{x = x_1 } }} \hfill \\
+{\mathbf{\hat q}}^* _1  =  - \bar c\left( {{\mathbf{\hat A}}^H } \right)^{ - 1} {\mathbf{M\hat q}}_1  \hfill \\
+r_1^*  = c + \left| {\Theta _1 } \right|^2  \hfill \\
+\end{gathered}
+%\end{aligned}
+\end{equation}
+ If the adjoint vector and $r^*$ satisfy the Eq.~(\ref{e:adjoint}) (\ref{e:adjointa}) and (\ref{e:adjointini}), Eq.~(\ref{e:dadjoint1}) can be written as follows:
+\begin{equation}
+\label{e:dj}
+\delta J = \frac{1}
+{2} < \hat \varphi ^* ,\delta {\mathbf{S}} >  + c.c.
+\end{equation}
+To investigate the body-force effect on the disturbance energy growth in boundary layers, $\mathbf{F}$ and $\mathbf{S}$ are set to zero for the unexcited case. The variation of the output is thus exactly the difference between the unexcited and excited cases. The variation of the body force can be expressed as the following:
+\begin{equation}
+\label{e:df}
+\delta {\mathbf{F}} = \Theta \delta {\mathbf{S}} + {\mathbf{S}}{\rm i}\int_{x_0 }^x {\delta \alpha (x')dx'}  = \Theta \delta {\mathbf{S}}
+\end{equation}
+According to Eq.~(\ref{e:df}), Eq.~(\ref{e:dj}) can be rewritten as follows:
+\begin{equation}
+\label{e:dj2}
+\delta J = \frac{1}
+{2} < \hat \varphi ^* ,\frac{{\delta {\mathbf{F}}}}
+{\Theta } >  + c.c.
+\end{equation}
+Note that the body force term is simply a Fourier component of the total physical force because we only focus on one instability mode. To compute the variation of the kinetic energy caused by a spanwise periodical body force, the first step is to transform it into a Fourier space and then extract the corresponding component as the body-force term. Taking this transformation into account and expanding Eq.~(\ref{e:dj2}), the variation of the disturbance kinetic energy is expressed in the following Integral form:
+\begin{equation}
+\label{e:adjointresult}
+\delta J = \int_0^{T_z } {\int_{x_0 }^{x_1 } {\int_0^\infty  {\left( {G_u \delta f_x  + G_v \delta f_y  + G_w \delta f_z } \right)dydxdz} } }
+\end{equation}
+\begin{equation}
+\label{e:G}
+\begin{gathered}
+G_u  = {\rm real}(\hat u^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - in\beta z}) )\\
+G_v  = {\rm real}(\hat v^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - in\beta z}) )\\
+G_w  = {\rm real}(\hat w^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - in\beta z}) )\\
+\end{gathered}
+\end{equation}
+Here the three coefficient, $G_u$, $G_v$ and $G_w$, are sensitivity functions that indicate the disturbance sensitivity to the body force.
+\section{充分发展槽道的直接数值模拟}\label{sec:DNS}
+

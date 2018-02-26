@@ -1,0 +1,347 @@
+\chapter{扰动方程具体形式}\label{app:SE}
+方程\ref{e:EQ_ST}中各项系数的具体形式将在这里给出：
+\begin{equation*}
+  \mathbf{\Gamma}=\left[
+  \begin{array}{ccccc}
+    1 & 0 & 0 & 0 & 0 \\
+    0 & \rho & 0 & 0 & 0 \\
+    0 & 0 & \rho & 0 & 0 \\
+    0 & 0 & 0 & \rho & 0 \\
+    { - \frac{{\gamma  - 1}}{\gamma }T}& 0 & 0 & 0 & {\rho  - \frac{{\gamma  - 1}}{\gamma }\rho }
+  \end{array}
+  \right]
+\end{equation*}
+$\mathbf{A}$矩阵的各个分矢量和各个分量的表达形式如下（其他矩阵的分向量和分量的表达形式类似，这里不再赘述。）：
+\begin{equation*}
+  \mathbf{A}=\left[
+  \begin{array}{c}
+    \mathbf{A}_1 \\
+    \mathbf{A}_2 \\
+    \mathbf{A}_3 \\
+    \mathbf{A}_4 \\
+    \mathbf{A}_5
+  \end{array}
+  \right]=\left[
+  \begin{array}{ccccc}
+    \mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} & \mathbf{A}_{14} & \mathbf{A}_{15} \\
+    \mathbf{A}_{21} & \mathbf{A}_{22} & \mathbf{A}_{23} & \mathbf{A}_{24} & \mathbf{A}_{25} \\
+    \mathbf{A}_{31} & \mathbf{A}_{32} & \mathbf{A}_{33} & \mathbf{A}_{34} & \mathbf{A}_{35} \\
+    \mathbf{A}_{41} & \mathbf{A}_{42} & \mathbf{A}_{43} & \mathbf{A}_{44} & \mathbf{A}_{45} \\
+    \mathbf{A}_{51} & \mathbf{A}_{52} & \mathbf{A}_{53} & \mathbf{A}_{54} & \mathbf{A}_{55} 
+  \end{array}\right]
+\end{equation*}
+\begin{equation*}
+  {\bf{A}}_1  = \left[ {\begin{array}{*{20}c}
+   {\frac{u}{{h_1 }}} & {\frac{\rho }{{h_1 }}} & 0 & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{A}}_2  = \left[ {\begin{array}{*{20}c}
+   {\frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}T}  \\
+   {\rho \frac{u}{{h_1 }} - \frac{1}{{h_1 }}\frac{4}{3}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}}  \\
+   { - \frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }} - \frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{h_1 }}}  \\
+   0  \\
+   { - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{4}{3}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial v}}{{\partial y}}} \right) + \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}\rho }  \\
+\end{array}} \right]^T
+\end{equation*}
+\begin{equation*}
+  {\bf{A}}_3  = \left[ {\begin{array}{*{20}c}
+   0  \\
+   {\frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{2}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }} + \frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}\frac{1}{{h_1 }} - \frac{2}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}}  \\
+   {\rho \frac{u}{{h_1 }} - \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{h_1 }}}  \\
+   0  \\
+   { - \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left( {\frac{{\partial u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} - \frac{u}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)}  \\
+\end{array}} \right]^T
+\end{equation*} 
+\begin{equation*}
+  {\bf{A}}_4  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & {\rho \frac{u}{{h_1 }} - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}} & { - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}}  \\
+\end{array}} \right]
+\end{equation*} 
+\begin{equation*}
+  \begin{aligned}
+    {\bf{A}}_{51}  =& - \frac{{\gamma  - 1}}{\gamma }T\frac{u}{{h_1 }}\\
+    {\bf{A}}_{52}  =& 2 \times \frac{{\rm{2}}}{3}\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( {\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial y}} - \frac{2}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} - 2\frac{1}{{h_1 }}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+    {\bf{A}}_{53}  =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( {\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} + \frac{1}{{h_1 }}\frac{{\partial u}}{{\partial y}} - \frac{1}{{h_1 }}\frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+    {\bf{A}}_{54}  =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}\\
+    {\bf{A}}_{55}  =& \rho \frac{u}{{h_1 }} - \frac{{\gamma  - 1}}{\gamma }\rho \frac{u}{{h_1 }} - \frac{2}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d\kappa }}{{dT}}\frac{{\partial T}}{{\partial x}}
+  \end{aligned}
+\end{equation*} 
+\begin{equation*}
+  {\bf{B}}_1  = \left[ {\begin{array}{*{20}c}
+   v & 0 & \rho  & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{B}}_2  = \left[ {\begin{array}{*{20}c}
+   0  \\
+   {\rho v - \frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }} - \frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}}  \\
+   {\frac{2}{3}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}}  \\
+   0  \\
+   { - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial u}}{{\partial y}} + \frac{{\partial v}}{{\partial x}} - u\frac{{\partial h_1 }}{{\partial y}}} \right)}  \\
+\end{array}} \right]^T
+\end{equation*}
+\begin{equation*}
+  {\bf{B}}_3  = \left[ {\begin{array}{*{20}c}
+   {\frac{T}{{\gamma {\rm{Ma}}^2 }}}  \\
+   { - \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}}  \\
+   {\rho v - \frac{2}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu  - \frac{4}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}} + \frac{2}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}}  \\
+   0  \\
+   {\frac{\rho }{{\gamma {\rm{Ma}}^2 }} + \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left( {\frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{2}{3}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{4}{3}\frac{{\partial v}}{{\partial y}}} \right)}  \\
+\end{array}} \right]^T
+\end{equation*}
+\begin{equation*}
+  {\bf{B}}_4  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & {\rho v - \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu  - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}} & { - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial w}}{{\partial y}}}  \\
+\end{array}} \right]
+\end{equation*}
+\begin{align*}
+  \mathbf{B}_{51} =& - \frac{{\gamma  - 1}}{\gamma }Tv\\
+  \mathbf{B}_{52} =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( {\frac{{\partial u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} - \frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+  \mathbf{B}_{53} =& \frac{{\rm{4}}}{3}\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( { - 2\frac{{\partial v}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+  \mathbf{B}_{54} =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{{\partial w}}{{\partial y}}\\
+  \mathbf{B}_{55} =& \frac{1}{\gamma }\rho v - \frac{2}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{{d\kappa }}{{dT}}\frac{{\partial T}}{{\partial y}} - \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\kappa
+\end{align*}
+\begin{equation*}
+  {\bf{C}}_1  = \left[ {\begin{array}{*{20}c}
+   w & 0 & 0 & \rho  & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{C}}_2  = \left[ {\begin{array}{*{20}c}
+   0  \\
+   {\rho w}  \\
+   0  \\
+   {\frac{2}{3}\frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}}  \\
+   { - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial w}}{{\partial x}}}  \\
+\end{array}} \right]^T
+\end{equation*}
+\begin{equation*}
+  {\bf{C}}_3  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & {\rho w} & {\frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}} & { - \frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial w}}{{\partial y}}}  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{C}}_4  = \left[ {\begin{array}{*{20}c}
+   {\frac{1}{{\gamma {\rm{Ma}}^2 }}T}  \\
+   { - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}}  \\
+   {\frac{2}{3}\mu \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}} - \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu }  \\
+   {\rho w}  \\
+   {\frac{1}{{\gamma {\rm{Ma}}^2 }}\rho  - \frac{{\partial \mu }}{{\partial T}}\left( { - \frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} - \frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial v}}{{\partial y}}} \right)}  \\
+\end{array}} \right]^T
+\end{equation*}
+\begin{align*}
+  {\bf{C}}_{51}  =& - \frac{{\gamma  - 1}}{\gamma }Tw\\
+  {\bf{C}}_{52}  =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}\\
+  {\bf{C}}_{53}  =& - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{{\partial w}}{{\partial y}}\\
+  {\bf{C}}_{54}  =& \frac{{\rm{4}}}{3}\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( {\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\partial v}}{{\partial y}}} \right)\\
+  {\bf{C}}_{55}  =& \frac{{\rho w}}{\gamma }
+\end{align*}
+\begin{equation*}
+  {\bf{D}}_1  = \left[ {\begin{array}{*{20}c}
+   {\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{{\partial v}}{{\partial y}} + \frac{{\partial h_1 }}{{\partial y}}\frac{v}{{h_1 }}} & {\frac{1}{{h_1 }}\frac{{\partial \rho }}{{\partial x}}} & {\frac{{\partial \rho }}{{\partial y}} + \frac{{\partial h_1 }}{{\partial y}}\frac{\rho }{{h_1 }}} & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{D}}_2  = \left[ {\begin{array}{*{20}c}
+   {\frac{u}{{h_1 }}\frac{{\partial u}}{{\partial x}} + v\frac{{\partial u}}{{\partial y}} + \frac{{uv}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}\frac{{\partial T}}{{\partial x}}}  \\
+   {\frac{\rho }{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{{\rho v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial h_1 }}{{\partial y}} + \frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\left( {\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)}  \\
+   {\rho \frac{{\partial u}}{{\partial y}} + \rho \frac{u}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)}  \\
+   0  \\
+   {\left\langle \begin{array}{l}
+  - \frac{1}{{h_1 }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{4}{3}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial v}}{{\partial y}}} \right) \\
+  - \frac{1}{{h_1 }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial u}}{{\partial y}} + \frac{{\partial v}}{{\partial x}} - u\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+  - \frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\left( {\frac{{\partial u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} - \frac{u}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+  - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial ^2 u}}{{\partial y^2 }} + \frac{{\partial ^2 v}}{{\partial x\partial y}}} \right) + \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}\frac{{\partial \rho }}{{\partial x}} \\
+  - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial ^2 u}}{{\partial x^2 }} + \frac{4}{3}\frac{{\partial v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial ^2 v}}{{\partial x\partial y}}} \right) \\
+ \end{array} \right\rangle }  \\
+\end{array}} \right]
+\end{equation*}
+\begin{align*}
+  {\bf{D}}_{31}  =&\frac{{\partial v}}{{\partial t}} + \frac{u}{{h_1 }}\frac{{\partial v}}{{\partial x}} + v\frac{{\partial v}}{{\partial y}} - \frac{{uu}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{{\partial T}}{{\partial y}}\\
+  {\bf{D}}_{32}  =& \frac{\rho }{{h_1 }}\frac{{\partial v}}{{\partial x}} - 2\rho \frac{u}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial T}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\\
+  {\bf{D}}_{33}  =& \rho \frac{{\partial v}}{{\partial y}} + \frac{2}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}{\rm{ + }}\frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial \mu }}{{\partial y}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\mu \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}}\\
+  {\bf{D}}_{34}  =& 0 \\
+  {\bf{D}}_{35}  =&\frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{{\partial \rho }}{{\partial y}} - \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\left( {\frac{{\partial u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} - \frac{u}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) - \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left( {\frac{{\partial ^2 u}}{{\partial x\partial y}} + \frac{1}{{h_1 }}\frac{{\partial ^2 v}}{{\partial x^2 }} - \frac{{\partial u}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+  & - \frac{2}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left( {\frac{{\partial v}}{{\partial y}} - \frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} - \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right){\rm{ + }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\left( {\frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{2}{3}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{4}{3}\frac{{\partial v}}{{\partial y}}} \right)\\
+  & - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left( { - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial ^2 u}}{{\partial x\partial y}} - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} + \frac{4}{3}\frac{{\partial ^2 v}}{{\partial y^2 }} + \frac{2}{3}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial u}}{{\partial x}} + \frac{2}{3}\frac{1}{{h_1 }}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}}} \right)
+\end{align*}
+\begin{equation*}
+  {\bf{D}}_4  = \left[ {\begin{array}{*{20}c}
+   {\frac{u}{{h_1 }}\frac{{\partial w}}{{\partial x}} + v\frac{{\partial w}}{{\partial y}}}  \\
+   {\rho \frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}}  \\
+   {\rho \frac{{\partial w}}{{\partial y}}}  \\
+   0  \\
+   { - \frac{1}{{h_1 }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}} - \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial ^2 w}}{{\partial x^2 }} - \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial \mu }}{{\partial T}}\frac{{\partial w}}{{\partial y}} - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d^{\rm{2}} \mu }}{{dT^{\rm{2}} }}\frac{{\partial T}}{{\partial y}}\frac{{\partial w}}{{\partial y}} - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial ^2 w}}{{\partial y^2 }}}  \\
+\end{array}} \right]
+\end{equation*}
+\begin{align*}
+  {\bf{D}}_{51}  =& \frac{u}{{h_1 }}\frac{{\partial T}}{{\partial x}} + v\frac{{\partial T}}{{\partial y}} - \frac{{\gamma  - 1}}{\gamma }\frac{u}{{h_1 }}\frac{{\partial T}}{{\partial x}} - \frac{{\gamma  - 1}}{\gamma }v\frac{{\partial T}}{{\partial y}}\\
+  {\bf{D}}_{52}  =& \frac{\rho }{{h_1 }}\frac{{\partial T}}{{\partial x}} - \frac{{\gamma  - 1}}{\gamma }\left( {\frac{1}{{h_1 }}\rho \frac{{\partial T}}{{\partial x}} + \frac{1}{{h_1 }}T\frac{{\partial \rho }}{{\partial x}}} \right) \\
+  &+ 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( { - \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\partial u}}{{\partial y}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\\
+  {\bf{D}}_{53}  =& \rho \frac{{\partial T}}{{\partial y}} - \frac{{\gamma  - 1}}{\gamma }\left( {\rho \frac{{\partial T}}{{\partial y}} + T\frac{{\partial \rho }}{{\partial y}}} \right) - 2\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left( \begin{array}{l}
+  + \frac{{\rm{4}}}{3}\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\rm{4}}}{3}\frac{1}{{h_1 }}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} \\
+  - \frac{{\rm{2}}}{3}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial v}}{{\partial y}} - \frac{{\rm{2}}}{3}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial w}}{{\partial z}} \\
+ \end{array} \right)\\
+  {\bf{D}}_{54}  =& 0 \\
+  {\bf{D}}_{55}  =& - \frac{{\gamma  - 1}}{\gamma }\frac{u}{{h_1 }}\frac{{\partial \rho }}{{\partial x}} - \frac{{\gamma  - 1}}{\gamma }v\frac{{\partial \rho }}{{\partial y}}\\
+  & - \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d^2 \kappa }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\frac{{\partial T}}{{\partial x}} - \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d\kappa }}{{dT}}\frac{{\partial ^2 T}}{{\partial x^2 }} - \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{{d^2 \kappa }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\frac{{\partial T}}{{\partial y}}\\
+  &- \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{d\kappa }}{{dT}}\frac{{\partial T}}{{\partial y}} - \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{{d\kappa }}{{dT}}\frac{{\partial ^2 T}}{{\partial y^2 }}\\
+  & - \frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\left[ \begin{array}{l}
+ \frac{{\rm{4}}}{3}\left( {\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\left( {\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) + \frac{{\partial w}}{{\partial y}}\frac{{\partial w}}{{\partial y}} + \frac{{\rm{4}}}{3}\frac{{\partial v}}{{\partial y}}\frac{{\partial v}}{{\partial y}} \\
+ {\rm{ + }}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}} - \frac{{\rm{4}}}{3}\left( {\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)\left( {\frac{{\partial v}}{{\partial y}}} \right) \\
+  + \left( {\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} + \frac{{\partial u}}{{\partial y}} - \frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}}} \right)\left( {\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} + \frac{{\partial u}}{{\partial y}} - \frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+ \end{array} \right]
+\end{align*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{xx}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & {\frac{4}{3}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0 & 0  \\
+   0 & 0 & {\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0  \\
+   0 & 0 & 0 & {\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0  \\
+   0 & 0 & 0 & 0 & {\frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\kappa }  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{xy}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & 0 & {\frac{1}{3}\frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0  \\
+   0 & {\frac{{\rm{1}}}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}} & 0 & 0 & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{xz}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & 0 & 0 & {\frac{1}{3}\frac{1}{{h_1 }}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+   0 & {\frac{1}{3}\mu \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}} & 0 & 0 & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{yy}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & {\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0 & 0  \\
+   0 & 0 & {\frac{4}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0  \\
+   0 & 0 & 0 & {\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0  \\
+   0 & 0 & 0 & 0 & {\frac{\kappa }{{{\mathop{\rm Re}\nolimits} \Pr }}}  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{yz}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+   0 & 0 & 0 & {\frac{{\rm{1}}}{{\rm{3}}}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0  \\
+   0 & 0 & {\frac{1}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0  \\
+   0 & 0 & 0 & 0 & 0  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{H}}_{{\bf{zz}}}  = \left[ {\begin{array}{*{20}c}
+   0 & 0 & 0 & 0 & 0  \\
+   0 & {\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0 & 0  \\
+   0 & 0 & {\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0 & 0  \\
+   0 & 0 & 0 & {\frac{4}{3}\frac{\mu }{{{\mathop{\rm Re}\nolimits} }}} & 0  \\
+   0 & 0 & 0 & 0 & {\frac{\kappa }{{{\mathop{\rm Re}\nolimits} \Pr }}}  \\
+\end{array}} \right]
+\end{equation*}
+\begin{equation*}
+  {\bf{N}}_1  =  - \left\langle {\frac{1}{{h_1 }}\tilde \rho \frac{{\partial \tilde u}}{{\partial x}} + \frac{1}{{h_1 }}\tilde u\frac{{\partial \tilde \rho }}{{\partial x}} + \tilde \rho \frac{{\partial \tilde v}}{{\partial y}} + \tilde v\frac{{\partial \tilde \rho }}{{\partial y}} + \tilde \rho \frac{{\partial \tilde w}}{{\partial z}} + \tilde w\frac{{\partial \tilde \rho }}{{\partial z}} + \frac{{\tilde \rho \tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right\rangle
+\end{equation*}
+\begin{equation*}
+  \begin{array}{l}
+ {\bf{N}}_2  =  - \rho \left( {\frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \tilde v\frac{{\partial \tilde u}}{{\partial y}} + \tilde w\frac{{\partial \tilde u}}{{\partial z}} + \frac{{\tilde u\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) - \tilde \rho \left( \begin{array}{l}
+ \frac{{\partial \tilde u}}{{\partial t}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial u}}{{\partial x}} + \frac{u}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \tilde v\frac{{\partial u}}{{\partial y}} + v\frac{{\partial \tilde u}}{{\partial y}} + \tilde v\frac{{\partial \tilde u}}{{\partial y}} \\
+  + w\frac{{\partial \tilde u}}{{\partial z}} + \tilde w\frac{{\partial \tilde u}}{{\partial z}} + \frac{{\tilde uv}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{{u\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\tilde u\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} \\
+ \end{array} \right) \\
+ \quad \quad  - \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}\left( {\tilde \rho \frac{{\partial \tilde T}}{{\partial x}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial x}}} \right) \\
+ \quad \quad  + \frac{1}{{h_1 }}\left( \begin{array}{l}
+ \frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \frac{4}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial \tilde v}}{{\partial y}} - \frac{2}{3}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+  + \frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \frac{4}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial \tilde v}}{{\partial y}} - \frac{2}{3}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+  + \frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{4}{3}\frac{1}{{h_1 }}\frac{{\partial ^2 \tilde u}}{{\partial x^2 }} + \frac{4}{3}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial ^2 \tilde v}}{{\partial x\partial y}} - \frac{2}{3}\frac{{\partial ^2 \tilde w}}{{\partial x\partial z}}} \right) \\
+ \end{array} \right) \\
+ \quad \quad  + \frac{1}{{h_1 }}\left[ \begin{array}{l}
+ \frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial \tilde u}}{{\partial y}} + \frac{{\partial \tilde v}}{{\partial x}} - \tilde u\frac{{\partial h_1 }}{{\partial y}}} \right) + \frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial \tilde u}}{{\partial y}} + \frac{{\partial \tilde v}}{{\partial x}} - \tilde u\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+  + \frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {h_1 \frac{{\partial ^2 \tilde u}}{{\partial y^2 }} + \frac{{\partial ^2 \tilde v}}{{\partial x\partial y}}} \right) \\
+ \end{array} \right] \\
+ \quad \quad  + \frac{1}{{h_1 }}\left[ {\frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial z}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{{\partial \tilde w}}{{\partial x}} + h_1 \frac{{\partial \tilde u}}{{\partial z}}} \right) + \frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{{\partial ^2 \tilde w}}{{\partial x\partial z}} + h_1 \frac{{\partial ^2 \tilde u}}{{\partial z^2 }}} \right)} \right] \\
+ \quad \quad  + \frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\left( {\frac{{\partial \tilde u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} - \frac{{\tilde u}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) - \frac{1}{{\gamma {\rm{Ma}}^2 }}\frac{1}{{h_1 }}\left\langle {\tilde \rho \frac{{\partial \tilde T}}{{\partial x}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial x}}} \right\rangle  \\
+ \end{array}
+\end{equation*}
+\begin{equation*}
+  \begin{array}{l}
+ {\bf{N}}_3  =  - \rho \left( {\frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} + \tilde v\frac{{\partial \tilde v}}{{\partial y}} + \tilde w\frac{{\partial \tilde v}}{{\partial z}} - \frac{{\tilde u\tilde u}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) - \tilde \rho \left( \begin{array}{l}
+ \frac{{\partial \tilde v}}{{\partial t}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial v}}{{\partial x}} + \frac{u}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} + \tilde v\frac{{\partial v}}{{\partial y}} + v\frac{{\partial \tilde v}}{{\partial y}} + \tilde v\frac{{\partial \tilde v}}{{\partial y}} \\
+  + w\frac{{\partial \tilde v}}{{\partial z}} + \tilde w\frac{{\partial \tilde v}}{{\partial z}} - 2\frac{{\tilde uu}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{{\tilde u\tilde u}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} \\
+ \end{array} \right) \\
+ \quad \; - \frac{1}{{\gamma {\rm{Ma}}^2 }}\left( {\tilde \rho \frac{{\partial \tilde T}}{{\partial y}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial y}}} \right) \\
+ \quad \; + \frac{1}{{h_1 }}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left[ \begin{array}{l}
+ \frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\tilde T\left( {\frac{{\partial \tilde u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} - \frac{{\tilde u}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) + \frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial x}}\left( {\frac{{\partial \tilde u}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} - \frac{{\tilde u}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+  + \frac{{d\mu }}{{dT}}\tilde T\left( {\frac{{\partial ^2 \tilde u}}{{\partial x\partial y}} + \frac{1}{{h_1 }}\frac{{\partial ^2 \tilde v}}{{\partial x^2 }} - \frac{{\partial \tilde u}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right) \\
+ \end{array} \right] \\
+ \quad \; + \frac{2}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left[ {\frac{{d\mu }}{{dT}}\tilde T\left( {\frac{{\partial \tilde v}}{{\partial y}} - \frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} - \frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}} \right)} \right] \\
+ \quad \; - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\tilde T\left( {\frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \frac{2}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{4}{3}\frac{{\partial \tilde v}}{{\partial y}} + \frac{2}{3}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+ \quad \; - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial y}}\left( {\frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} + \frac{2}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{4}{3}\frac{{\partial \tilde v}}{{\partial y}} + \frac{2}{3}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+ \quad \; - \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\tilde T\left( \begin{array}{l}
+ \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial ^2 \tilde u}}{{\partial x\partial y}} + \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} - \frac{4}{3}\frac{{\partial ^2 \tilde v}}{{\partial y^2 }} + \frac{2}{3}\frac{{\partial ^2 \tilde w}}{{\partial y\partial z}} \\
+  - \frac{2}{3}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde u}}{{\partial x}} - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} \\
+ \end{array} \right) \\
+ \quad \; + \frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial z}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{{\partial \tilde v}}{{\partial z}} + \frac{{\partial \tilde w}}{{\partial y}}} \right) + \frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{{\partial ^2 \tilde v}}{{\partial z^2 }} + \frac{{\partial ^2 \tilde w}}{{\partial y\partial z}}} \right) \\
+ \end{array}
+\end{equation*}
+\begin{equation*}
+  \begin{array}{l}
+ {\bf{N}}_4  =  - \rho \left( {\frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + \tilde v\frac{{\partial \tilde w}}{{\partial y}} + \tilde w\frac{{\partial \tilde w}}{{\partial z}}} \right) - \tilde \rho \left( \begin{array}{l}
+ \frac{{\partial \tilde w}}{{\partial t}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial w}}{{\partial x}} + \frac{u}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} \\
+  + \tilde v\frac{{\partial w}}{{\partial y}} + v\frac{{\partial \tilde w}}{{\partial y}} + \tilde v\frac{{\partial \tilde w}}{{\partial y}} + w\frac{{\partial \tilde w}}{{\partial z}} + \tilde w\frac{{\partial \tilde w}}{{\partial z}} \\
+ \end{array} \right) \\
+ \quad \; - \frac{1}{{\gamma {\rm{Ma}}^2 }}\left( {\tilde \rho \frac{{\partial \tilde T}}{{\partial z}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial z}}} \right) \\
+ \quad \; + \frac{1}{{h_1 }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + \frac{{\partial \tilde u}}{{\partial z}}} \right) + \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial x}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + \frac{{\partial \tilde u}}{{\partial z}}} \right) \\
+ \quad \; + \frac{1}{{h_1 }}\frac{{d\mu }}{{dT}}\frac{{\tilde T}}{{{\mathop{\rm Re}\nolimits} }}\left( {\frac{1}{{h_1 }}\frac{{\partial ^2 \tilde w}}{{\partial x^2 }} + \frac{{\partial ^2 \tilde u}}{{\partial x\partial z}}} \right) + \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial \mu }}{{\partial T}}\tilde T\left( {\frac{{\partial \tilde v}}{{\partial z}} + \frac{{\partial \tilde w}}{{\partial y}}} \right) \\
+ \quad \; + \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d^2 \mu }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\tilde T\left( {\frac{{\partial \tilde v}}{{\partial z}} + \frac{{\partial \tilde w}}{{\partial y}}} \right) + \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\frac{{\partial \tilde T}}{{\partial y}}\left( {\frac{{\partial \tilde v}}{{\partial z}} + \frac{{\partial \tilde w}}{{\partial y}}} \right) + \frac{1}{{{\mathop{\rm Re}\nolimits} }}\frac{{\partial \mu }}{{\partial T}}\tilde T\left( {\frac{{\partial ^2 \tilde v}}{{\partial y\partial z}} + \frac{{\partial ^2 \tilde w}}{{\partial y^2 }}} \right) \\
+ \quad \; + \frac{{\partial \mu }}{{\partial T}}\frac{{\partial \tilde T}}{{\partial z}}\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( { - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}} - \frac{2}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial \tilde v}}{{\partial y}} + \frac{4}{3}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+ \quad \;{\rm{ + }}\frac{{\partial \mu }}{{\partial T}}\tilde T\frac{1}{{{\mathop{\rm Re}\nolimits} }}\left( { - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial ^2 \tilde u}}{{\partial x\partial z}} - \frac{2}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial h_1 }}{{\partial y}} - \frac{2}{3}\frac{{\partial ^2 \tilde v}}{{\partial y\partial z}} + \frac{4}{3}\frac{{\partial ^2 \tilde w}}{{\partial z^2 }}} \right) \\
+ \end{array}
+\end{equation*}
+\begin{equation*}
+  \begin{array}{l}
+ {\bf{N}}_5  =  - \rho \left( {\frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde T}}{{\partial x}} + \tilde v\frac{{\partial \tilde T}}{{\partial y}} + \tilde w\frac{{\partial \tilde T}}{{\partial z}}} \right) - \tilde \rho \left( \begin{array}{l}
+ \frac{{\partial \tilde T}}{{\partial t}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial T}}{{\partial x}} + \frac{u}{{h_1 }}\frac{{\partial \tilde T}}{{\partial x}} + \frac{{\tilde u}}{{h_1 }}\frac{{\partial \tilde T}}{{\partial x}} \\
+  + \tilde v\frac{{\partial T}}{{\partial y}} + v\frac{{\partial \tilde T}}{{\partial y}} + \tilde v\frac{{\partial \tilde T}}{{\partial y}} + w\frac{{\partial \tilde T}}{{\partial z}} + \tilde w\frac{{\partial \tilde T}}{{\partial z}} \\
+ \end{array} \right) \\
+  + \frac{{\gamma  - 1}}{\gamma }\left\langle \begin{array}{l}
+  + \tilde \rho \frac{{\partial \tilde T}}{{\partial t}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial t}} + \frac{u}{{h_1 }}\left( {\tilde \rho \frac{{\partial \tilde T}}{{\partial x}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial x}}} \right) + \frac{{\tilde u}}{{h_1 }}\left( {\tilde \rho \frac{{\partial T}}{{\partial x}} + T\frac{{\partial \tilde \rho }}{{\partial x}} + \rho \frac{{\partial \tilde T}}{{\partial x}} + \tilde T\frac{{\partial \rho }}{{\partial x}} + \tilde \rho \frac{{\partial \tilde T}}{{\partial x}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial x}}} \right) \\
+  + v\left( {\tilde \rho \frac{{\partial \tilde T}}{{\partial y}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial y}}} \right) + \tilde v\left( {\tilde \rho \frac{{\partial T}}{{\partial y}} + T\frac{{\partial \tilde \rho }}{{\partial y}} + \rho \frac{{\partial \tilde T}}{{\partial y}} + \tilde T\frac{{\partial \rho }}{{\partial y}} + \tilde \rho \frac{{\partial \tilde T}}{{\partial y}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial y}}} \right) + w\left( {\tilde T\frac{{\partial \tilde \rho }}{{\partial z}} + \tilde \rho \frac{{\partial \tilde T}}{{\partial z}}} \right) \\
+  + \tilde w\left( {T\frac{{\partial \tilde \rho }}{{\partial z}} + \rho \frac{{\partial \tilde T}}{{\partial z}} + \tilde T\frac{{\partial \tilde \rho }}{{\partial z}} + \tilde \rho \frac{{\partial \tilde T}}{{\partial z}}} \right) \\
+ \end{array} \right\rangle  \\
+  + \frac{1}{{{\mathop{\rm Re}\nolimits} \Pr }}\left\langle \begin{array}{l}
+ \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d^2 \kappa }}{{dT^2 }}\frac{{\partial T}}{{\partial x}}\tilde T\frac{{\partial \tilde T}}{{\partial x}} + \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d\kappa }}{{dT}}\frac{{\partial \tilde T}}{{\partial x}}\frac{{\partial \tilde T}}{{\partial x}} + \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{d\kappa }}{{dT}}\tilde T\frac{{\partial ^2 \tilde T}}{{\partial x^2 }} \\
+  + \frac{{d^2 \kappa }}{{dT^2 }}\frac{{\partial T}}{{\partial y}}\tilde T\frac{{\partial \tilde T}}{{\partial y}} + \frac{{d\kappa }}{{dT}}\frac{{\partial \tilde T}}{{\partial y}}\frac{{\partial \tilde T}}{{\partial y}} + \frac{{d\kappa }}{{dT}}\tilde T\frac{{\partial ^2 \tilde T}}{{\partial y^2 }} + \frac{1}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \kappa }}{{\partial T}}\tilde T\frac{{\partial \tilde T}}{{\partial y}} + \frac{{d\kappa }}{{dT}}\frac{{\partial \tilde T}}{{\partial z}}\frac{{\partial \tilde T}}{{\partial z}} + \frac{{d\kappa }}{{dT}}\tilde T\frac{{\partial ^2 \tilde T}}{{\partial z^2 }} \\
+ \end{array} \right\rangle  \\
+  + \frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\mu \left\langle \begin{array}{l}
+  + \frac{{\rm{4}}}{3}\frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial x}} + \frac{{\rm{4}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial \tilde v}}{{\partial y}} + \frac{{\rm{4}}}{3}\frac{{\partial \tilde w}}{{\partial z}}\frac{{\partial \tilde w}}{{\partial z}} + \frac{{\rm{4}}}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\rm{4}}}{3}2\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} \\
+  - \frac{{\rm{4}}}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde v}}{{\partial y}} - \frac{{\rm{4}}}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde w}}{{\partial z}} - \frac{{\rm{4}}}{3}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}} - \frac{{\rm{4}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}} - \frac{{\rm{4}}}{3}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde v}}{{\partial y}} \\
+  + \frac{{\partial \tilde u}}{{\partial y}}\frac{{\partial \tilde u}}{{\partial y}} + \frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} + \frac{{\partial \tilde u}}{{\partial z}}\frac{{\partial \tilde u}}{{\partial z}} + \frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + \frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial \tilde v}}{{\partial z}} + \frac{{\partial \tilde w}}{{\partial y}}\frac{{\partial \tilde w}}{{\partial y}} \\
+  - 2\frac{{\partial \tilde u}}{{\partial y}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial y}} - 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} + 2\frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial \tilde w}}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial z}} \\
+ \end{array} \right\rangle  \\
+ {\rm{ + }}\frac{{\left( {\gamma  - 1} \right){\rm{Ma}}^2 }}{{{\mathop{\rm Re}\nolimits} }}\frac{{d\mu }}{{dT}}\tilde T\left[ \begin{array}{l}
+ \frac{{\rm{4}}}{3}\left( \begin{array}{l}
+ \frac{2}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial u}}{{\partial x}} + \frac{1}{{h_1 }}\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial x}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}} \\
+  + 2\frac{{\tilde v}}{{h_1 }}\frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} + \frac{{\tilde v}}{{h_1 }}\frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial h_1 }}{{\partial y}} \\
+ \end{array} \right) \\
+  + \left( {2\frac{{\partial \tilde w}}{{\partial y}}\frac{{\partial w}}{{\partial y}} + \frac{{\partial \tilde w}}{{\partial y}}\frac{{\partial \tilde w}}{{\partial y}} + 2\frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial w}}{{\partial y}} + 2\frac{{\partial v}}{{\partial z}}\frac{{\partial \tilde w}}{{\partial y}} + 2\frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial \tilde w}}{{\partial y}} + 2\frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial v}}{{\partial z}} + \frac{{\partial \tilde v}}{{\partial z}}\frac{{\partial \tilde v}}{{\partial z}}} \right) \\
+  + \frac{{\rm{8}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial v}}{{\partial y}} + \frac{{\rm{4}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial \tilde v}}{{\partial y}} + \frac{{\rm{8}}}{3}\frac{{\partial \tilde w}}{{\partial z}}\frac{{\partial w}}{{\partial z}} + \frac{{\rm{4}}}{3}\frac{{\partial \tilde w}}{{\partial z}}\frac{{\partial \tilde w}}{{\partial z}} \\
+ {\rm{ + }}\left( {\frac{2}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}} + \frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{{\partial u}}{{\partial z}} + 2\frac{1}{{h_1 }}\frac{{\partial w}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial z}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde w}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial z}} + 2\frac{{\partial \tilde u}}{{\partial z}}\frac{{\partial u}}{{\partial z}} + \frac{{\partial \tilde u}}{{\partial z}}\frac{{\partial \tilde u}}{{\partial z}}} \right) \\
+  + \left( \begin{array}{l}
+ \frac{2}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}} + \frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}} + 2\frac{{\partial \tilde u}}{{\partial y}}\frac{{\partial u}}{{\partial y}} + \frac{{\partial \tilde u}}{{\partial y}}\frac{{\partial \tilde u}}{{\partial y}} + \frac{2}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}} + \frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} \\
+  + 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{{\partial u}}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial y}} + 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{{\partial \tilde u}}{{\partial y}} - 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}} - 2\frac{1}{{h_1 }}\frac{{\partial v}}{{\partial x}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} - 2\frac{1}{{h_1 }}\frac{{\partial \tilde v}}{{\partial x}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} \\
+  - 2\frac{{\partial \tilde u}}{{\partial y}}\frac{1}{{h_1 }}u\frac{{\partial h_1 }}{{\partial y}} - 2\frac{{\partial u}}{{\partial y}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} - 2\frac{{\partial \tilde u}}{{\partial y}}\frac{1}{{h_1 }}\tilde u\frac{{\partial h_1 }}{{\partial y}} \\
+ \end{array} \right) \\
+  - \frac{{\rm{4}}}{3}\left( {\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial v}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}}\frac{{\partial \tilde v}}{{\partial y}} + \frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde v}}{{\partial y}} + \frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial v}}{{\partial y}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde v}}{{\partial y}} + \frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde v}}{{\partial y}}} \right) \\
+  - \frac{{\rm{4}}}{3}\left( {\frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial w}}{{\partial z}} + \frac{1}{{h_1 }}\frac{{\partial u}}{{\partial x}}\frac{{\partial \tilde w}}{{\partial z}} + \frac{1}{{h_1 }}\frac{{\partial \tilde u}}{{\partial x}}\frac{{\partial \tilde w}}{{\partial z}} + \frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial w}}{{\partial z}} + \frac{v}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}} + \frac{{\tilde v}}{{h_1 }}\frac{{\partial h_1 }}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}}} \right) \\
+  - \frac{{\rm{4}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial w}}{{\partial z}} - \frac{{\rm{4}}}{3}\frac{{\partial v}}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}} - \frac{{\rm{4}}}{3}\frac{{\partial \tilde v}}{{\partial y}}\frac{{\partial \tilde w}}{{\partial z}} \\
+ \end{array} \right] \\
+ \end{array}
+\end{equation*}
