@@ -28,3 +28,5 @@ dist
 *.xdv
 *.pdf
 *.synctex
+*.synctex
+wzf_main.synctex
