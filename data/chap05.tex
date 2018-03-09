@@ -1,5 +1,221 @@
 \chapter{等离子体激发器控制充分发展槽道湍流}
-\section{定常等离子体激发器控制充分发展槽道湍流}
+本文进行控制的基本算例选取为壁面摩擦尺度雷诺数Re$_\tau=180$(Re$_m=5600$)的湍流槽道。计算程序采用的是王志坚课题组的hpMusic\cite{Wang1111}，时间步长dt=0.00015，用三阶的显式Eular进行时间推进；空间采用4阶精度计算，单元内采用高斯点，每个单元内有$5\times5\times5$个点，三个方向总的自由度数分别为$235\times155\times200$。在后处理的时候，对分布在单元界面，空间位置相同的点进行了平均。平均处理之后用于显示的网格点数与Kim（1987）\cite{Kim1987}文献中的网格相近。计算域大小为$4\pi \times 2\times 2\pi$。$\gamma$=1.4， 气体常数为1.0，普朗特常数Pr = 0.72，粘性系数 $\mu=3.571428571428571\times10^{-4}$， Ma=0.1。计算时在流场内添加全场均匀的体积力，使得槽道内的质量平均流速在稳定在1.0；计算的初始条件为抛物线形速度刨面，流速峰值$u_{\rm max} = 1.327$。为了加快转捩，在这个流场上叠加上10个不同流向展向波数的扰动波。初始的密度$\rho=1.0$；压力$p= 31.74603174603175$；这两个量在计算的时候基本上不会变化。计算得到的近壁涡结构和条带结构如下图：
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{本文计算结果}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.45\textwidth]{ch5/VorStru_Nocontrol.jpg}}%
+  \subcaptionbox{Liang Wei 和 Andrew Pollard (2011)\cite{Wei2011}}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VorStru_Nocontrol_ref.jpg}}%
+  \caption{计算得到涡结构对比}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{本文计算结果}[0.5\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.5\textwidth]{ch5/streaks_nocontrol.jpg}}%
+  \subcaptionbox{Liang Wei 和 Andrew Pollard (2011)\cite{Wei2011}}[0.4\textwidth]
+    {\includegraphics[width=0.4\textwidth]{ch5/streaks_paper.jpg}}%
+  \caption{计算得到条带结构对比}
+\end{figure}
+计算得到的对数律分布如下：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{ch5/loglow.jpg}
+  \caption{计算结果与对数律对比}\label{f:loglow}
+\end{figure}
+图\ref{f:loglow}中结果为采用190万瞬时结果时间平均加流向和展向平均之后的结果。
+计算得到的二阶统计量对比：
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{$u_{rms}^+$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.45\textwidth]{ch5/urms_NoControl.jpeg}}%
+  \subcaptionbox{$v_{rms}^+$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/vrms_NoControl.jpeg}}%
+  \\\bigskip
+  \subcaptionbox{$w_{rms}^+$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.45\textwidth]{ch5/wrms_NoControl.jpeg}}%
+  \subcaptionbox{$<uv>^+$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/uv_NoControl.jpeg}}%
+  \caption{计算得到的二阶统计量与文献中的结果对比}
+\end{figure}
+计算得到的瞬时流场的涡结构图如下：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
+  \caption{瞬时流场的涡结构图}
+\end{figure}
+对于这一基本流动，对其进行条件平均，分别在$y^+=10,15,20$的平面上进行涡探测，用Q作为探测标准。然后进行条件平均，得到：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
+  \caption{$y^+=10$条件平均}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
+  \caption{$y^+=15$条件平均}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
+  \caption{$y^+=12$条件平均}
+\end{figure}
 
-\section{非定常等离子体激发器控制充分发展槽道湍流}
+\section{定常激励控制方案}
+文献中给出了一种大涡形状的体积力分布用于减阻
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{ch5/vortex.JPG}
+  \caption{J Canton et al. (2016 FTC)采用的减阻控制的体积力}\label{f:vor_f}
+\end{figure}
+他们对这种减阻控制方式进行了参数研究：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{ch5/parameter_study.JPG}
+  \caption{涡强度与减阻率的关系}\label{f:vort_strength_vs_DR}
+\end{figure}
+然而，实际中并不能产生这种形状的体积力，所以本文考虑采用DBD产生相同的效果。本文中采用的体积力分布情况如下：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{ch5/steady_force.jpg}
+  \caption{定常激励采用的DBD体积力示意图}\label{f:steady_force}
+\end{figure}
+在没有背景流动的槽道中诱导出来的流动如下：
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{V}[0.8\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.8\textwidth]{ch5/V_nobackflow.jpg}}%
+  \\\bigskip
+  \subcaptionbox{W}[0.8\textwidth]
+    {\includegraphics[width=0.8\textwidth]{ch5/W_nobackflow.jpg}}%
+  \caption{定常DBD在无背景流动的槽道中诱导出来的流场}
+\end{figure}
+由于最开始并不知道体积力诱导的涡强度与真实涡强度的关系，所以做了很多参数的实验。最终发现确实过大的体积力反而会起到增阻的的作用。这里仅展示一个增阻的算例和一个减阻的算例，他们的产生的涡强度如下：
+\begin{table}
+  \centering
+  \caption{不同算例产生的涡强度}
+  \begin{tabularx}{\textwidth}{*2{>{\centering\arraybackslash}X}}
+    \toprule[1.5pt]
+    {\heiti 算例名称} & {\heiti max$(V)/U_b$} \\\midrule[1pt]
+        Plasma(Strong) & 0.19 \\
+        Plasma(Weak) & 0.05 \\
+        Vortex Force & 0.06 \\
+    \bottomrule[1.5pt]
+  \end{tabularx}
+\end{table}
+各个算例下壁面阻力对比：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{ch5/FX_steady_forcing.jpeg}
+  \caption{各个算例下壁面阻力对比}
+\end{figure}
+流向平均与时间平均对比：
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{Vortex Force: U}[0.45\textwidth] 
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/U.png}}
+  \subcaptionbox{Vortex Force: V}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/V.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): U}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/U.png}}
+  \subcaptionbox{Plasma(Strong): V}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/V.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): U}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/U.png}}
+  \subcaptionbox{Plasma(Weak): V}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/V.png}}
+  \caption{流向与法向平均速度}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{Vortex Force: W}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/W.png}}
+  \subcaptionbox{Vortex Force: <uv>}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/uv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): W}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/W.png}}
+  \subcaptionbox{Plasma(Strong): <uv>}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/uv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): W}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/W.png}}
+  \subcaptionbox{Plasma(Weak): <uv>}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/uv.png}}
+  \caption{展向平均速度与雷诺切应力}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{Vortex Force: $<uu>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/uu.png}}
+  \subcaptionbox{Vortex Force: $<vv>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/vv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): $<uu>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/uu.png}}
+  \subcaptionbox{Plasma(Strong): $<vv>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/vv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): $<uu>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/uu.png}}
+  \subcaptionbox{Plasma(Weak): $<vv>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/vv.png}}
+  \caption{流向与法向雷诺主应力}
+\end{figure}
+Plasma（Weak）算例中的涡结构：
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{ch5/PlasmaWeak/8367500.png}
+  \caption{Plasma(Weak)涡结构}
+\end{figure}
+Plasma（Weak）湍动能和湍动能生成项：
+\begin{figure}
+  \centering
+  \subcaptionbox{湍动能}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/k.jpeg}}
+  \subcaptionbox{湍动能生成项}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/Production.jpeg}}
+  \caption{Plasma（Weak）湍动能和湍动能生成项}
+\end{figure}
 
+\section{周期激励控制方案}
+米兰理工体积力形式：
+\begin{equation}\label{e:f_POLIMI}
+  F_z  = F_z \left( {y,t} \right) = A_f e^{ - y/D} \cos \left( {2\pi \frac{t}{T}} \right);A_f  = 2;D = 0.04
+\end{equation}
+控制效果：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{ch5/POLIMI/Drag.jpeg}
+  \caption{米兰理工体积力激励方案阻力变化}\label{f:POLIMI_DARG}
+\end{figure}
+$T^+=52$相平均：
+\begin{figure}
+  \centering
+  \subcaptionbox{$U^+$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/phase_average_U+.jpeg}}
+  \subcaptionbox{$W$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/phase_average_W.jpeg}}
+  \caption{$T^+=52$相平均}
+\end{figure}
+涡结构图：
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{ch5/POLIMI/5973000.png}
+  \caption{POLIMI涡结构图}
+\end{figure}
+各阶统计量对比：
+\begin{figure}[h]
+  \centering
+  \subcaptionbox{$<uu>$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/uu.png}}%
+  \subcaptionbox{$<vv>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/vv.png}}%
+  \\\bigskip
+  \subcaptionbox{$<ww>$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/ww.png}}%
+  \subcaptionbox{$<uv>$}[0.45\textwidth]
+    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/uv.png}}%
+  \caption{POLIMI二阶统计量对比}
+\end{figure}
