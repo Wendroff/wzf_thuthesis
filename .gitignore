@@ -26,3 +26,5 @@ dist
 *.fdb_latexmk
 *.fls
 *.xdv
+*.pdf
+*.synctex
