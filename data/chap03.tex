@@ -1,12 +1,11 @@
 \chapter{后掠Hiemenz流动的失稳分析与控制}
-The swept Hiemenz flow is similar to the three-dimensional (3-D) boundary-layer flow over a swept wing. Therefore, it is used to test the control method. The 2-D Hiemenz flow is described as a jet coming from above and impinging on a wall. As for the swept Hiemenz flow, a constant spanwise free stream is introduced. The schematic of the swept Hiemenz flow is depicted in figure \ref{fig:SweptHiemenz}. Some studies focused on the instability near the attachment-line \cite{Lin1996,Guegan2006}. Here, we focus on the region far away from the attachment-line and that is where the crossflow instability dominate the transition. The primary and secondary instability of this three dimensional boundary layer have been fully studied by Malik et al \cite{Malik1994} and their results are used as our base line. The method employed to obtain the self-similar solution is just like Malik et al used. The streamwise velocity at the boundary-layer edge increases linearly with distance, as expressed as
+后掠Hiemenz流动与后掠翼上的三维边界层流动非常相似，是非常好的模型流动。本文从这一流动出发，研究三维边界层的横流失稳。原始的二维Hiemenz流动就是一股平面射流，自上而下打到一块平板上，并向平板两边溢流开来。在无粘流的假设下，这与直角的角域流动完全等价。因此，我们可以通过构造幂指数复势解得到无粘的Hiemenz流动的流场分布。这里，将无粘流动壁面上的流速分布作为边界层外缘的速度分布。这一分布的流向速度分量是线性增加的，如式（\ref{e:HiemenzF}）。式中上标`$\dagger$'表示有量纲量，$c$是一个常系数。在二维Hiemenz流动的基础上，引入展向均匀的流动，就是后掠Hiemenz流动，如图（\ref{fig:SweptHiemenz}）所示。有一些研究主要着眼于其附着线的失稳研究\cite{Lin1996,Guegan2006}，本文重点分析研究远离附着线区域的横流转捩问题。研究区域如图（\ref{fig:SweptHiemenz}）中虚线所示。Malik等人\cite{Malik1994}对这一问题的首次失稳和二次失稳做了充分的研究，本文的控制算例也是以他们研究过的工况作为基准算例。本文中采用与文献中\cite{Malik1994}相同的方法求得这一流动的自相似解，并以此作为基本流。
 \begin{equation}\label{e:HiemenzF}
   U_{\infty}=cx^{\dagger}
 \end{equation}
-where the superscript `$\dagger$' denotes a dimensional variable and $c$ is a constant. The spanwise velocity $W_{\infty}$ at the boundary-layer edge is assumed constant. According to Malik et al.\cite{Malik1994}, $W_{\infty}$ is chosen as the reference velocity, while the boundary-layer thickness, $l^\dagger=(\nu/c)^{\frac{1}{2}}$ is adopted as the length scale. The crossflow Reynolds number is thus defined as $Re_W=W_{\infty}l^\dagger/\nu$, which is denoted as $\bar{R}$ in Ref\cite{Malik1994}.
+在后掠Hiemenz流动中，引入的边界层外缘展向速度$W_{\infty}$在所有流向位置是相同的，因此将这一速度选作参考速度。Malik等人在研究这一问题时，也采用这一速度作为参考速度。$l^\dagger=(\nu/c)^{\frac{1}{2}}$ 可以用来表征边界层厚度，本文在这个算例中用这个长度作为参考长度。以$W_{\infty}$作为参考长度定义的雷诺数叫做横流雷诺数，$Re_W=W_{\infty}l^\dagger/\nu$，这个雷诺数在Malik等人的文章\cite{Malik1994}中被记做$\bar{R}$。
 \section{后掠Hiemenz流动的稳定性分析}
-
-\begin{figure}
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.7\textwidth]{ch3/plot_SweptHiemenz.eps}\\
@@ -138,17 +137,17 @@ The maximum value of sensitivity functions over spanwise direction is shown in Y
   \centering
   % Requires \usepackage{graphicx}
   \begin{subfigure}{\textwidth}
-  \includegraphics[width=\textwidth]{ch3/maxGu_xy.eps}
+  \includegraphics[width=0.8\textwidth]{ch3/maxGu_xy.eps}
   \caption{\label{f:Gu_xy}}
   \end{subfigure}\\
   \bigskip
   \begin{subfigure}{\textwidth}
-  \includegraphics[width=\textwidth]{ch3/maxGv_xy.eps}
+  \includegraphics[width=0.8\textwidth]{ch3/maxGv_xy.eps}
   \caption{\label{f:Gv_xy}}
   \end{subfigure}\\
   \bigskip
   \begin{subfigure}{\textwidth}
-  \includegraphics[width=\textwidth]{ch3/maxGw_xy.eps}
+  \includegraphics[width=0.8\textwidth]{ch3/maxGw_xy.eps}
   \caption{\label{f:Gw_xy}}
   \end{subfigure}
   \caption{Contours of maximum (a) $G_u$, (b) $G_v$ and (c) $G_w$ along the Z direction with the output location at x=500.}\label{f:Guvw_xy}
@@ -168,10 +167,10 @@ The maximum value of sensitivity functions over spanwise direction is shown in Y
 %  \caption{Contours of maximum (a) $G_u$, (b) $G_v$ and (c) $G_w$ along the Z direction with the output location at x=500.}\label{f:Guvw_xy}
 %\end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
-  \includegraphics[width=0.6\textwidth]{ch3/maxG(3).eps}\\
+  \includegraphics[width=0.8\textwidth]{ch3/maxG(3).eps}\\
   \caption{Streamwise distributions of the maximum value of the sensitivity functions on the y-z plane}\label{f:maxsen}
 \end{figure}
 
@@ -192,7 +191,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
     \centering
     \begin{subfigure}{0.45\textwidth}           %
         \includegraphics[width=\linewidth]{ch3/comparemodes(a).eps}
-        \caption{}\label{f:a} 
+        \caption{}\label{f:a}
     \end{subfigure}
     %\\ \bigskip
     \begin{subfigure}{0.45\textwidth}           %
@@ -203,7 +202,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
     \\ \bigskip
     \begin{subfigure}{0.45\textwidth}         %
         %% label for first subfigure
-        \includegraphics[width=\linewidth]{ch3/comparemodes(c).eps} 
+        \includegraphics[width=\linewidth]{ch3/comparemodes(c).eps}
         \caption{}\label{f:c}%\includegraphics[width=0.45\linewidth]{forceposition(c)}}
     \end{subfigure}
     %\\ \bigskip
@@ -230,33 +229,39 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
 \begin{figure}[htb]
     \centering
     \begin{subfigure}{0.45\textwidth}           %
-        \label{f:a1} %% label for first subfigure
+        %% label for first subfigure
         %\includegraphics[width=0.3\linewidth]{comparemodes(a)}}
         \includegraphics[width=\linewidth]{ch3/forceposition(a).eps}
+        \caption{}\label{f:a1}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
-        \label{f:b1} %% label for first subfigure
+        %% label for first subfigure
         %\includegraphics[width=0.3\linewidth]{comparemodes(b)}}
         \includegraphics[width=\linewidth]{ch3/forceposition(b).eps}
+        \caption{}\label{f:b1}
     \end{subfigure}
     \\ \bigskip
     \begin{subfigure}{0.45\textwidth}         %
-        \label{f:c1} %% label for first subfigure
+        %% label for first subfigure
         %\includegraphics[width=0.3\linewidth]{comparemodes(c)}} \\
-        \includegraphics[width=\linewidth]{ch3/forceposition(c).eps} 
+        \includegraphics[width=\linewidth]{ch3/forceposition(c).eps}
+        \caption{}\label{f:c1}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}          %
-        \label{f:d1} %% label for first subfigure
+        %% label for first subfigure
         \includegraphics[width=\linewidth]{ch3/forceposition(d).eps}
+        \caption{}\label{f:d1}
     \end{subfigure}
     \\ \bigskip
     \begin{subfigure}{0.45\textwidth}          %
-        \label{f:e1} %% label for first subfigure
+        %% label for first subfigure
         \includegraphics[width=\linewidth]{ch3/forceposition(e).eps}
+        \caption{}\label{f:e1}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}          %
-        \label{f:f1} %% label for first subfigure
+        %% label for first subfigure
         \includegraphics[width=\linewidth]{ch3/forceposition(f).eps}
+        \caption{}\label{f:f1}
     \end{subfigure}
     \caption{Comparison of the streamwise mode-energy evolution with the actuator imposed at different spanwise locations: (a) $z/T_z = 0.5$, (b) $z/T_z = 0.6$, (c) $z/T_z = 0.7$, (d) $z/T_z = 0.8$, (e) $z/T_z = 0.9$, (f) $z/T_z = 1.0$.}
     \label{f:spanwiselocations} %% label for entire figure
@@ -293,7 +298,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
   \caption{Differences of maximum streamwise velocity of primary mode between uncontrolled and controlled cases in the control regions ($x_{\rm start}$: start point of control region)}\label{f:streamforce2}
 \end{figure}
 
-The optimal spanwise location of the plasma actuators is used to investigate their streamwise location effect on transition using NPSE. In sensitivity analyses, a plasma actuator location upstream as possible without contaminating the quiet boundary layer is suggested. Figure \ref{f:streamforce} compares the streamwise mode-energy evolution within different streamwise actuation regions. The actuation regions have the same extent (shown between the two large dots) but different start points, $x_{start}$, at $x=315, 358$ and 400. Here, the body force's strength is reduced to one tenth of the original, because too strong force at upstream will contaminate the boundary layer. A much lower mode energy is obtained for the case with $x_{start}=358$ compared to the one with $x_{start}=400$ because $x_{start}$ of the former case is closer to the neutral point at $x=134$, as pointed out in the sensitivity analyses. Figure \ref{f:streamforce2} further depicts the reduction of the maximum streamwise velocity of the primary mode downstream of $x_{start}$. The largest reduction is given for the case with $x_{start}=315$ in the vicinity of $x_{start}$, where the actuated body-force integration is small and therefore the sensitivity analyses based on the linear assumption are still acceptable. However, downstream of $x_{start}+18.7$, the primary mode suppression becomes weaker and weaker for the case with $x_{start}=315$ because here disturbances are introduced so far upstream that they contaminate the essentially quiet boundary layer. This explains why the case with $x_{start}=358$ provides the most effective flow-transition delay control, as shown in Figure \ref{f:streamforce}. 
+The optimal spanwise location of the plasma actuators is used to investigate their streamwise location effect on transition using NPSE. In sensitivity analyses, a plasma actuator location upstream as possible without contaminating the quiet boundary layer is suggested. Figure \ref{f:streamforce} compares the streamwise mode-energy evolution within different streamwise actuation regions. The actuation regions have the same extent (shown between the two large dots) but different start points, $x_{start}$, at $x=315, 358$ and 400. Here, the body force's strength is reduced to one tenth of the original, because too strong force at upstream will contaminate the boundary layer. A much lower mode energy is obtained for the case with $x_{start}=358$ compared to the one with $x_{start}=400$ because $x_{start}$ of the former case is closer to the neutral point at $x=134$, as pointed out in the sensitivity analyses. Figure \ref{f:streamforce2} further depicts the reduction of the maximum streamwise velocity of the primary mode downstream of $x_{start}$. The largest reduction is given for the case with $x_{start}=315$ in the vicinity of $x_{start}$, where the actuated body-force integration is small and therefore the sensitivity analyses based on the linear assumption are still acceptable. However, downstream of $x_{start}+18.7$, the primary mode suppression becomes weaker and weaker for the case with $x_{start}=315$ because here disturbances are introduced so far upstream that they contaminate the essentially quiet boundary layer. This explains why the case with $x_{start}=358$ provides the most effective flow-transition delay control, as shown in Figure \ref{f:streamforce}.
 
 Figure \ref{modesenergycase3} gives the LST results of the growth rate of steady crossflow modes for Case 2, where the crossflow velocity is doubled to investigate the operating voltage effect. The first unstable mode appears at $x =85$, with $\beta$ of 0.05; the maximum mode growth rate is 0.0336 with $\beta$ of 0.26 at $x =451$. The neutral-curve slope of the upper branch is smaller than that for Case 1. Figure \ref{growthratecase3} further shows the evolution of the mode energy obtained using NPSE. The simulated wave numbers are 0.1, 0.2, 0.3 and 0.4. The mode with $\beta$ of 0.1 becomes the most unstable upstream but increases slowly compared to the others. Due to its relatively early start and large increase rate, the mode with $\beta$ of 0.2 is chosen as the target mode in the following study.
 
