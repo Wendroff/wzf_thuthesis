@@ -9,19 +9,17 @@
   \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.7\textwidth]{ch3/plot_SweptHiemenz.eps}\\
-  \caption{Swept Hiemenz flow}\label{fig:SweptHiemenz}
+  \caption{后掠Hiemenz流动示意图}\label{fig:SweptHiemenz}
 \end{figure}
-
-
-Table \ref{t:testcase} provides a summary of the parameter variations. The work by Malik et al \cite{Malik1994} led to the choice of parameter values for Case 1. Figure \ref{f:Com_Malik1994} shows the streamwise evolution of disturbance energy for Case 1. More than 600 solution points are employed in the streamwise direction and there are approximately 14 points per streamwise wavelength. It has been shown that with only 3 points per streamwise wavelength, PSE  can provide satisfactory results\cite{Joslin1992}. For the resolution in the wall-normal direction, Li et al\cite{Li2015a} stated that 281 points were more than sufficient and 301 points are employed in the present computation. The good agreement between the present results and Malik's \cite{Malik1994} demonstrates the present code is reliable. In fact, this code had been successfully employed in the study of swept wing flows\cite{Xu2011a,Xu2011b} and G\"ortler instabilities\cite{Ren2014a,Ren2014b,Ren2014c,Ren2015,Ren2016}. In NPSE computations, the data of body-force distribution are obtained from the experiment \cite{kriegseis2013velocity} with actuator operating voltages of 8, 9 and 10 kV. In the experiment, plasma actuators were used to generate near wall jets in the quiescent air and the corresponding jet velocities were 1.7, 2.8 and 3.8 m/s for the voltage 8 , 9 and 10 kV, respectively. However, for Case 1, transition delay can be achieved only with an operating voltage of 8 kV; higher voltages generate stronger disturbances that promote transition. Therefore, the crossflow velocity is doubled in Case 2 to investigate the operating voltage effect and the corresponding results will be shown in Section \ref{sec:voltage}.
-\begin{figure}
+表\ref{t:testcase}列出了这一章研究的算例的具体参数。在后文中，这两个算例会被简记为Case1和Case2。其中Case1的参数与文献\cite{Malik1994}中完全相同，只是换算到了实际有量纲的情况。图\ref{f:Com_Malik1994}给出了Case1中主模态扰动延流向的发展变化。在本文的模拟计算中，流向用了600个网格点，基本上每个波长都有14个网格点。前人的文献中指出，对于PSE计算，每个波长内有3个网格点就绰绰有余了\cite{Joslin1992}，所以本文中使用的网格点密度是完全满足要求的。在垂直于壁面方向，Li等人\cite{Li2015a}指出281个网格点就完全够用了，本文的计算中一共给了301个点。从图\ref{f:Com_Malik1994}所示的结果中，也可以看到，本文的计算结果与文献给出的结果完全吻合，这也再一次验证了使用计算程序的精度。这套稳定性计算程序之前还进行过其他方面的稳定性计算，读者可以查阅\cite{Xu2011a,Xu2011b,Ren2014a,Ren2014b,Ren2014c,Ren2015,Ren2016}。在本章的研究中，采用的等离子体模型为从实验中反推出来的体积力分布模型（Kriegseis` model\cite{kriegseis2013velocity}）。在他们的实验中，一共测了8 ， 9 ， 10 kV 三个电压产生的体积力。这三个电压分别可以吹出来速度为1.7， 2.8， 3.8 m/s平行于壁面的射流。但是，在实际计算中发现，只有8kV的电压产生的体积力可以有效的控制Case1中的横流转捩，另外两个高电压产生的体积力都太强了，范围会促进转捩。所以为了研究电压的效应，在Case2中，将边界层外的展向速度提高了一倍，这样三个电压都可以产生一定的作用，并进行比较研究。
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch3/comparison_Malik.eps}\\
-  \caption{Comparison with the result in Ref.\cite{Malik1994} ($Re_W=500$)}\label{f:Com_Malik1994}
+  \caption{计算得到的扰动能量与文献\cite{Malik1994}中的结果对比 ($Re_W=500$)}\label{f:Com_Malik1994}
 \end{figure}
 \begin{table}
-  \caption{Parameters of test cases}\label{t:testcase}
+  \caption{计算研究算例的参数}\label{t:testcase}
   \centering
   \begin{tabular}{p{2.3cm}<{\centering}|p{2.5cm}<{\centering}p{3.5cm}<{\centering}p{2.5cm}<{\centering}p{3.5cm}<{\centering}}%{p{3cm}p{3cm}p{3cm}p{3cm}p{3cm}}
   \hline
@@ -35,105 +33,145 @@ Table \ref{t:testcase} provides a summary of the parameter variations. The work 
 
 \end{table}
 
-The investigation of the actuators' location effect is mainly based on Case 1. Hence, some stability features are briefly introduced first. The linear local stability results are shown in Figure \ref{f:LST}. The growth rate of primary crossflow modes with spanwise wave number $\beta\in[0.1,1]$ and circular frequency $\omega = 0$ is calculated. Here, the growth rate is defined as the negative imaginary part of complex streamwise wavenumber, namely $-\alpha_i$. The first unstable mode appears at $x = 83$, with $\beta$ of 0.12; the maximum mode growth rate is 0.02431, with $\beta$ of 0.33 at $x =305$. The upper branch of the neutral point moves downstream as $\beta$ increases. The lower branch of the neutral curve is nearly parallel to the $x$ axis, and $\beta$ is smaller than 0.085 for stable modes. Specifically, the growth rates of modes with $0.1<\beta<0.5$ are maintained at a high level.
-\begin{figure}
+针对这两个算例，本文首先进行了线性稳定性分析（LST）。在线性稳定性分析中，在不同的流向位置均采用小扰动假设和平行流假设，计算不同展向波数$\beta$的横流定常模态的增长率。最终得到模态的增长率随流向位置和展向波数的变化如图\ref{f:LST}。在这两个计算中，展向波数的取值范围均为$\beta\in[0.1,1]$。因为这里只关注由壁面粗糙度激发出来的定常横流模态，所以模态的频率$\omega = 0$。这里所说的流向增长率即为计算得到的复流向波数的虚部的相反数，即$-\alpha_i$。对于Case1，失稳模态首先出现在$x = 83$，失稳模态的展向波数$\beta$为0.12。最大的失稳模态增长率出现在$x =305$，展向波数$\beta$为0.33，增长率为0.0243。对于Case2，失稳模态首先出现在$x = 85$，失稳模态的展向波数$\beta$为0.05。最大的失稳模态增长率出现在$x =451$，展向波数$\beta$为0.26，增长率为0.0336。对比这两个算例，可以发现，随着横向流动的增加，失稳模态的增长率更高了，失稳的区域也更加偏向于下游。另外需要提及的是两者中性曲线，也就是增长率为0的等值线形状的变化。总的来说，随着增横向流动的增大，中性曲线的下支越来越贴近坐标的横轴线，上支的斜率越来越小。其中，上支的斜率越来越小说明高波数的模态的失稳位置更加倾向于下游。
+
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
-  \includegraphics[width=0.6\textwidth]{ch3/growthrate2.eps}\\
-  \caption{Spatial growth rate of stationary crossflow modes}\label{f:LST}
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{ch3/growthrate2.eps}
+    \caption{Case1}\label{modesenergycase3}
+  \end{subfigure}
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{ch3/growthratecase2.eps}
+    \caption{Case2}\label{modesenergycase1}
+  \end{subfigure}
+  %\includegraphics[width=0.6\textwidth]{ch3/growthrate2.eps}\\
+  \caption{定常横流模态的流向增长率}\label{f:LST}
 \end{figure}
 
-NPSE calculations are further conducted to determine the target mode, which probably dominates the transition. Since which mode will dominate highly depends on the environment, here we only consider one possible situation. The simulated spanwise wave numbers are 0.1, 0.2, 0.3, 0.4 and 0.5, with corresponding modes named Mode 1 to 5. Each of these modes are seeded as the primary mode at their own neutral point, which are located at $x=86,101,134,173$ and 218 for Mode 1 to 5, respectively. Their harmonics are excited by the nonlinearity. The amplitudes, defined as the maximum streamwise disturbance velocity, of these primary modes are compared in Figure \ref{f:findtarget} and the initial amplitudes of these modes are identical. Mode 1 first becomes unstable, but its amplitude increases slowly compared to the others. Mode 3 with $\beta$ of 0.3 is the first to achieve saturation at $x = 470$ and it is chosen as the target mode. All the following sensitivity analyses aim at this mode and the control method is also designed to damp this mode.
-%From Figure \ref{f:LST}, we can see that the growth rates of modes with $0.1<\beta<0.5$ always maintain at a high level. That means these modes are all likely to be the dominating mode. 5 cases with fundamental spanwise wave number from 0.1 to 0.5 are computed using NPSE to determine the target mode. The amplitude, defined as the maximum streamwise disturbance velocity, of primary modes from each cases are compared in figure \ref{f:findtarget}. Computations are initialized at the neutral points and the initial amplitude of the primary modes are all the same. Since neutral points of different modes are not the same, computations start at different streamwise location. The mode with $\beta=0.1$ is the first become unstable among all these cases, but it is exceded by others soon. The mode with $\beta=0.3$ saturates first at $x=470$. Generally, secondary instability appears just a little distance before the saturation and triggers the transition over the saturated crossflow vortices, so the mode with $\beta=0.3$ is considered as the dominate mode and is chosen as the target mode.
+线性稳定性计算只能够静态的得到每个模态在不同的位置的增长率，而得不到模态演化以及相互影响的过程。之后本文对这两个算例都进行了NPSE的计算。稳定性分析仅仅能够得到扰动在边界层内的增长情况，但是并不能计算得到扰动的初始值。不同的来流条件和壁面光滑程度会导致不同的扰动初值幅值，计算初始值需要对流动进行感受性分析。由于本文并不关心感受性过程，所以这里只研究一种可能的初始值情况。这里计算模拟了初始扰动主模态的展向波数为0.1、0.2、0.3、0.4和 0.5的5种情况。这些些模态分别被记为Mode1到Mode5。由于不同展向波数的模态的失稳起始位置是不一样的，所以本文的NPSE计算的起始点也是各个子算例各有不同。这5个模态分别起始于$x=86,101,134,173$和218。这也分别是LST预测的失稳起始位置。在计算起始位置只有主模态，所有高阶模态都是后续通过非线性效应激发出来。计算得到的结果如图\ref{f:findtarget}所示。可以看到，Mode1最先失稳，但是相比于其他模态，其增长率则相对较低，所以很快便被其他模态超越。Mode3，其展向波数为$\beta$=0.3在$x = 470$处首先达到饱和。定性的，首次失稳饱和之后，在饱和横流涡上发生的二次失稳会很快促发转捩。所以这里Mode3将是主导转捩的模态。之后，本章将以此模态作为控制目标模态，所有控制算例均谊在控制此模态。
+
 \begin{figure}
   \centering
   % Requires \usepackage{graphicx}
+%  \begin{subfigure}{0.48\linewidth}
+%    \includegraphics[width=\linewidth]{ch3/umax4.eps}
+%    \caption{Case1}\label{growthratecase3}
+%  \end{subfigure}
+%  \begin{subfigure}{0.48\linewidth}
+%    \includegraphics[width=\linewidth]{ch3/umax4case2.eps}
+%    \caption{Case2}\label{growthratecase1}
+%  \end{subfigure}
   \includegraphics[width=0.6\textwidth]{ch3/umax4.eps}\\
-  \caption{Evolution of primary crossflow modes' amplitude with different fundamental spanwise wave length}\label{f:findtarget}
+  \caption{Case1算例中，入口扰动展向波长不同时，主模态幅值的流向演化}\label{f:findtarget}
 \end{figure}
 \section{后掠Hiemenz流动的敏感性分析}
-The sensitivity of the target mode to the body force is investigated to determine the optimal installation angle and location of the plasma actuators. Based on Eq.(\ref{e:G}) (\ref{e:adjointa}), all sensitivity functions are dependent on the output of kinetic energy. Since the sensitivity analyses are based on the linear PSE, our study focuses on the linear stage of disturbance growth. Figure \ref{f:Guvw1} shows the contours of streamwise velocity and isolines of three sensitivity functions at the cross-section $x =280$. The output location is set at $x =500$. The solid lines indicate the positive values, while the dashed lines indicate the negative values. No rollover occurs in the contour of streamwise velocity; the low-momentum and high-momentum streaks are located side by side near the wall, and the crossflow vortices are forming. Note that similar patterns of the sensitivity function distributions can be found at other cross-sections; whether the sensitivity functions are positive or negative is of the most interest.
+\subsection{基于LST的敏感性分析}
+在这一小节中，介绍一下敏感性分析的研究成果。从式（\ref{e:LST_adjoint}）中我们发现伴随向量是直接起到对体积力的加权作用的，所以通过对该向量的分析，我们可以获得体积力法向敏感性分布的大致情况。三个方向伴随速度（伴随向量中对应于速度的三个分量）的分布如图\ref{f:LST_ADJOINT}：
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{$u^*$分布云图}[0.55\textwidth]
+  {\includegraphics[width=0.55\textwidth]{ch3/absau1.jpg}}
+  \subcaptionbox{$u^*$不同截面剖面}[0.43\textwidth]
+  {\includegraphics[width=0.43\textwidth]{ch3/absau.jpg}}
+  \\\bigskip
+  \subcaptionbox{$v^*$分布云图}[0.55\textwidth]
+  {\includegraphics[width=0.55\textwidth]{ch3/absav1.jpg}}
+  \subcaptionbox{$v^*$不同截面剖面}[0.43\textwidth]
+  {\includegraphics[width=0.43\textwidth]{ch3/absav.jpg}}
+  \\\bigskip
+  \subcaptionbox{$w^*$分布云图}[0.55\textwidth]
+  {\includegraphics[width=0.55\textwidth]{ch3/absaw1.jpg}}
+  \subcaptionbox{$w^*$不同截面剖面}[0.43\textwidth]
+  {\includegraphics[width=0.43\textwidth]{ch3/absaw.jpg}}
+  \caption{LST伴随向量}\label{f:LST_ADJOINT}
+\end{figure}
+从伴随速度的分布中我们可以看到，展向和流向的伴随速度始终大于法向的伴随速度。这表明，该流动对于展向和法向的激励更加敏感，而对于法向的机理则不是那么敏感。另外，随着扰动延流向发展，其对展向的激励越来越敏感，而对流向则越来越不敏感。从物理上这也很好解释。在靠近前缘的位置，基本流的流向分量很弱，所以只需要很小的扰动就能够对其产生很大的影响。之后随着流向的推进发展，流向的基本流越来越强，对其产生扰动需要的力量也就越来越大，从而敏感性也就越来越低。
+
+针对我们提出的等离子体控制方案，我们用所推导出的敏感性公式分析其控制效率，得到在某一固定位置，扰动模态增长率变化与激发器展向位置和安装角度的关系如图\ref{f:senVSangle_span}。
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{敏感性随安装的展向位置和角度变化}[0.45\textwidth]
+  {\includegraphics[width=0.45\textwidth]{ch3/sen_angle_span.jpg}}
+  \subcaptionbox{激发器安装方位示意图}[0.45\textwidth]
+  {\includegraphics[width=0.45\textwidth]{ch3/plasam_position.jpg}}
+  \caption{LST敏感性分析结果}\label{f:senVSangle_span}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{敏感性随展向安装位置的变化\label{f:senVSdz}}[0.45\textwidth]
+  {\includegraphics[width=0.45\textwidth]{ch3/senVSdz.jpg}}
+  \subcaptionbox{敏感性随安装角度的变化\label{f:senVSangle}}[0.45\textwidth]
+  {\includegraphics[width=0.45\textwidth]{ch3/senVSangle.jpg}}
+  \caption{LST敏感性分析结果}\label{f:senVSangle_span2}
+\end{figure}
+在这里，我们在增长率变化量后面乘了一个因子cos$(\theta)$，这是因为当偏转激发器角度的时候，激发器所能覆盖的流向位置就变短了，变成了原来的cos$(\theta)$倍。而增长率指的是单位流向长度的增长率，所有乘上了这个系数。可以看到，敏感因子随着展向的变化呈正弦规律，而最佳安装角度36$^\circ$与横流涡角度44$^\circ$差距不大。
+得到不同的流向位置最大增长率减小值之后，我们对比了流向敏感性，如图\ref{f:senVSstr}。我们可以看到，在进入失稳区之后，相同大小的体积力对横流模态的影响就越来越小。然而这一结论是建立在线性、单一模态、正确相位的基础上的，实际应用时，越靠近中性点越容易激发出别的扰动模态从而影响转捩。
 \begin{figure}
   \centering
+  \includegraphics[width=0.5\textwidth]{ch3/senVSstr.jpg}
+  \caption{敏感性随流向位置变化}\label{f:senVSstr}
+\end{figure}
+
+\subsection{基于PSE的敏感性分析}
+由于基于LST的敏感性分析还是局部性质的结果，并且在推导的时候忽略了二阶项的影响，所以其结果精确度并不高。这一小节主要展示基于PSE的稳定性分析及的结果。依然是针对Case1以及我之前确定的目标模态。这里由于本文希望采用的控制方案还是在线性区进行控制，所以敏感性分析也是只针对线性区进行。因此，这里的原始方程是线性PSE方程，并不包含模态之间的非线性相互作用。图\ref{f:Guvw1}给出了流向速度和敏感因子在$x =280$位置横截面的分布。需要注意的是，在基于LSE的敏感性分析中，针对的目标变量是扰动模态的增长率，而在基于PSE的敏感性分析中，针对的目标变量是下游某一位置处的扰动能量（式（\ref{e:PSEoutput_energy}））。图\ref{f:Guvw1}展示的是输出扰动能量选取在$x =500$的结果。其中，用颜色表示的云图是流向的速度分布，线条是各个方向敏感性因子的等值线。这里用实线表示正值用虚线表示负值。从流向速度分布的云图中，可以看到横流涡正在形成，但是还没有标志着横流涡达到饱和的"上叶翻转"现象。"上叶翻转"也是强非线性产生的标志。从流向速度分布云图中可以看出，这个分析敏感性的位置还处于线性增长区，也符合本文的初衷。虽然横流涡在这里还没有完全形成，但是壁面附近已经有了高低速相间的条带。其他位置的敏感因子分布情况与图\ref{f:Guvw1}展示的类似，这里就不再赘述。值得一提的是，相比于敏感因子的大小，敏感因子的正负是指导控制方案的关键。
+\begin{figure}[H]
+  \centering
   % Requires \usepackage{graphicx}
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gu(4).eps}
   \caption{\label{f:Gu1}}
   \end{subfigure}\\
   \bigskip
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gv(4).eps}
   \caption{\label{f:Gv1}}
   \end{subfigure}\\
   \bigskip
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gw(4).eps}
   \caption{\label{f:Gw1}}
   \end{subfigure}
   \caption{Distribution of the sensitivity functions (a) $G_u$, (b) $G_v$ and (c) $G_w$ at $x =280$ with the output location at $x =500$.}\label{f:Guvw1}
 \end{figure}
-%\begin{figure}
-%  \centering
-  % Requires \usepackage{graphicx}
-%  \includegraphics[width=\textwidth]{Gv(4)}\\
-%  \caption{Distribution of sensitivity function $G_v$ at $x=280$ with the output kinetic energy taken at $x=500$}\label{f:Gv1}
-%\end{figure}
-%\begin{figure}
-%  \centering
-  % Requires \usepackage{graphicx}
-%  \includegraphics[width=\textwidth]{Gw(4)}\\
-%  \caption{Distribution of sensitivity function $G_w$ at $x=280$ with the output kinetic energy taken at $x=500$}\label{f:Gw1}
-%\end{figure}
-
-As shown in Figure \ref{f:Gu1}, the positive values of $G_u$ are distributed beneath the high momentum streaks and overlapping with the low momentum streaks. Otherwise values are negative. Figure \ref{f:Gv1} shows that the positive sensitivity function $G_v$ is concentrated on the low momentum streak and vice versa. That means if we want to use wall-normal forcing, like blowing or suction, the suction should be under the low momentum streaks and the blowing need to be under the high momentum streaks. The neutral lines of $G_v$, where $G_v=0$, are not as twisted as that of $G_u$ and $G_w$ and they are more vertical. The distribution of $G_w$ is similar with that of $G_u$, only switched the positive and the negative. Let's remind the control method proposed by D\"orr and Kloker \cite{dorr2016}. They have two basic control setups called case ACF and CCF shown in Fig 4 in their paper. In the case ACF, the body force with positive spanwise component is imposed under the crossflow vortex where nearly the low momentum streaks locates and the $G_w$ are all negative. In their case CCF, the force with opposite direction is introduced at the secondary vortex where the high momentum streaks locates and $G_w$ is positive. According to Eq.(\ref{e:adjointresult}), a negative product of forcing and the sensitivity function yields a dampening of the disturbance kinetic energy, which implies the correctness of the present sensitivity analyses.
-\begin{figure}
+\begin{figure}[H]
   \centering
   % Requires \usepackage{graphicx}
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gu(4)_300.eps}
   \caption{\label{f:Gu1_300}}
   \end{subfigure}\\
   \bigskip
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gv(4)_300.eps}
   \caption{\label{f:Gv1_300}}
   \end{subfigure}\\
   \bigskip
-  \begin{subfigure}{\textwidth}
+  \begin{subfigure}{0.8\textwidth}
   \includegraphics[width=\textwidth]{ch3/Gw(4)_300.eps}
   \caption{\label{f:Gw1_300}}
   \end{subfigure}
   \caption{Distribution of the sensitivity functions (a) $G_u$, (b) $G_v$ and (c) $G_w$ at $x =280$ with the output location at $x =300$.}\label{f:Guvw1_300}
 \end{figure}
-%\begin{figure}
-%  \centering
-%  % Requires \usepackage{graphicx}
-%  \subfloat[][]{
-%  \label{f:Gu1_300}
-%  \includegraphics[width=0.6\textwidth]{ch3/Gu(4)_300.eps}}\\
-%  \subfloat[][]{
-%  \label{f:Gv1_300}
-%  \includegraphics[width=0.6\textwidth]{ch3/Gv(4)_300.eps}}\\
-%  \subfloat[][]{
-%  \label{f:Gw1_300}
-%  \includegraphics[width=0.6\textwidth]{ch3/Gw(4)_300.eps}}\\
-%  \caption{Distribution of the sensitivity functions (a) $G_u$, (b) $G_v$ and (c) $G_w$ at $x =280$ with the output location at $x =300$.}\label{f:Guvw1_300}
-%\end{figure}
 
+如图\ref{f:Gu1}所示，$G_u$的正值分布在高速条带下方，并且斜着向上延伸，与相邻的低速条带重合。正值区与负值区相间交替出现。图\ref{f:Gv1}中，$G_v$的正值主要集中在低速条带出现的区域，而高速条带位置主要是负值。这意味着如果想要通过法向激励的方式，比如壁面垂直吹吸之类的方法控制失稳，那么就需要在低速条带下面吸气，在高速条带下面吹气。$G_v$的0值等值线并不像$G_u$和$G_w$的0值等值线那样扭曲。$G_w$的分布情况基本与$G_u$类似，只是正负值分布的区域做了交换。在D\"orr和Kloker\cite{dorr2016}提出的等离子体控制方法中，他们有两个基础的控制算例分别叫做ACF和CCF。这两个控制算例的计算结果展示在他们文章的Fig 4 中。在ACF算例，有着展向正方向分量的体积力被施加在了横流涡下方，也就是图\ref{f:Gw1}所示的$G_w$恰好是负值的位置。在他们的算例CCF中，有着与ACF中体积力相反方向的体积力被施加在了二次涡出现的位置，也就是图\ref{f:Guvw1_300}中所示高速条带的位置。这里一位置的$G_w$恰好是正的。从式（\ref{e:adjointresult}）可知，负的敏感因子乘上正的体积力，或者是正的敏感因子乘上负的体积力，都可以得到负的扰动能量变化，也就是使得扰动变弱。D\"orr和Kloker\cite{dorr2016}的结果也印证了这里敏感性分析的结论。在下一小节的等离子体控制算例的结果，也会对本文推倒的敏感性分析做相关的印证。
 
-Then, different output locations are considered at $x=450,400,300$. Figure \ref{f:Guvw1_300} shows the contours of streamwise velocity and isolines of three sensitivity functions at the cross-section $x=280$ and with the output location at $x=300$. Compared to the case at $x=500$ (see figure \ref{f:Guvw1}), the most sensitive region with respect to streamwise and spanwise force components moves downward to the wall. However, similar patterns to figure \ref{f:Guvw1} are found at $x=350,400$ and 450 (not shown). From this result, we can conclude that in terms of the vicinity influence, force near the wall works better than that away from the wall. Since we are concerned with the evolution of disturbance kinetic energy away from the actuator location, which means sensitivity functions away from the output location, all results shown hereafter are from the case output location at $x=500$.
+由于并不知道扰动能量输出位置的选取对敏感性因子的计算结果有没有影响，所以本文计算了输出位置在$x=450,400,350,300$的敏感性因子分布。图\ref{f:Guvw1_300}给出了$x=280$截面上流向速度分布云图和敏感性因子的等值线，但这一次的扰动能量输出位置选取在$x=300$。相比较输出位置选取在$x=500$，流向和展向敏感因子的分布更加的贴近壁面。然而，当输出位置与所观察的截面想去较远时，如输出位置在$x=350,400,450$，则结果和图\ref{f:Guvw1}中的分布几乎完全一样。所以这里不再将这些相同的分布罗列出来。所以，通过比较输出位置在$x=500,450,400,350,300$这五个算例，可以下如下结论：当在近所关心位置上游不远处进行控制时，更加靠近壁面的控制激励效果更好。但是这一效应在远离所关心位置之后迅速衰减并消失。由于本文之后采取的控制措施都是在离关心区域较远的位置，之后展示的敏感因子均是以$x=500$为输出位置计算得到的。
 
-\begin{figure}
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=\textwidth]{ch3/Gw_xz.eps}\\
   \caption{Distribution of sensitivity functions $G_w$ at $y=1$}\label{f:Gw_xz}
 \end{figure}
 
-Figure \ref{f:Gw_xz} plots the iso-lines of the sensitivity function, $G_w$, and the contours of the streamwise velocity component in a $z-x$ plane near the wall. From this figure, the streaks can be seen clearly. The red color indicates the high-momentum streak, and the blue indicates the low-momentum streak. Away from the output location, the $G_w$ isolines are parallel to the streak direction. Therefore, the best choice is to set the actuated body-force direction parallel to the streak direction, the crossflow vortex axis, which ensures that the actuation affects the most sensitive region at each streamwise location. D\"orr and Klocker \cite{dorr2015stabilisation,dorr2016} always put their control devices in this manner.
+图\ref{f:Gw_xz}给出了靠近壁面$z-x$平面上，展向敏感因子$G_w$的分布等值线和流向速度分布云图。从图中可以清楚的看到高低速条带的相间分布。其中红色代表着高速条带，蓝色代表着低速条带。在远离输出位置的区域内，可以看到$G_w$的等值线基本上与条带平行。不平行的区域只有大约不到40的无量纲长度。这意味着最佳的等离子激发器布置方案也应该是平行于高低速条带，也就是平行于横流涡轴。这样可以保证在每一个横截面内，激发器产生的体积力都处在流动最敏感的区域内。D\"orr和Klocker \cite{dorr2015stabilisation,dorr2016}提出的控制方法就总是让激发器平行于横流涡轴。
 
-The maximum value of sensitivity functions over spanwise direction is shown in Y-X plane in Figure \ref{f:Guvw_xy}. Since we use the same contour level in all the three pictures, it is evident that the flow is more sensitive to streamwise forcing than that in other two directions. The most sensitive region is located inside the boundary layer but away from the wall. That is because too close to the wall viscous effect and no-slip boundary condition dominate and thus the body force effect declines.
-\begin{figure}
+图\ref{f:Guvw_xy}给出了三个方向敏感性因子展向最大值在$y-x$平面内的分布。从图中可以看到，流向的敏感性因子最大。另外，最敏感的区域位于边界层内，但是离壁面却还有一定的距离。这是因为在壁面附近，粘性主导，速度剪切很大，体积力想改变流动非常困难，远不如远离壁面的位置改变流动容易。当然，如果出了边界层，体积力产生的扰动又不会影响失稳模态，从而敏感性也会降低。所以最敏感的区域出现在高度适中的位置。
+
+图\ref{f:maxsen}
+\begin{figure}[H]
   \centering
   % Requires \usepackage{graphicx}
   \begin{subfigure}{\textwidth}
@@ -152,21 +190,6 @@ The maximum value of sensitivity functions over spanwise direction is shown in Y
   \end{subfigure}
   \caption{Contours of maximum (a) $G_u$, (b) $G_v$ and (c) $G_w$ along the Z direction with the output location at x=500.}\label{f:Guvw_xy}
 \end{figure}
-%\begin{figure}
-%  \centering
-%  % Requires \usepackage{graphicx}
-%  \subfloat[][]{
-%  \label{f:Gu_xy}
-%  \includegraphics[width=0.6\textwidth]{ch3/maxGu_xy.eps}}\\
-%  \subfloat[][]{
-%  \label{f:Gv_xy}
-%  \includegraphics[width=0.6\textwidth]{ch3/maxGv_xy.eps}}\\
-%  \subfloat[][]{
-%  \label{f:Gw_xy}
-%  \includegraphics[width=0.6\textwidth]{ch3/maxGw_xy.eps}}\\
-%  \caption{Contours of maximum (a) $G_u$, (b) $G_v$ and (c) $G_w$ along the Z direction with the output location at x=500.}\label{f:Guvw_xy}
-%\end{figure}
-
 \begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
@@ -187,7 +210,7 @@ Since the mean flow correction mode, (0,0) mode, does not have a complex conjuga
 
 Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the local crossflow vortex. The spanwise locations simulated are at $z/T_z = 0.5, 0.6, 0.7, 0.8, 0.9$ and 1.0, with the corresponding Cases (a) to (f). Here, $T_z$ is the wavelength of the primary mode. In Figure \ref{f:spanwiseeffect}, the extent of the actuation region is shown within 2 blue dots; (0,0) mode represents the meanflow correction mode, (0,1) mode the primary mode, and (0,2) mode the mode with double the spanwise wave number of the primary mode. All the first number 0 indicates the frequency is zero and they are all steady modes. The characteristic of the primary mode is consistent with that of the target mode in sensitivity analyses: In Cases (d) and (e), the primary-mode energy decreases considerably with the actuator imposed at the bottom of the crossflow vortex, the negative $G_w$ region. The minimum values of the primary modes' energy are 0.0067 and 0.0077 for Cases (d) and (e), respectively. However, in Cases (a) to (d), the (0,2) mode is promoted, as also observed by D\"orr and Kloker in their DNS study \cite{dorr2016} (Fig 8 in their paper). The (0,2) mode's energy even exceeds that of the primary mode (see Figure \ref{f:d}). Fortunately, in the actuation region all-mode energy decreases in Cases (e) and (f). Therefore, the optimal spanwise actuator location is $z/Tz=0.9$. Note that results with only two spanwise locations are shown in D\"orr and Kloker's DNS\cite{dorr2016}, and in both of them the (0,2) modes were promoted.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}           %
         \includegraphics[width=\linewidth]{ch3/comparemodes(a).eps}
@@ -226,7 +249,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
     \caption{Comparison of the streamwise mode-energy evolution with the actuator imposed at different spanwise locations: (a) $z/T_z = 0.5$, (b) $z/T_z = 0.6$, (c) $z/T_z = 0.7$, (d) $z/T_z = 0.8$, (e) $z/T_z = 0.9$, (f) $z/T_z = 1.0$.}
     \label{f:spanwiseeffect} %% label for entire figure
 \end{figure}
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}           %
         %% label for first subfigure
@@ -302,19 +325,19 @@ The optimal spanwise location of the plasma actuators is used to investigate the
 
 Figure \ref{modesenergycase3} gives the LST results of the growth rate of steady crossflow modes for Case 2, where the crossflow velocity is doubled to investigate the operating voltage effect. The first unstable mode appears at $x =85$, with $\beta$ of 0.05; the maximum mode growth rate is 0.0336 with $\beta$ of 0.26 at $x =451$. The neutral-curve slope of the upper branch is smaller than that for Case 1. Figure \ref{growthratecase3} further shows the evolution of the mode energy obtained using NPSE. The simulated wave numbers are 0.1, 0.2, 0.3 and 0.4. The mode with $\beta$ of 0.1 becomes the most unstable upstream but increases slowly compared to the others. Due to its relatively early start and large increase rate, the mode with $\beta$ of 0.2 is chosen as the target mode in the following study.
 
-\begin{figure}
-  \centering
-  % Requires \usepackage{graphicx}
-  \begin{subfigure}{0.48\linewidth}
-    \label{modesenergycase3}
-    \includegraphics[width=\linewidth]{ch3/growthratecase2.eps}
-  \end{subfigure}
-  \begin{subfigure}{0.48\linewidth}
-    \label{growthratecase3}
-    \includegraphics[width=\linewidth]{ch3/umax4case2.eps}
-  \end{subfigure}
-  \caption{Growth rate of steady crossflow modes (a) and evolution of mode energy (b) computed using LST and NPSE, respectively.}\label{f:baseline}
-\end{figure}
+%\begin{figure}
+%  \centering
+%  % Requires \usepackage{graphicx}
+%  \begin{subfigure}{0.48\linewidth}
+%    \label{modesenergycase3}
+%    \includegraphics[width=\linewidth]{ch3/growthratecase2.eps}
+%  \end{subfigure}
+%  \begin{subfigure}{0.48\linewidth}
+%    \label{growthratecase3}
+%    \includegraphics[width=\linewidth]{ch3/umax4case2.eps}
+%  \end{subfigure}
+%  \caption{Growth rate of steady crossflow modes (a) and evolution of mode energy (b) computed using LST and NPSE, respectively.}\label{f:baseline}
+%\end{figure}
 The results of the sensitivity analyses (not shown) are similar to those for Case 1. The higher freestream spanwise velocity in Case 2 allows us to adopt higher operating voltages of 9kV and 10kV. Figure \ref{f:voltage} compares the streamwise mode-energy evolution with different operating actuator voltages. The actuation region ranges from 500 to 550 in the $x$ direction with the optimum spanwise location for each case. The simulated operating voltages are 8 kV, 9 kV and 10 kV, with corresponding maximum jet velocity magnitudes of 1.7 m/s, 2.8 m/s and 3.8 m/s, respectively. Note that only 8,9,10,11,12 kV voltages were provided in the measurement \cite{kriegseis2013velocity} and the last two were too strong for our case. An increase in operating voltage leads to more efficient disturbance suppression upstream for $x = 530$. However, for the case with a 10 kV operating voltage, the disturbance energy starts to increase downstream for $x = 530$, and the energy of the mean flow distortion mode (0, 0) as well as the harmonic mode (0, 2) even exceeds the energy of the primary mode (0, 1). Eventually the harmonic mode (0, 2) dominates the flow. Forcing that is too strong may cause the formation of nocent vortices that promote transition to turbulence, as also reported by the DNS study \cite{dorr2016}. Therefore, it can be concluded that for Case 2, the moderate operating voltage of 9 kV provides the most effective flow-transition delay control.
 
 \begin{figure}
