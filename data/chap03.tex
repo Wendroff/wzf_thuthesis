@@ -170,7 +170,7 @@
 
 图\ref{f:Guvw_xy}给出了三个方向敏感性因子展向最大值在$y-x$平面内的分布。从图中可以看到，流向的敏感性因子最大。另外，最敏感的区域位于边界层内，但是离壁面却还有一定的距离。这是因为在壁面附近，粘性主导，速度剪切很大，体积力想改变流动非常困难，远不如远离壁面的位置改变流动容易。当然，如果出了边界层，体积力产生的扰动又不会影响失稳模态，从而敏感性也会降低。所以最敏感的区域出现在高度适中的位置。
 
-图\ref{f:maxsen}
+图\ref{f:maxsen}给出了不同流向位置敏感性因子在横截面上最大值的分布。图中虚线表示的是中心点的位置$x=134$。敏感性因子的峰值大约在中性点前一点点的位置。这和文献\cite{pralits2000sensitivity}中给出的二维平板的敏感性分析结果类似。这一结果与本文之前给出的基于LST的敏感性分析类似，从而也互相印证了这两种方法的正确性。在失稳区域，敏感性快速下降，这也意味着对扰动的控制在外加体积力相同的条件下，越靠近上游越好。但是需要注意的是，敏感性分析的前提假设是体积力引入的扰动相对于流动本身就有的扰动是一个小量。很显然，在上游扰动刚刚生成，还非常弱，如果引入的体积力会产生比自然扰动还强的扰动，则反而会适得其反，使得新的扰动盖掉了之前的自然扰动，反而会促进转捩。所以合适的最佳流向位置还需要做进一步的研究。
 \begin{figure}[H]
   \centering
   % Requires \usepackage{graphicx}
@@ -197,18 +197,17 @@
   \caption{Streamwise distributions of the maximum value of the sensitivity functions on the y-z plane}\label{f:maxsen}
 \end{figure}
 
-Figure \ref{f:maxsen} shows the streamwise distributions of the maximum value of the sensitivity functions on each cross-section. As mentioned before, the neutral point is located at $x=134$ and it is indicated with a vertical dash line in the figure. The maximum values appear immediately upstream of the neutral point consistent with the findings by Pralits \cite{pralits2000sensitivity} for a flat-plate case. Downstream of the neutral point, all sensitive functions decrease rapidly with increasing $x$. This indicates that the actuator is more effective when placed further upstream until the neutral point. However, if the actuator is sufficiently close to the neutral point, it is likely to act as a strong disturbance that over-rides the natural disturbance and dominates transition. Nevertheless, from these sensitivity analyses, we have learnt about the features of this flow from one perspective and determined that the upstream control could be more efficient in the interval in which the natural disturbance have fully developed.
 \section{采用等离子体激发器推迟后掠Hiemenz流动转捩}
-However, the sensitivity analyses are based on a linear assumption, and NPSE computations are required to further investigate the actuator location effect. Here, the data for the body force distribution obtained from the experiment \cite{kriegseis2013velocity} with an actuator operating voltage of 8 kV are used. Figure \ref{f:spanwiseeffect} compares the streamwise mode-energy evolution with the actuator imposed at different spanwise locations. Here, the mode-energy is defined as following:
+上一小节给出的敏感性分析都是基于线性稳定性的，这一小节将重点介绍非线性抛物华扰动方程（NPSE）计算的结果。在这一小节中，等离子体模型均使用之前介绍的Kriegseis的模型\cite{kriegseis2013velocity}。所有激发器的电压均为8kV。更高的电压也做过测试，但是由于NPSE本身是一种稳定性分析的方法，是用来计算小扰动的。当大于8kV的电压加入到流场中，计算就因为扰动过强而直接崩溃了。在崩溃前可以观察到扰动能量的大幅提升。这也说明了过高的电压对转捩反而会起到促进作用。采用8kV的电压进行控制时，首先研究了展向的位置效应。控制时，在每个展向波长内放置一个激发器。由于这样的激励会直接刺激主模态，所以本文中将这种方法命名为谐波激励。激发器位于不同的展向位置时，边界层内的扰动能量演化情况如图\ref{f:spanwiseeffect}所示。在本文中，模态能量的定义如下：
 \begin{equation}
 {\rm Energy}=\frac{1}{2}\int_{0}^{\infty}{(|\hat u|^2+|\hat v|^2+|\hat w|^2)dy}
 \end{equation}
-Since the mean flow correction mode, (0,0) mode, does not have a complex conjugate, its energy is defined as following:
+由于平均流修正模态（或叫做基本流修正模态），也就是(0,0)模态并没有复共轭，所以它的能量定义为：
 \begin{equation}
 {\rm Energy}_{00}=\frac{1}{4}\int_{0}^{\infty}{(|\hat u|^2+|\hat v|^2+|\hat w|^2)dy}
 \end{equation}
 
-Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the local crossflow vortex. The spanwise locations simulated are at $z/T_z = 0.5, 0.6, 0.7, 0.8, 0.9$ and 1.0, with the corresponding Cases (a) to (f). Here, $T_z$ is the wavelength of the primary mode. In Figure \ref{f:spanwiseeffect}, the extent of the actuation region is shown within 2 blue dots; (0,0) mode represents the meanflow correction mode, (0,1) mode the primary mode, and (0,2) mode the mode with double the spanwise wave number of the primary mode. All the first number 0 indicates the frequency is zero and they are all steady modes. The characteristic of the primary mode is consistent with that of the target mode in sensitivity analyses: In Cases (d) and (e), the primary-mode energy decreases considerably with the actuator imposed at the bottom of the crossflow vortex, the negative $G_w$ region. The minimum values of the primary modes' energy are 0.0067 and 0.0077 for Cases (d) and (e), respectively. However, in Cases (a) to (d), the (0,2) mode is promoted, as also observed by D\"orr and Kloker in their DNS study \cite{dorr2016} (Fig 8 in their paper). The (0,2) mode's energy even exceeds that of the primary mode (see Figure \ref{f:d}). Fortunately, in the actuation region all-mode energy decreases in Cases (e) and (f). Therefore, the optimal spanwise actuator location is $z/Tz=0.9$. Note that results with only two spanwise locations are shown in D\"orr and Kloker's DNS\cite{dorr2016}, and in both of them the (0,2) modes were promoted.
+图\ref{f:spanwiselocations}给出了不同算例中等离子体激发器产生的体积力和横流涡的展向位置关系。这里列出的激发器的展向位置分别在$z/T_z = 0.5, 0.6, 0.7, 0.8, 0.9, 1.0$，本文之后简记为算Case（a）-（f）。由于横流涡是斜的，所以在不同的流向界面上，横流涡所处的展向位置并不相同。也就是说单说展向坐标并没有实际意义，关注的主要应该放在体积力和横流涡的相对位置上。图中的颜色云图是体积力的分布，截掉了小于最大值10\%的颜色。图中的线是流向速度的等值线，可以看到横流涡将壁面的低速流动卷起并翻转。等离子体在流向的激励区域用两个蓝色的点表示出来。这里模态还是用频率-展向波数来表示。由于本文针对的还都是驻涡模态，所以第一个数字都是零。第二个数据表示模态展向波数相对于主模态展向波数的倍数。如之前提到的(0,0)模态即为基本流修正模态，(0,1)是主模态，(0,2)是半波长的次谐波模态。从图\ref{f:spanwiseeffect}中可以看到，主模态的演化规律和之前敏感性分析预测的结果吻合：在Cases(d)和(e)中，主模态能量大幅下降，而这时体积力的位置正好在横流涡的下方，也就是之前敏感性分析得到的$G_w$为负值的区域。在这两个算例中，主模态的能量分别降到了0.0067和0.0077。然而在Cases(a)到(d)中，(0,2)模态被促进了，这和D\"orr与Kloker\cite{dorr2016}在他们的DNS的结果中观察到的相同（他们文章中的Fig 8）。在有些算例中（图\ref{f:d}），(0,2)模态的能量甚至超过了主模态的能量。不过，在Cases(e)和(f)中，并没有出现(0,2)模态被促进这一现象。所以，半波长模态能量的增加并不是所有算例共有的特性，通过调整激发器的展向位置，是可以有效降低所有模态的能量的。在图中所示的算例中，可以看到激发器在$z/Tz=0.9$效果最好。需要提一下的是，D\"orr和Kloker的 DNS\cite{dorr2016}结果中，所有算例里(0,2)模态都被激发了。
 
 \begin{figure}[H]
     \centering
@@ -289,26 +288,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
     \caption{Comparison of the streamwise mode-energy evolution with the actuator imposed at different spanwise locations: (a) $z/T_z = 0.5$, (b) $z/T_z = 0.6$, (c) $z/T_z = 0.7$, (d) $z/T_z = 0.8$, (e) $z/T_z = 0.9$, (f) $z/T_z = 1.0$.}
     \label{f:spanwiselocations} %% label for entire figure
 \end{figure}
-%\begin{figure}
-%\ContinuedFloat
-%    \centering
-%    \subfloat[][]{           %
-%        \label{f:d} %% label for first subfigure
-%        \includegraphics[width=0.45\linewidth]{comparemodes(d)}
-%        \includegraphics[width=0.45\linewidth]{forceposition(d)}} \\
-    %\hspace{0.0in}
-%    \subfloat[][]{           %
-%        \label{f:e} %% label for first subfigure
-%        \includegraphics[width=0.45\linewidth]{comparemodes(e)}
-%        \includegraphics[width=0.45\linewidth]{forceposition(e)}} \\
-%    \subfloat[][]{           %
-%        \label{f:f} %% label for first subfigure
-%        \includegraphics[width=0.45\linewidth]{comparemodes(f)}
-%        \includegraphics[width=0.45\linewidth]{forceposition(f)}}
-%    \caption{Comparison of crossflow profiles at different streamwise location}
-%    \label{f:spanwiseeffect2} %% label for entire figure
-%\end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=\linewidth]{ch3/compare160427-enegy(1).eps}\\
@@ -322,6 +302,7 @@ Figure \ref{f:spanwiselocations} depicts the actuator locations relative to the 
 \end{figure}
 
 The optimal spanwise location of the plasma actuators is used to investigate their streamwise location effect on transition using NPSE. In sensitivity analyses, a plasma actuator location upstream as possible without contaminating the quiet boundary layer is suggested. Figure \ref{f:streamforce} compares the streamwise mode-energy evolution within different streamwise actuation regions. The actuation regions have the same extent (shown between the two large dots) but different start points, $x_{start}$, at $x=315, 358$ and 400. Here, the body force's strength is reduced to one tenth of the original, because too strong force at upstream will contaminate the boundary layer. A much lower mode energy is obtained for the case with $x_{start}=358$ compared to the one with $x_{start}=400$ because $x_{start}$ of the former case is closer to the neutral point at $x=134$, as pointed out in the sensitivity analyses. Figure \ref{f:streamforce2} further depicts the reduction of the maximum streamwise velocity of the primary mode downstream of $x_{start}$. The largest reduction is given for the case with $x_{start}=315$ in the vicinity of $x_{start}$, where the actuated body-force integration is small and therefore the sensitivity analyses based on the linear assumption are still acceptable. However, downstream of $x_{start}+18.7$, the primary mode suppression becomes weaker and weaker for the case with $x_{start}=315$ because here disturbances are introduced so far upstream that they contaminate the essentially quiet boundary layer. This explains why the case with $x_{start}=358$ provides the most effective flow-transition delay control, as shown in Figure \ref{f:streamforce}.
+接下来进行等离子体激发器流向位置效应的研究。需要提及的是，在每一个流向位置，本文都测试了诸多展向控制位置，并且将其中最好的一个算例选取出来进行比较。每一个位置的激发器展向效应与之前给出的类似，这里便不再赘述。研究方法依然选用的是NPSE。读者可以回忆之前敏感性分析的结果，不论是基于LST的敏感性分析还是基于PSE的敏感性分析，都支出在失稳区域越上游控制越有效。图\ref{f:streamforce}对比了控制开始于
 
 Figure \ref{modesenergycase3} gives the LST results of the growth rate of steady crossflow modes for Case 2, where the crossflow velocity is doubled to investigate the operating voltage effect. The first unstable mode appears at $x =85$, with $\beta$ of 0.05; the maximum mode growth rate is 0.0336 with $\beta$ of 0.26 at $x =451$. The neutral-curve slope of the upper branch is smaller than that for Case 1. Figure \ref{growthratecase3} further shows the evolution of the mode energy obtained using NPSE. The simulated wave numbers are 0.1, 0.2, 0.3 and 0.4. The mode with $\beta$ of 0.1 becomes the most unstable upstream but increases slowly compared to the others. Due to its relatively early start and large increase rate, the mode with $\beta$ of 0.2 is chosen as the target mode in the following study.
 
