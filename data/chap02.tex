@@ -147,7 +147,7 @@ $\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组�
 式（\ref{e:ble_dis}）和（\ref{e:jb}）的具体形式将在附录\ref{app:ble}中给出。
 
 为了验证程序是否正确，首先将计算结果与零压力梯度平板上的相似性解进行对比。这里采用的计算工况为：
-\begin{equation}\label{}
+\begin{equation}
   U_\infty  = 100{\rm m/s},T_\infty  = 300{\rm K},\nu_\infty  = 1.5 \times 10^{ - 5} {\rm m^2 /s}
 \end{equation}
 对比$x=1$m，即$\Rey_x=6.67\times10^6$，位置处各个物理量延法向的分布如图\ref{f:0PreassureGradienPlate}所示。其中黑色由方框标记的线为边界层方程求解出来的结果，红色由三角标记出来的先为相似性解的结果。可以看到两种算法的结果几乎完全重合了。
@@ -248,11 +248,11 @@ $\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组�
   \mathscr{L}\hat{\mathbf{q}}=\mathscr{L}_0\hat{\mathbf{q}}+\alpha \mathscr{L}_1\hat{\mathbf{q}} + \alpha^2\mathscr{L}_2\hat{\mathbf{q}}=0
 \end{equation}
 引入一个辅助变量：
-\begin{equation}\label{}
+\begin{equation}
   \tilde{\mathbf{q}}_a = \alpha\tilde{\mathbf{q}}
 \end{equation}
 则式（\ref{e:LST}）可以改写为：
-\begin{equation}\label{}
+\begin{equation}
   \left(
   \begin{array}{cc}
     0 & 1 \\
@@ -370,7 +370,7 @@ $\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组�
     \int_{0}^{+\infty}\mathbf{a}\cdot(\mathscr{L}\mathbf{b})^Tdy=\int_{0}^{+\infty}(\mathscr{L}^+\mathbf{a})\cdot\mathbf{b}^Tdy
 \end{equation}
 若定义内积$<\mathbf{a},\mathbf{b}>=\int_{0}^{+\infty}\mathbf{a}\cdot\mathbf{b}^Tdy$,则有：
-\begin{equation}\label{}
+\begin{equation}
   <\mathbf{a},\mathscr{L}\mathbf{b}> = <\mathscr{L}^+\mathbf{a},\mathbf{b}>
 \end{equation}
 引入体积力后，方程变为：
@@ -397,7 +397,7 @@ $\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组�
     {{\partial y}} + {\mathbf{\hat D\hat q}}  - {\mathbf{H}}_{yy} \frac{{\partial ^2 {\mathbf{\hat q}} }}
     {{\partial y^2 }} = {\mathbf{S}}
 \end{equation}
-with the output defined as:
+在研究敏感性问题时，需要有一个输出目标函数。在基于LST的敏感性分析中，扰动模态的增长率是一个天然且绝佳的候选项。在PSE的敏感性分析中，这里将下游某一位置的扰动能量作为输出函数。实际上敏感性分析可以理解为这一输出函数对输入变量，本文中也就是体积力的导数。输出函数的具体定义见式（\ref{e:PSEoutput_energy}）
 \begin{equation}
 \label{e:PSEoutput_energy}
 J = E = \left[ {\frac{1}
@@ -406,8 +406,8 @@ J = E = \left[ {\frac{1}
 = \frac{1}
 {2}\int_0^{T_z } {\int_0^\infty  {\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M\hat q}}_1 dydz} }
 \end{equation}
-The subscript `1' represents the quantities at the outlet. $T_z$ is the spanwise wave length of the instability mode. Then we differentiate the output function, the governing equation (\ref{LPSE1}) and the auxiliary condition (\ref{e:auxiliary}) with respect to the control variables, namely the distributed body force, and the state variables $\alpha$ and $\mathbf{\hat q}$:
-\begin{equation}
+上式中，下标`1'代表着计算出口处，也就是提取输出函数位置的物理量。$T_z$是失稳模态的展向波长。之后，对输出函数、控制方程（\ref{LPSE1}）和波数迭代条件（\ref{e:auxiliary}）做变分，得到下式：
+\begin{equation}\label{e:bianfenJ}
 \begin{aligned}
 \delta J & = \frac{1}
 {2}\int_0^{T_z } {\int_0^\infty  {\left| {\Theta _1 } \right|^2 {\mathbf{\hat q}}_1 ^H {\mathbf{M}}\delta {\mathbf{\hat q}}_1 dydz} }  \\
@@ -425,12 +425,12 @@ The subscript `1' represents the quantities at the outlet. $T_z$ is the spanwise
 {{\partial x}} + {\mathbf{\hat q}}^H {\mathbf{M}}\frac{{\partial \delta {\mathbf{\hat q}}}}
 {{\partial x}}} \right)dy}  = 0
 \end{equation}
-Here, $c.c.$ is the complex conjugate of all the terms in the equation, $x_0$ and $x_1$  the streamwise coordinates of the inlet and the outlet, respectively. Next, we define the inner product of two arbitrary vectors $\mathbf a$ and $\mathbf b$ as the following:
+这里$c.c.$代表方程中所有项的复共轭，$x_0$和$x_1$分别是入口和出口处的流向位置。在进行下一步推导之前，需要先定义内积。在PSE的框架下，本文将内积定义为两个场向量点积之后在全计算域内的积分，即$\mathbf a$与$\mathbf b$的积分记作：
 \begin{equation}
 \label{e:innerproduct}
 <\mathbf{a},\mathbf{b}>=\int_{0}^{T_z}\int_{x_0}^{x_1}\int_{0}^\infty (\mathbf{a}^H\mathbf{b})dydxdz
 \end{equation}
-A complex adjoint vector ${\mathbf{\hat q}}^*$ and a complex function $r^*(x)$ are then introduced. Taking inner product of the adjoint vector with Eq.~(\ref{e:dLPSE}) and $r^*(x)$ with Eq.~(\ref{e:dAuxilary}), adding the complex conjugates of each term, we obtain the following identity:
+其实接下来需要做的就是想办法消去式（\ref{e:bianfenJ}）中的中间变量。这里，引入一个所谓的伴随向量${\mathbf{\hat q}}^*$和复变量$r^*(x)$。令这两个量分别与方程（\ref{e:dLPSE}）和（\ref{e:dAuxilary}）做内积,并加上他们的复共轭，可以得到恒等式：
 \begin{equation}
 \label{e:dadjoint1}
 \begin{aligned}
@@ -438,8 +438,7 @@ A complex adjoint vector ${\mathbf{\hat q}}^*$ and a complex function $r^*(x)$ a
      +<{\mathbf{\hat q}}^*,{\mathscr{L}}\delta {\mathbf{\hat q}}-\delta {\mathbf{S}} + \frac{{\partial {\mathscr{L}}}}{{\partial \alpha }}\delta \alpha {\mathbf{\hat q}} > + c.c. = 0
 \end{aligned}
 \end{equation}
-Any arbitrary vector $\mathbf{\hat q}^*$ and complex function $r^*$ can satisfy Eq.~(\ref{e:dadjoint1}). To eliminate unnecessary terms, appropriate $\mathbf{\hat q}^*$ and $r^*$ must be identified.  First, we let the adjoint vector satisfy the adjoint equation and the adjoint auxiliary condition shown in Eq.~{(\ref{e:adjointa}) and Eq.~{(\ref{e:adjoint})}. Due to the parabolic feature of the original equation, this adjoint equation is also parabolic and can be solved using a marching scheme. The only difference is that this equation should be marched from the outlet to the inlet.
-%To simplify the equation (\ref{e:dadjoint1}), firstly, we let the adjoint vector satisfy the adjoint equation and the adjoint auxiliary condition shown in (\ref{e:adjointa}). Due to the parabolic feature of the original equation, this adjoint equation is also parabolic and it can be solved using a marching scheme. The only difference is that this equation should be marched from the outlet to the inlet.
+很显然，对于任意的$\mathbf{\hat q}^*$和$r^*$都能够使上面的等式成立。为了消除中间变量，需要选取好的$\mathbf{\hat q}^*$和$r^*$。这里，本文令这两个变量分别满足伴随方程（\ref{e:adjointa}）和伴随波数迭代条件（\ref{e:adjoint}）。很容易证明，伴随方程也是椭圆性的，计算的时候可以从下游向上游回溯推进求解。
 \begin{equation}
 \label{e:adjoint}
 \mathscr{L}^* {\mathbf{\hat q}}^*  = \left( {\bar r^*  - r^* } \right){\mathbf{M}}\frac{{\partial {\mathbf{\hat q}}}}
@@ -451,7 +450,7 @@ Any arbitrary vector $\mathbf{\hat q}^*$ and complex function $r^*$ can satisfy 
 \int_0^\infty  {\left( {\mathbf{\hat q} ^{*H} \frac{{\partial {\mathscr{L}}}}
 {{\partial \alpha }}\mathbf{\hat q} } \right)dy}  = \int_0^\infty  {{\rm i}\left| {\Theta _1 } \right|^2 \mathbf{\hat q} _1 ^H \mathbf{M\hat q} _1 dy}
 \end{equation}
-the $\mathscr{L}^*$ is the adjoint operator of the linear PSE and the bar overhead means complex conjugate. The initial value of the adjoint vector and the function $r^*$ at the outlet is shown below:
+$\mathscr{L}^*$是PSE伴随方程算子，字母上的横线表示相应变量的复共轭。伴随向量和$r^*$计算的初始值，也就是出口处的值为：
 \begin{equation}
 \label{e:adjointini}
 %\begin{aligned}
@@ -463,25 +462,25 @@ r_1^*  = c + \left| {\Theta _1 } \right|^2  \hfill \\
 \end{gathered}
 %\end{aligned}
 \end{equation}
- If the adjoint vector and $r^*$ satisfy the Eq.~(\ref{e:adjoint}) (\ref{e:adjointa}) and (\ref{e:adjointini}), Eq.~(\ref{e:dadjoint1}) can be written as follows:
+综上，如果伴随向量和$r^*$满足上面给出的式（\ref{e:adjoint}）（\ref{e:adjointa}）和（\ref{e:adjointini}），那么式（\ref{e:dadjoint1}）可以简化为：
 \begin{equation}
 \label{e:dj}
 \delta J = \frac{1}
 {2} < \hat \varphi ^* ,\delta {\mathbf{S}} >  + c.c.
 \end{equation}
-To investigate the body-force effect on the disturbance energy growth in boundary layers, $\mathbf{F}$ and $\mathbf{S}$ are set to zero for the unexcited case. The variation of the output is thus exactly the difference between the unexcited and excited cases. The variation of the body force can be expressed as the following:
+也就是说，不再需要求解PSE方程，直接通过计算伴随向量和外加体积力的内积，便可以直接得到体积力对下游扰动能量的影响。当然，式（\ref{e:dj}）中的$\delta {\mathbf{S}}$还是形函数控制方程中的源项的变化，需要将其转换到实际的体积力中。本文做稳定分析主要老师对比添加控制和不添加控制下的扰动能量，所以令初始的体积力为0，这样的话，体积力的变化可以写为：
 \begin{equation}
 \label{e:df}
 \delta {\mathbf{F}} = \Theta \delta {\mathbf{S}} + {\mathbf{S}}{\rm i}\int_{x_0 }^x {\delta \alpha (x')dx'}  = \Theta \delta {\mathbf{S}}
 \end{equation}
-According to Eq.~(\ref{e:df}), Eq.~(\ref{e:dj}) can be rewritten as follows:
+代入式（\ref{e:dj}），得到：
 \begin{equation}
 \label{e:dj2}
 \delta J = \frac{1}
 {2} < \hat \varphi ^* ,\frac{{\delta {\mathbf{F}}}}
 {\Theta } >  + c.c.
 \end{equation}
-Note that the body force term is simply a Fourier component of the total physical force because we only focus on one instability mode. To compute the variation of the kinetic energy caused by a spanwise periodical body force, the first step is to transform it into a Fourier space and then extract the corresponding component as the body-force term. Taking this transformation into account and expanding Eq.~(\ref{e:dj2}), the variation of the disturbance kinetic energy is expressed in the following Integral form:
+将上式展开并写成分量的形式，最终得到：
 \begin{equation}
 \label{e:adjointresult}
 \delta J = \int_0^{T_z } {\int_{x_0 }^{x_1 } {\int_0^\infty  {\left( {G_u \delta f_x  + G_v \delta f_y  + G_w \delta f_z } \right)dydxdz} } }
@@ -494,6 +493,6 @@ G_v  = {\rm real}(\hat v^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - 
 G_w  = {\rm real}(\hat w^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - in\beta z}) )\\
 \end{gathered}
 \end{equation}
-Here the three coefficient, $G_u$, $G_v$ and $G_w$, are sensitivity functions that indicate the disturbance sensitivity to the body force.
+本文将$G_u$, $G_v$ and $G_w$命名为流向、法向、展向敏感性因子，并在之后展示的结果中给出他们的具体分布，以探究体积力对失稳过程的影响。
 \section{充分发展槽道的直接数值模拟}\label{sec:DNS}
 
