@@ -100,14 +100,10 @@ NPSE计算得到的几个算例中的主模态幅值沿着流向演化的曲线�
 
 \section{采用等离子体激发器推迟后掠翼上流动转捩}
 
-\subsection{Harmonic control: one actuator per wavelength}\label{subs:control1}
-As mentioned before, there are seven constants ($a_0$, $a_1$, $a_2$, $b_0$, $b_1$, $b_2$, and $c_{\rm force}$) that need to be determined in the plasma model. D\"orr and Kloker pointed out that the body force should spread over the boundary layer but  not extend beyond its edge \cite{dorr2015stabilisation}. Figure \ref{f:BLvelocityprofile} shows the primary  and  crossflow velocity profiles at streamwise locations $X/C=0.15$, 0.2, and 0.25. It can be seen that the boundary-layer edge is at roughly  1.2\,mm height. Beyond this height, the primary velocities became constant and the crossflow velocities vanish rapidly. Based on these baseflow velocity profiles, the designed body force distribution is shown in figure~\ref{f:forceshape} and the corresponding constants are listed in Table~\ref{t:constantsPmodel}. The coefficient $c_{\rm force}$ controls the force strength. The force strength effect is thus studied by choosing 3 values of $c_{\rm force}$. Figure \ref{f:forceshape}  shows the case with $c_{\rm force}=30$. For the other two cases, the distributions have the same shape, but with the values  all increased proportionally. The body force is distributed under 1.2\,mm and the spread length in the $z$ direction is less than 2.5\,mm, nearly  half of the target mode wavelength. The maximum force densities are 2986, 4976, and 6967\,N/m$^3$ corresponding to $c_{\rm force}$ of 30, 50, and 70, respectively. The total forces, obtained by integrating over the whole y-z cross-section containing a DBD, are 1.467$\times 10^{-3}$, 2.446$\times 10^{-3}$, and 3.424$\times 10^{-3}$N/m, respectively. It is worth mentioning that the maximum force density was as high as 7000\,N/m$^3$ in Kriegseis's experiment~\cite{kriegseis2013velocity}.
-
-Actuators with the previously described body force distribution are utilized to attenuate  crossflow instability. To hinder  crossflow vortices directly, one actuator is positioned per wavelength. The distribution of the dimensionless force $f$ in the $X$--$Z$ plane at $y=0.1$\,mm is shown in Fig.~\ref{f:force_XZ_1perwavelength}. All the electrodes are parallel to the isophasal lines of the primary crossflow instability mode. The spanwise distance of each pair of neighboring actuators is just the wavelength of the primary mode. The control region starts at 23.7\% chord length and ends at 26.2\% chord length. In this case,  $c_{\rm force}= 30$. Ten different spanwise locations of the actuators are examined to find the optimal one. The flow does not always become stabler in all cases, with some arrangements can promote the transition. Figure \ref{f:bestworst} shows the evolution of the fundamental modes in the most stable and  unstable cases. The black curve stands for the case without control, and the green and red curves for the most stable and  unstable cases, respectively. Here, $T_z$ is the fundamental spanwise wavelength and $z_0$ is the spanwise coordinate of the central point of the middle actuator. The control region is indicated by the two vertical blue lines. When the actuators locate at $z_0/T_z=0.4$, the primary mode is weakened in the control region and its amplitude is lower than that in the case without control downstream. However, when the actuators locate at $z_0/T_z=0.9$, just half a wavelength away from the formal most stable case, the primary instability mode is promoted. The amplitudes increase in the control region and become much higher than that in the no-control case.
-
-Figures \ref{f:pla_postion} depict the actuator locations relative to the instability disturbance. The colors denote the body force, and the iso-lines show the  disturbance velocities without control. All the forces and  velocities are projected onto the direction perpendicular to the crossflow vortex. It can be seen that when the force and the local disturbance have the same sign, both negtive shown in figure~\ref{f:theworst}, instability is promoted. In contrast, when the force and the disturbance velocities are in opposite directions (see figure~\ref{f:thebest}), the disturbance will be damped and thus the instability will be attenuated. This result implies that the spanwise position is critical, and an unfavorable position can even lead to a stronger disturbance that may bring the transition further upstream. For application of this control method  to a real aircraft, it would be essential to locate the positions of all the crossflow vortices,  which would be a tremendous challenge. Hence, in our view, this method is not suitable for practical application.
-\begin{table}
-\caption{Constants in the plasma model}\label{t:constantsPmodel}
+\subsection{谐波激励：每个展向周期放置一个激发器}\label{subs:control1}
+如之前在介绍等离子体模型中提到了，Maden模型中有7个模型参数需要确定，他们分别是$a_0$, $a_1$, $a_2$, $b_0$, $b_1$, $b_2$和$c_{\rm force}$。D\"orr和Kloker\cite{dorr2015stabilisation}指出体积力分布最好分散在边界层内，但是不要超过边界层外缘。图\ref{f:BLvelocityprofile}展示了$X/C=0.15,0.2,0.25$位置处的主流和横流速度。可以看到，这里的边界层厚度大约为1.2mm。在这个厚度以外，主流速度保持为一个常数，横流速度快速下降并回归到零。基于这一基本流的速度剖面分布，本文调整体积力模型中的7个参数，设计了如图\ref{f:forceshape}所示的体积力分布。这一分布对应的模型参数列在了表\ref{t:constantsPmodel}中。其中参数$c_{\rm force}$是用来调整体积力强度的，并不会影响体积力的实际分布。这里一共给出了三个不同的该参数取值，以便在之后的研究中分析体积力强度效应。图\ref{f:forceshape}中的体积力分布对应$c_{\rm force}=30$。可以看到，本文设计的体积力基本完全分布在1.2mm高度以下，也就是完全在边界层内。这一体积力分布的展向长度小于2.5mm，即小于是基础展向波长5mm的一半。$c_{\rm force}=30,, 50, 70$时所对应的有量纲最大体积力密度分别为2986, 4976, 6967\,N/m$^3$，在$y-z$横截面上的总得积分分别为1.467$\times 10^{-3}$, 2.446$\times 10^{-3}$, 3.424$\times 10^{-3}$N/m。需要提及的是，在Kriegseis的实验中\cite{kriegseis2013velocity}，最大体积力密度为 7000\,N/m$^3$。可见这里所需的由等离子体激发器产生的体积力强度在实际中完全能够产生。
+\begin{table}[htb]
+\caption{DBD模型参数}\label{t:constantsPmodel}
 %\begin{ruledtabular}
 %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccccccc}
     \begin{center}
@@ -126,73 +122,55 @@ Figures \ref{f:pla_postion} depict the actuator locations relative to the instab
     \end{center}
 %\end{ruledtabular}
 \end{table}
-%\begin{table}
-%\caption{\label{tab:table1} Transitions selected for thermometry}
-%\begin{ruledtabular}
-%\begin{tabular}{lcccccc}
-%& Transition& & \multicolumn{2}{c}{}\\\cline{2-2}
-%Line& $\nu \prime\prime $& & \textit{J}$\prime\prime $& Frequency, cm$^{-1}$& \textit{FJ}, cm$^{-1}$& \textit{G}$\nu $, cm$^{-1}$\\\hline
-%a& 0& P$_{12}$& 2.5& 44069.416& 73.58& 948.66\\
-%b& 1& R$_{2}$& 2.5& 42229.348& 73.41& 2824.76\\
-%c& 2& R$_{21}$& 805& 40562.179& 71.37& 4672.68\\
-%d& 0& R$_{2}$& 23.5& 42516.527& 1045.85& 948.76\\
-%\end{tabular}
-%\end{ruledtabular}
-%\end{table}
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.48\textwidth]{ch4/Ut(ScaledWithUinf)} \includegraphics[width=0.48\textwidth]{ch4/Wt(ScaledWithUinf)}
-  \caption{Primary velocity profiles (left) and  crossflow (secondary) velocity profiles (right).}%
+  \caption{不同流向位置主流（左）和横流（右）速度剖面}%
   \label{f:BLvelocityprofile}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.8\textwidth]{ch4/abs(bodyforce)}
-  \caption{Distribution of  body force induced by a single plasma actuator}%
+  \caption{单一DBD激发器产生的体积力分布}%
   \label{f:forceshape}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch4/bodyforceXZ(y=0_1mm)}
-  \caption{Distribution of  body force in the $X$--$Z$ plane ($y= 0.1$\,mm) with one actuator per wavelength.}%
+  \caption{DBD激发器阵列产生的体积力在$X$--$Z$平面上的分布($y= 0.1$\,mm) 激发器间距为一个展向波长}%
   \label{f:force_XZ_1perwavelength}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch4/Vmax_compare(scaledUe)-improved}
-  \caption{Amplitudes of  fundamental modes with actuators placed at different spanwise locations.}%
+  \caption{最佳控制算例与最差控制算例主模态能量延流向演化与无控制算例结果比较}%
   \label{f:bestworst}
 \end{figure}
-
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \subcaptionbox{$z_0/Tz=0.4$\label{f:thebest}}[\textwidth]
   {\includegraphics[width=\textwidth]{ch4/force-position-wt(scaledUinf)_z0=04}
 }
-  %\caption{Relative positions of  body force and  crossflow-wise disturbance velocity in the case .}%
-
-%\end{figure}
-
-%\begin{figure}
-%\centering
-  % Requires \usepackage{graphicx}
+  \\\bigskip
   \subcaptionbox{$z_0/Tz=0.9$\label{f:theworst}}[\textwidth]
   {
   \includegraphics[width=\textwidth]{ch4/force_position_wt(scaledUinf)_z0=09}
   }
-  \caption{Relative positions of body force and crossflow-wise disturbance velocity. The colors denote the body force, and the iso-lines show the disturbance velocities without control.}
+  \caption{体积力分布（颜色云图）与扰动分布（黑色等值线）的相对位置}
   \label{f:pla_postion}
-
 \end{figure}
 
+在后掠翼算例中，本文首先尝试了与之前后掠Hiemenz流动中相同的谐波激励控制方法，也就是让激发器与横流涡相平行，然后每个展现波长内放置一个激发器。无量纲的体积力$f$ 在$y=0.1$\,mm高度$X$-$Z$平面内的分布如图\ref{f:force_XZ_1perwavelength}所示。这里没有再展示敏感性分析的结果，这是因为其敏感性因子的分布与之前后掠Hiemenz流动中的基本完全相同。这里控制的中心位置在25\%弦长处，控制开始于23.7\%弦长处，结束于26.2\%弦长处。这里体积力强度参数$c_{\rm force}= 30$。本文计算了激发器在十个不同展向位置的结果。其控制效果与之前后掠Hiemenz流动中的类似，这里就不再一一列出。结论也是在横流涡下方偏下扫位置处控制效果较好。这里重点对比了这十个算例中效果最好的和效果最差的以得到其控制的内在机理。图\ref{f:bestworst}展示了最好算例和最差中主模态延流向的演化。其中黑线是无控制的结果，绿线和红线分别是最差算例和最好算例的结果。$T_z$是展向波长，$z_0$是激发器中点的展向位置坐标。可以看到在激发器位于$z_0/T_z=0.4$处，在控制区域横流主模态能量大幅下降，并且在控制之后的区域始终低于无控制工况中的横流主模态能量。而在另一个算例中，激发器位于$z_0/T_z=0.9$，也就是激发器刚好平移了半个波长。这时主模态在控制区域反而被促进了，这也意味之转捩将会被提前。
+
+由于横流涡是斜的，所以横流涡的位置会随着观察的流向位置而变化，所以但看$z_0$是没有意义的，更重要的是看激发器与横流涡的相对位置。在之前后掠Hiemenz流动的控制分析中，本文给出了施加体积力和横流涡的相对位置，这里给出体积力和横流方向扰动速度分布的相对位置，以说明控制的机理。图\ref{f:pla_postion}中颜色云图表示体积力横流方向分量在横截面上的分布，曲线表示在横流方向的扰动速度分量。其中实线表示值为正，虚线表示值为负。可以看到，当把扰动和体积力都投影到横流方向的时候，如果他们的符号相反，也就是力的方向与扰动的速度方向相反（如图\ref{f:thebest}），则主模态的能量就会被降低。相反的，如果外加力与扰动速度在横流方向的投影得到的符号相同，则主模态反而会被促进，如图\ref{f:theworst}。这一结果非常直观，也说明了这种谐波控制的控制方法实际就是通过用外加体积力去抵消因为失稳产生的扰动。当然，由于横流失稳产生的扰动在展向的分布是时正时负，所以激发器的展向位置非常关键。所以这一特性也给实际应用带来了风险。因为并不是控制总能起到效果，有时反而会适得其反。再加上实际中横流涡的位置并不是很容易预测，至少笔者并不知道有效的横流涡展向位置的预测方法。所以，这种谐波激励的方法在笔者看来并不实用，缺少足够的鲁棒性。还需要寻找更鲁棒的方法。
 
 \subsection{Subharmonic control: two actuators per wavelength}\label{subs:control2}
 Since it is known that the magnitude of the crossflow velocity greatly influences  crossflow instability, another idea is to use plasma actuators to attenuate the crossflow velocity. To avoid exciting the primary mode, two actuators are positioned per wavelength. The body force distribution in the $X$---$Z$ plane is shown in figure~\ref{f:force2perwavelength}. The number of plasma actuators is doubled compared with the previous scheme. The control region starts at 18.7\% chord length and ends at 21.2\% chord length. The electrodes are still parallel to the isophasal curves of the primary instability mode. $c_\mathrm{force}=50$ in the first case; the cases with  $c_\mathrm{force}=30$ and 70 will be given afterwards.
