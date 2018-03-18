@@ -5,7 +5,6 @@ dist
 *~
 *.aux
 *.bak
-*.bbl
 *.blg
 *.dvi
 *.glo
@@ -27,6 +26,5 @@ dist
 *.fls
 *.xdv
 *.pdf
-*.synctex
 *.synctex
 wzf_main.synctex
