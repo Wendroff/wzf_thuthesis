@@ -2,24 +2,22 @@
 \section{后掠翼上流动的稳定性分析}
 数值研究了后掠Hiemenz流动转捩控制之后，本文将研究目标转移到更贴近实际的工况，研究一个真实的后掠翼流动的转捩控制。清华大学（Tsinghua University）在2018年进行了NLF-0415后掠翼上翼面的转捩实验研究工作\cite{wang2018}，本文以该实验的工况作为基准，研究等离子体在实际的后掠翼流动中控制转捩的效果。这一实验在后文中将会被简记为``THU实验''或``THU experiment''。这里先简述一下实验的设备和工况。该实验是在清华大学自己的低湍流度风洞中进行的，风洞试验段大小为1.2m$\times$1.2m$\times$3m。风洞内安装NLF-0412翼型，如图\ref{f:experiment}所示。在实验中采用的直角坐标系为($X_{\rm wt},Y_{\rm wt},Z_{\rm wt}$)，其$X_{\rm wt}$方向与风洞的流向平行。在计算中本文用的到直角坐标系为$x,y,z$（如图\ref{f:experiment}）。计算所用坐标系的$z$方向与翼型前缘线平行，这样在采用了无限展长假设之后，这一方向的物理量就是均匀的。该风洞运行时测试段的风速可以为5.0到90.0m/s，湍流度可以低到0.05\%。此次试验采用的翼型的弦长$c$=1.2m，有45$^\circ$后掠和-4$^\circ$攻角。该翼型在上翼面有很强的顺压梯度，可以有效的抑制T-S波失稳\cite{Dagenhart1999}。翼型中间到风洞入口大约1.25m。
 
-The free stream was surveyed by a single hot wire. The free stream is uniform and with low turbulence intensity of 0.08$\sim$0.1\%. The streamwise velocity profile of the boundary layer on the laminar region along with the middle span, namely $X/C$ = 0.2, 0.4 and 0.6, respectively, was measured using a boundary layer hot wire sensor (TSI Model 1261A). The hot wire sensor was driven by a computer controlled three-dimensional moving mechanism. The minimum movement can be controlled within 10$\mu$m. Along the normal direction at each location, $U_{\rm wt}$, the velocity component in $X_{\rm wt}$ direction, was measured at every 0.05mm till the double thickness of the boundary layer. To protect the hot wire sensor from physical damage and make sure the wall-heat-effect be as small as possible, the first measure-point is fixed at 0.15mm from the airfoil surface. The distance is observed by a microscopic camera mounted over the transparent wall of the wind tunnel. The hot wire signal was amplified, filtered by a constant temperature anemometer (CTA, TSI IFA-300), acquired by a 12-bit UEI A/D board, and then recorded by a computer. The sampling frequency was fixed at 20kHz, and the duration was taken as 10s.
+实验中采用了单一的热线测量了来流的情况。来流风速均匀，湍流度0.08$\sim$0.1\%。采用边界层热线(TSI Model 1261A)测量翼型$X/C$ = 0.2， 0.4， 0.6位置处的边界层速度剖面。热线采用一个电脑控制的可以进行三维运动的机械臂驱动。最小的运动精度可以达到10$\mu$m。在每一个位置，沿着法向每隔0.05mm测量了沿着风洞方向的速度分量$U_{\rm wt}$。这个速度分量也就是图中所示$X_{\rm wt}$坐标的方向。沿着法向的测量一直到两倍边界层厚度的位置终止。为了防止测量热线因为接触避免被损坏，第一个测量点选取在离壁面0.15mm处。这一距离是通过镜面法测量得到的。也就是通过测量热线和其在翼面上的镜像的距离，得到其相对于翼面的距离。
 
-实验中采用了单一的热线测量了来流的情况。来流风速均匀，湍流度0.08$\sim$0.1\%。采用边界层热线(TSI Model 1261A)测量翼型$X/C$ = 0.2， 0.4， 0.6位置处的边界层速度剖面。
-
-To verify the baseflow calculation, the experimental Reynolds number $Re$ is $1.81\times10^6$ corresponding to the free-stream velocity $U_\infty$=22.3m/s ($Re={U_\infty c}/{\nu}$ where $U_\infty$ is the free stream velocity, $c$ is the chord length and $\nu$ is the kinematic viscosity coefficient of the air). The flow in this case is laminar overall 70\% of the chord length. For plasma control cases in computation, $U_\infty$ is doubled to give higher Reynolds number.
+为了验证本文中基本流计算的结果，这里选取了雷诺数$Re$为$1.81\times10^6$，也就是自由来流速度$U_\infty$=22.3m/s的算例进行比较。($Re={U_\infty c}/{\nu}$ 其中$U_\infty$是自由来流速度度，$c$是弦长，$\nu$是动力粘性系数。)在这个工况下，上翼面一直到70\%弦长的位置都是层流。在之后研究得我等离子体控制算例中，为了加速失稳和转捩，采用了两倍雷诺数也就是两倍来流速度的算例。
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{ch4/experiment.jpg}
-  \caption{Hot wire measurements in the wind tunnel. Symbol `` $\bullet$ " represents the location of the hotwire measurement.}\label{f:experiment}
+  \caption{风洞俯视图（ `` $\bullet$ "表示热线测量位置)}\label{f:experiment}
 \end{figure}
 
-Code with a high-precision Correction Procedure via Reconstruction (CPR) \cite{WangZJ2009,Zhu2016,Zh2017} scheme was employed to resolve the inviscid flow field. The computed inviscid stream velocities on the wall and the experimentally measured velocities at the edge of the boundary layer are compared in figure~\ref{f:ConpareInvicidV}. The black line was obtained from the computations, and the three dots show the experimental data. The agreement between the computation and the experiment is good. The computed  flow quantities over the upper surface of the wing were therefore adopted as the boundary conditions for the boundary layer equation, and the calculated velocity profiles at 20\% and 40\% chord length, where the flow is still laminar are compared with experimental results in figure~\ref{f:compare_profiles}. Again, the lines are from the computation and the dots from the experiment. Their excellent agreement demonstrates that the present baseflow profile and the computational code is reliable.
+如上一章所述，高精度重构修正有限元程序Music\cite{WangZJ2009,Zhu2016,Zh2017}被用来进行无粘流求解计算。图\ref{f:ConpareInvicidV}对比了计算求解得到的壁面上的无粘流延风洞流向速度分量和实际实验中测得的边界层外的同方向的速度分量。其中黑线是计算得到的结果，三个大红点是实验测得的结果。由于实验仅测量了三个展向位置的速度，所以这里只有三个数据点。从图中可以看到，无粘流计算得到的结果与实验吻合良好。需要提及的是，实验中并没有精确测量离翼型非常远位置处的来流速度，也就是说实际上真正的自由来流是不能准确得知的。而计算中是采取的无量纲计算，所以本位以20\%弦长位置边界层外缘的流速作为参考基准点，重新对计算结果进行了有量纲化。在实验中，虽然直到70\%弦长处都是层流，但是60\%弦长处边界层已经出现了强烈的扭曲。所以这里之对比了20\%和40\%弦长处的边界层剖面，如图\ref{f:compare_profiles}。与上图类似的，线是计算结果，点是实验测得的结果。这里并没有用所有测量数据，只是每个两个点取了一个数据。对比结果说明本文计算得到的基本流还是非常可靠地。
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.7\textwidth]{ch4/compare_UexpOUT_laminarcase}
-\caption{Comparison of computed and experimental $U_{\rm{wt}}$ at the edge of the boundary layer.}
+\caption{边界层外缘风洞流向速度$U_{\rm{wt}}$对比}
 \label{f:ConpareInvicidV}
 \end{figure}
 
@@ -27,89 +25,85 @@ Code with a high-precision Correction Procedure via Reconstruction (CPR) \cite{W
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch4/compare_profiles}
-\caption{Comparison of computed and experimental $U_{\rm{wt}}$ profiles at  $X/C= 20\%$ and $40\%$.}
+\caption{风洞流向速度$U_{\rm{wt}}$ 在$X/C= 20\%$和$40\%$处剖面对比}
 \label{f:compare_profiles}
 \end{figure}
-In this subsection, the stability characteristic of the baseline case, in which DBD actuators are not added, is investigated at first.  \cite{Reiberit1996} also studied the stability features of this airfoil with the same  angle of sweep and the same angle of attack. Their experiment will be referred to as ``Reibert's experiment'' in the following. However, the sizes of the wind tunnels and the wing models are  different. In Reibert's experiment, the cord length is 1.83m and the size of their wind tunnel's working section is 1.4m$\times$1.4m$\times$5m. Besides, the distance between the model and the wind tunnel's wall was not reported in their paper. These differences lead to different pressure coefficient distributions, as shown in figure~\ref{f:CpCompare}. The pressure gradient in the THU experiment was stronger than that in Reibert's experiment. In the THU experiment, the flow accelerated more rapidly. To clarity the difference in pressure gradient, four different computational cases are set. Two of them use the pressure coefficient distribution from Reibert's experiment, with free-stream velocities of 22.3 and 44.5\,m/s. The others adopt the THU pressure coefficient distribution, again with free-stream velocities of 22.3 and 44.5\,m/s. The velocities at the edges of the boundary layers and the displacement thicknesses of the boundary layers in these four cases are shown in figure~\ref{fig:CompOutFlow}. It can be seen that with the THU pressure coefficients, the inviscid stream velocity increases slowly near the leading edge. However, it accelerates rapidly in the middle section of the airfoil, and exceeds the velocity in the case with Reibert's pressure coefficient at nearly 30\% chord length. The boundary layers in the THU experiment are thicker than those in Reibert's, for both  22.3 and 44.5\,m/s free-stream velocities. The pressure reaches its lowest value at nearly 70\% chord length. Hence, the boundary layer thickness increases dramatically at that position.
-\begin{figure}
+Reibert等人\cite{Reiberit1996}也做过相同翼型相同工况的实验研究，在后文中将其命名为``Reibert's experiment''或``Reibert实验''。但是他们的实验采用的风动和模型尺寸均与本文参考的实验不一样。在Reibert实验中，模型弦长1.83m，风洞实验段尺寸1.4m$\times$1.4m$\times$5m。更重要的，他们在文献中并没有给出翼型的安装位置。这些实验设置的不同，导致了两个实验得到的上翼面压力系数的分布不太一样。图\ref{f:CpCompare}给出了THU实验和Reibert实验的上翼面压力分布。可以看到，THU实验的压力梯度要比Reibert实验的压力梯度强一些，这也说明了THU实验中流体在翼型中段的加速度更大一些。为了搞清楚压力梯度的变化对扰动的发展有什么影响，本文设置了4个算例进行对比研究。其中两个算例采用了Reibert实验得到的压力分布，他们的自由来流速度分别是22.3m/s和44.5m/s。另外连个算例采用THU实验得到的压力分布，自由来流速度也分别是22.3m/s和44.5m/s。这四个算例中边界层外缘流向速度分布与边界层位移厚度展示在图\ref{fig:CompOutFlow}中。可以看到，在采用THU算例的工况中，流体在靠近前缘位置加速比较慢，但是在翼型中段，其速度快速提升，并在30\%弦长处超过了采用Reibert实验工况中的边界层外缘流向速度。不管在哪一个雷诺数条件下，采用THU压力分布的算例中的边界层厚度都要比采用Reibert的对应算例要厚。在70\%弦长处，压力达到最低值，在之后均是逆压梯度，边界层快速增长。
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.7\textwidth]{ch4/compareCp_Reibert}
-  \caption{Pressure coefficients from the THU experiment (red) and as given in Reibert's dissertation \cite{Reiberit1996} (blue).}\label{f:CpCompare}
+  \caption{THU（清华）实验中压力系数（红）与Reibert博士论文 \cite{Reiberit1996}中给出的压力系数（蓝）对比}\label{f:CpCompare}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
 \centering
-\subcaptionbox{\label{fig:CompOutFlow:a}}[0.48\linewidth] %% label for first subfigure
+\subcaptionbox{不同算例中边界层外缘流向速度对比\label{fig:CompOutFlow:a}}[0.48\linewidth] %% label for first subfigure
     {\includegraphics[width=0.48\linewidth]{ch4/compare-outflow3}}
 %\hspace{0.0in}
-\subcaptionbox{\label{fig:CompOutFlow:b} }[0.48\linewidth]%% label for second subfigure
+\subcaptionbox{不同算例中边界层位移厚度对比\label{fig:CompOutFlow:b} }[0.48\linewidth]%% label for second subfigure
     {\includegraphics[width=0.48\linewidth]{ch4/DisplacementThickness-4(2)}}
-\caption{(a) Comparison of streamwise velocity at the edge of the boundary layer in different cases. (b) Comparison of boundary layer displacement thickness in different cases.}
+\caption{不同算例边界层对比}
 \label{fig:CompOutFlow} %% label for entire figure
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
 \centering
 \subcaptionbox{$U_\infty=22.3m/s$\label{fig:CompCrossProfiles:a} }[0.48\linewidth]%% label for first subfigure
 {\includegraphics[width=0.48\linewidth]{ch4/compare223Wt(scaledUe)}}
 %\hspace{0.0in}
 \subcaptionbox{$U_\infty=44.5m/s$\label{fig:CompCrossProfiles:b}} [0.48\linewidth]%% label for second subfigure
 {\includegraphics[width=0.48\linewidth]{ch4/compare445Wt(scaledUe)}}
-\caption{Comparison of crossflow profiles at different streamwise locations.}
+\caption{不同算例不同位置横流速度剖面对比}
 \label{fig:CompCrossProfiles} %% label for entire figure
 \end{figure}
 
-Figure~\ref{fig:CompCrossProfiles} plots the crossflow velocity profiles at the position of 20\%, 40\%, and 60\% chord length. The crossflow velocity must vanish outside the boundary layer, with the  heights of vanishment increasing from 20\% to 60\% chord length for all cases, owing to  boundary layer growth. At the same free-stream velocities, the peak values of the crossflow velocities with the THU pressure coefficient are higher than those with Reibert's pressure coefficient. This is mainly because at these three streamwise locations, the THU pressure gradients are all stronger than Reibert's. It is well known that  crossflow forms owing to an imbalance in the pressure gradient and to circular acceleration in the boundary layer. A stronger pressure gradient leads to a greater imbalance and subsequently to a stronger crossflow. Hence, a difference in pressure gradient leads directly  to  a difference in crossflow intensity, which is very important for crossflow instability.
+图\ref{fig:CompCrossProfiles}展示了20\%, 40\%, 和 60\%处的横流速度剖面。如之前提到的，横流速度必须在壁面和边界层外消失。这里，随着边界层的厚度从20\%到60\%逐渐增加，横流速度消失位置的高度也在逐渐增加。可以看到，所有采用THU压力分布的算例中的横流速度的最大值都要大于采用Reibert压力分布的对应算例对应位置的横流速度最大值。从图\ref{f:CpCompare}中可以看到在这三个位置THU实验中的压力梯度均大于Reibert实验中的压力梯度，这也正是横流速度峰值不同的主要原因。众所周知，横流的产生正是因为边界层内由主流速度转向产生的离心力不足以平衡压力梯度产生的压差力。所以在压力梯度越强诱导出来的横流就越强。
 
-The $e^N$ method is employed to investigate the stability features of all  four cases, with  the results  shown in figure~\ref{fig:CompN}. The $N$-value is defined as
+本文先用传统的$e^N$方法来研究不同算例中的流动稳定性。这里$N$的定义为：
 \begin{equation}\label{e:eNdef}
   N=\int_{x_0}^x( -\alpha_i)\,dx,
 \end{equation}
-where  $\alpha_i$ is the imaginary part of the streamwise wave number, which is computed using the local linear stability equation (in LST). Its negative value $-\alpha_i$ represents the spatial growth rate of the corresponding instability mode. $x_0$ is the position at which the mode first became unstable. The envelopes of the $N$-value, that is, the maximum $N$-values of all the steady modes at each streamwise location, are shown in figure~\ref{fig:CompN:a}. The blue and red curves stand for the cases with 44.5 and 22.5\,m/s free-stream velocities, respectively. Curves with square symbols show the results with the THU pressure coefficient distribution and those with circles the results with Reibert's distribution. It can be seen that the $N$-values from both cases with 44.5\,m/s free-stream velocity are higher than the other two cases, because increasing the free-stream velocity, equivalent to increasing the Reynolds number, makes the flow more unstable. The figure also shows that for the same free-stream velocity, the THU pressure coefficient distribution always makes the flow less stable. Recalling the crossflow comparison in figure~\ref{fig:CompCrossProfiles}, it can be seen that a small reduction in the crossflow velocity will lead to a big difference in the $N$-value. Since the mode amplitude is calculated as $A=A_0e^{N}$ (where $A_0$ is the initial amplitude), the effect on the amplitude will be more significant. The spanwise wavelengths of the most unstable modes, that is, the modes that have the biggest $N$-value at each streamwise location, are shown in Fig.~\ref{fig:CompN:b}. There is no significant difference between the results for the two different pressure coefficient distributions. It can be concluded from the figures that a stronger pressure gradient results in a higher crossflow velocity and higher growth rate of unstable modes. However, the spanwise wavelength of the most unstable mode changes slightly.
+这里，$\alpha_i$是采用局部线性稳定性理论（LST）计算得到的流向复波数的虚部。其相反数$-\alpha_i$也就是LST预测出来的模态空间增长率。其物理意义就是下游单位长度距离处失稳模态幅值与当地失稳模态幅值的比值。$x_0$是模态首次失稳的流向位置。所以，这里$N$的物理意义就是，当地扰动模态的幅值相对于模态首次失稳位置的幅值的比的对数。采用这一定义的一个隐藏假设是所有模态在中性点位置通过感受性过程所获得的初始模态幅值是相同的。$e^N$虽然不是十分精确，但是可以定性反应失稳过程。图\ref{fig:CompN:a}给出了不同算例$N$值的包线，也就是不同位置$N$的最大值。其中蓝线和红线分别代表来流速度为44.5与22.5m/s的算例，方块和圆点分别代表采用THU压力分布和采用Reibert压力分布的算例。从结果中可以看到，所有44.5m/s自由来流速度的算例中的$N$值均比对应的22.5m/s自由来流的算例高。这说明了来流速度雷诺数越高，失稳模态增长越快，流动越不稳定。另外，还可以看到，在自由来流速度一样的前提下，采用THU压力分布的算例中的边界层要比采用Reibert压力梯度的更不稳定。可见，横流速度的微弱变化（见图\ref{fig:CompCrossProfiles}）都会导致$N$值的剧烈变化。另外，必须要提及的是，如之前所说的，$N$是扰动幅值的对数，用数学式子表达也就是$A=A_0e^{N}$（$A_0$是中性点的模态初始值）。所以这里$N$的变化转换到实际的模态幅值上则会是更强烈的变化。图\ref{fig:CompN:b}对比了不同算例中不同位置$N$值最大的定常横流失稳模态的展向波长。这也就是LST所预测的最不稳定模态的展向波长。可以看到，压力梯度的变化并没有对最不稳定模态的展向波长产生较大影响。基于以上分析，这里可以做一个简单的总结，更大的压力梯度会导致更强的横流速度，并进而导致更强的横流失稳模态的增长率。也就是压力梯度越大有横流的边界层越容易失稳。然而，这一变化对最不稳定横流模态的波长并没有显著影响，也就是说主导转捩的横流涡的展向并不会有太大变化。在THU实验中观测到的失稳波长与Reibert文献中的相同，也印证了这里的分析。
 \begin{figure}
 \centering
-\subcaptionbox{           %
+\subcaptionbox{$N$值包络线           %
 \label{fig:CompN:a}} [0.48\linewidth]%% label for first subfigure
 {\includegraphics[width=0.48\linewidth]{ch4/compare-Nmax3}}
 %\hspace{0.0in}
-\subcaptionbox{           %
+\subcaptionbox{不同流向位置$N$值最大模态展向波长        %
 \label{fig:CompN:b}} [0.48\linewidth] %% label for second subfigure
 {\includegraphics[width=0.48\linewidth]{ch4/compare-lamda}}
-\caption{Comparison of (a) the maximum $N$-value and (b) the spanwise wavelength of the corresponding modes at each streamwise location.}
+\caption{不同算例$e^{N}$方法结果对比}
 \label{fig:CompN} %% label for entire figure
 \end{figure}
 
-The most unstable case, namely, the one with the THU pressure coefficient and 44.5\,m/s free-stream velocity, is chosen as the baseline case to test the plasma control method. The free-stream velocity of 44.5\,m/s is chosen as the reference velocity with respect to which  all the velocities and their components are  scaled. Figure~\ref{fig:Nfactor445} shows the $N$-factors of steady modes with different spanwise wave numbers for the baseline case. Generally, the transition caused by crossflow instability takes place at $N=6$. With this criterion, the 4\,mm mode will trigger transition at 24\% chord length. However, with a polished leading edge and in a low-turbulence environment, the critical $N$-factor can be greater than 14 \cite{saric2011}. In our case, none of the $N$-factor reaches 14 before 70\% cord length, where the pressure is minimum. The modes with 4, 5, and 6\,mm spanwise wavelength have the greatest $N$-factor in succession, and they are all promising candidates for the dominant mode. The 3\,mm mode grows rapidly near the leading edge and reaches a peak at 20\% chord length, after which it declines. The modes with 2\,mm and shorter spanwise wavelength are always stable, which are not shown in the figure. % The e$^{\rm N}$ method can only provide the amplification factor of instability modes. That is to say, it predicts how many times the mode is amplified with respect to its initial amplitude, the amplitude at the location where it start to became unstable. To calculate the physical modes' amplitude and find out the mode that dominates the transition, the initial amplitude should be determined. The receptivity analysis \cite{Meneghello2015,Tempelmann2012b,Tempelmann2012c,Schrader2008,Thomas2015} and directly numerical simulation can offer the initial amplitude. However, it's not the emphasis of this study. Therefore, we only focus on one possible situation in which all the modes' initial amplitudes are $5\times10^{-5}$ and that is enough to demonstrate the effectiveness of the plasma control method.
+本文选取了上面对比的四个算例中最不稳定的一个进行控制，即自由来流44.5\,m/s同时采用THU压力分布的算例。这样能够更明显的体现出控制的效果。在之后的计算中，自由来流速度44.5\,m/s被选作参考速度。图\ref{fig:Nfactor445}给出了$N$这个基准算例中不同展向波长的横流驻涡模态的$N$值延流向变化的情况。通常，横流模态的$N=6$的时候会触发专列。如果采用这一标准，4mm展向波长的模态会在24\%弦长位置触发转捩。然而，用$N$判断转捩的方法并不十分稳定可靠。有文献指出\cite{saric2011}，在前缘抛光，来流湍流度非常低的条件下，临界点$N$值甚至可以高于14。在这个基准算例中，在70\%弦长之前（压力最低点之前）没有任何模态的$N$达到14。在翼型前半段，展向波长为4、5、6mm的模态的$N$值依次领跑。这意味着这几个展向波长的模态都有可能主导转捩。这里需要重点指出的是，3mm展向波长的模态在靠近前缘的位置增长飞快，但是在20\%弦长处达到了峰值之后便开始减弱。在50\%弦长处其幅值甚至小于其初始幅值。波长更小的模态，如2mm展向波长的模态在计算域内几乎不增长。这一短波长高波数模态不增长的特性与之前分析的后掠Hiemenz流动完全不同。在后掠Hiemenz流动中，短波长高波数的模态仅仅是失稳的晚一些，并不会出现完全不失稳的情况。这一特性将在之后的控制中起到非常关键的作用。
 
-The $e^{N}$ method is based on the assumption of linearity. However, when the mode amplitudes are large enough, such as 10\% of the free-stream velocity, the nonlinearity will affect  disturbance evolution. Therefore, NPSE has to be employed to resolve the disturbance in the boundary layer. The promising modes predicted by the $e^{N}$ method are seeded at the inlet, all with initial amplitude of $5\times10^{-5}$. The mode amplitude in the NPSE computation is defined as
+$e^{N}$方法是线性稳定性理论下的一种半经验方法，也就是说它还是要依赖小扰动可线性化假设和边界层增长近似为零的平行流假设。但实际上，当扰动的幅值增长到一定程度也就是大约扰动速度达到十分之一自由来流速度的时候，非线性会起作用，失稳进入非线性阶段。本文采用非线性抛物华扰动方程（NPSE）求解非线性阶段的扰动发展变化。在线性稳定性分析得到的几个最有可能主导转捩的模态被用来初始化NPSE计算。这几个模态被放置在计算入口处，并且幅值都设置为$5\times10^{-5}$。这里NPSE中失稳模态的幅值定义为：
 \begin{equation}
 \mathrm{Amp}=\exp\!\left(\int_{x_0}^x -\alpha _i\,d\xi\right)\max\!\left(\sqrt{\left| \hat{u} \right|^2+\left| \hat{v} \right|^2+\left| \hat{w} \right|^2}\right)_y.
 \end{equation}
-Amplitudes of the primary modes as functions of the streamwise coordinate are shown in figure~\ref{f:NPSE}. All the harmonics are excited by the nonlinearity, which are not shown in the figure. The peak value of the 3\,mm mode amplitude is nearly one order of magnitude lower than the others. The 5\,mm mode is first to reach the saturation. Therefore, the 5\,mm mode is chosen as the target mode, and the following control methods  all aim at this mode.
+NPSE计算得到的几个算例中的主模态幅值沿着流向演化的曲线展示在图\ref{f:NPSE}中。这里的做法和后掠Hiemenz流动中选取控制目标模态的方法相同。图\ref{f:NPSE}中的曲线并不是一个算例中不同模态的演化曲线，而是4个主模态不同的算例的结果。在这几个算例中，除了主模态是计算入口就给入的，其他模态都是通过非线性依靠主模态激发出来的高阶谐波模态。从图中可以看到，3mm展向波长的模态的幅值基本上比其他模态的幅值低了一个量级。这和线性稳定性理论预测出来的相似，可见这一模态就并没有能够成功发展进入非线性阶段。5mm展向波长的模态是最先进入饱和的。因此在这一章之后的研究中，均以这一模态作为目标模态。
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=\textwidth]{ch4/Nvalue(1)}
-  \caption{$N$-factor for the case $U_\infty= 44.5$\,m/s.}%
+  \caption{自由来流$U_\infty= 44.5$\,m/s算例中不同展向波长的横流驻涡模态的$N$值延流向变化}%
   \label{fig:Nfactor445}
 \end{figure}
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.48\textwidth]{ch4/CompareCsesVmax_Amp0=1e-4(ScaledWithLocalUout0_5)(1)} \includegraphics[width=0.48\textwidth]{ch4/CompareCsesVmax_Amp0=1e-4(ScaledWithLocalUout0_5)}
-  \caption{Amplitudes of modes with different spanwise wavelengths (NPSE results).}\label{f:NPSE}%
+  \caption{NPSE计算得到的不同展向波长模态幅值延流向变化}\label{f:NPSE}%
 \end{figure}
 
 
 \section{采用等离子体激发器推迟后掠翼上流动转捩}
 
-\subsection{Harmonic control: one actuator per wavelength}\label{subs:control1}
-As mentioned before, there are seven constants ($a_0$, $a_1$, $a_2$, $b_0$, $b_1$, $b_2$, and $c_{\rm force}$) that need to be determined in the plasma model. D\"orr and Kloker pointed out that the body force should spread over the boundary layer but  not extend beyond its edge \cite{dorr2015stabilisation}. Figure \ref{f:BLvelocityprofile} shows the primary  and  crossflow velocity profiles at streamwise locations $X/C=0.15$, 0.2, and 0.25. It can be seen that the boundary-layer edge is at roughly  1.2\,mm height. Beyond this height, the primary velocities became constant and the crossflow velocities vanish rapidly. Based on these baseflow velocity profiles, the designed body force distribution is shown in figure~\ref{f:forceshape} and the corresponding constants are listed in Table~\ref{t:constantsPmodel}. The coefficient $c_{\rm force}$ controls the force strength. The force strength effect is thus studied by choosing 3 values of $c_{\rm force}$. Figure \ref{f:forceshape}  shows the case with $c_{\rm force}=30$. For the other two cases, the distributions have the same shape, but with the values  all increased proportionally. The body force is distributed under 1.2\,mm and the spread length in the $z$ direction is less than 2.5\,mm, nearly  half of the target mode wavelength. The maximum force densities are 2986, 4976, and 6967\,N/m$^3$ corresponding to $c_{\rm force}$ of 30, 50, and 70, respectively. The total forces, obtained by integrating over the whole y-z cross-section containing a DBD, are 1.467$\times 10^{-3}$, 2.446$\times 10^{-3}$, and 3.424$\times 10^{-3}$N/m, respectively. It is worth mentioning that the maximum force density was as high as 7000\,N/m$^3$ in Kriegseis's experiment~\cite{kriegseis2013velocity}.
-
-Actuators with the previously described body force distribution are utilized to attenuate  crossflow instability. To hinder  crossflow vortices directly, one actuator is positioned per wavelength. The distribution of the dimensionless force $f$ in the $X$--$Z$ plane at $y=0.1$\,mm is shown in Fig.~\ref{f:force_XZ_1perwavelength}. All the electrodes are parallel to the isophasal lines of the primary crossflow instability mode. The spanwise distance of each pair of neighboring actuators is just the wavelength of the primary mode. The control region starts at 23.7\% chord length and ends at 26.2\% chord length. In this case,  $c_{\rm force}= 30$. Ten different spanwise locations of the actuators are examined to find the optimal one. The flow does not always become stabler in all cases, with some arrangements can promote the transition. Figure \ref{f:bestworst} shows the evolution of the fundamental modes in the most stable and  unstable cases. The black curve stands for the case without control, and the green and red curves for the most stable and  unstable cases, respectively. Here, $T_z$ is the fundamental spanwise wavelength and $z_0$ is the spanwise coordinate of the central point of the middle actuator. The control region is indicated by the two vertical blue lines. When the actuators locate at $z_0/T_z=0.4$, the primary mode is weakened in the control region and its amplitude is lower than that in the case without control downstream. However, when the actuators locate at $z_0/T_z=0.9$, just half a wavelength away from the formal most stable case, the primary instability mode is promoted. The amplitudes increase in the control region and become much higher than that in the no-control case.
-
-Figures \ref{f:pla_postion} depict the actuator locations relative to the instability disturbance. The colors denote the body force, and the iso-lines show the  disturbance velocities without control. All the forces and  velocities are projected onto the direction perpendicular to the crossflow vortex. It can be seen that when the force and the local disturbance have the same sign, both negtive shown in figure~\ref{f:theworst}, instability is promoted. In contrast, when the force and the disturbance velocities are in opposite directions (see figure~\ref{f:thebest}), the disturbance will be damped and thus the instability will be attenuated. This result implies that the spanwise position is critical, and an unfavorable position can even lead to a stronger disturbance that may bring the transition further upstream. For application of this control method  to a real aircraft, it would be essential to locate the positions of all the crossflow vortices,  which would be a tremendous challenge. Hence, in our view, this method is not suitable for practical application.
-\begin{table}
-\caption{Constants in the plasma model}\label{t:constantsPmodel}
+\subsection{谐波激励：每个展向周期放置一个激发器}\label{subs:control1}
+如之前在介绍等离子体模型中提到了，Maden模型中有7个模型参数需要确定，他们分别是$a_0$, $a_1$, $a_2$, $b_0$, $b_1$, $b_2$和$c_{\rm force}$。D\"orr和Kloker\cite{dorr2015stabilisation}指出体积力分布最好分散在边界层内，但是不要超过边界层外缘。图\ref{f:BLvelocityprofile}展示了$X/C=0.15,0.2,0.25$位置处的主流和横流速度。可以看到，这里的边界层厚度大约为1.2mm。在这个厚度以外，主流速度保持为一个常数，横流速度快速下降并回归到零。基于这一基本流的速度剖面分布，本文调整体积力模型中的7个参数，设计了如图\ref{f:forceshape}所示的体积力分布。这一分布对应的模型参数列在了表\ref{t:constantsPmodel}中。其中参数$c_{\rm force}$是用来调整体积力强度的，并不会影响体积力的实际分布。这里一共给出了三个不同的该参数取值，以便在之后的研究中分析体积力强度效应。图\ref{f:forceshape}中的体积力分布对应$c_{\rm force}=30$。可以看到，本文设计的体积力基本完全分布在1.2mm高度以下，也就是完全在边界层内。这一体积力分布的展向长度小于2.5mm，即小于是基础展向波长5mm的一半。$c_{\rm force}=30,, 50, 70$时所对应的有量纲最大体积力密度分别为2986, 4976, 6967\,N/m$^3$，在$y-z$横截面上的总得积分分别为1.467$\times 10^{-3}$, 2.446$\times 10^{-3}$, 3.424$\times 10^{-3}$N/m。需要提及的是，在Kriegseis的实验中\cite{kriegseis2013velocity}，最大体积力密度为 7000\,N/m$^3$。可见这里所需的由等离子体激发器产生的体积力强度在实际中完全能够产生。
+\begin{table}[htb]
+\caption{DBD模型参数}\label{t:constantsPmodel}
 %\begin{ruledtabular}
 %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccccccc}
     \begin{center}
@@ -128,73 +122,55 @@ Figures \ref{f:pla_postion} depict the actuator locations relative to the instab
     \end{center}
 %\end{ruledtabular}
 \end{table}
-%\begin{table}
-%\caption{\label{tab:table1} Transitions selected for thermometry}
-%\begin{ruledtabular}
-%\begin{tabular}{lcccccc}
-%& Transition& & \multicolumn{2}{c}{}\\\cline{2-2}
-%Line& $\nu \prime\prime $& & \textit{J}$\prime\prime $& Frequency, cm$^{-1}$& \textit{FJ}, cm$^{-1}$& \textit{G}$\nu $, cm$^{-1}$\\\hline
-%a& 0& P$_{12}$& 2.5& 44069.416& 73.58& 948.66\\
-%b& 1& R$_{2}$& 2.5& 42229.348& 73.41& 2824.76\\
-%c& 2& R$_{21}$& 805& 40562.179& 71.37& 4672.68\\
-%d& 0& R$_{2}$& 23.5& 42516.527& 1045.85& 948.76\\
-%\end{tabular}
-%\end{ruledtabular}
-%\end{table}
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.48\textwidth]{ch4/Ut(ScaledWithUinf)} \includegraphics[width=0.48\textwidth]{ch4/Wt(ScaledWithUinf)}
-  \caption{Primary velocity profiles (left) and  crossflow (secondary) velocity profiles (right).}%
+  \caption{不同流向位置主流（左）和横流（右）速度剖面}%
   \label{f:BLvelocityprofile}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.8\textwidth]{ch4/abs(bodyforce)}
-  \caption{Distribution of  body force induced by a single plasma actuator}%
+  \caption{单一DBD激发器产生的体积力分布}%
   \label{f:forceshape}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch4/bodyforceXZ(y=0_1mm)}
-  \caption{Distribution of  body force in the $X$--$Z$ plane ($y= 0.1$\,mm) with one actuator per wavelength.}%
+  \caption{DBD激发器阵列产生的体积力在$X$--$Z$平面上的分布($y= 0.1$\,mm) 激发器间距为一个展向波长}%
   \label{f:force_XZ_1perwavelength}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.6\textwidth]{ch4/Vmax_compare(scaledUe)-improved}
-  \caption{Amplitudes of  fundamental modes with actuators placed at different spanwise locations.}%
+  \caption{最佳控制算例与最差控制算例主模态能量延流向演化与无控制算例结果比较}%
   \label{f:bestworst}
 \end{figure}
-
-\begin{figure}
+\begin{figure}[htb]
 \centering
   % Requires \usepackage{graphicx}
   \subcaptionbox{$z_0/Tz=0.4$\label{f:thebest}}[\textwidth]
   {\includegraphics[width=\textwidth]{ch4/force-position-wt(scaledUinf)_z0=04}
 }
-  %\caption{Relative positions of  body force and  crossflow-wise disturbance velocity in the case .}%
-
-%\end{figure}
-
-%\begin{figure}
-%\centering
-  % Requires \usepackage{graphicx}
+  \\\bigskip
   \subcaptionbox{$z_0/Tz=0.9$\label{f:theworst}}[\textwidth]
   {
   \includegraphics[width=\textwidth]{ch4/force_position_wt(scaledUinf)_z0=09}
   }
-  \caption{Relative positions of body force and crossflow-wise disturbance velocity. The colors denote the body force, and the iso-lines show the disturbance velocities without control.}
+  \caption{体积力分布（颜色云图）与扰动分布（黑色等值线）的相对位置}
   \label{f:pla_postion}
-
 \end{figure}
 
+在后掠翼算例中，本文首先尝试了与之前后掠Hiemenz流动中相同的谐波激励控制方法，也就是让激发器与横流涡相平行，然后每个展现波长内放置一个激发器。无量纲的体积力$f$ 在$y=0.1$\,mm高度$X$-$Z$平面内的分布如图\ref{f:force_XZ_1perwavelength}所示。这里没有再展示敏感性分析的结果，这是因为其敏感性因子的分布与之前后掠Hiemenz流动中的基本完全相同。这里控制的中心位置在25\%弦长处，控制开始于23.7\%弦长处，结束于26.2\%弦长处。这里体积力强度参数$c_{\rm force}= 30$。本文计算了激发器在十个不同展向位置的结果。其控制效果与之前后掠Hiemenz流动中的类似，这里就不再一一列出。结论也是在横流涡下方偏下扫位置处控制效果较好。这里重点对比了这十个算例中效果最好的和效果最差的以得到其控制的内在机理。图\ref{f:bestworst}展示了最好算例和最差中主模态延流向的演化。其中黑线是无控制的结果，绿线和红线分别是最差算例和最好算例的结果。$T_z$是展向波长，$z_0$是激发器中点的展向位置坐标。可以看到在激发器位于$z_0/T_z=0.4$处，在控制区域横流主模态能量大幅下降，并且在控制之后的区域始终低于无控制工况中的横流主模态能量。而在另一个算例中，激发器位于$z_0/T_z=0.9$，也就是激发器刚好平移了半个波长。这时主模态在控制区域反而被促进了，这也意味之转捩将会被提前。
+
+由于横流涡是斜的，所以横流涡的位置会随着观察的流向位置而变化，所以但看$z_0$是没有意义的，更重要的是看激发器与横流涡的相对位置。在之前后掠Hiemenz流动的控制分析中，本文给出了施加体积力和横流涡的相对位置，这里给出体积力和横流方向扰动速度分布的相对位置，以说明控制的机理。图\ref{f:pla_postion}中颜色云图表示体积力横流方向分量在横截面上的分布，曲线表示在横流方向的扰动速度分量。其中实线表示值为正，虚线表示值为负。可以看到，当把扰动和体积力都投影到横流方向的时候，如果他们的符号相反，也就是力的方向与扰动的速度方向相反（如图\ref{f:thebest}），则主模态的能量就会被降低。相反的，如果外加力与扰动速度在横流方向的投影得到的符号相同，则主模态反而会被促进，如图\ref{f:theworst}。这一结果非常直观，也说明了这种谐波控制的控制方法实际就是通过用外加体积力去抵消因为失稳产生的扰动。当然，由于横流失稳产生的扰动在展向的分布是时正时负，所以激发器的展向位置非常关键。所以这一特性也给实际应用带来了风险。因为并不是控制总能起到效果，有时反而会适得其反。再加上实际中横流涡的位置并不是很容易预测，至少笔者并不知道有效的横流涡展向位置的预测方法。所以，这种谐波激励的方法在笔者看来并不实用，缺少足够的鲁棒性。还需要寻找更鲁棒的方法。
 
 \subsection{Subharmonic control: two actuators per wavelength}\label{subs:control2}
 Since it is known that the magnitude of the crossflow velocity greatly influences  crossflow instability, another idea is to use plasma actuators to attenuate the crossflow velocity. To avoid exciting the primary mode, two actuators are positioned per wavelength. The body force distribution in the $X$---$Z$ plane is shown in figure~\ref{f:force2perwavelength}. The number of plasma actuators is doubled compared with the previous scheme. The control region starts at 18.7\% chord length and ends at 21.2\% chord length. The electrodes are still parallel to the isophasal curves of the primary instability mode. $c_\mathrm{force}=50$ in the first case; the cases with  $c_\mathrm{force}=30$ and 70 will be given afterwards.
