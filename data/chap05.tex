@@ -1,30 +1,39 @@
 \chapter{等离子体激发器控制充分发展槽道湍流}
-本文进行控制的基本算例选取为壁面摩擦尺度雷诺数Re$_\tau=180$(Re$_m=5600$)的湍流槽道。计算程序采用的是王志坚课题组的hpMusic\cite{Wang1111}，时间步长dt=0.00015，用三阶的显式Eular进行时间推进；空间采用4阶精度计算，单元内采用高斯点，每个单元内有$5\times5\times5$个点，三个方向总的自由度数分别为$235\times155\times200$。在后处理的时候，对分布在单元界面，空间位置相同的点进行了平均。平均处理之后用于显示的网格点数与Kim（1987）\cite{Kim1987}文献中的网格相近。计算域大小为$4\pi \times 2\times 2\pi$。$\gamma$=1.4， 气体常数为1.0，普朗特常数Pr = 0.72，粘性系数 $\mu=3.571428571428571\times10^{-4}$， Ma=0.1。计算时在流场内添加全场均匀的体积力，使得槽道内的质量平均流速在稳定在1.0；计算的初始条件为抛物线形速度刨面，流速峰值$u_{\rm max} = 1.327$。为了加快转捩，在这个流场上叠加上10个不同流向展向波数的扰动波。初始的密度$\rho=1.0$；压力$p= 31.74603174603175$；这两个量在计算的时候基本上不会变化。计算得到的近壁涡结构和条带结构如下图：
-\begin{figure}[h]
+本文进行控制的基本算例选取为壁面摩擦尺度雷诺数Re$_\tau=180$(Re$_m=5600$)的湍流槽道。计算程序采用的是王志坚课题组的hpMusic\cite{WangZJ2009,Zhu2016,Zh2017}，时间步长dt=0.00015，用三阶的显式Eular进行时间推进；空间采用4阶精度计算，单元内采用高斯点，每个单元内有$5\times5\times5$个点，三个方向总的自由度数分别为$235\times155\times200$。在后处理的时候，对单元界面上空间位置相同的点进行了平均。平均处理之后用于显示的网格点数与Kim（1987）\cite{Kim1987}文献中的网格相近。计算域大小为$4\pi \times 2\times 2\pi$。$\gamma$=1.4， 气体常数为1.0，普朗特常数Pr = 0.72，粘性系数 $\mu=3.57\times10^{-4}$， Ma=0.1。计算时在流场内添加全场均匀的体积力，使得槽道内的质量平均流速在稳定在1.0；计算的初始条件为抛物线形速度刨面，流速峰值$u_{\rm max} = 1.327$。为了加快转捩，在这个流场上叠加上10个不同流向展向波数的扰动波。初始的密度$\rho=1.0$；压力$p= 31.74603174603175$；这两个量在计算的时候基本上不会变化。计算得到的近壁涡结构和条带结构如图\ref{f:nearwallvortex}和\ref{f:nearwallstreak}。其中用于展示涡结构的Q值等值面取了与文献中相同的值（Q=0.5）。涡结构上的颜色采用高度进行渲染。从图中可以清楚的看到近壁区的流向条带，以及这些条带经过发展，抬高之后形成的发卡涡。图\ref{f:nearwallstreak}中的流向脉动速度云图取自$y^+=5$。可以看到本文计算得到的近壁结构基本与文献中的类似。
+\begin{figure}[htb]
   \centering
   \subcaptionbox{本文计算结果}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
     {\includegraphics[width=0.45\textwidth]{ch5/VorStru_Nocontrol.jpg}}%
   \subcaptionbox{Liang Wei 和 Andrew Pollard (2011)\cite{Wei2011}}[0.45\textwidth]
     {\includegraphics[width=0.45\textwidth]{ch5/VorStru_Nocontrol_ref.jpg}}%
-  \caption{计算得到涡结构对比}
+  \caption{计算得到涡结构对比}\label{f:nearwallvortex}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htb]
   \centering
   \subcaptionbox{本文计算结果}[0.5\textwidth] %标题的长度，超过则会换行，如下一个小图。
     {\includegraphics[width=0.5\textwidth]{ch5/streaks_nocontrol.jpg}}%
   \subcaptionbox{Liang Wei 和 Andrew Pollard (2011)\cite{Wei2011}}[0.4\textwidth]
     {\includegraphics[width=0.4\textwidth]{ch5/streaks_paper.jpg}}%
-  \caption{计算得到条带结构对比}
+  \caption{计算得到条带结构对比}\label{f:nearwallstreak}
 \end{figure}
-计算得到的对数律分布如下：
-\begin{figure}
+
+计算得到的对数律分布如图\ref{f:loglow}。其为采用190万瞬时结果进行时间平均和空间平均（流向和展向）之后的结果。其中线性区对比的理论公式为：
+\begin{equation}\label{e:linear_region}
+  U^+=y^+
+\end{equation}
+对数区对比的理论公式为：
+\begin{equation}\label{e:loglaw}
+  U^+=2.5{\rm ln}y^++5.5
+\end{equation}
+可以看到，在$y^+<5$的区域，平均流速分布基本上完全符合线性关系，在$20<y^+<110$的区间，平均速度与对数律完美吻合。另外在图中同时画出了上壁面和下壁面的平均流速分布，y在这里均表示测量点到壁面的距离。上下壁面的速度分布分别用红线和黑线表示。可以看到，图中红线完全将黑线覆盖。
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.7\textwidth]{ch5/loglow.jpg}
   \caption{计算结果与对数律对比}\label{f:loglow}
 \end{figure}
-图\ref{f:loglow}中结果为采用190万瞬时结果时间平均加流向和展向平均之后的结果。
-计算得到的二阶统计量对比：
-\begin{figure}[h]
+
+计算得到的二阶统计量与文献对比如图\ref{f:2orderaver}。这四张图依次是流向、法向、展向脉动速度均方根，以及雷诺切应力$<uv>^+$。这些量均采用壁面摩擦尺度进行无量纲化。其中红线均来自本文的计算结果，绿线为文献\cite{Kim1987}中给出的结果。可以看到两条线基本上完全重合，这表明本文的计算精度是满足要求的。
+\begin{figure}[htb]
   \centering
   \subcaptionbox{$u_{rms}^+$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
     {\includegraphics[width=0.45\textwidth]{ch5/urms_NoControl.jpeg}}%
@@ -35,30 +44,17 @@
     {\includegraphics[width=0.45\textwidth]{ch5/wrms_NoControl.jpeg}}%
   \subcaptionbox{$<uv>^+$}[0.45\textwidth]
     {\includegraphics[width=0.45\textwidth]{ch5/uv_NoControl.jpeg}}%
-  \caption{计算得到的二阶统计量与文献中的结果对比}
+  \caption{计算得到的二阶统计量与文献中的结果对比}\label{f:2orderaver}
 \end{figure}
-计算得到的瞬时流场的涡结构图如下：
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
-  \caption{瞬时流场的涡结构图}
-\end{figure}
-对于这一基本流动，对其进行条件平均，分别在$y^+=10,15,20$的平面上进行涡探测，用Q作为探测标准。然后进行条件平均，得到：
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
-%  \caption{$y^+=10$条件平均}
-%\end{figure}
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=0.5\textwidth]{thu-fig-logo}
-%  \caption{$y^+=15$条件平均}
-%\end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{ch5/condit_aver.jpeg}
-  \caption{$y^+=20$条件平均}
+  \caption{$y^+=20$条件平均}\label{f:base_condition_average}
 \end{figure}
+
+前人的研究\cite{Hamilton1995}指出，壁湍流的产生来自近壁拟序结构的自维持机制。也就是流向涡通过上抛和下扫产生高速和低速条带，然后高速和低速条带又由于失稳机制再次破碎产生新的流向涡。虽然从瞬时涡结构中也能观察到近壁的流向涡，但是其分布过于杂乱无章，不便于分析。这里采用一种条件平均技术对结果进行后处理。首先对每一个瞬时结果在$y^+=20$的平面上进行涡探测。之所以选择$y^+=20$是因为流向涡量均方极大值位于这个高度\cite{Jeong1997}，所以也被普遍认为是流向涡涡心所处在的高度。探测时采用$Q=1$作为涡的识别标准。探测到涡之后，选取涡内$Q$的最大值作为涡心。之后将所有探测得到的涡的涡心的位置置为$z=0$，然后对涡心附近的流场进行平均，得到图\ref{f:base_condition_average}。
+
+
 
 \section{定常激励控制方案}
 文献中给出了一种大涡形状的体积力分布用于减阻
