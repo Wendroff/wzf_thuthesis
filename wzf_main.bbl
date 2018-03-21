@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{61}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -339,6 +339,58 @@ Jeong J, Hussain F, Schoppa W, et~al.
 \newblock Coherent structures near the wall in a turbulent channel
   flow\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 1997, 332: 185--214.
+
+\bibitem[Canton\ et~al.(2016)Canton, Örlü, Chin, Hutchins, Monty, and
+  Schlatter]{Canton2016}
+Canton J, Örlü R, Chin C, et~al.
+\newblock On large-scale friction control in turbulent wall flow in low
+  reynolds number channels\allowbreak[J].
+\newblock Flow, Turbulence and Combustion, 2016, 97\penalty0 (3): 811--827.
+
+\bibitem[Gatti\ et~al.(2016)Gatti and Quadrio]{Gatti2016}
+Gatti D, Quadrio M.
+\newblock Reynolds-number dependence of turbulent skin-friction drag reduction
+  induced by spanwise forcing\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2016, 802: 553--582.
+
+\bibitem[Gatti\ et~al.(2013)Gatti and Quadrio]{Gatti2013}
+Gatti D, Quadrio M.
+\newblock Performance losses of drag-reducing spanwise forcing at moderate
+  values of the reynolds number\allowbreak[J].
+\newblock Physics of Fluids, 2013, 25\penalty0 (12): 125109.
+
+\bibitem[Quadrio\ et~al.(2009)Quadrio, Ricco, and Viotti]{Quadrio2009}
+Quadrio M, Ricco P, Viotti C.
+\newblock Streamwise-travelling waves of spanwise wall velocity for turbulent
+  drag reduction\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2009, 627: 161.
+
+\bibitem[Jim\'enez\ et~al.(1999)Jim\'enez and Pinelli]{Jimenez1999}
+Jim\'enez J, Pinelli A.
+\newblock The autonomous cycle of near-wall turbulence\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1999, 389: 335--359.
+
+\bibitem[Del~\'Alamo\ et~al.(2006)Del~\'Alamo, Jim\'enez, Zandonade, and
+  Moser]{del2006}
+Del~\'Alamo J C, Jim\'enez J, Zandonade P, et~al.
+\newblock Self-similar vortex clusters in the turbulent logarithmic
+  region\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2006, 561: 329--358.
+
+\bibitem[Jim\'enez\ et~al.(2005)Jim\'enez, Kawahara, Simens, Nagata, and
+  Shiba]{Jimenez2005}
+Jim\'enez J, Kawahara G, Simens M P, et~al.
+\newblock Characterization of near-wall turbulence in terms of equilibrium and
+  “bursting” solutions\allowbreak[J/OL].
+\newblock Physics of Fluids, 2005, 17\penalty0 (1): 015105.
+\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.1825451}.
+
+\bibitem[Maden\ et~al.(2013)Maden, Maduta, Kriegseis, Jakirli, Schwarz,
+  Grundmann, and Tropea]{Maden2013}
+Maden I, Maduta R, Kriegseis J, et~al.
+\newblock Experimental and computational study of the flow induced by a plasma
+  actuator\allowbreak[J].
+\newblock International Journal of Heat and Fluid Flow, 2013, 41: 80--89.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.

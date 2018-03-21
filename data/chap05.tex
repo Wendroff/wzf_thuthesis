@@ -52,43 +52,53 @@
   \caption{$y^+=20$条件平均}\label{f:base_condition_average}
 \end{figure}
 
-前人的研究\cite{Hamilton1995}指出，壁湍流的产生来自近壁拟序结构的自维持机制。也就是流向涡通过上抛和下扫产生高速和低速条带，然后高速和低速条带又由于失稳机制再次破碎产生新的流向涡。虽然从瞬时涡结构中也能观察到近壁的流向涡，但是其分布过于杂乱无章，不便于分析。这里采用一种条件平均技术对结果进行后处理。首先对每一个瞬时结果在$y^+=20$的平面上进行涡探测。之所以选择$y^+=20$是因为流向涡量均方极大值位于这个高度\cite{Jeong1997}，所以也被普遍认为是流向涡涡心所处在的高度。探测时采用$Q=1$作为涡的识别标准。探测到涡之后，选取涡内$Q$的最大值作为涡心。之后将所有探测得到的涡的涡心的位置置为$z=0$，然后对涡心附近的流场进行平均，得到图\ref{f:base_condition_average}。
-
-
+前人的研究\cite{Hamilton1995}指出，壁湍流的产生来自近壁拟序结构的自维持机制。也就是流向涡通过上抛和下扫产生高速和低速条带，然后高速和低速条带又由于失稳机制再次破碎产生新的流向涡。虽然从瞬时涡结构中也能观察到近壁的流向涡，但是其分布过于杂乱无章，不便于分析。这里采用一种条件平均技术对结果进行后处理。首先对每一个瞬时结果在$y^+=20$的平面上进行涡探测。之所以选择$y^+=20$是因为流向涡量均方极大值位于这个高度\cite{Jeong1997}，所以也被普遍认为是流向涡涡心所处在的高度。探测时采用$Q=1$作为涡的识别标准。探测到涡之后，选取涡内$Q$的最大值作为涡心。之后将所有探测得到的涡的涡心的位置置为$z=0$，然后对涡心附近的流场进行平均，得到图\ref{f:base_condition_average}。这里只平均了涡心处流向涡量为正的涡。负涡量的涡与之对称，这里不再展示。图中最中心的粗黑线是$Q$的等值线，最外面一圈是$Q=1$也就是本文用来判断涡的准则。图上平均之后$Q$的最大值为3.87。图中的细线是横截面内的流线，可以看到$Q$判据在这里非常准确的预测了这个流向涡。图中的颜色云图是流向速度脉动。这里颜色的显示为-0.1到+0.1。可以看到图中左侧的高速条带和右侧的低速条带关于涡并不对称。低速条带中心大致位于$y^+=20,z^+=-15$位置处，高速条带中心大致位于$y^+=10,z^+=+15$位置处。脉动速度在正负值上的分布也不是对称的，最小值为-0.13，最大值为0.10。在之后的控制中，本文也会用类似的条件平均方法，分析其控制机理。
 
 \section{定常激励控制方案}
-文献中给出了一种大涡形状的体积力分布用于减阻
-\begin{figure}
+这一小节主要介绍采用定常激励的DBD激发器降低湍流槽道阻力的控制方案和相关计算结果。首先，这里简要介绍一下控制方案的灵感来源。在2016年，Canton等人\cite{Canton2016}提出了一种用大涡形状分布的体积力进行减阻的方案，图\ref{f:vor_f}为其体积力分布示意图。其中箭头表示力的方向。这种形状的体积力在槽道内的分布可以完全用解析式表达：
+\begin{subequations}\label{e:vvf_equations}
+\begin{align}
+  F_y \left( {y,z} \right) &= A\beta \cos \left( {\beta z} \right)\left( {1 + \cos \left( {\pi y/h} \right)} \right)\\
+  F_z \left( {y,z} \right) &= A\pi /h\sin \left( {\beta z} \right)\sin \left( {\pi y/h} \right)
+\end{align}
+\end{subequations}
+其中$F_y,F_z$分别表示体积力法向和展向的分量，$A$是添加体积力的强度系数，$\beta$是展向波数，$h$是半槽宽，在本文的计算中就是1。
+在他们的工作中，最初研究的并不是采用体积力，而是采用通过数值的手段在进行数值模拟的过程中强制在槽道内固定一个大涡。他们的结果显示，无论是体积力产生的还是强制数值方法产生的，只要槽道内有大涡，并且参数满足一定条件，就能够减阻。
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{ch5/vortex.JPG}
-  \caption{J Canton et al. (2016 FTC)采用的减阻控制的体积力}\label{f:vor_f}
+  \caption{Canton等人\cite{Canton2016}采用的减阻控制的体积力}\label{f:vor_f}
 \end{figure}
-他们对这种减阻控制方式进行了参数研究：
-\begin{figure}
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{ch5/parameter_study.JPG}
-  \caption{涡强度与减阻率的关系}\label{f:vort_strength_vs_DR}
+  \caption{Canton等人\cite{Canton2016}给出的涡强度与减阻率的关系}\label{f:vort_strength_vs_DR}
 \end{figure}
-然而，实际中并不能产生这种形状的体积力，所以本文考虑采用DBD产生相同的效果。本文中采用的体积力分布情况如下：
-\begin{figure}
+
+他们还对这种减阻控制方式进行了参数研究。他们的结果表明，最终所产生的二次涡的强度要在一定的范围内才能有效减阻。除此之外，涡的展向波长也是决定减阻率的关键参数。本文也复现了他们文章中提到的一个减阻算例，其参数设定为$\beta=1,A=5\times10^4$。在后文中将这一算例命名为“Vortex Force”。除了这个算例，作者还计算了其十倍强度的大涡状体积力控制算例。但是涡变强后阻力反而增加了14\%，这里就不再展示。
+
+虽然这种大涡状的体积力可以减阻，但是并不现实，因为实际中并不能产生这种形状的体积力。所以本文接下来重点研究采用DBD是否可以产生相同效果。这里依然选用Maden等人2013年提出来的模型，与之前研究后掠翼转捩推迟中用到的模型相同。之所以不用更实际一点的模型主要是因为槽道本身就是一个理论模型算例，其长度速度等都是无量纲量，一般也不会用专门的实际工况去与之对应。所以这里还是选用了可以调整参数的近似体积力分布模型，做理论方面的研究。本文中采用的DBD生成的体积力分布如图\ref{f:steady_force}所示。其中红色表述展向正方向的体积力，也就是向右侧的，蓝色表示展向负方向的体积力，也就是向左侧的。这里仅展示分布的形状，具体的强度在不同的计算工况中不一样。模型用到的参数列在表\ref{t:parameters_steadycontrol}中。
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{ch5/steady_force.jpg}
   \caption{定常激励采用的DBD体积力示意图}\label{f:steady_force}
 \end{figure}
-在没有背景流动的槽道中诱导出来的流动如下：
-\begin{figure}[h]
-  \centering
-  \subcaptionbox{V}[0.8\textwidth] %标题的长度，超过则会换行，如下一个小图。
-    {\includegraphics[width=0.8\textwidth]{ch5/V_nobackflow.jpg}}%
-  \\\bigskip
-  \subcaptionbox{W}[0.8\textwidth]
-    {\includegraphics[width=0.8\textwidth]{ch5/W_nobackflow.jpg}}%
-  \caption{定常DBD在无背景流动的槽道中诱导出来的流场}
-\end{figure}
-由于最开始并不知道体积力诱导的涡强度与真实涡强度的关系，所以做了很多参数的实验。最终发现确实过大的体积力反而会起到增阻的的作用。这里仅展示一个增阻的算例和一个减阻的算例，他们的产生的涡强度如下：
+
+可以看到，图\ref{f:steady_force}中仅仅用到了两个激发器。这是因为笔者希望用于控制的结构尽可能的简单。只在下壁面布置是因为将来希望将这种控制方法推广到湍流边界层中，所以这里只关注下壁面的阻力。之后提到的阻力也都只是流体作用在下壁面的阻力。
+
 \begin{table}
   \centering
-  \caption{不同算例产生的涡强度}
+  \caption{DBD激发器体积力模型参数选择}\label{t:parameters_steadycontrol}
+  \begin{tabularx}{\linewidth}{XXXXXXc}
+    \toprule[1.5pt]
+    $a_0$ & $a_1$ &$a_2$ &$b_0$ &$b_1$ &$b_2$ &$c_{\rm force}$  \\\midrule[1pt]
+    2     & 0.1   & 0.05 & 9    & 0.07 & 0.002& 10$^4$或$2.5\times10^3$ \\
+    \bottomrule[1.5pt]
+  \end{tabularx}
+\end{table}
+\begin{table}
+  \centering
+  \caption{不同算例产生的涡强度}\label{t:vortexStrength}
   \begin{tabularx}{\textwidth}{*2{>{\centering\arraybackslash}X}}
     \toprule[1.5pt]
     {\heiti 算例名称} & {\heiti max$(V)/U_b$} \\\midrule[1pt]
@@ -98,384 +108,311 @@
     \bottomrule[1.5pt]
   \end{tabularx}
 \end{table}
-各个算例下壁面阻力对比：
+由于最开始并不知道体积力诱导的涡强度与真实涡强度的关系，所以做了很多参数的实验。最终发现确实过大的体积力反而会起到增阻的的作用，和前人研究的用大涡状的体积力进行控制的规律相同。这里仅展示一个增阻的算例和一个减阻的算例，在后文中把他们分别记做算例Plasma（Strong）和算例Plasam（Weak）（分别对应表\ref{t:parameters_steadycontrol}中$c_{\rm force}=10^4$和$2.5\times10^3$）。他们的产生的涡强度如表\ref{t:vortexStrength}。这里袭承了Canton\cite{Canton2016}等人的做法，采用max$(V)/U_b$作为产生的涡的强度。在这里也可以用其他衡量涡强度的方法，比如半个展向周期内横截面上的涡量积分。然而实际稍加推导，就可以发现其实差别不大。例如若采用半个横截面上的流向涡量积分作为涡强度的判据，稍微应用一下高斯－奥斯特罗格拉德斯基公式，就可以将其转换为环绕这半个横截面的环线积分。由于壁面上速度为零，所以这个环线积分就变成了槽道中心线和周期边界上法向速度$V$的积分。实际计算发现不同算例这两个位置法向速度$V$的分布变化不大，所以采用其极值max$(V)$作为涡强度大小的量度和采用半个展向周期内横截面上的涡量积分作为涡强度大小的量度没有太大区别。另外也是为了和文献中的结果进行对比，这里依然采用max$(V)/U_b$来表征涡的强度。
+
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{法向平均速度\label{f:nobackV}}[0.58\textwidth]%标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.58\textwidth]{ch5/V_nobackflow.jpg}}%
+  %\\\bigskip
+  \subcaptionbox{展向平均速度与流线\label{f:nobackW}}[0.58\textwidth]
+    {\includegraphics[width=0.58\textwidth]{ch5/W_nobackflow.jpg}}%
+  \caption{定常DBD在无背景流动的槽道中诱导出来的流场}\label{f:nobackflow}
+\end{figure}
+在没有背景流动的槽道中诱导出来的流场如图\ref{f:nobackflow}。其中图\ref{f:nobackV}是法向平均速度云图，图\ref{f:nobackW}是展向平均速度云图。图\ref{f:nobackW}中还画出了这个横截面内的流线。从法向速度的分布云图中，可以看到体积力诱发出来的向上的流动和向下的流动并不对称。其中向下的流动分布的范围并不广，只集中在槽道中间很小的一部分，而向上的流动则铺开在很大的范围内。另外，向下的最大流速比向上的最大流速大很多。正的最大法向速度大约0.01而负的是-0.03。可见这样布置的体积力分布会产生一个很强的将流体从上往下吸的力。展向高速流动主要集中在体积力作用区。从流线上可以发现，DBD产生的二次涡的涡心更加靠近壁面。
+
+各个算例下壁面阻力对比如图\ref{f:darg_steady}所示。其中绿线是无控制工况的。所有控制激励都是在无量纲时间到了620的时候打开的。之后红、蓝、灰分别是Plasma（Weak）、Plasma（Strong）和Vortex Force三个算例的结果。可以看到，在没有控制的时候下壁面总的摩阻为0.32，采用大涡形体积力将阻力降低到0.27左右，采用较弱的等离子激励将阻力降低到0.295左右。然而当体积力较强时，阻力反而升到了0.36。另外这三个工况阻力的波动幅值都没有明显的变化。这一现象将会结合流场内的涡结构图加以说明。
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{ch5/FX_steady_forcing.jpeg}
-  \caption{各个算例下壁面阻力对比}
-\end{figure}
-流向平均与时间平均对比：
-\begin{figure}[h]
-  \centering
-  \subcaptionbox{Vortex Force: U}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/U.png}}
-  \subcaptionbox{Vortex Force: V}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/V.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Strong): U}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/U.png}}
-  \subcaptionbox{Plasma(Strong): V}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/V.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Weak): U}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/U.png}}
-  \subcaptionbox{Plasma(Weak): V}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/V.png}}
-  \caption{流向与法向平均速度}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \subcaptionbox{Vortex Force: W}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/W.png}}
-  \subcaptionbox{Vortex Force: <uv>}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/uv.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Strong): W}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/W.png}}
-  \subcaptionbox{Plasma(Strong): <uv>}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/uv.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Weak): W}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/W.png}}
-  \subcaptionbox{Plasma(Weak): <uv>}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/uv.png}}
-  \caption{展向平均速度与雷诺切应力}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \subcaptionbox{Vortex Force: $<uu>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/uu.png}}
-  \subcaptionbox{Vortex Force: $<vv>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/VortexF/vv.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Strong): $<uu>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/uu.png}}
-  \subcaptionbox{Plasma(Strong): $<vv>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaStronge/vv.png}}
-  \\\bigskip
-  \subcaptionbox{Plasma(Weak): $<uu>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/uu.png}}
-  \subcaptionbox{Plasma(Weak): $<vv>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/vv.png}}
-  \caption{流向与法向雷诺主应力}
-\end{figure}
-Plasma（Weak）算例中的涡结构：
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{ch5/PlasmaWeak/8367500.png}
-  \caption{Plasma(Weak)涡结构}
-\end{figure}
-Plasma（Weak）湍动能和湍动能生成项：
-\begin{figure}
-  \centering
-  \subcaptionbox{湍动能}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/k.jpeg}}
-  \subcaptionbox{湍动能生成项}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/PlasmaWeak/Production.jpeg}}
-  \caption{Plasma（Weak）湍动能和湍动能生成项}
+  \caption{各个算例下壁面阻力对比}\label{f:darg_steady}
 \end{figure}
 
-\section{周期激励控制方案}
-米兰理工体积力形式：
-\begin{equation}\label{e:f_POLIMI}
-  F_z  = F_z \left( {y,t} \right) = A_f e^{ - y/D} \cos \left( {2\pi \frac{t}{T}} \right);A_f  = 2;D = 0.04
-\end{equation}
-控制效果：
+图\ref{f:aver_velocity_steady1}、\ref{f:aver_velocity_steady2}和\ref{f:aver_velocity_steady3}对比了三个定常激励算例的部分一二阶统计量。这里有前到后依次是平均流向速度$U$、平均法向速度$V$、平均展向速度$W$、雷诺切应力$<uv>$和雷诺主应力$<uu>$及$<vv>$。对于流向平均速度$U$，三个算例使用的是相同的云图颜色划分。如果没有控制，平均流向速度在展向应该是均匀的。所以在控制算例中流向平均速度在展向分布的不均匀性也正说明了这种大涡产生的高低速流体之间对流的强弱。Plasma（Strong）算例是涡强度最大的算例，可以看到其流向平均速度分布与另外两个最大的不同是，代表最大速度的红色区在槽道中间被分开了。这也正是说明由于大涡强烈的将近壁的低速流体卷起，甚至将一部分低速流体带到了槽道中心。而另外两个算例，槽道衷心的高速流动区域仅仅是被向另一侧挤压了些。另外在Plasma（Weak）算例中，槽道中部，也就是$z=\pi$位置处的高速流体连接没有被切断，反而是周期边界处的高速流体连接被阻隔了。这是因为等离子体仅仅在下壁面安装，而下壁面的上抛现象正好发生在周期边界位置处。
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{Vortex Force: $U$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/U.png}}
+  \subcaptionbox{Vortex Force: $V$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/V.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): $U$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/U.png}}
+  \subcaptionbox{Plasma(Strong): $V$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/V.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): $U$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/U.png}}
+  \subcaptionbox{Plasma(Weak): $V$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/V.png}}
+  \caption{平均速度对比}\label{f:aver_velocity_steady1}
+\end{figure}
+
+在图\ref{f:aver_velocity_steady1}右侧一列展示的平均流向速度里，不同的算例采用的是不同的显示值域范围。这是因为平均法向速度完全是外加的体积力诱导出来的，其强度反映了生成的二次涡的强度，受体积力强度的影响很大。为了能够让每一个算例都清楚的显示，这里都分别选择了它们各自合适的值域范围。可以看到，三个算例中在槽道中心$z=\pi$处都有一块高速向下的流动区域。不同的是，在算例Vortex Force 和Plasma（Strong）中，这个区域呈蝴蝶形分布，而Plasm（Weak）中是椭圆形的。
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{Vortex Force: $W$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/W.png}}
+  \subcaptionbox{Vortex Force: $<uv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/uv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): $W$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/W.png}}
+  \subcaptionbox{Plasma(Strong): $<uv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/uv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): $W$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/W.png}}
+  \subcaptionbox{Plasma(Weak): $<uv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/uv.png}}
+  \caption{平均展向速度与雷诺切应力}\label{f:aver_velocity_steady2}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{Vortex Force: $<uu>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/uu.png}}
+  \subcaptionbox{Vortex Force: $<vv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/VortexF/vv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Strong): $<uu>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/uu.png}}
+  \subcaptionbox{Plasma(Strong): $<vv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaStronge/vv.png}}
+  \\\bigskip
+  \subcaptionbox{Plasma(Weak): $<uu>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/uu.png}}
+  \subcaptionbox{Plasma(Weak): $<vv>$}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/vv.png}}
+  \caption{流向与法向雷诺正应力}\label{f:aver_velocity_steady3}
+\end{figure}
+
+图\ref{f:aver_velocity_steady2}左侧是平均展向速度，右侧是雷诺切应力。可以看到，由于DBD激发器仅仅加在下壁面，所以平均展向速度在下壁面附近有两处绝对值较大的集中分布区，而在上壁面附近则没有。这与Vortex Force算例中上下严格对称的分布情况形成了鲜明的对比。另外，从图中展示的流线，也可以看到，Plasma（Weak）中的涡显得方方正正的，而另外两个算例中的涡就有一点斜。这也很好地解释为什么这两个算例中的平均法向速度分布在槽道中部呈蝴蝶形。雷诺应力是湍流阻力的关键。可以看到三个算例中，贴近下壁面的高雷诺切应力区都被驱赶到周期边界附近。另外，在Plasma（Weak）算例中，上壁面附近的高雷诺切应力区并没有像其他两个算例一样被卷起带到槽道中间。特别要注意的是，在Plasma（Strong）算例中，在周期边界两侧，也就是$z=1$和6位置附近，有两道狭长的高雷诺切应力区。并且这里的雷诺切应力是正的，而其上下都是负的。这两道狭长的区域在雷诺正应力$<uu>$中也有体现。这可以说明在那个位置的平均流场流向发生了很大的剪切，所以产生了非常强的雷诺应力。
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{ch5/PlasmaWeak/8367500.png}
+  \caption{Plasma(Weak)涡结构}\label{f:PlasmaWeak_vortexstructure}
+\end{figure}
+之后将重点分析Plasma（Weak）算例的结果。该算例流场的涡结构如图\ref{f:PlasmaWeak_vortexstructure}。这张图中，在空间分布的白色结构是$Q=1$的等值线。底面的颜色云图为壁面摩阻，左侧面的颜色云图为瞬时流向速度，后端的颜色云图为流向涡量。可以看到，在流体被DBD吸下来区域，壁面由于受到流体的冲击，摩阻比较大。在流体被卷上去的区域，摩阻相对较小。但是涡结构和涡量还是主要集中在流体被卷上去的区域。在流体被吸下来的区域流动反而比较干净，没什么涡结构，也没什么涡量。另外，在上抛区的涡结构中，依然可以看到流向涡抬升并形成发卡涡的过程。由于无法展示动画，这里无法将这一过程充分展示出来。
+
 \begin{figure}
+  \centering
+  \subcaptionbox{湍动能}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/k.jpeg}}
+  \subcaptionbox{湍动能生成项\label{f:Productionb}}[0.49\textwidth]
+    {\includegraphics[width=0.49\textwidth]{ch5/PlasmaWeak/Production.jpeg}}
+  \caption{Plasma（Weak）湍动能和湍动能生成项}\label{f:production}
+\end{figure}
+图\ref{f:production}给出了Plasma（Weak）算例的湍动能与湍动能生成项的分布。这里先重点看图\ref{f:Productionb}给出的湍动能生成项分布。图中白色的粗黑线包围的区域内湍动能生成项均为负值。这表明，在DBD将流体吸到壁面附近这一过程中，流体不仅被加速，还产生了在层流化现象。这一现象使得槽道中部贴近壁面处湍动能极低。这同时非常好的印证了图\ref{f:PlasmaWeak_vortexstructure}中流体下扫区涡结构较少这一观察。这里，可以将上壁面近似当成无控制的壁面进行对比观察。可以看到上壁面附近就有一层高湍动能区，几乎平平的铺在整个上壁面上。而下壁面的高湍动能区则集中在流体上扫区，并且极大值位置也略有提升。所以可见，该算例主要是通过二次涡产生的层流化效应降低湍流脉动，其次在上抛区抬高高湍动能区的位置，从而实现减阻。
+
+\section{周期激励控制方案}
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{ch5/POLIMI/Drag.jpeg}
-  \caption{米兰理工体积力激励方案阻力变化}\label{f:POLIMI_DARG}
+  \caption{米兰理工（POLIMI）体积力激励方案阻力变化}\label{f:POLIMI_DARG}
 \end{figure}
-$T^+=52$相平均：
-\begin{figure}
+除了产生流向大涡可以降低湍流槽道的阻力外，迫使近壁流体做展向的周期振动也是一种非常有效的减阻方法。一般采用的激励方式有体积力和壁面振动。米兰理工（之后简称为POLIMI）在这一方面有很详细系统的研究\cite{Gatti2016,Gatti2013,Quadrio2009}。他们不仅研究了展向均匀振动的效果，还研究了这种振动形式沿着展向或流向进行传播的控制效果。其中，他们研究的展向行波形式的激励可以用解析式表达为：
+\begin{equation}\label{e:f_POLIMI}
+  F_z  = F_z \left( {y,t} \right) = A_f e^{ - y/D} \cos \left( k_zz + \omega t \right)
+\end{equation}
+其中$\omega$是圆频率，其激励周期为$T=2\pi/\omega$。POLIMI研究了诸多不同参数的算例，后来发现当式（\ref{e:f_POLIMI}）中的参数取$k_z=0,A_f=2,D=0.04,T^+=52$的时候减阻率最高。本文先实际复现了POLIMI给出的最佳的减阻算例，并计算了一个激励周期为最佳控制周期两倍，其余参数一样的增阻算例进行比较（$T^+=104$）。这两个工况得到的阻力结果如图\ref{f:POLIMI_DARG}所示。注意到这里控制的最佳周期与流向涡的生存寿命$T^+\approx$50\cite{Jimenez1999}到60\cite{del2006}大致相当，但是比整个壁湍流自维持机制的周期$T^+\approx400$\cite{Jimenez2005}要小很多。图中显示，$T^+=52$算例中的壁面摩阻几乎没有脉动，并且阻力降低了近乎一半。这基本上表明产生的周期振荡成功抑制了湍流脉动。然而两倍周期，也就是 $T^+=104$ 的结果就不是很乐观。摩阻出现了同频率的大幅震荡。这表明用于激励的体积力和流动产生了共振。本文之后便不再讨 $T^+=104$ 的增阻算例，论重点分析 $T^+=52$ 的减阻算例，并将其记为算例POLIMI。
+
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{$U^+$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/phase_average_U+.jpeg}}
-  \subcaptionbox{$W$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/phase_average_W.jpeg}}
-  \caption{$T^+=52$相平均}
+  \subcaptionbox{$U^+$\label{f:POLIMI_phaseaverU}}[0.495\textwidth]
+    {\includegraphics[width=0.495\textwidth]{ch5/POLIMI/phase_average_U+.jpeg}}
+  \subcaptionbox{$W$\label{f:POLIMI_phaseaverW}}[0.495\textwidth]
+    {\includegraphics[width=0.495\textwidth]{ch5/POLIMI/phase_average_W.jpeg}}
+  \caption{$T^+=52$相平均}\label{f:POLIMI_phaseaver}
 \end{figure}
-涡结构图：
-\begin{figure}
+图\ref{f:POLIMI_phaseaver}给出了POLIMI算例中流向速度和展向速度进行相平均的结果。由于DNS计算量过大，为了不浪费数据，每一个相位均指的是这一相位区间内所有瞬时的平均结果。例如图例中给出的$0.25\pi$实际上是平均了$[0.25\pi,0.5\pi]$区间内的所有结果。图\ref{f:POLIMI_phaseaverU}是相位平均后的流向速度，采用壁面摩擦尺度进行无量纲化。可以看到，所有相位的结果完全重合。图中的黑线是无控制时的结果。可以看到在粘性底层流速有所降低。另外，控制后的流向速度剖面没有明显的符合对数律的区域。图\ref{f:POLIMI_phaseaverW}展示的是展向速度相平均的结果。这里需要注意的是在$0.75\pi$和$1.75\pi$相位处，展向速度开始反向，其紧贴壁面的流动方向和更高处一些流体的流动方向不同。
+
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{ch5/POLIMI/5973000.png}
-  \caption{POLIMI涡结构图}
+  \caption{POLIMI涡结构图}\label{f:POLIM_vortex_structure}
 \end{figure}
-各阶统计量对比：
-\begin{figure}[h]
+图\ref{f:POLIM_vortex_structure}展示的是流动的涡结构。这里还是使用$Q=0.5$作为涡判据，下壁面用摩阻分布进行颜色渲染，左侧壁面用瞬时流向速度进行渲染，后壁面用流向涡量进行渲染。通过观察流动发展的过程，发现壁面摩阻的分布不仅随着随着涡结构一起向前流动，同时还会受体积力影响在展向做左右的周期摆动。这两种运动的叠加导致壁面摩阻分布会以蛇形的方式向前走。然而，远离壁面的涡结构却并不怎么收到近壁体积力的影响，只是向前运动，并没有左右摆动。后端面显示的是流向涡量。由于体积力的引入，近壁会出现时正时负的高涡量层。除此之外，下半个槽道出现的涡量团比上半个要少很多。这也从侧面反映了激励成功的抑制了湍流脉动。
+
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{$<uu>$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/uu.png}}%
-  \subcaptionbox{$<vv>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/vv.png}}%
+  \subcaptionbox{正向激励时体积力分布}[0.8\textwidth]
+  {\includegraphics[width=0.8\textwidth]{ch5/6DBD1.JPG}}
   \\\bigskip
-  \subcaptionbox{$<ww>$}[0.45\textwidth] %标题的长度，超过则会换行，如下一个小图。
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/ww.png}}%
-  \subcaptionbox{$<uv>$}[0.45\textwidth]
-    {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/uv.png}}%
-  \caption{POLIMI二阶统计量对比}
+  \subcaptionbox{反向激励时体积力分布}[0.83\textwidth]
+  {\includegraphics[width=0.83\textwidth]{ch5/6DBD2.JPG}}
+  \caption{6DBD算例激励示意图}\label{f:6dbd_force}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{正向激励时体积力分布\label{f:16dbd_forcea}}[\textwidth]
+  {\includegraphics[width=\textwidth]{ch5/16DBD1.jpg}}
+  \\\bigskip
+  \subcaptionbox{反向激励时体积力分布\label{f:16dbd_forceb}}[\textwidth]
+  {\includegraphics[width=\textwidth]{ch5/16DBD2.jpg}}
+  \caption{16DBD算例激励示意图}\label{f:16dbd_force}
+\end{figure}
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.5\textwidth]{ch5/FX_unsteady_forcing.jpeg}
+%  \caption{周期激励各个算例控制效果}\label{f:period_actuation}
+%\end{figure}
+POLIMI算例的控制效果非常好，但是实际中无法产生这样的体积力，所以本文之后主要研究如何用DBD等离子体激发器产生相同的效果。这里还是采用Maden的\cite{Maden2013}DBD模型。本文最初提出的激发器布置方案如图\ref{f:6dbd_force}所示。在前半个周期采用3个DBD激发器向右吹，在后半个周期采用3个激发器向左吹。由于一共用到了6个激发器，这里将其简记为6DBD算例。这里激励的周期还是采用$T^+=52$，添加进去的体积力在全场积分的值与POLIMI算例相同，力在垂直壁面方向的分布也近似相同。然而，这个算例中阻力增大了将近三倍（如图\ref{f:period_actuation}）。由于周期、力强度等参数都与POLIMI算例中相仿，最有可能导致阻力增加的原因就是展向的不均匀性。笔者为了对比6DBD形式的体积力和POLIMI形式的体积力分别会带来多大的扰动，做了一个层流计算。还是相同的算例，只是背景流动采用的是层流槽道的速度剖面。对这两个层流槽道添加两种不同形式的激励后，POLIMI的体积力在很长一段时间都不会导致流动从层流转变为湍流，而6DBD形式的体积力则会使得流动很快就变成了湍流。这表明在采用DBD控制的时候，无可避免的会引入额外的扰动，并进而引起阻力的增加。究其原因，产生这些扰动的罪魁祸首就是展向不均匀性。为了克服这一现象，本文又提出了采用16个DBD的控制方案。其前后半个周期的体积力分布分别如图\ref{f:16dbd_forcea}和\ref{f:16dbd_forceb}所示。这里先不去考虑实际中是否可以进行这样的布置，仅仅探讨加密布置能不能够削弱因展向不均匀性引入的额外扰动，并进而达到减阻的目的。图\ref{f:period_actuation}的控制结果显示这么做是有效果的，下壁面阻力从0.32降低到了0.29。
+
+\begin{figure}[htb]
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{ch5/U.jpeg}
+  \caption{平均流向速度对比}\label{f:period_U}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{ch5/FX_unsteady_forcing.jpeg}
+  \caption{周期激励各个算例控制效果}\label{f:period_actuation}
+\end{minipage}
+\end{figure}
+%\begin{figure}[htb]
+%  \centering
+%  \includegraphics[width=0.6\textwidth]{ch5/U.jpeg}
+%  \caption{周期激励控制算例平均流向速度对比}\label{f:period_U}
+%\end{figure}
+\begin{figure}[htb]
+  \centering
+  \subcaptionbox{$<uu>$}[0.495\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.495\textwidth]{ch5/16DBD/uu.jpeg}}%
+  \subcaptionbox{$<vv>$}[0.495\textwidth]
+    {\includegraphics[width=0.495\textwidth]{ch5/16DBD/vv.jpeg}}%
+  \\\bigskip
+  \subcaptionbox{$<ww>$}[0.495\textwidth] %标题的长度，超过则会换行，如下一个小图。
+    {\includegraphics[width=0.495\textwidth]{ch5/16DBD/ww.jpeg}}%
+  \subcaptionbox{$<uv>$}[0.495\textwidth]
+    {\includegraphics[width=0.495\textwidth]{ch5/16DBD/uv.jpeg}}%
+  \caption{二阶统计量对比}\label{f:period_2order}
+\end{figure}
+图\ref{f:period_U}和\ref{f:period_2order}分别给出了平均流向速度和二阶统计量的对比。可以看到，在POLIMI算例中，两个方向的雷诺正应力$<uu>$和$<vv>$在下半个槽道均大幅减小。尤其是$<vv>$，本来应该在下壁面出现的峰值都被抹平，仅仅是出现了一个平台。这表明下壁面附近的湍流被极大地抑制住了。由于展向速度的周期脉动也被统计到了雷诺应力里，所以在控制算例中的展向雷诺正应力分量要远高于无控制算例的，其中POLIMI算例中的展向雷诺正应力分量峰值达到了0.27，没有在图中画出。另外，雷诺切应力$<uv>$在POLIMI算例中也被极大地削弱了。从二阶量统计量的结果对比来看，16DBD算例像是一个弱化版的POLIMI算例。雷诺应力减小和增减的方向相同，只是变化的程度不及POLIMI算例。由于控制只加在了下壁面，导致下壁面阻力降低而上壁面阻力不变，流体更容易从槽道的下半部分通过，所以槽道下半部分的平均流速高于上半部分的（图\ref{f:period_U}）
+
+\begin{figure}[htb]
   \centering
   \subcaptionbox{POLIMI}[0.45\textwidth]
     {\includegraphics[width=0.45\textwidth]{ch5/POLIMI/POLIMI_num_vort.jpeg}}
   \subcaptionbox{16DBD}[0.45\textwidth]
     {\includegraphics[width=0.45\textwidth]{ch5/16DBD/16DBD_num_vort.jpeg}}
-  \caption{不同相位探测到的涡个数}
+  \caption{不同相位探测到的涡个数}\label{f:vortex_num}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_0.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_0.jpeg}}
-  \caption{POLIMI体积力分布$0/16\pi$相平均}
+  \includegraphics[width=0.8\textwidth]{ch5/16DBD/phaseQu.png}
+  \caption{16DBD算例中$Q$最大值，$u$最大最小值与无控制时候的比值}\label{f:Qu}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_1.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_1.jpeg}}
-  \caption{POLIMI体积力分布$1/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_0.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_0.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_1.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_1.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_2.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_2.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_3.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_3.jpeg}
+  \caption{POLIMI控制方案在第一个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:polimi_conditionally1}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_2.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_2.jpeg}}
-  \caption{POLIMI体积力分布$2/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_4.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_4.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_5.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_5.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_6.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_6.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_7.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_7.jpeg}
+  \caption{POLIMI控制方案在第二个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:polimi_conditionally2}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_3.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_3.jpeg}}
-  \caption{POLIMI体积力分布$3/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_8.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_8.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_9.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_9.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_10.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_10.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_11.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_11.jpeg}
+  \caption{POLIMI控制方案在第三个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:polimi_conditionally3}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_4.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_4.jpeg}}
-  \caption{POLIMI体积力分布$4/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_12.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_12.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_13.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_13.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_14.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_14.jpeg}\\
+  \includegraphics[height=5cm]{ch5/POLIMI/condit_15.jpeg}
+  \includegraphics[height=5cm]{ch5/POLIMI/phase_15.jpeg}
+  \caption{POLIMI控制方案在第四个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:polimi_conditionally4}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_5.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_5.jpeg}}
-  \caption{POLIMI体积力分布$5/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/16DBD/condit_0.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_0.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_1.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_1.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_2.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_2.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_3.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_3.jpeg}
+  \caption{16DBD控制方案在第一个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:16DBD_conditional_1}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_6.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_6.jpeg}}
-  \caption{POLIMI体积力分布$6/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/16DBD/condit_4.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_4.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_5.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_5.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_6.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_6.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_7.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_7.jpeg}
+  \caption{16DBD控制方案在第二个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:16DBD_conditional_2}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_7.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_7.jpeg}}
-  \caption{POLIMI体积力分布$7/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/16DBD/condit_8.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_8.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_9.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_9.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_10.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_10.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_11.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_11.jpeg}
+  \caption{16DBD控制方案在第三个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:16DBD_conditional_3}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_8.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_8.jpeg}}
-  \caption{POLIMI体积力分布$8/16\pi$相平均}
+  \includegraphics[height=5cm]{ch5/16DBD/condit_12.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_12.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_13.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_13.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_14.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_14.jpeg}\\
+  \includegraphics[height=5cm]{ch5/16DBD/condit_15.jpeg}
+  \includegraphics[height=5cm]{ch5/16DBD/phase_15.jpeg}
+  \caption{16DBD控制方案在第四个四分之一周期内的条件平均结果（左：条件平均流向涡附件流场；右：相平均展向速度）}\label{f:16DBD_conditional_4}
 \end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_9.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_9.jpeg}}
-  \caption{POLIMI体积力分布$9/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_10.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_10.jpeg}}
-  \caption{POLIMI体积力分布$10/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_11.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_11.jpeg}}
-  \caption{POLIMI体积力分布$11/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_12.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_12.jpeg}}
-  \caption{POLIMI体积力分布$12/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_13.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_13.jpeg}}
-  \caption{POLIMI体积力分布$13/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_14.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_14.jpeg}}
-  \caption{POLIMI体积力分布$14/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/condit_15.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/POLIMI/phase_15.jpeg}}
-  \caption{POLIMI体积力分布$15/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_0.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_0.jpeg}}
-  \caption{16DBD体积力分布$0/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_1.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_1.jpeg}}
-  \caption{16DBD体积力分布$1/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_2.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_2.jpeg}}
-  \caption{16DBD体积力分布$2/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_3.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_3.jpeg}}
-  \caption{16DBD体积力分布$3/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_4.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_4.jpeg}}
-  \caption{16DBD体积力分布$4/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_5.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_5.jpeg}}
-  \caption{16DBD体积力分布$5/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_6.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_6.jpeg}}
-  \caption{16DBD体积力分布$6/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_7.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_7.jpeg}}
-  \caption{16DBD体积力分布$7/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_8.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_8.jpeg}}
-  \caption{16DBD体积力分布$8/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_9.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_9.jpeg}}
-  \caption{16DBD体积力分布$9/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_10.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_10.jpeg}}
-  \caption{16DBD体积力分布$10/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_11.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_11.jpeg}}
-  \caption{16DBD体积力分布$11/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_12.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_12.jpeg}}
-  \caption{16DBD体积力分布$12/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_13.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_13.jpeg}}
-  \caption{16DBD体积力分布$13/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_14.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_14.jpeg}}
-  \caption{16DBD体积力分布$14/16\pi$相平均}
-\end{figure}
-\begin{figure}
-  \centering
-  \subcaptionbox{条件平均}[0.8\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/condit_15.jpeg}}
-  \subcaptionbox{展向速度}[0.18\textwidth]
-    {\includegraphics[height=7cm]{ch5/16DBD/phase_15.jpeg}}
-  \caption{16DBD体积力分布$15/16\pi$相平均}
-\end{figure} 
+为了分析POLIMI算例和16DBD算例的减阻机理，本文分别对其进行了区分相位的条件平均（或者叫相条件平均）。在不同相位统计平均的流向涡数量与无控制工况下统计到的流向涡数量比值如图\ref{f:vortex_num}所示。可以看到，在POLIMI算例中，探测到的流向涡数量大约只有无控制时的5\%。这一统计结果表明POLIMI形式的展向激励的确可以减弱湍流在近壁区的生成。而在16DBD算例中，大约探测到了原来74\%的流向涡。很明显，等离子体激发器也限制了流向涡的生成，但是其效果相比于展向均匀激励要弱很多。这一结果也印证了之前图\ref{f:period_2order}中的观察与分析。
+
+图\ref{f:polimi_conditionally1}到\ref{f:polimi_conditionally4}展示了POLIMI算例在16个不同的相位进行条件平均的结果。每张图的右侧是对应相位的平均展向速度。可以看到在第一个四分之一周期，近壁面的展向速度都是向右的。这里所探测到并拿来进行平均的涡都是涡量为正的，也就是涡量方向指向纸面里的。探测涡的平面还是取在$y^+=20$的位置。可以发现，体积力诱导产生的展向速度主要都在$y^+=20$一下，也就是在无控制的涡的涡核下方。很显然，涡量指向纸面里的涡在涡核下方的流动应该是向左的。也就是说，这时的体积力完全在阻碍这个方向的流向涡生成。图中依然是用粗的黑线表示$Q$的等值线，最外围的等值线为$Q=1$。在$2/8\pi$和$3/8\pi$两个相位，探测到的涡完全不是一个完整的，涡核在$y^+=20$附近的流向涡。仅仅是涡核位于更高位置处的涡的一部分。在$2/8\pi$相位中，流向脉动速度的最大最小值，也就是高低速条带的极值分别为0.05和-0.048，仅为无控制时的大约一半。
+
+从$3/8\pi$相位开始，在所探测到的涡（涡核在$y^+=20$）上方，逐渐开始形成一个高速条带区。显然我们所探测到的流向涡是无法在其上方形成一个高速条带的。一个比较合理的解释是这这时探测到的涡仅仅是高度更高的涡诱导出来的一个二次涡。这一观点可以在$4/8\pi$相位的时候得到更充分的验证。从$Q$图上看，在$y^+=35$位置还有一处$Q$的极大值，并且流线上也显示那里有一个涡量为负的涡。这个涡将上面的高速流体卷下来，从而形成了这个新的高速条带。之后，随着近壁的展向速度方向逐渐增大，$y^+=20$处的涡逐渐摆脱更高处涡的控制，渐渐将高速条带拽到自己右侧。在$8/8\pi$相位的时候，涡下部的展向流动方向与涡诱导出来的流动方向相同，于是又形成了高低速条带与流向涡分别位于右左中的格局。之后流向涡越来越强，逐渐将高速条带向自己的下方拖拽，将低速条带抬起。在$13/8\pi$相位的时候，低速条带中心的高度已经达到了接近$y^+=30$。最后随着展向速度的反向，流向涡开始减弱并逐渐被破坏，并进入下一个周期。
+
+图\ref{f:16DBD_conditional_1}到\ref{f:16DBD_conditional_4}展示了16DBD控制算例在一个周期内的条件平均的结果。首先需要说明的是在这个算例中，体积力诱导出来的展向速度要比POLIMI算例弱很多。POLIMI中展向速度可以到0.7，而这个算例中只有0.2。实际的控制效果也表明随着展向速度的减弱，流向涡-条带的近壁结构并没有被完全破坏。在所有相位的条件平均中，均还是可以观察到这一结构。在第一个四分之一周期，体积力诱导出来的展向速度在涡核下方，与涡诱导出来的相反。这一阶段是体积力对流向涡抑制效应最强的阶段。这一阶段的典型代表——$3/8\pi$相位的结果中，$Q$的最大值为2.79，脉动速度最大最小值分别为0.075和-0.105，均比无控制算例中对应的3.87、0.10、-0.13要弱。之后展向速度逐渐反向。在反向过程中，还出现了底层流体与高层流体展向速度不同的情况（$6/8\pi$）。这时在流向涡下发还产生了一个偏平的流向涡。在第三个四分之一周期内，体积力诱导的展向速度已经与流向涡诱导的流向速度方向相同了，在$11/8\pi$相位展向速度达到最大值，在此之后，低速条带的范围迅速扩大。到了$14/8\pi$和$15/8\pi$相位，展向速度又出现了底层与高层流动方向不一致的情况，贴近壁面的二次涡再一次生成。
+
+由于在16DBD算例中，流向涡-条带结构并没有像POLIMI算例中一样被大幅破坏掉，所以单从云图中并看不出所以然来。为了定量对比，图\ref{f:Qu}给出了不同相位$Q$最大值、$u$最大最小值与无控制时候的比值。从图中首先可以看到的是，这三个量在整个周期内都比1小，也意味着流向涡-条带结构相比于无控制工况始终是被抑制的。另外，高低速条带的变化趋势始终相反。也就是高速条带强的时候，低速调点弱，而低速条带强的时候高速条带若。相比较于涡的强度，条带的强度有一定的滞后效应。可以看到，在$12/8\pi$相位的时候$Q$已经达到了最大值，而高低速条带的极值分别在$13/8\pi$和$15/8\pi$相位处达到。总的来说，采用展向周期激励的DBD控制方案依然是通过抑制湍流的自维持机制，减弱湍流的产生，来达到减阻的目的。
+
+\section{本章小结}
+本章针对$Re_\tau=180$的充分发展槽道湍流，提出了定常激励和周期激励两种采用DBD等离子体激发器的控制方案。这两种控制方案均能起到大约9\%的减阻效果。
+
+在定常激励控制方案中，两个向相反方向吹起的激发器在槽道中产生了与槽道大约同一尺度的流向涡。这个流向涡在槽道中部将流体快速的吸到壁面，然后又在计算的周期边界处，将流体向上抛回高速区。在向下吸的加速区，流动发生了再层流化，使得壁面附近整体的湍动能降低，从而降低的湍流摩阻。在这种控制方案中，产生的流向涡的强度至关重要，太强的流向涡反而会使得阻力增加。
+
+在周期激励方案中，激发器阵列被用于产生时而向左时而向右的展向周期振动。从分相位的条件平均结果来看，由于体积力在激励的前半个周期内会在流向涡下部产生与涡诱导速度方向相反的展向速度，这使得流向涡的生成收到阻碍。采用展向均匀的体积力激励会比采用有展向分布的DBD产生的体积力效果好。在这一控制方案中，激发器的密度是一个关键参数。密集布置的激发器可以降低展向不均匀性，从而取得较好的控制效果，而过稀的激发器布置反而会增加阻力。
