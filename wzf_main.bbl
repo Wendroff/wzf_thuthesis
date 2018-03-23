@@ -1,4 +1,4 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{118}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -29,10 +29,10 @@ Joslin R D.
 \newblock 介质阻挡放电等离子体流动控制研究进展\allowbreak[J].
 \newblock 力学进展, 2012, 42\penalty0 (6): 722--734.
 
-\bibitem[吴云\ 等(2015)吴云 and 李应红]{wuhong2015}
+\bibitem[吴云\ 等(2015{\natexlab{a}})吴云 and 李应红]{wuhong2015}
 吴云, 李应红.
 \newblock 等离子体流动控制研究进展与展望\allowbreak[J].
-\newblock 航空学报, 2015, 36\penalty0 (2): 381--405.
+\newblock 航空学报, 2015{\natexlab{a}}, 36\penalty0 (2): 381--405.
 
 \bibitem[Corke\ et~al.(2010)Corke, Enloe, and Wilkinson]{Corke2010}
 Corke T C, Enloe C L, Wilkinson S P.
@@ -40,26 +40,430 @@ Corke T C, Enloe C L, Wilkinson S P.
   control\allowbreak[J].
 \newblock Annual Review of Fluid Mechanics, 2010, 42\penalty0 (1): 505--529.
 
+\bibitem[俞建阳(2017)]{yu2017}
+俞建阳.
+\newblock
+  Dbd等离子体诱导涡结构控制附面层流动研究\allowbreak[\thuphdbib{}].
+\newblock [出版地不详: 出版者不详], 2017.
+
+\bibitem[Enloe\ et~al.(2004)Enloe, McLaughlin, Van~Dyken, Kachner, Jumper,
+  Corke, Post, and Haddad]{Enloe2004}
+Enloe C L, McLaughlin T E, Van~Dyken R D, et~al.
+\newblock Mechanisms and responses of a dielectric barrier plasma actuator:
+  Geometric effects\allowbreak[J].
+\newblock AIAA journal, 2004, 42\penalty0 (3): 595--604.
+
+\bibitem[Debien\ et~al.(2012)Debien, Benard, and Moreau]{Debien2012}
+Debien A, Benard N, Moreau E.
+\newblock Streamer inhibition for improving force and electric wind produced by
+  dbd actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2012, 45\penalty0 (21):
+  215201.
+
+\bibitem[Kriegseis\ et~al.(2011)Kriegseis, Grundmann, and
+  Tropea]{Kriegseis2011}
+Kriegseis J, Grundmann S, Tropea C.
+\newblock Power consumption, discharge capacitance and light emission as
+  measures for thrust production of dielectric barrier discharge plasma
+  actuators\allowbreak[J].
+\newblock Journal of Applied Physics, 2011, 110\penalty0 (1): 013305.
+
+\bibitem[Hoskinson\ et~al.(2010)Hoskinson and Hershkowitz]{Hoskinson2010}
+Hoskinson A, Hershkowitz N.
+\newblock Differences between dielectric barrier discharge plasma actuators
+  with cylindrical and rectangular exposed electrodes\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2010, 43\penalty0 (6): 065205.
+
+\bibitem[Durscher\ et~al.(2011)Durscher and Roy]{Durscher2011}
+Durscher R, Roy S.
+\newblock Force measurement techniques and preliminary results using aerogels
+  and ferroelectrics for dielectric barrier discharge
+  actuators\allowbreak[C]//\allowbreak{}42nd AIAA Plasmadynamics and Lasers
+  Conference in conjunction with the 18th International Conference on MHD
+  Energy Conversion (ICMHD).
+\newblock [S.l.: s.n.], 2011: 3735.
+
+\bibitem[Thomas\ et~al.(2009)Thomas, Corke, Iqbal, Kozlov, and
+  Schatzman]{Thomas2009}
+Thomas F O, Corke T C, Iqbal M, et~al.
+\newblock Optimization of dielectric barrier discharge plasma actuators for
+  active aerodynamic flow control\allowbreak[J].
+\newblock AIAA journal, 2009, 47\penalty0 (9): 2169--2178.
+
+\bibitem[Jolibois\ et~al.(2009)Jolibois and Moreau]{Jolibois2009}
+Jolibois J, Moreau E.
+\newblock Enhancement of the electromechanical performances of a single
+  dielectric barrier discharge actuator\allowbreak[J].
+\newblock IEEE Transactions on Dielectrics and Electrical Insulation, 2009,
+  16\penalty0 (3): 758--767.
+
+\bibitem[Kotsonis\ et~al.(2011)Kotsonis and Ghaemi]{Kotsonis2011}
+Kotsonis M, Ghaemi S.
+\newblock Forcing mechanisms of dielectric barrier discharge plasma actuators
+  at carrier frequency of 625 hz\allowbreak[J/OL].
+\newblock Journal of Applied Physics, 2011, 110\penalty0 (11): 113301.
+\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.3664695}.
+
+\bibitem[Kriegseis\ et~al.(2013)Kriegseis, Schwarz, Tropea, and
+  Grundmann]{kriegseis2013velocity}
+Kriegseis J, Schwarz C, Tropea C, et~al.
+\newblock Velocity-information-based force-term estimation of
+  dielectric-barrier discharge plasma actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2013, 46\penalty0 (5): 055202.
+
+\bibitem[Moreau(2007)]{Moreau2007}
+Moreau E.
+\newblock Airflow control by non-thermal plasma actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2007, 40\penalty0 (3):
+  605--636.
+
+\bibitem[Benard\ et~al.(2014)Benard and Moreau]{Benard2014}
+Benard N, Moreau E.
+\newblock Electrical and mechanical characteristics of surface ac dielectric
+  barrier discharge plasma actuators applied to airflow control\allowbreak[J].
+\newblock Experiments in Fluids, 2014, 55\penalty0 (11).
+
 \bibitem[Whalley\ et~al.(2012)Whalley and Choi]{Whalley2012}
 Whalley R D, Choi K S.
 \newblock The starting vortex in quiescent air induced by
   dielectric-barrier-discharge plasma\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 2012, 703: 192–203.
 
-\bibitem[Masuda\ et~al.(1979)Masuda and Washizu]{Masuda1979}
-Masuda S, Washizu M.
-\newblock Ionic charging of a very high resistivity spherical
-  particle\allowbreak[J/OL].
-\newblock Journal of Electrostatics, 1979, 6\penalty0 (1): 57--67.
-\newblock
-  \url{http://www.sciencedirect.com/science/article/pii/030438867990024X}.
+\bibitem[Boeuf\ et~al.(2007)Boeuf, Lagmich, Unfer, Callegari, and
+  Pitchford]{Boeuf2007}
+Boeuf J P, Lagmich Y, Unfer T, et~al.
+\newblock Electrohydrodynamic force in dielectric barrier discharge plasma
+  actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2007, 40\penalty0 (3):
+  652--662.
 
-\bibitem[Roth\ et~al.(1998)Roth, Sherman, and Wilkinson]{Roth1998}
-Roth J, Sherman D, Wilkinson S.
-\newblock Aerospace sciences meetings: Boundary layer flow control with a one
-  atmosphere uniform glow discharge surface plasma\allowbreak[M/OL].
-\newblock American Institute of Aeronautics and Astronautics, 1998.
-\newblock \url{https://doi.org/10.2514/6.1998-328}
+\bibitem[Boeuf\ et~al.(2009)Boeuf, Lagmich, and Pitchford]{Boeuf2009}
+Boeuf J P, Lagmich Y, Pitchford L C.
+\newblock Contribution of positive and negative ions to the electrohydrodynamic
+  force in a dielectric barrier discharge plasma actuator operating in
+  air\allowbreak[J].
+\newblock Journal of Applied Physics, 2009, 106\penalty0 (2): 023115.
+
+\bibitem[Nishida\ et~al.(2016)Nishida, Nonomura, and Abe]{Nishida2016}
+Nishida H, Nonomura T, Abe T.
+\newblock Numerical study on spanwise nonuniformity in body-force field of
+  dielectric-barrier-discharge plasma actuator\allowbreak[J].
+\newblock AIAA Journal, 2016, 54\penalty0 (2): 659--669.
+
+\bibitem[Nishida\ et~al.(2011)Nishida and Abe]{Nishida2011}
+Nishida H, Abe T.
+\newblock Numerical analysis of plasma evolution on dielectric barrier
+  discharge plasma actuator\allowbreak[J].
+\newblock Journal of Applied Physics, 2011, 110\penalty0 (1): 013302.
+
+\bibitem[Shyy\ et~al.(2002)Shyy, Jayaraman, and Andersson]{shyy2002}
+Shyy W, Jayaraman B, Andersson A.
+\newblock Modeling of glow discharge-induced fluid dynamics\allowbreak[J].
+\newblock Journal of Applied Physics, 2002, 92\penalty0 (11): 6434--6443.
+
+\bibitem[Li\ et~al.(2015{\natexlab{a}})Li, Hu, Lan, Zhang, and Huang]{LiZX2015}
+Li Z, Hu B, Lan S, et~al.
+\newblock Control of turbulent channel flow using a plasma-based body
+  force\allowbreak[J/OL].
+\newblock Computers \& Fluids, 2015{\natexlab{a}}, 119: 26--36.
+\newblock
+  \url{http://www.sciencedirect.com/science/article/pii/S0045793015002273
+  https://www.sciencedirect.com/science/article/pii/S0045793015002273?via%3Dihub}.
+
+\bibitem[Rizzetta\ et~al.(2011)Rizzetta and Visbal]{Rizzetta2011}
+Rizzetta D P, Visbal M R.
+\newblock Numerical investigation of plasma-based control for
+  low-reynolds-number airfoil flows\allowbreak[J/OL].
+\newblock AIAA Journal, 2011, 49\penalty0 (2): 411--425.
+\newblock \url{https://doi.org/10.2514/1.J050755}.
+
+\bibitem[Orlov\ et~al.(2006)Orlov, Corke, and Patel]{Orlov2006}
+Orlov D M, Corke T C, Patel M.
+\newblock Electric circuit model for aerodynamic plasma actuator\allowbreak[J].
+\newblock AIAA Paper, 2006, 1206: 2006.
+
+\bibitem[Corke\ et~al.(2008)Corke, Post, and Orlov]{Corke2008}
+Corke T C, Post M L, Orlov D M.
+\newblock Single dielectric barrier discharge plasma enhanced aerodynamics:
+  physics, modeling and applications\allowbreak[J].
+\newblock Experiments in Fluids, 2008, 46\penalty0 (1): 1--26.
+
+\bibitem[Mertz\ et~al.(2011)Mertz and Corke]{Mertz2011}
+Mertz B E, Corke T C.
+\newblock Single-dielectric barrier discharge plasma actuator modelling and
+  validation\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2011, 669: 557--583.
+
+\bibitem[Suzen\ et~al.(2005)Suzen, Huang, Jacob, and Ashpis]{suzen2005}
+Suzen Y, Huang G, Jacob J, et~al.
+\newblock Numerical simulations of plasma based flow control
+  applications\allowbreak[C]//\allowbreak{}35th AIAA Fluid Dynamics Conference
+  and Exhibit.
+\newblock [S.l.: s.n.], 2005: 4633.
+
+\bibitem[Suzen\ et~al.(2007)Suzen, Huang, and Ashpis]{suzen2007}
+Suzen Y, Huang G, Ashpis D.
+\newblock Numerical simulations of flow separation control in low-pressure
+  turbines using plasma actuators\allowbreak[C]//\allowbreak{}45th AIAA
+  Aerospace Sciences Meeting and Exhibit.
+\newblock [S.l.: s.n.], 2007: 937.
+
+\bibitem[Enloe\ et~al.(2006)Enloe, McLaughlin, Font, and Baughn]{enloe2006}
+Enloe C L, McLaughlin T, Font G I, et~al.
+\newblock Parameterization of temporal structure in the
+  single-dielectric-barrier aerodynamic plasma actuator\allowbreak[J].
+\newblock AIAA journal, 2006, 44\penalty0 (6): 1127--1136.
+
+\bibitem[Ibrahim\ et~al.(2014)Ibrahim and Skote]{Ibrahim2014}
+Ibrahim I, Skote M.
+\newblock Simulating plasma actuators in a channel flow configuration by
+  utilizing the modified suzen–huang model\allowbreak[J].
+\newblock Computers \& Fluids, 2014, 99: 144--155.
+
+\bibitem[Debiasi\ et~al.(2011)Debiasi and Li]{Debiasi2011}
+Debiasi M, Li J M.
+\newblock Experimental study of a dbd-plasma driven channel
+  flow\allowbreak[C]//\allowbreak{}49th AIAA Aerospace Sciences Meeting
+  including the New Horizons Forum and Aerospace Exposition.
+\newblock [S.l.: s.n.], 2011: 954.
+
+\bibitem[Eltaweel\ et~al.(2014)Eltaweel, Wang, Kim, Thomas, and
+  Kozlov]{Eltaweel2014}
+Eltaweel A, Wang M, Kim D, et~al.
+\newblock Numerical investigation of tandem-cylinder noise reduction using
+  plasma-based flow control\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2014, 756: 422--451.
+
+\bibitem[Albrecht\ et~al.(2011)Albrecht, Weier, Gerbeth, Metzkes, and
+  Stiller]{albrecht2011method}
+Albrecht T, Weier T, Gerbeth G, et~al.
+\newblock A method to estimate the planar, instantaneous body force
+  distribution from velocity field measurements\allowbreak[J].
+\newblock Physics of Fluids, 2011, 23\penalty0 (2): 021702.
+
+\bibitem[Wilke(2009)]{wilke2009aerodynamische}
+Wilke J B.
+\newblock Aerodynamische str{\"o}mungssteuerung mittels dielektrischer
+  barriereentladungs-plasmaaktuatoren\allowbreak[M].
+\newblock [S.l.: s.n.], 2009.
+
+\bibitem[D{\"o}rr\ et~al.(2015{\natexlab{a}})D{\"o}rr and
+  Kloker]{dorr2015numerical}
+D{\"o}rr P, Kloker M.
+\newblock Numerical investigation of plasma-actuator force-term estimations
+  from flow experiments\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2015{\natexlab{a}},
+  48\penalty0 (39): 395203.
+
+\bibitem[Maden\ et~al.(2013)Maden, Maduta, Kriegseis, Jakirli, Schwarz,
+  Grundmann, and Tropea]{Maden2013}
+Maden I, Maduta R, Kriegseis J, et~al.
+\newblock Experimental and computational study of the flow induced by a plasma
+  actuator\allowbreak[J].
+\newblock International Journal of Heat and Fluid Flow, 2013, 41: 80--89.
+
+\bibitem[Benard\ et~al.(2016{\natexlab{a}})Benard, Sujar-Garrido, Bonnet, and
+  Moreau]{Benard2016a}
+Benard N, Sujar-Garrido P, Bonnet J P, et~al.
+\newblock Control of the coherent structure dynamics downstream of a backward
+  facing step by dbd plasma actuator\allowbreak[J].
+\newblock International Journal of Heat and Fluid Flow, 2016{\natexlab{a}}, 61:
+  158--173.
+
+\bibitem[Sujar-Garrido\ et~al.(2015)Sujar-Garrido, Benard, Moreau, and
+  Bonnet]{Sujar-Garrido2015}
+Sujar-Garrido P, Benard N, Moreau E, et~al.
+\newblock Dielectric barrier discharge plasma actuator to control turbulent
+  flow downstream of a backward-facing step\allowbreak[J].
+\newblock Experiments in Fluids, 2015, 56\penalty0 (4): 70.
+
+\bibitem[Benard\ et~al.(2011{\natexlab{a}})Benard and Moreau]{Benard2011}
+Benard N, Moreau E.
+\newblock On the vortex dynamic of airflow reattachment forced by a single
+  non-thermal plasma discharge actuator\allowbreak[J].
+\newblock Flow, Turbulence and Combustion, 2011{\natexlab{a}}, 87\penalty0 (1):
+  1--31.
+
+\bibitem[Benard\ et~al.(2011{\natexlab{b}})Benard, III, Moreau, Griffin, and
+  Bonnet]{Benard2011a}
+Benard N, III L N C, Moreau E, et~al.
+\newblock On the benefits of hysteresis effects for closed-loop separation
+  control using plasma actuation\allowbreak[J].
+\newblock Physics of Fluids, 2011{\natexlab{b}}, 23\penalty0 (8): 083601.
+
+\bibitem[Benard\ et~al.(2016{\natexlab{b}})Benard, Pons-Prats, Periaux, Bugeda,
+  Braud, Bonnet, and Moreau]{Benard2016b}
+Benard N, Pons-Prats J, Periaux J, et~al.
+\newblock Turbulent separated shear flow control by surface plasma actuator:
+  experimental optimization by genetic algorithm approach\allowbreak[J/OL].
+\newblock Experiments in Fluids, 2016{\natexlab{b}}, 57\penalty0 (2): 22.
+\newblock \url{https://doi.org/10.1007/s00348-015-2107-3}.
+
+\bibitem[Little\ et~al.(2010)Little and Samimy]{Little2010}
+Little J, Samimy M.
+\newblock High-lift airfoil separation with dielectric barrier discharge plasma
+  actuation\allowbreak[J].
+\newblock AIAA Journal, 2010, 48\penalty0 (12): 2884--2898.
+
+\bibitem[Schneck\ et~al.(2014)Schneck and O'Brien]{Schneck2014}
+Schneck W C, O'Brien W F.
+\newblock Flow control over a circular cylinder using pulsed dielectric barrier
+  discharge actuators\allowbreak[J].
+\newblock Journal of Turbomachinery, 2014, 137\penalty0 (1): 011001.
+
+\bibitem[Jukes\ et~al.(2009)Jukes and Choi]{Jukes2009}
+Jukes T N, Choi K S.
+\newblock Flow control around a circular cylinder using pulsed dielectric
+  barrier discharge surface plasma\allowbreak[J].
+\newblock Physics of Fluids, 2009, 21\penalty0 (8): 084103.
+
+\bibitem[Duchmann\ et~al.(2014)Duchmann, Simon, Tropea, and
+  Grundmann]{Duchmann2014}
+Duchmann A, Simon B, Tropea C, et~al.
+\newblock Dielectric barrier discharge plasma actuators for in-flight
+  transition delay\allowbreak[J].
+\newblock AIAA Journal, 2014, 52\penalty0 (2): 358--367.
+
+\bibitem[Grundmann\ et~al.(2007)Grundmann and Tropea]{Grundmann2007a}
+Grundmann S, Tropea C.
+\newblock Experimental transition delay using glow-discharge plasma
+  actuators\allowbreak[J].
+\newblock Experiments in Fluids, 2007, 42\penalty0 (4): 653--657.
+
+\bibitem[Grundmann\ et~al.(2008)Grundmann and Tropea]{Grundmann2008}
+Grundmann S, Tropea C.
+\newblock Active cancellation of artificially introduced tollmien--schlichting
+  waves using plasma actuators\allowbreak[J].
+\newblock Experiments in Fluids, 2008, 44\penalty0 (5): 795--806.
+
+\bibitem[Kurz\ et~al.(2014)Kurz, Simon, Tropea, and Grundmann]{Kurz2014}
+Kurz A, Simon B, Tropea C, et~al.
+\newblock Active wave cancellation using plasma actuators in
+  flight\allowbreak[C]//\allowbreak{}52nd AIAA Aerospace Sciences Meeting.
+\newblock [S.l.: s.n.], 2014: 1249.
+
+\bibitem[Kotsonis\ et~al.(2013)Kotsonis, Giepman, Hulshoff, and
+  Veldhuis]{Kotsonis2013}
+Kotsonis M, Giepman R, Hulshoff S, et~al.
+\newblock Numerical study of the control of tollmien--schlichting waves using
+  plasma actuators\allowbreak[J].
+\newblock AIAA Journal, 2013, 51\penalty0 (10): 2353--2364.
+
+\bibitem[Hanson\ et~al.(2010)Hanson, Lavoie, Naguib, and Morrison]{Hanson2010}
+Hanson R E, Lavoie P, Naguib A M, et~al.
+\newblock Transient growth instability cancelation by a plasma actuator
+  array\allowbreak[J].
+\newblock Experiments in Fluids, 2010, 49\penalty0 (6): 1339--1348.
+
+\bibitem[Hanson\ et~al.(2014)Hanson, Bade, Belson, Lavoie, Naguib, and
+  Rowley]{Hanson2014}
+Hanson R E, Bade K M, Belson B A, et~al.
+\newblock Feedback control of slowly-varying transient growth by an array of
+  plasma actuators\allowbreak[J].
+\newblock Physics of Fluids, 2014, 26\penalty0 (2): 024102.
+
+\bibitem[Jukes\ et~al.(2006)Jukes, Choi, Johnson, and Scott]{Jukes2006}
+Jukes T, Choi K S, Johnson G, et~al.
+\newblock Turbulent drag reduction by surface plasma through spanwise flow
+  oscillation\allowbreak[M].
+\newblock 2006.
+
+\bibitem[Mahfoze\ et~al.(2017)Mahfoze and Laizet]{Mahfoze2017}
+Mahfoze O, Laizet S.
+\newblock Skin-friction drag reduction in a channel flow with
+  streamwise-aligned plasma actuators\allowbreak[J/OL].
+\newblock International Journal of Heat and Fluid Flow, 2017, 66: 83--94.
+\newblock
+  \url{http://www.sciencedirect.com/science/article/pii/S0142727X17300243
+  https://www.sciencedirect.com/science/article/pii/S0142727X17300243?via%3Dihub}.
+
+\bibitem[Im\ et~al.(2012)Im, Do, and Cappelli]{Im2012}
+Im S, Do H, Cappelli M.
+\newblock The manipulation of an unstarting supersonic flow by plasma
+  actuator\allowbreak[J/OL].
+\newblock Journal of Physics D: Applied Physics, 2012, 45\penalty0 (48):
+  485202.
+\newblock
+  \url{http://iopscience.iop.org/article/10.1088/0022-3727/45/48/485202/pdf}.
+
+\bibitem[Peschke\ et~al.(2013)Peschke, Goekce, Leyland, Ott, and
+  Hollenstein]{Peschke2013}
+Peschke P, Goekce S, Leyland P, et~al.
+\newblock Experimental investigation of pulsed dielectric barrier discharge
+  actuators in sub-and transonic flow\allowbreak[C]//\allowbreak{}44th AIAA
+  Plasmadynamics and Lasers Conference.
+\newblock [S.l.: s.n.], 2013: 2885.
+
+\bibitem[Huang\ et~al.(2006)Huang, Corke, and Thomas]{huang2006}
+Huang J, Corke T C, Thomas F O.
+\newblock Unsteady plasma actuators for separation control of low-pressure
+  turbine blades\allowbreak[J].
+\newblock AIAA journal, 2006, 44\penalty0 (7): 1477--1487.
+
+\bibitem[Ness\ et~al.(2012)Ness, Corke, and Morris]{Ness2012}
+Ness D V, Corke T C, Morris S C.
+\newblock Plasma actuator blade tip clearance flow control in a linear turbine
+  cascade\allowbreak[J].
+\newblock Journal of Propulsion and Power, 2012, 28\penalty0 (3): 504--516.
+
+\bibitem[Benard\ et~al.(2008)Benard, Bonnet, Touchard, and Moreau]{Benard2008}
+Benard N, Bonnet J P, Touchard G, et~al.
+\newblock Flow control by dielectric barrier discharge actuators: jet mixing
+  enhancement\allowbreak[J].
+\newblock AIAA Journal, 2008, 46\penalty0 (9): 2293--2305.
+
+\bibitem[He\ et~al.(2009)He, Corke, and Patel]{He2009}
+He C, Corke T C, Patel M P.
+\newblock Plasma flaps and slats: an application of weakly ionized plasma
+  actuators\allowbreak[J].
+\newblock Journal of Aircraft, 2009, 46\penalty0 (3): 864--873.
+
+\bibitem[Wei\ et~al.(2013)Wei, Niu, Chen, and Huang]{Wei2013bang}
+Wei Q, Niu Z, Chen B, et~al.
+\newblock Bang-bang control applied in airfoil roll control with plasma
+  actuators\allowbreak[J].
+\newblock Journal of aircraft, 2013, 50\penalty0 (2): 670--677.
+
+\bibitem[Wang\ et~al.(2013)Wang, Choi, Feng, Jukes, and
+  Whalley]{wang2013Recent}
+Wang J J, Choi K S, Feng L H, et~al.
+\newblock Recent developments in dbd plasma flow control\allowbreak[J/OL].
+\newblock Progress in Aerospace Sciences, 2013, 62: 52--78.
+\newblock
+  \url{http://www.sciencedirect.com/science/article/pii/S0376042113000535
+  https://www.sciencedirect.com/science/article/pii/S0376042113000535?via%3Dihub}.
+
+\bibitem[吴云\ 等(2015{\natexlab{b}})吴云 and 李应红]{wuyun2015}
+吴云, 李应红.
+\newblock 等离子体流动控制研究进展与展望\allowbreak[J].
+\newblock 航空学报, 2015{\natexlab{b}}, 36\penalty0 (2): 381--405.
+
+\bibitem[Riherd\ et~al.(2013)Riherd and Roy]{Riherd2013}
+Riherd M, Roy S.
+\newblock Damping tollmien--schlichting waves in a boundary layer using plasma
+  actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2013, 46\penalty0 (48):
+  485203.
+
+\bibitem[Riherd\ et~al.(2014)Riherd and Roy]{Riherd2014}
+Riherd M, Roy S.
+\newblock Stabilization of boundary layer streaks by plasma
+  actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2014, 47\penalty0 (12):
+  125203.
+
+\bibitem[Schuele\ et~al.(2013)Schuele, Corke, and Matlis]{schuele2013control}
+Schuele C Y, Corke T C, Matlis E.
+\newblock Control of stationary cross-flow modes in a mach 3.5 boundary layer
+  using patterned passive and active roughness\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2013, 718: 5--38.
+
+\bibitem[D\"orr\ et~al.(2016)D\"orr and Kloker]{dorr2016}
+D\"orr P C, Kloker M J.
+\newblock Transition control in a three-dimensional boundary layer by direct
+  attenuation of nonlinear crossflow vortices using plasma
+  actuators\allowbreak[J].
+\newblock International Journal of Heat and Fluid Flow, 2016, 61: 449--465.
 
 \bibitem[Morkovin(1969)]{morkovin1969many}
 Morkovin M V.
@@ -191,12 +595,12 @@ Joslin R D, Streett C L, Chang C L.
   plate\allowbreak[R].
 \newblock [S.l.: s.n.], 1992.
 
-\bibitem[Li\ et~al.(2015)Li, Choudhari, Carpenter, Malik, Chang, and
-  Streett]{Li2015a}
+\bibitem[Li\ et~al.(2015{\natexlab{b}})Li, Choudhari, Carpenter, Malik, Chang,
+  and Streett]{Li2015a}
 Li F, Choudhari M, Carpenter M, et~al.
 \newblock Control of crossflow transition at high reynolds numbers using
   discrete roughness elements\allowbreak[J].
-\newblock AIAA Journal, 2015: 1--14.
+\newblock AIAA Journal, 2015{\natexlab{b}}: 1--14.
 
 \bibitem[Xu\ et~al.(2011{\natexlab{a}})Xu, Xiao, and Fu]{Xu2011a}
 Xu G, Xiao Z, Fu S.
@@ -245,26 +649,13 @@ Ren J, Fu S, Hanifi A.
   streaks\allowbreak[J].
 \newblock Physics of Fluids, 2016, 28\penalty0 (2): 024110.
 
-\bibitem[Kriegseis\ et~al.(2013)Kriegseis, Schwarz, Tropea, and
-  Grundmann]{kriegseis2013velocity}
-Kriegseis J, Schwarz C, Tropea C, et~al.
-\newblock Velocity-information-based force-term estimation of
-  dielectric-barrier discharge plasma actuators\allowbreak[J].
-\newblock Journal of Physics D: Applied Physics, 2013, 46\penalty0 (5): 055202.
-
-\bibitem[D\"orr\ et~al.(2016)D\"orr and Kloker]{dorr2016}
-D\"orr P C, Kloker M J.
-\newblock Transition control in a three-dimensional boundary layer by direct
-  attenuation of nonlinear crossflow vortices using plasma
-  actuators\allowbreak[J].
-\newblock International Journal of Heat and Fluid Flow, 2016, 61: 449--465.
-
-\bibitem[D{\"o}rr\ et~al.(2015)D{\"o}rr and Kloker]{dorr2015stabilisation}
+\bibitem[D{\"o}rr\ et~al.(2015{\natexlab{b}})D{\"o}rr and
+  Kloker]{dorr2015stabilisation}
 D{\"o}rr P, Kloker M.
 \newblock Stabilisation of a three-dimensional boundary layer by base-flow
   manipulation using plasma actuators\allowbreak[J].
-\newblock Journal of Physics D: Applied Physics, 2015, 48\penalty0 (28):
-  285205.
+\newblock Journal of Physics D: Applied Physics, 2015{\natexlab{b}},
+  48\penalty0 (28): 285205.
 
 \bibitem[Dagenhart\ et~al.(1999)Dagenhart and Saric]{Dagenhart1999}
 Dagenhart J, Saric W S.
@@ -384,13 +775,6 @@ Jim\'enez J, Kawahara G, Simens M P, et~al.
   “bursting” solutions\allowbreak[J/OL].
 \newblock Physics of Fluids, 2005, 17\penalty0 (1): 015105.
 \newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.1825451}.
-
-\bibitem[Maden\ et~al.(2013)Maden, Maduta, Kriegseis, Jakirli, Schwarz,
-  Grundmann, and Tropea]{Maden2013}
-Maden I, Maduta R, Kriegseis J, et~al.
-\newblock Experimental and computational study of the flow induced by a plasma
-  actuator\allowbreak[J].
-\newblock International Journal of Heat and Fluid Flow, 2013, 41: 80--89.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.
