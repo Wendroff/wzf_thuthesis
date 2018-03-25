@@ -1,4 +1,4 @@
-\begin{thebibliography}{118}
+\begin{thebibliography}{128}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -452,6 +452,13 @@ Riherd M, Roy S.
 \newblock Journal of Physics D: Applied Physics, 2014, 47\penalty0 (12):
   125203.
 
+\bibitem[Simon\ et~al.(2018)Simon, Markus, Tropea, and Grundmann]{Simon2018}
+Simon B, Markus D, Tropea C, et~al.
+\newblock Cancellation of tollmien–schlichting waves in direct vicinity of a
+  plasma actuator\allowbreak[J/OL].
+\newblock AIAA Journal, 2018: 1--10.
+\newblock \url{https://doi.org/10.2514/1.J056265}.
+
 \bibitem[Schuele\ et~al.(2013)Schuele, Corke, and Matlis]{schuele2013control}
 Schuele C Y, Corke T C, Matlis E.
 \newblock Control of stationary cross-flow modes in a mach 3.5 boundary layer
@@ -464,6 +471,20 @@ D\"orr P C, Kloker M J.
   attenuation of nonlinear crossflow vortices using plasma
   actuators\allowbreak[J].
 \newblock International Journal of Heat and Fluid Flow, 2016, 61: 449--465.
+
+\bibitem[Choi\ et~al.(2011)Choi, Jukes, and Whalley]{Choi2011}
+Choi K S, Jukes T, Whalley R.
+\newblock Turbulent boundary-layer control with plasma
+  actuators\allowbreak[J/OL].
+\newblock Philos Trans A Math Phys Eng Sci, 2011, 369\penalty0 (1940):
+  1443--58.
+\newblock \url{http://www.ncbi.nlm.nih.gov/pubmed/21382824}.
+
+\bibitem[Whalley\ et~al.(2014)Whalley and Choi]{Whalley2014}
+Whalley R D, Choi K S.
+\newblock Turbulent boundary-layer control with plasma spanwise travelling
+  waves\allowbreak[J].
+\newblock Experiments in Fluids, 2014, 55\penalty0 (8).
 
 \bibitem[Morkovin(1969)]{morkovin1969many}
 Morkovin M V.
@@ -508,11 +529,30 @@ Reshotko E.
 \newblock Environment and receptivity\allowbreak[J].
 \newblock AGARD Rep, 1984, 709.
 
-\bibitem[Malik\ et~al.(1999)Malik, Li, Choudhari, and Chang]{Malik1999}
-Malik M R, Li F, Choudhari M M, et~al.
-\newblock Secondary instability of crossflow vortices and swept-wing
-  boundary-layer transition\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 1999, 399: 85--115.
+\bibitem[Schlichting(1979)]{Schlichting1979}
+Schlichting H.
+\newblock Boundary layer theory\allowbreak[M].
+\newblock [S.l.]: McGraw-Hill, 1979
+
+\bibitem[Gray(1952)]{Gray1952}
+Gray W.
+\newblock The nature of the boundary layer flow at the nose of a swept
+  wing\allowbreak[J].
+\newblock Roy. Aircraft Est. TM, 1952, 256.
+
+\bibitem[Arnal\ et~al.(2000)Arnal and Casalis]{Aranl2000}
+Arnal D, Casalis G.
+\newblock Laminar-turbulent transition prediction in three-dimensional
+  flows\allowbreak[J/OL].
+\newblock Progress in Aerospace Sciences, 2000, 36\penalty0 (2): 173--191.
+\newblock
+  \url{http://www.sciencedirect.com/science/article/pii/S0376042100000026}.
+
+\bibitem[Deyhle\ et~al.(1996)Deyhle and Bippes]{Deyhle1996}
+Deyhle H, Bippes H.
+\newblock Disturbance growth in an unstable three-dimensional boundary layer
+  and its dependence on environmental conditions\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1996, 316: 73--113.
 
 \bibitem[Malik\ et~al.(1994)Malik, Li, and Chang]{Malik1994}
 Malik M, Li F, Chang C L.
@@ -520,6 +560,39 @@ Malik M, Li F, Chang C L.
   nonlinear development, wave interaction and secondary
   instability\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 1994, 268: 1--36.
+
+\bibitem[Bippes\ et~al.(1991)Bippes, Müller, and Wagner]{Bippes1991}
+Bippes H, Müller B, Wagner M.
+\newblock Measurements and stability calculations of the disturbance growth in
+  an unstable three‐dimensional boundary layer\allowbreak[J/OL].
+\newblock Physics of Fluids A: Fluid Dynamics (1989-1993), 1991, 3\penalty0
+  (10): 2371--2377.
+\newblock
+  \url{http://scitation.aip.org/docserver/fulltext/aip/journal/pofa/3/10/1.858176.pdf?expires=1466770305&id=id&accname=2110148&checksum=3A96BAB95D4B3390F9BD53ECA3E2E7C6}.
+
+\bibitem[Malik\ et~al.(1999)Malik, Li, Choudhari, and Chang]{Malik1999}
+Malik M R, Li F, Choudhari M M, et~al.
+\newblock Secondary instability of crossflow vortices and swept-wing
+  boundary-layer transition\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1999, 399: 85--115.
+
+\bibitem[Reibert(1996)]{Reiberit1996}
+Reibert M S.
+\newblock Nonlinear stability, saturation, and transition in
+  crossflow-dominated boundary layers\allowbreak[D].
+\newblock [S.l.]: Arizona State University, 1996.
+
+\bibitem[Haynes\ et~al.(2000)Haynes and Reed]{Haynes2000}
+Haynes T S, Reed H L.
+\newblock Simulation of swept-wing vortices using nonlinear parabolized
+  stability equations\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2000, 405: 325--349.
+
+\bibitem[Li\ et~al.(2014)Li, Choudhari, Duan, and Chang]{Li2014}
+Li F, Choudhari M M, Duan L, et~al.
+\newblock Nonlinear development and secondary instability of traveling
+  crossflow vortices\allowbreak[J].
+\newblock Physics of Fluids, 2014, 26\penalty0 (6): 064104.
 
 \bibitem[Li\ et~al.(1996)Li and Malik]{LiMalik1996}
 Li F, Malik M R.
@@ -685,12 +758,6 @@ Zhu H, Fu S.
 \newblock Science China Physics, Mechanics \& Astronomy, 2017, 60\penalty0
   (10): 104712.
 \newblock \url{https://doi.org/10.1007/s11433-017-9069-3}.
-
-\bibitem[Reibert(1996)]{Reiberit1996}
-Reibert M S.
-\newblock Nonlinear stability, saturation, and transition in
-  crossflow-dominated boundary layers\allowbreak[D].
-\newblock [S.l.]: Arizona State University, 1996.
 
 \bibitem[Saric\ et~al.(2011)Saric, Carpenter, and Reed]{saric2011}
 Saric W S, Carpenter A L, Reed H L.
