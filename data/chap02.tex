@@ -569,3 +569,23 @@ G_w  = {\rm real}(\hat w^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - 
 \begin{equation}\label{}
   \int\limits_{V_i}\left[ \frac{\p \mathbf{U}_i}{\p t} + \nabla \cdot \mathbf{F}(\mathbf{U_i})  + \delta_i\right]W{\rm d}\Omega=0
 \end{equation}
+由于N-S方程的通量是守恒变量的非线性函数，所以通量的散度不在多项式空间内，需要进行投影：
+\begin{equation}
+  \int\limits_{V_i}\Pi [\nabla \cdot \mathbf{F}(\mathbf{U}_i)]W{\rm d}\Omega 
+  = \int\limits_{V_i}\nabla \cdot \mathbf{F}(\mathbf{U}_i)W{\rm d}\Omega
+\end{equation}
+由于权函数$W$是任意选取的，所以可以拿掉积分号，得到微分形式：
+\begin{equation}
+  \frac{\p \mathbf{U}_i}{\p t} + \Pi[\nabla \cdot \mathbf{F}(\mathbf{U}_i)]  + \delta_i = 0
+\end{equation}
+之前提到过，结果的多项式的具体形式是由求解点上的物理量上的值决定的。求解点位置的选择并不会影响线性问题的精度，但是会影响非线性问题的精度。在本文中，求解点均选为高斯点。最终求解方程的离散表达为：
+\begin{equation}
+  \frac{\p \mathbf{U}_{i,j}}{\p t} + \Pi_j[\nabla \cdot \mathbf{F}(\mathbf{U}_{i,j})]  + \delta_{i,j} = 0
+\end{equation}
+对于映射算子$\Pi$这里采用拉格朗日插值法，即假设通量也在相同的多项式空间内。提升算子$\delta_i$的计算依赖于界面上求解通量的通量点的位置选择。其表达式为：
+\begin{equation}
+  \delta_{i,j}=\frac{1}{\left| V_i\right|}\sum\limits_{f,m}\alpha_{j,f,m}[\mathbf{F}^n_{f,m}]S_f
+\end{equation}
+其中j为求解点编号，f为界面单元编号，m为界面上通量点编号。$\alpha$为线性组合系数，只取决于相关几何信息和权函数的选择。
+
+对于方程中的粘性项，本文所用程序采用Bassi–Rebay 2格式求解\cite{Bassi1997}。这一部分不是CPR框架的重点，在此不再赘述。具体细节参见原文献或朱辉的博士论文\cite{zhuhui}。在计算中，体积力产生的源项直接放在残差中考虑。
