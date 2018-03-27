@@ -1,4 +1,4 @@
-\begin{thebibliography}{128}
+\begin{thebibliography}{167}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -548,11 +548,23 @@ Arnal D, Casalis G.
 \newblock
   \url{http://www.sciencedirect.com/science/article/pii/S0376042100000026}.
 
-\bibitem[Deyhle\ et~al.(1996)Deyhle and Bippes]{Deyhle1996}
-Deyhle H, Bippes H.
-\newblock Disturbance growth in an unstable three-dimensional boundary layer
-  and its dependence on environmental conditions\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 1996, 316: 73--113.
+\bibitem[Saric\ et~al.(2003)Saric, Reed, and White]{Saric2003}
+Saric W S, Reed H L, White E B.
+\newblock Stability and transition of three-dimensional boundary
+  layers\allowbreak[J].
+\newblock Annual Review of Fluid Mechanics, 2003, 35\penalty0 (1): 413--440.
+
+\bibitem[Schrader\ et~al.(2008)Schrader, Brandt, and Henningson]{Schrader2008}
+Schrader L U, Brandt L, Henningson D S.
+\newblock Receptivity mechanisms in three-dimensional boundary-layer
+  flows\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2008, 618: 209.
+
+\bibitem[Bippes(1999)]{Bipps1999}
+Bippes H.
+\newblock Basic experiments on transition in three-dimensional boundary layers
+  dominated by crossflow instability\allowbreak[J].
+\newblock Progress in Aerospace Sciences, 1999, 35\penalty0 (4): 363--412.
 
 \bibitem[Malik\ et~al.(1994)Malik, Li, and Chang]{Malik1994}
 Malik M, Li F, Chang C L.
@@ -561,14 +573,16 @@ Malik M, Li F, Chang C L.
   instability\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 1994, 268: 1--36.
 
-\bibitem[Bippes\ et~al.(1991)Bippes, Müller, and Wagner]{Bippes1991}
-Bippes H, Müller B, Wagner M.
-\newblock Measurements and stability calculations of the disturbance growth in
-  an unstable three‐dimensional boundary layer\allowbreak[J/OL].
-\newblock Physics of Fluids A: Fluid Dynamics (1989-1993), 1991, 3\penalty0
-  (10): 2371--2377.
-\newblock
-  \url{http://scitation.aip.org/docserver/fulltext/aip/journal/pofa/3/10/1.858176.pdf?expires=1466770305&id=id&accname=2110148&checksum=3A96BAB95D4B3390F9BD53ECA3E2E7C6}.
+\bibitem[Haynes\ et~al.(2000)Haynes and Reed]{Haynes2000}
+Haynes T S, Reed H L.
+\newblock Simulation of swept-wing vortices using nonlinear parabolized
+  stability equations\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2000, 405: 325--349.
+
+\bibitem[White\ et~al.(2005)White and Saric]{White2005}
+White E B, Saric W S.
+\newblock Secondary instability of crossflow vortices\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2005, 525: 275--308.
 
 \bibitem[Malik\ et~al.(1999)Malik, Li, Choudhari, and Chang]{Malik1999}
 Malik M R, Li F, Choudhari M M, et~al.
@@ -576,23 +590,286 @@ Malik M R, Li F, Choudhari M M, et~al.
   boundary-layer transition\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 1999, 399: 85--115.
 
-\bibitem[Reibert(1996)]{Reiberit1996}
-Reibert M S.
-\newblock Nonlinear stability, saturation, and transition in
-  crossflow-dominated boundary layers\allowbreak[D].
-\newblock [S.l.]: Arizona State University, 1996.
-
-\bibitem[Haynes\ et~al.(2000)Haynes and Reed]{Haynes2000}
-Haynes T S, Reed H L.
-\newblock Simulation of swept-wing vortices using nonlinear parabolized
-  stability equations\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 2000, 405: 325--349.
-
 \bibitem[Li\ et~al.(2014)Li, Choudhari, Duan, and Chang]{Li2014}
 Li F, Choudhari M M, Duan L, et~al.
 \newblock Nonlinear development and secondary instability of traveling
   crossflow vortices\allowbreak[J].
 \newblock Physics of Fluids, 2014, 26\penalty0 (6): 064104.
+
+\bibitem[Li\ et~al.(2015{\natexlab{b}})Li, Choudhari, Carpenter, Malik, Chang,
+  and Streett]{Li2015a}
+Li F, Choudhari M, Carpenter M, et~al.
+\newblock Control of crossflow transition at high reynolds numbers using
+  discrete roughness elements\allowbreak[J].
+\newblock AIAA Journal, 2015{\natexlab{b}}: 1--14.
+
+\bibitem[Wassermann\ et~al.(2005)Wassermann and Kloker]{Wassermann2005}
+Wassermann P, Kloker M.
+\newblock Transition mechanisms in a three-dimensional boundary-layer flow with
+  pressure-gradient changeover\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2005, 530: 265--293.
+
+\bibitem[Bonfigli\ et~al.(2007)Bonfigli and Kloker]{Bonfigli2007}
+Bonfigli G, Kloker M.
+\newblock Secondary instability of crossflow vortices: validation of the
+  stability theory by direct numerical simulation\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2007, 583: 229.
+
+\bibitem[Duan\ et~al.(2013)Duan, Choudhari, Li, and Wu]{Duan2013}
+Duan L, Choudhari M M, Li F, et~al.
+\newblock Direct numerical simulation of transition in a swept wing boundary
+  layer\allowbreak[C]//\allowbreak{}43rd AIAA Fluid Dynamics Conference.
+\newblock [S.l.: s.n.], 2013: 2617.
+
+\bibitem[Hosseini\ et~al.(2013)Hosseini, Tempelmann, Hanifi, and
+  Henningson]{Hosseini2013}
+Hosseini S M, Tempelmann D, Hanifi A, et~al.
+\newblock Stabilization of a swept-wing boundary layer by distributed roughness
+  elements\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2013, 718.
+
+\bibitem[Mack(1984)]{Mack1984}
+Mack L M.
+\newblock Boundary-layer linear stability theory\allowbreak[R].
+\newblock [S.l.]: DTIC Document, 1984.
+
+\bibitem[Herbert\ et~al.(1987)Herbert and Bertolotti]{Herbert1987}
+Herbert T, Bertolotti F.
+\newblock Stability analysis of nonparallel boundary layers\allowbreak[J].
+\newblock Bulletin of the American Physical Society, 1987, 32: 2079.
+
+\bibitem[Herbert(1997)]{Herbert1997}
+Herbert T.
+\newblock Parabolized stability equations\allowbreak[J].
+\newblock Annual Review of Fluid Mechanics, 1997, 29\penalty0 (1): 245--283.
+
+\bibitem[Herbert(1993)]{Herbert1993}
+Herbert T.
+\newblock Parabolized stability equations: 793(1)\allowbreak[R].
+\newblock [S.l.]: AGARD, 1993: 487--526.
+
+\bibitem[Bertolotti(1991)]{Bertolotti1991}
+Bertolotti F P.
+\newblock Linear and nonlinear stability of boundary layers with streamwise
+  varying properties\allowbreak[D].
+\newblock [S.l.]: Ohio State University, 1991.
+
+\bibitem[Bertolotti\ et~al.(1992)Bertolotti, Herbert, and
+  Spalart]{Bertolotti1992}
+Bertolotti F, Herbert T, Spalart P.
+\newblock Linear and nonlinear stability of the blasius boundary
+  layer\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1992, 242: 441--474.
+
+\bibitem[Li\ et~al.(2011)Li, Choudhari, Chang, Streett, and
+  Carpenter]{LiFei2011}
+Li F, Choudhari M, Chang C L, et~al.
+\newblock Computational modeling of roughness-based laminar flow control on a
+  subsonic swept wing\allowbreak[J].
+\newblock AIAA Journal, 2011, 49\penalty0 (3): 520--529.
+
+\bibitem[Saric\ et~al.(1998)Saric, Carrillo, and Reibert]{Saric1998}
+Saric W, Carrillo R, Jr, Reibert M.
+\newblock Leading-edge roughness as a transition control
+  mechanism\allowbreak[C]//\allowbreak{}36th AIAA Aerospace Sciences Meeting
+  and Exhibit.
+\newblock [S.l.: s.n.], 1998: 781.
+
+\bibitem[Wassermann\ et~al.(2002)Wassermann and Kloker]{Wassermann2002}
+Wassermann P, Kloker M.
+\newblock Mechanisms and passive control of crossflow-vortex-induced transition
+  in a three-dimensional boundary layer\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2002, 456.
+
+\bibitem[Carpenter\ et~al.(2008)Carpenter, Saric, and Reed]{Carpenter2008}
+Carpenter A, Saric W, Reed H.
+\newblock Laminar flow control on a swept wing with distributed
+  roughness\allowbreak[C]//\allowbreak{}26th AIAA Applied Aerodynamics
+  Conference.
+\newblock [S.l.: s.n.], 2008: 7335.
+
+\bibitem[Li\ et~al.(2009)Li, Choudhari, Chang, Streett, and
+  Carpenter]{Li2009roughness}
+Li F, Choudhari M, Chang C L, et~al.
+\newblock Roughness based crossflow transition control: A computational
+  assessment\allowbreak[M].
+\newblock 2009.
+
+\bibitem[Lovig\ et~al.(2014)Lovig, Downs, and White]{Lovig2014}
+Lovig E N, Downs R S, White E B.
+\newblock Passive laminar flow control at low turbulence levels\allowbreak[J].
+\newblock AIAA journal, 2014, 52\penalty0 (5): 1072--1075.
+
+\bibitem[Friederich\ et~al.(2011)Friederich and Kloker]{Friederich2011}
+Friederich T, Kloker M.
+\newblock Control of crossflow-vortex induced transition: Dns of pinpoint
+  suction\allowbreak[M].
+\newblock 2011.
+
+\bibitem[Friederich\ et~al.(2012)Friederich and Kloker]{Friederich2012}
+Friederich T, Kloker M J.
+\newblock Control of the secondary cross-flow instability using localized
+  suction\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2012, 706: 470--495.
+
+\bibitem[Robinson(1991)]{Robinson1991}
+Robinson S K.
+\newblock Coherent motions in the turbulent boundary layer\allowbreak[J].
+\newblock Annual Review of Fluid Mechanics, 1991, 23\penalty0 (1): 601--639.
+
+\bibitem[Kim\ et~al.(1987)Kim, Moin, and Moser]{Kim1987}
+Kim J, Moin P, Moser R.
+\newblock Turbulence statistics in fully developed channel flow at low reynolds
+  number\allowbreak[J].
+\newblock Journal of fluid mechanics, 1987, 177: 133--166.
+
+\bibitem[Jeong\ et~al.(1997)Jeong, Hussain, Schoppa, and Kim]{Jeong1997}
+Jeong J, Hussain F, Schoppa W, et~al.
+\newblock Coherent structures near the wall in a turbulent channel
+  flow\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1997, 332: 185--214.
+
+\bibitem[Hamilton\ et~al.(1995)Hamilton, Kim, and Waleffe]{Hamilton1995}
+Hamilton J M, Kim J, Waleffe F.
+\newblock Regeneration mechanisms of near-wall turbulence
+  structures\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1995, 287: 317--348.
+
+\bibitem[Jim\'enez\ et~al.(2005)Jim\'enez, Kawahara, Simens, Nagata, and
+  Shiba]{Jimenez2005}
+Jim\'enez J, Kawahara G, Simens M P, et~al.
+\newblock Characterization of near-wall turbulence in terms of equilibrium and
+  “bursting” solutions\allowbreak[J/OL].
+\newblock Physics of Fluids, 2005, 17\penalty0 (1): 015105.
+\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.1825451}.
+
+\bibitem[Jim\'enez\ et~al.(1999)Jim\'enez and Pinelli]{Jimenez1999}
+Jim\'enez J, Pinelli A.
+\newblock The autonomous cycle of near-wall turbulence\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1999, 389: 335--359.
+
+\bibitem[Del~\'Alamo\ et~al.(2006)Del~\'Alamo, Jim\'enez, Zandonade, and
+  Moser]{del2006}
+Del~\'Alamo J C, Jim\'enez J, Zandonade P, et~al.
+\newblock Self-similar vortex clusters in the turbulent logarithmic
+  region\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2006, 561: 329--358.
+
+\bibitem[Cossu\ et~al.(2009)Cossu, Pujals, and Depardon]{Cossu2009}
+Cossu C, Pujals G, Depardon S.
+\newblock Optimal transient growth and very large–scale structures in
+  turbulent boundary layers\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2009, 619: 79--94.
+
+\bibitem[Heist\ et~al.(2000)Heist, Hanratty, and Na]{Heist2000}
+Heist D, Hanratty T, Na Y.
+\newblock Observations of the formation of streamwise vortices by rotation of
+  arch vortices\allowbreak[J].
+\newblock Physics of Fluids, 2000, 12\penalty0 (11): 2965--2975.
+
+\bibitem[Schoppa\ et~al.(2002)Schoppa and Hussain]{Schoppa2002}
+Schoppa W, Hussain F.
+\newblock Coherent structure generation in near-wall
+  turbulence\allowbreak[J/OL].
+\newblock Journal of Fluid Mechanics, 2002, 453: 57--108.
+\newblock
+  \url{https://www.cambridge.org/core/article/coherent-structure-generation-in-nearwall-turbulence/F90A8C43AB7DFEAAB4CB4115893255DA}.
+
+\bibitem[White\ et~al.(2008)White and Mungal]{White2008Mechanics}
+White C M, Mungal M G.
+\newblock Mechanics and prediction of turbulent drag reduction with polymer
+  additives\allowbreak[J].
+\newblock Annu. Rev. Fluid Mech., 2008, 40: 235--256.
+
+\bibitem[Garc\'ia-Mayoral\ et~al.(2011)Garc\'ia-Mayoral and
+  Jim\'enez]{Garcia2011}
+Garc\'ia-Mayoral R, Jim\'enez J.
+\newblock Drag reduction by riblets\allowbreak[J/OL].
+\newblock Philosophical Transactions of the Royal Society of London A:
+  Mathematical, Physical and Engineering Sciences, 2011, 369\penalty0 (1940):
+  1412--1427.
+\newblock
+  \url{http://rsta.royalsocietypublishing.org/content/roypta/369/1940/1412.full.pdf}.
+
+\bibitem[Choi\ et~al.(1994)Choi, Moin, and Kim]{Choi1994}
+Choi H, Moin P, Kim J.
+\newblock Active turbulence control for drag reduction in wall-bounded
+  flows\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 1994, 262: 75--110.
+
+\bibitem[Hammond\ et~al.(1998)Hammond, Bewley, and Moin]{Hammond1998}
+Hammond E, Bewley T, Moin P.
+\newblock Observed mechanisms for turbulence attenuation and enhancement in
+  opposition-controlled wall-bounded flows\allowbreak[J].
+\newblock Physics of Fluids, 1998, 10\penalty0 (9): 2421--2423.
+
+\bibitem[Deng\ et~al.(2012)Deng and Xu]{Deng2012}
+Deng B Q, Xu C X.
+\newblock Influence of active control on stg-based generation of streamwise
+  vortices in near-wall turbulence\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2012, 710: 234--259.
+
+\bibitem[Xie(2014)]{Xie2014}
+Xie W.
+\newblock Turbulence skin-friction reduction by traveling waves: a dns
+  study\allowbreak[D].
+\newblock [S.l.: s.n.], 2014.
+
+\bibitem[Jung\ et~al.(1992)Jung, Mangiavacchi, and Akhavan]{Jung1992}
+Jung W, Mangiavacchi N, Akhavan R.
+\newblock Suppression of turbulence in wall‐bounded flows by high‐frequency
+  spanwise oscillations\allowbreak[J].
+\newblock Physics of Fluids A: Fluid Dynamics, 1992, 4\penalty0 (8):
+  1605--1607.
+
+\bibitem[Choi\ et~al.(2002)Choi, Xu, and Sung]{Choi2002}
+Choi J I, Xu C X, Sung H J.
+\newblock Drag reduction by spanwise wall oscillation in wall-bounded turbulent
+  flows\allowbreak[J].
+\newblock AIAA Journal, 2002, 40\penalty0 (5): 842--850.
+
+\bibitem[Yakeno\ et~al.(2014)Yakeno, Hasegawa, and Kasagi]{Yakeno2014}
+Yakeno A, Hasegawa Y, Kasagi N.
+\newblock Modification of quasi-streamwise vortical structure in a drag-reduced
+  turbulent channel flow with spanwise wall oscillation\allowbreak[J].
+\newblock Physics of Fluids, 2014, 26\penalty0 (8): 085109.
+
+\bibitem[Quadrio\ et~al.(2009)Quadrio, Ricco, and Viotti]{Quadrio2009}
+Quadrio M, Ricco P, Viotti C.
+\newblock Streamwise-travelling waves of spanwise wall velocity for turbulent
+  drag reduction\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2009, 627: 161.
+
+\bibitem[Quadrio\ et~al.(2011)Quadrio and Ricco]{Quadrio2011}
+Quadrio M, Ricco P.
+\newblock The laminar generalized stokes layer and turbulent drag
+  reduction\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2011, 667: 135--157.
+
+\bibitem[Gatti\ et~al.(2013)Gatti and Quadrio]{Gatti2013}
+Gatti D, Quadrio M.
+\newblock Performance losses of drag-reducing spanwise forcing at moderate
+  values of the reynolds number\allowbreak[J].
+\newblock Physics of Fluids, 2013, 25\penalty0 (12): 125109.
+
+\bibitem[Gatti\ et~al.(2016)Gatti and Quadrio]{Gatti2016}
+Gatti D, Quadrio M.
+\newblock Reynolds-number dependence of turbulent skin-friction drag reduction
+  induced by spanwise forcing\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2016, 802: 553--582.
+
+\bibitem[许春晓(2015)]{Xu2015bi}
+许春晓.
+\newblock 壁湍流相干结构和减阻控制机理\allowbreak[J].
+\newblock 力学与实践, 2015, 45\penalty0 (3): 111--140.
+
+\bibitem[D{\"o}rr\ et~al.(2015{\natexlab{b}})D{\"o}rr and
+  Kloker]{dorr2015stabilisation}
+D{\"o}rr P, Kloker M.
+\newblock Stabilisation of a three-dimensional boundary layer by base-flow
+  manipulation using plasma actuators\allowbreak[J].
+\newblock Journal of Physics D: Applied Physics, 2015{\natexlab{b}},
+  48\penalty0 (28): 285205.
 
 \bibitem[Li\ et~al.(1996)Li and Malik]{LiMalik1996}
 Li F, Malik M R.
@@ -648,6 +925,60 @@ Pralits J O, Airiau C, Hanifi A, et~al.
   for compressible flows\allowbreak[J].
 \newblock Flow, Turbulence and Combustion, 2000, 65\penalty0 (3-4): 321--346.
 
+\bibitem[Huynh(2007)]{Huynh2007}
+Huynh H T.
+\newblock A flux reconstruction approach to high-order schemes including
+  discontinuous galerkin methods\allowbreak[C]//\allowbreak{}18th AIAA
+  Computational Fluid Dynamics Conference.
+\newblock [S.l.: s.n.], 2007: 4079.
+
+\bibitem[Wang\ et~al.(2009{\natexlab{a}})Wang and Gao]{WangGao2009}
+Wang Z, Gao H.
+\newblock A unifying lifting collocation penalty formulation including the
+  discontinuous galerkin, spectral volume/difference methods for conservation
+  laws on mixed grids\allowbreak[J/OL].
+\newblock Journal of Computational Physics, 2009{\natexlab{a}}, 228\penalty0
+  (21): 8161--8186.
+\newblock
+  \url{https://www.sciencedirect.com/science/article/pii/S0021999109004239?via%3Dihub}.
+
+\bibitem[Vincent\ et~al.(2011)Vincent, Castonguay, and Jameson]{Vincent2011}
+Vincent P E, Castonguay P, Jameson A.
+\newblock A new class of high-order energy stable flux reconstruction
+  schemes\allowbreak[J/OL].
+\newblock Journal of Scientific Computing, 2011, 47\penalty0 (1): 50--72.
+\newblock
+  \url{https://link.springer.com/content/pdf/10.1007%2Fs10915-010-9420-z.pdf}.
+
+\bibitem[Jameson\ et~al.(2012)Jameson, Vincent, and Castonguay]{Jameson2012}
+Jameson A, Vincent P E, Castonguay P.
+\newblock On the non-linear stability of flux reconstruction
+  schemes\allowbreak[J/OL].
+\newblock Journal of Scientific Computing, 2012, 50\penalty0 (2): 434--445.
+\newblock
+  \url{https://link.springer.com/content/pdf/10.1007%2Fs10915-011-9490-6.pdf}.
+
+\bibitem[Gao\ et~al.(2013)Gao and Wang]{GaoWang2013}
+Gao H, Wang Z.
+\newblock A conservative correction procedure via reconstruction formulation
+  with the chain-rule divergence evaluation\allowbreak[J].
+\newblock Journal of Computational Physics, 2013, 232\penalty0 (1): 7--13.
+
+\bibitem[Zhu\ et~al.(2016)Zhu, Fu, Shi, and Wang]{Zhu2016}
+Zhu H, Fu S, Shi L, et~al.
+\newblock Implicit large-eddy simulation for the high-order flux reconstruction
+  method\allowbreak[J/OL].
+\newblock AIAA Journal, 2016, 54\penalty0 (9): 2721--2733.
+\newblock \url{https://doi.org/10.2514/1.J054826}.
+
+\bibitem[Zhu\ et~al.(2017)Zhu and Fu]{Zh2017}
+Zhu H, Fu S.
+\newblock Forward-facing steps induced transition in a subsonic boundary
+  layer\allowbreak[J/OL].
+\newblock Science China Physics, Mechanics \& Astronomy, 2017, 60\penalty0
+  (10): 104712.
+\newblock \url{https://doi.org/10.1007/s11433-017-9069-3}.
+
 \bibitem[Lin\ et~al.(1996)Lin and Malik]{Lin1996}
 Lin R S, Malik M R.
 \newblock On the stability of attachment-line boundary layers. part 1. the
@@ -667,13 +998,6 @@ Joslin R D, Streett C L, Chang C L.
   stability equation theories for boundary-layer transition on a flat
   plate\allowbreak[R].
 \newblock [S.l.: s.n.], 1992.
-
-\bibitem[Li\ et~al.(2015{\natexlab{b}})Li, Choudhari, Carpenter, Malik, Chang,
-  and Streett]{Li2015a}
-Li F, Choudhari M, Carpenter M, et~al.
-\newblock Control of crossflow transition at high reynolds numbers using
-  discrete roughness elements\allowbreak[J].
-\newblock AIAA Journal, 2015{\natexlab{b}}: 1--14.
 
 \bibitem[Xu\ et~al.(2011{\natexlab{a}})Xu, Xiao, and Fu]{Xu2011a}
 Xu G, Xiao Z, Fu S.
@@ -722,42 +1046,25 @@ Ren J, Fu S, Hanifi A.
   streaks\allowbreak[J].
 \newblock Physics of Fluids, 2016, 28\penalty0 (2): 024110.
 
-\bibitem[D{\"o}rr\ et~al.(2015{\natexlab{b}})D{\"o}rr and
-  Kloker]{dorr2015stabilisation}
-D{\"o}rr P, Kloker M.
-\newblock Stabilisation of a three-dimensional boundary layer by base-flow
-  manipulation using plasma actuators\allowbreak[J].
-\newblock Journal of Physics D: Applied Physics, 2015{\natexlab{b}},
-  48\penalty0 (28): 285205.
-
 \bibitem[Dagenhart\ et~al.(1999)Dagenhart and Saric]{Dagenhart1999}
 Dagenhart J, Saric W S.
 \newblock Crossflow stability and transition experiments in swept-wing
   flow\allowbreak[R].
 \newblock [S.l.: s.n.], 1999.
 
-\bibitem[Wang\ et~al.(2009)Wang and Gao]{WangZJ2009}
+\bibitem[Wang\ et~al.(2009{\natexlab{b}})Wang and Gao]{WangZJ2009}
 Wang Z J, Gao H.
 \newblock A unifying lifting collocation penalty formulation including the
   discontinuous galerkin, spectral volume/difference methods for conservation
   laws on mixed grids\allowbreak[J].
-\newblock Journal of Computational Physics, 2009, 228\penalty0 (21):
-  8161--8186.
+\newblock Journal of Computational Physics, 2009{\natexlab{b}}, 228\penalty0
+  (21): 8161--8186.
 
-\bibitem[Zhu\ et~al.(2016)Zhu, Fu, Shi, and Wang]{Zhu2016}
-Zhu H, Fu S, Shi L, et~al.
-\newblock Implicit large-eddy simulation for the high-order flux reconstruction
-  method\allowbreak[J/OL].
-\newblock AIAA Journal, 2016, 54\penalty0 (9): 2721--2733.
-\newblock \url{https://doi.org/10.2514/1.J054826}.
-
-\bibitem[Zhu\ et~al.(2017)Zhu and Fu]{Zh2017}
-Zhu H, Fu S.
-\newblock Forward-facing steps induced transition in a subsonic boundary
-  layer\allowbreak[J/OL].
-\newblock Science China Physics, Mechanics \& Astronomy, 2017, 60\penalty0
-  (10): 104712.
-\newblock \url{https://doi.org/10.1007/s11433-017-9069-3}.
+\bibitem[Reibert(1996)]{Reiberit1996}
+Reibert M S.
+\newblock Nonlinear stability, saturation, and transition in
+  crossflow-dominated boundary layers\allowbreak[D].
+\newblock [S.l.]: Arizona State University, 1996.
 
 \bibitem[Saric\ et~al.(2011)Saric, Carpenter, and Reed]{saric2011}
 Saric W S, Carpenter A L, Reed H L.
@@ -767,36 +1074,11 @@ Saric W S, Carpenter A L, Reed H L.
   369\penalty0 (1940): 1352--64.
 \newblock \url{http://www.ncbi.nlm.nih.gov/pubmed/21382818}.
 
-\bibitem[Saric\ et~al.(1998)Saric, Carrillo, and Reibert]{Saric1998}
-Saric W, Carrillo R, Jr, Reibert M.
-\newblock Leading-edge roughness as a transition control
-  mechanism\allowbreak[C]//\allowbreak{}36th AIAA Aerospace Sciences Meeting
-  and Exhibit.
-\newblock [S.l.: s.n.], 1998: 781.
-
-\bibitem[Kim\ et~al.(1987)Kim, Moin, and Moser]{Kim1987}
-Kim J, Moin P, Moser R.
-\newblock Turbulence statistics in fully developed channel flow at low reynolds
-  number\allowbreak[J].
-\newblock Journal of fluid mechanics, 1987, 177: 133--166.
-
 \bibitem[Wei\ et~al.(2011)Wei and Pollard]{Wei2011}
 Wei L, Pollard A.
 \newblock Direct numerical simulation of compressible turbulent channel flows
   using the discontinuous galerkin method\allowbreak[J].
 \newblock Computers \& Fluids, 2011, 47\penalty0 (1): 85--100.
-
-\bibitem[Hamilton\ et~al.(1995)Hamilton, Kim, and Waleffe]{Hamilton1995}
-Hamilton J M, Kim J, Waleffe F.
-\newblock Regeneration mechanisms of near-wall turbulence
-  structures\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 1995, 287: 317--348.
-
-\bibitem[Jeong\ et~al.(1997)Jeong, Hussain, Schoppa, and Kim]{Jeong1997}
-Jeong J, Hussain F, Schoppa W, et~al.
-\newblock Coherent structures near the wall in a turbulent channel
-  flow\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 1997, 332: 185--214.
 
 \bibitem[Canton\ et~al.(2016)Canton, Örlü, Chin, Hutchins, Monty, and
   Schlatter]{Canton2016}
@@ -804,44 +1086,6 @@ Canton J, Örlü R, Chin C, et~al.
 \newblock On large-scale friction control in turbulent wall flow in low
   reynolds number channels\allowbreak[J].
 \newblock Flow, Turbulence and Combustion, 2016, 97\penalty0 (3): 811--827.
-
-\bibitem[Gatti\ et~al.(2016)Gatti and Quadrio]{Gatti2016}
-Gatti D, Quadrio M.
-\newblock Reynolds-number dependence of turbulent skin-friction drag reduction
-  induced by spanwise forcing\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 2016, 802: 553--582.
-
-\bibitem[Gatti\ et~al.(2013)Gatti and Quadrio]{Gatti2013}
-Gatti D, Quadrio M.
-\newblock Performance losses of drag-reducing spanwise forcing at moderate
-  values of the reynolds number\allowbreak[J].
-\newblock Physics of Fluids, 2013, 25\penalty0 (12): 125109.
-
-\bibitem[Quadrio\ et~al.(2009)Quadrio, Ricco, and Viotti]{Quadrio2009}
-Quadrio M, Ricco P, Viotti C.
-\newblock Streamwise-travelling waves of spanwise wall velocity for turbulent
-  drag reduction\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 2009, 627: 161.
-
-\bibitem[Jim\'enez\ et~al.(1999)Jim\'enez and Pinelli]{Jimenez1999}
-Jim\'enez J, Pinelli A.
-\newblock The autonomous cycle of near-wall turbulence\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 1999, 389: 335--359.
-
-\bibitem[Del~\'Alamo\ et~al.(2006)Del~\'Alamo, Jim\'enez, Zandonade, and
-  Moser]{del2006}
-Del~\'Alamo J C, Jim\'enez J, Zandonade P, et~al.
-\newblock Self-similar vortex clusters in the turbulent logarithmic
-  region\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 2006, 561: 329--358.
-
-\bibitem[Jim\'enez\ et~al.(2005)Jim\'enez, Kawahara, Simens, Nagata, and
-  Shiba]{Jimenez2005}
-Jim\'enez J, Kawahara G, Simens M P, et~al.
-\newblock Characterization of near-wall turbulence in terms of equilibrium and
-  “bursting” solutions\allowbreak[J/OL].
-\newblock Physics of Fluids, 2005, 17\penalty0 (1): 015105.
-\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.1825451}.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.

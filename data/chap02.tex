@@ -1,6 +1,47 @@
 \chapter{理论公式与数值求解方法}
 \label{cha:2}
 \section{等离子体模型}
+在本文的研究中，主要使用了两种等离子体模型。分别是Kriegseis等人\cite{kriegseis2013velocity}用实验数据反推出来的体积力分布模型（之后简称为Kriegseis模型）和在此基础上用解析式近似拟合的Maden模型\cite{Maden2013}。不得不说Kriegseis模型更加精确，但是其仅仅适用于他们实验中测试的那一种几何外形的激发器。而这种尺寸的激发器无法胜任本文之后提到的后掠翼减阻的工作。具体而言，他们实验测量的激发器太大的，远远超过了横流涡的尺寸。所以在后掠翼推迟转捩的研究中本文使用了可以通过改变参数调整体积力分布的Maden模型。在最后的槽道湍流减阻中，由于这个工况并无实际物理尺寸对应，所以也是使用了较为理想化的Maden模型。
+
+这里先介绍Kriegseis模型。在引言中提到过，从实验的PIV数据反推体积力有一个问题是无法测的空间的压力分布，这就导致方程中多了一个未知量。Albrecht等人\cite{albrecht2011method}提出用涡量方程跳过压力项的方法。他们推导得到的涡量方程为：
+\begin{equation}\label{e:force1}
+\frac{1}{\rho} \left( \frac{\partial f_x}{\partial y}-\frac{\partial f_y}{\partial x} \right)=  {u\frac{{\partial \omega_z }}
+{{\partial x}} + v\frac{{\partial \omega_z }}
+{{\partial y}} - \frac{\mu }
+{\rho }\left( {\frac{{\partial ^2 \omega_z }}
+{{\partial x^2 }} + \frac{{\partial ^2 \omega_z }}
+{{\partial y^2 }}} \right)}
+\end{equation}
+其中z方向涡量的定义为：
+\begin{equation}\label{e:vorticity}
+  \omega_z=\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}
+\end{equation}
+但是方程（\ref{e:force1}）中还是有两个未知量：$f_x$和$f_y$。Albrecht等人\cite{albrecht2011method}认为$f_x$比$f_y$要大一个量级，所以便将后者忽略掉。之后在对上式延法向积分，得到：
+\begin{equation}\label{e:force3}
+f_x(x,y) =  - \rho \int_{+\infty} ^y {\left[ {U\frac{{\partial \omega_z }}
+{{\partial x}} + V\frac{{\partial \omega_z }}
+{{\partial y}} - \frac{\mu }
+{\rho }\left( {\frac{{\partial ^2 \omega_z }}
+{{\partial x^2 }} + \frac{{\partial ^2 \omega_z }}
+{{\partial y^2 }}} \right)} \right]dy}
+\end{equation}
+这里交换了积分上下限是因为积分需要有一个已知的初始值，而在无穷远处，体积力显然为0。所以积分从无穷远开始。Kriegseis等人\cite{kriegseis2013velocity}使用的实验装置示意图及其测得的体积力分布如图\ref{f:kmodel}所示。
+\begin{figure}
+  \centering
+  \includegraphics[height=5cm]{ch1/kmodel1.JPG}
+  \includegraphics[height=5cm]{ch1/kmodel2.JPG}
+  \caption{Kriegseis等人\cite{kriegseis2013velocity}使用的实验装置示意图（上）及其测得的体积力分布（下）}\label{f:kmodel}
+\end{figure}
+
+之后，Maden等人\cite{Maden2013}将模型进一步简化，提出了如下解析表达式对之前测得的空间分布体积力进行了拟合：
+\begin{subequations}\label{f:MadenModel}
+\begin{align}
+    X(x)&=[a_1(x-x_{\rm PA})+a_2(x-x_{\rm PA})^2]\exp[-a_0(x-x_{\rm PA})] &x>x_{\rm PA}\\
+    Y(y)&=(b_1y+b_2y^2)\exp(-b_0y^{2/5}) &y>0\\
+    f_x(x,y)&=c_{\rm force}X(x)Y(y)&
+\end{align}
+\end{subequations}
+其中的系数$a_0$, $a_1$, $a_2$, $b_0$, $b_1$,  $b_2$ 和 $c_{\rm force}$可以根据需要进行调整。D\"orr和Kloker\cite{dorr2016,dorr2015stabilisation}在他们的等离子体转捩推迟研究中就使用的是这个Maden模型
 \section{流动稳定性求解框架}
 在研究等离子体控制扰动的问题中，本文采用研究稳定性问题的相关数值方法，来解析控制前后边界层内扰动的发展情况。稳定性的相关理论虽然并不能给出精确的转捩位置，但是能够从理论方面给出流动失稳特性，并且具有计算效率高，转捩前流动解析精度高的优点。本文中通过研究流动在控制前后稳定性方面的特性变化，来甄别控制是否有效。本文采用的研究边界层流动稳定性的步骤如下：
 \begin{enumerate}
@@ -363,15 +404,15 @@ $\Phi=(u,w,\Lambda,T)^T$为方程（\ref{e:ble10}）中实际求解的变量组�
 \subsubsection{基于线性稳定性理论的敏感性分析}
 记方程（\ref{e:LST}）的伴随方程为：
 \begin{equation}\label{e:aLST}
-  \mathscr{L}^+\hat{\mathbf{p}}=\mathscr{L}_0^+\hat{\mathbf{p}}+\alpha \mathscr{L}_1^+\hat{\mathbf{p}} + \alpha^2\mathscr{L}_2^+\hat{\mathbf{p}}=0
+  \mathscr{L}^*\hat{\mathbf{p}}=\mathscr{L}_0^*\hat{\mathbf{p}}+\alpha \mathscr{L}_1^*\hat{\mathbf{p}} + \alpha^2\mathscr{L}_2^*\hat{\mathbf{p}}=0
 \end{equation}
 伴随方程与原方程的关系是，对于任意向量$\mathbf{a},\mathbf{b}$,都有：
 \begin{equation}
-    \int_{0}^{+\infty}\mathbf{a}\cdot(\mathscr{L}\mathbf{b})^Tdy=\int_{0}^{+\infty}(\mathscr{L}^+\mathbf{a})\cdot\mathbf{b}^Tdy
+    \int_{0}^{+\infty}\mathbf{a}\cdot(\mathscr{L}\mathbf{b})^Tdy=\int_{0}^{+\infty}(\mathscr{L}^*\mathbf{a})\cdot\mathbf{b}^Tdy
 \end{equation}
 若定义内积$<\mathbf{a},\mathbf{b}>=\int_{0}^{+\infty}\mathbf{a}\cdot\mathbf{b}^Tdy$,则有：
 \begin{equation}
-  <\mathbf{a},\mathscr{L}\mathbf{b}> = <\mathscr{L}^+\mathbf{a},\mathbf{b}>
+  <\mathbf{a},\mathscr{L}\mathbf{b}> = <\mathscr{L}^*\mathbf{a},\mathbf{b}>
 \end{equation}
 引入体积力后，方程变为：
 \begin{equation}\label{}
@@ -468,7 +509,7 @@ r_1^*  = c + \left| {\Theta _1 } \right|^2  \hfill \\
 \delta J = \frac{1}
 {2} < \hat \varphi ^* ,\delta {\mathbf{S}} >  + c.c.
 \end{equation}
-也就是说，不再需要求解PSE方程，直接通过计算伴随向量和外加体积力的内积，便可以直接得到体积力对下游扰动能量的影响。当然，式（\ref{e:dj}）中的$\delta {\mathbf{S}}$还是形函数控制方程中的源项的变化，需要将其转换到实际的体积力中。本文做稳定分析主要老师对比添加控制和不添加控制下的扰动能量，所以令初始的体积力为0，这样的话，体积力的变化可以写为：
+也就是说，不再需要求解PSE方程，直接通过计算伴随向量和外加体积力的内积，便可以直接得到体积力对下游扰动能量的影响。当然，式（\ref{e:dj}）中的$\delta {\mathbf{S}}$还是形函数控制方程中的源项的变化，需要将其转换到实际的体积力中。本文做稳定分析重点在于对比添加控制和不添加控制下的扰动能量，所以令初始的体积力为0，这样的话，体积力的变化可以写为：
 \begin{equation}
 \label{e:df}
 \delta {\mathbf{F}} = \Theta \delta {\mathbf{S}} + {\mathbf{S}}{\rm i}\int_{x_0 }^x {\delta \alpha (x')dx'}  = \Theta \delta {\mathbf{S}}
@@ -495,4 +536,36 @@ G_w  = {\rm real}(\hat w^{*H} \exp({ - {\rm i}\int_{x_0 }^x {\alpha (x')dx'}  - 
 \end{equation}
 本文将$G_u$, $G_v$ and $G_w$命名为流向、法向、展向敏感性因子，并在之后展示的结果中给出他们的具体分布，以探究体积力对失稳过程的影响。
 \section{充分发展槽道的直接数值模拟}\label{sec:DNS}
+本文采用王志坚教授课题组开发的hpMusic高精度多物理场求解程序进行充分发展槽道的数值模拟。该程序采用高精度通量重构方法（Flux Reconstruction，FR 或 Correction Porcedure via Reconstruction，CPR）。这一方法最早是由Huynh\cite{Huynh2007}提出来的，之后Wang和Gao\cite{WangGao2009}将其扩展到包含各种不同形状的混合非结构网格上。这一算法的详细介绍读者可以参考相关文献\cite{Vincent2011,Jameson2012,GaoWang2013,Zhu2016,Zh2017}。这一方法属于间断有限元方法的一种，有些类似间断伽辽金方法。由于CPR方法有微分形式的表达，不需要进行显示的数值积分。另外，CPR方法也提供了一种通用的框架，其他高精度的有限差分方法也可以在该框架下表达。
 
+这里以双曲对流方程为例，简要的介绍一下FR/CPR方法。将双曲对流方程简记为：
+\begin{equation}\label{e:hyperbolic}
+  \frac{\p \mathbf{U}}{\p t} + \nabla \cdot \mathbf{F}(\mathbf{U}) = 0
+\end{equation}
+其中$\mathbf{U}$为包含守恒变量的向量，$\mathbf{F}$为通量张量\footnote{注意：在这一小节$\mathbf{F}$均表示通量（Flux）}。采用非交错网格单元离散计算域，并在单元内引入任意的权函数$W$，在计算单元$V_i$上的加权残差公式可以写为：
+\begin{equation}\label{e:wresidual}
+  \int\limits_{V_i}\left[ \frac{\p \mathbf{U}}{\p t} + \nabla \cdot \mathbf{F}(\mathbf{U})  \right]W{\rm d}\Omega=0
+\end{equation}
+在FR/CPR方法中，单元内的守恒变量分布都被假设为多项式形式。这些多项式的具体形式都采用单元内求解点（solution points，SPs）上的值来表达。对通量散度项进行分部积分，将法通量用黎曼通量$\mathbf{F}_{\rm com}^n$替换掉，得到：
+\begin{equation}\label{e:CPR1}
+  \int\limits_{V_i}\frac{\p \mathbf{U}_i}{\p t}W{\rm d}\Omega
+  + \int\limits_{V_i}W \nabla \cdot \mathbf{F}(\mathbf{U}_i) {\rm d}\Omega
+  + \int\limits_{\p V_i}W [\mathbf{F}_{\rm com}^n - \mathbf{F}^n(\mathbf{U}_i)] {\rm d}S
+  =0
+\end{equation}
+其中，黎曼通量定义为：
+\begin{equation}
+  \mathbf{F}_{\rm com}^n = \mathbf{F}_{\rm com}^n(\mathbf{U}_i,\mathbf{U}_{i+},\mathbf{n})
+\end{equation}
+这里$\mathbf{U}_{i+}$是求解单元界面外的物理量。$\mathbf{n}$表示界面的法向量。界面的法通量为：
+\begin{equation}
+  \mathbf{F}^n(\mathbf{U}_i)=\mathbf{F}(\mathbf{U}_i) \cdot \mathbf{n}
+\end{equation}
+显然，如果方程（\ref{e:CPR1}）中的界面积分能够被转化成单元内积分，那么权函数就可以被消去。于是引入提升算子$\delta_i$，其在不同单元内的定义如下：
+\begin{equation}\label{e:CPR2}
+  \int\limits_{V_i}W\delta_i{\rm d}\Omega = \int\limits_{\p V_i}W [\mathbf{F}^n] {\rm d}S
+\end{equation}
+其中$[\mathbf{F}^n]=\mathbf{F}_{\rm com}^n - \mathbf{F}^n(\mathbf{U}_i)$是法通量差。由方程（\ref{e:CPR1}）和（\ref{e:CPR2}）可以得到：
+\begin{equation}\label{}
+  \int\limits_{V_i}\left[ \frac{\p \mathbf{U}_i}{\p t} + \nabla \cdot \mathbf{F}(\mathbf{U_i})  + \delta_i\right]W{\rm d}\Omega=0
+\end{equation}
