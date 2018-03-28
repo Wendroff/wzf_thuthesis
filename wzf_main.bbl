@@ -1,4 +1,4 @@
-\begin{thebibliography}{169}
+\begin{thebibliography}{170}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -870,6 +870,12 @@ D{\"o}rr P, Kloker M.
   manipulation using plasma actuators\allowbreak[J].
 \newblock Journal of Physics D: Applied Physics, 2015{\natexlab{b}},
   48\penalty0 (28): 285205.
+
+\bibitem[Wang\ et~al.()Wang, Wang, Wang, Xu, and Fu]{wang2018}
+Wang Z, Wang L, Wang Q, et~al.
+\newblock Control of crossflow instability over a swept wing using
+  dielectric-barrier-discharge plasma actuators\allowbreak[J].
+\newblock International Journal of Heat and Fluid Flow.
 
 \bibitem[Li\ et~al.(1996)Li and Malik]{LiMalik1996}
 Li F, Malik M R.

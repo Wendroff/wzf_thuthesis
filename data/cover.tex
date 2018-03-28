@@ -8,8 +8,8 @@
   %=====
   % 秘级
   %=====
-  secretlevel={秘密},
-  secretyear={10},
+  %secretlevel={秘密},
+  %secretyear={10},
   %
   %=========
   % 中文信息
@@ -26,12 +26,12 @@
   % cdate={超新星纪元},
   %
   % 博士后专有部分
-  cfirstdiscipline={计算机科学与技术},
-  cseconddiscipline={系统结构},
-  postdoctordate={2009年7月——2011年7月},
-  id={编号}, % 可以留空： id={},
-  udc={UDC}, % 可以留空
-  catalognumber={分类号}, % 可以留空
+  %cfirstdiscipline={计算机科学与技术},
+  %cseconddiscipline={系统结构},
+  %postdoctordate={2009年7月——2011年7月},
+  %id={编号}, % 可以留空： id={},
+  %udc={UDC}, % 可以留空
+  %catalognumber={分类号}, % 可以留空
   %
   %=========
   % 英文信息
@@ -53,7 +53,7 @@
   %    edegree：“填写专业学位英文名称全称”
   %    emajor：不填写此项
   edegree={Doctor of Philosophy},
-  emajor={School of Aerospace Engineering},
+  emajor={Mechanics},
   eauthor={Wang Zhefu},
   esupervisor={Professor Fu Song},
   %eassosupervisor={Chen Wenguang},
@@ -61,56 +61,37 @@
   % edate={December, 2005}
   %
   % 关键词用“英文逗号”分割
-  ckeywords={\TeX, \LaTeX, CJK, 模板, 论文},
-  ekeywords={\TeX, \LaTeX, CJK, template, thesis}
+  ckeywords={DBD激发器, 湍流减阻, 转捩推迟, 流动稳定性, 流动控制},
+  ekeywords={DBD actuator, turbulent drag reduction, transition delay, flow stability, flow control}
 }
 
 % 定义中英文摘要和关键字
 \begin{cabstract}
-  论文的摘要是对论文研究内容和成果的高度概括。摘要应对论文所研究的问题及其研究目
-  的进行描述，对研究方法和过程进行简单介绍，对研究成果和所得结论进行概括。摘要应
-  具有独立性和自明性，其内容应包含与论文全文同等量的主要信息。使读者即使不阅读全
-  文，通过摘要就能了解论文的总体内容和主要成果。
+  本文将大型客机减阻问题分解、抽象为三维边界层转捩推迟问题和充分发展槽道减阻问题。针对这两个问题，分别提出了应用介质阻挡放电等离子体激发器的新控制方案。
 
-  论文摘要的书写应力求精确、简明。切忌写成对论文书写内容进行提要的形式，尤其要避
-  免“第 1 章……；第 2 章……；……”这种或类似的陈述方式。
+  对于三维边界层转捩推迟问题，本文先研究了顺压梯度后掠平板这一模型流动。针对这种流动，本文提出了在每个展向周期放置一个DBD激发器的谐波激励控制方案。为了得到较优的控制参数，本文推导了基于伴随方程的敏感性分析公式。通过分析敏感性因子的分布，发现在横流涡下方偏下扫的位置处添加展向正方向的体积力可以抑制扰动的发展。在这一位置放置等离子体激发器成功抑制了横流涡的增长。本文同时测试了不同的激发器流向位置和激励电压，发现都是适中的情况控制效果较好。
 
-  本文介绍清华大学论文模板 \thuthesis{} 的使用方法。本模板符合学校的本科、硕士、
-  博士论文格式要求。
+  在真实的后掠翼工况中，本文先测试了谐波激励控制方法。这种方法对激发器展向位置精度要求非常高，所以鲁棒性欠佳。随后又提出在每个展向周期放置两个激发器的亚谐波激励控制方案。计算发现，亚谐波控制方案对激发器位置的依赖性不强，总能起到减阻的效果。本文还测试了一个非设计工况，在不改变激发器间距的情况下依然成功降低了边界层内扰动的能量。通过一个反向控制算例，本文揭示了降低了横流强度的基本流修正模态在亚谐波激励控制中起主导作用。
+
+  最后，对于充分发展槽道湍流，本文提出了定常激励和周期激励两种采用DBD等离子体激发器的减阻控制方案。在定常激励控制方案中，两个向相反方向吹气的激发器在槽道中产生了与槽道大约同一尺度的流向涡。这对流向涡在槽道中部产生了再层流化的现象，并因此降低了湍流摩阻。在周期激励方案中，激发器阵列被用于产生时而向左时而向右的展向周期振动。由于体积力在激励的前半个周期内会在流向涡下部产生与涡诱导速度方向相反的展向速度，这使得流向涡的生成受到阻碍。这两种控制方案均能起到大约9\%的减阻效果。
 
   本文的创新点主要有：
   \begin{itemize}
-    \item 用例子来解释模板的使用方法；
-    \item 用废话来填充无关紧要的部分；
-    \item 一边学习摸索一边编写新代码。
+    \item 建立了三维边界层敏感性分析方法，推导了相关公式；
+    \item 将DBD亚谐波激励控制方法应用于真实后掠翼流动；
+    \item 提出了定常激励和周期激励湍流减阻控制方案，并采用条件平均技术进行了机理分析。
   \end{itemize}
-
-  关键词是为了文献标引工作、用以表示全文主要内容信息的单词或术语。关键词不超过 5
-  个，每个关键词中间用分号分隔。（模板作者注：关键词分隔符不用考虑，模板会自动处
-  理。英文关键词同理。）
 \end{cabstract}
 
 % 如果习惯关键字跟在摘要文字后面，可以用直接命令来设置，如下：
 % \ckeywords{\TeX, \LaTeX, CJK, 模板, 论文}
 
 \begin{eabstract}
-   An abstract of a dissertation is a summary and extraction of research work
-   and contributions. Included in an abstract should be description of research
-   topic and research objective, brief introduction to methodology and research
-   process, and summarization of conclusion and contributions of the
-   research. An abstract should be characterized by independence and clarity and
-   carry identical information with the dissertation. It should be such that the
-   general idea and major contributions of the dissertation are conveyed without
-   reading the dissertation.
-
-   An abstract should be concise and to the point. It is a misunderstanding to
-   make an abstract an outline of the dissertation and words ``the first
-   chapter'', ``the second chapter'' and the like should be avoided in the
-   abstract.
-
-   Key words are terms used in a dissertation for indexing, reflecting core
-   information of the dissertation. An abstract may contain a maximum of 5 key
-   words, with semi-colons used in between to separate one another.
+   The potential use of Dielectric-Barrier-Discharge (DBD) plasma actuators for drag reduction of a passenger aircraft is studied in this paper. Two approaches are proposed to accomplish this goal: laminar-turbulent transition delay on the wing and full turbulent flow drag reduction on the fuselage.
+   
+   Modern airplanes always use swept wings. The boundary layer over these wings are three dimensional and usually subject to crossflow instability. Sensitivity of the boundary layer to body force induced by DBD actuators is analysed through solving the adjoint equations. It is found that force at the bottom of the crossflow vortex with opposite direction of local flow can hinder the growth of the disturbance energy. Inspired by this result, the harmonic control method, which put one actuator per fundamental wavelength, is come up with. However, this control method is not robust. Once the spanwise locations of actuators are incorrect, the transition will be promoted. The study of pressure gradient effect points out the attenuation of instability modes always links to the decrease of crossflow velocity. Thus, the subharmonic control with two actuators per fundamental wavelength is proposed to decline the crossflow velocity. This control method is more robust and it stabilizes the boundary layer with several different streamwise and spanwise actuator locations. A reverse control case reveals that the mean flow distortion mode which reduces the crossflow velocity plays an important role in this control method.
+   
+   Two control methods with steady actuation and periodical actuation are proposed to control full turbulence and they are tested in a turbulent channel flow. For the steady control method, two actuators mounted on the wall with different directions. They generate two large vortices whose scales are comparable to the channel height. These secondary vortices relaminarize flow at the sweep region and reduce the total drag. For the periodical actuation, DBD actuator array is employed to cause the spanwise oscillation near wall. Results of conditional average show this oscillation hinder the regeneration of streamwise vortices. Both control methods reduce nearly 9\% total drag.
 \end{eabstract}
 
 % \ekeywords{\TeX, \LaTeX, CJK, template, thesis}
