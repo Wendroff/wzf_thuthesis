@@ -21,7 +21,7 @@ Joslin R D.
   刘元富]{zhangguling2008}
 张谷令, 敖玲, 胡建芳, 等.
 \newblock 应用等离子体物理学\allowbreak[M].
-\newblock [出版地不详]: 北京: 首都师范大学出版社, 2008.
+\newblock 北京: 首都师范大学出版社, 2008.
 
 \bibitem[聂万胜\ 等(2012)聂万胜, 程钰锋, and
   车学科]{niewanshang2012}
@@ -44,7 +44,7 @@ Corke T C, Enloe C L, Wilkinson S P.
 俞建阳.
 \newblock
   Dbd等离子体诱导涡结构控制附面层流动研究\allowbreak[\thuphdbib{}].
-\newblock [出版地不详: 出版者不详], 2017.
+\newblock 哈尔滨: 哈尔滨工业大学, 2017.
 
 \bibitem[Enloe\ et~al.(2004)Enloe, McLaughlin, Van~Dyken, Kachner, Jumper,
   Corke, Post, and Haddad]{Enloe2004}
@@ -100,9 +100,8 @@ Jolibois J, Moreau E.
 \bibitem[Kotsonis\ et~al.(2011)Kotsonis and Ghaemi]{Kotsonis2011}
 Kotsonis M, Ghaemi S.
 \newblock Forcing mechanisms of dielectric barrier discharge plasma actuators
-  at carrier frequency of 625 hz\allowbreak[J/OL].
+  at carrier frequency of 625 hz\allowbreak[J].
 \newblock Journal of Applied Physics, 2011, 110\penalty0 (11): 113301.
-\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.3664695}.
 
 \bibitem[Kriegseis\ et~al.(2013)Kriegseis, Schwarz, Tropea, and
   Grundmann]{kriegseis2013velocity}
@@ -164,18 +163,14 @@ Shyy W, Jayaraman B, Andersson A.
 \bibitem[Li\ et~al.(2015{\natexlab{a}})Li, Hu, Lan, Zhang, and Huang]{LiZX2015}
 Li Z, Hu B, Lan S, et~al.
 \newblock Control of turbulent channel flow using a plasma-based body
-  force\allowbreak[J/OL].
+  force\allowbreak[J].
 \newblock Computers \& Fluids, 2015{\natexlab{a}}, 119: 26--36.
-\newblock
-  \url{http://www.sciencedirect.com/science/article/pii/S0045793015002273
-  https://www.sciencedirect.com/science/article/pii/S0045793015002273?via%3Dihub}.
 
 \bibitem[Rizzetta\ et~al.(2011)Rizzetta and Visbal]{Rizzetta2011}
 Rizzetta D P, Visbal M R.
 \newblock Numerical investigation of plasma-based control for
-  low-reynolds-number airfoil flows\allowbreak[J/OL].
+  low-reynolds-number airfoil flows\allowbreak[J].
 \newblock AIAA Journal, 2011, 49\penalty0 (2): 411--425.
-\newblock \url{https://doi.org/10.2514/1.J050755}.
 
 \bibitem[Orlov\ et~al.(2006)Orlov, Corke, and Patel]{Orlov2006}
 Orlov D M, Corke T C, Patel M.
@@ -295,9 +290,8 @@ Benard N, III L N C, Moreau E, et~al.
   Braud, Bonnet, and Moreau]{Benard2016b}
 Benard N, Pons-Prats J, Periaux J, et~al.
 \newblock Turbulent separated shear flow control by surface plasma actuator:
-  experimental optimization by genetic algorithm approach\allowbreak[J/OL].
+  experimental optimization by genetic algorithm approach\allowbreak[J].
 \newblock Experiments in Fluids, 2016{\natexlab{b}}, 57\penalty0 (2): 22.
-\newblock \url{https://doi.org/10.1007/s00348-015-2107-3}.
 
 \bibitem[Little\ et~al.(2010)Little and Samimy]{Little2010}
 Little J, Samimy M.
@@ -371,20 +365,15 @@ Jukes T, Choi K S, Johnson G, et~al.
 \bibitem[Mahfoze\ et~al.(2017)Mahfoze and Laizet]{Mahfoze2017}
 Mahfoze O, Laizet S.
 \newblock Skin-friction drag reduction in a channel flow with
-  streamwise-aligned plasma actuators\allowbreak[J/OL].
+  streamwise-aligned plasma actuators\allowbreak[J].
 \newblock International Journal of Heat and Fluid Flow, 2017, 66: 83--94.
-\newblock
-  \url{http://www.sciencedirect.com/science/article/pii/S0142727X17300243
-  https://www.sciencedirect.com/science/article/pii/S0142727X17300243?via%3Dihub}.
 
 \bibitem[Im\ et~al.(2012)Im, Do, and Cappelli]{Im2012}
 Im S, Do H, Cappelli M.
 \newblock The manipulation of an unstarting supersonic flow by plasma
-  actuator\allowbreak[J/OL].
+  actuator\allowbreak[J].
 \newblock Journal of Physics D: Applied Physics, 2012, 45\penalty0 (48):
   485202.
-\newblock
-  \url{http://iopscience.iop.org/article/10.1088/0022-3727/45/48/485202/pdf}.
 
 \bibitem[Peschke\ et~al.(2013)Peschke, Goekce, Leyland, Ott, and
   Hollenstein]{Peschke2013}
@@ -427,11 +416,8 @@ Wei Q, Niu Z, Chen B, et~al.
 \bibitem[Wang\ et~al.(2013)Wang, Choi, Feng, Jukes, and
   Whalley]{wang2013Recent}
 Wang J J, Choi K S, Feng L H, et~al.
-\newblock Recent developments in dbd plasma flow control\allowbreak[J/OL].
+\newblock Recent developments in {DBD} plasma flow control\allowbreak[J].
 \newblock Progress in Aerospace Sciences, 2013, 62: 52--78.
-\newblock
-  \url{http://www.sciencedirect.com/science/article/pii/S0376042113000535
-  https://www.sciencedirect.com/science/article/pii/S0376042113000535?via%3Dihub}.
 
 \bibitem[吴云\ 等(2015{\natexlab{b}})吴云 and 李应红]{wuyun2015}
 吴云, 李应红.
@@ -454,10 +440,9 @@ Riherd M, Roy S.
 
 \bibitem[Simon\ et~al.(2018)Simon, Markus, Tropea, and Grundmann]{Simon2018}
 Simon B, Markus D, Tropea C, et~al.
-\newblock Cancellation of tollmien–schlichting waves in direct vicinity of a
-  plasma actuator\allowbreak[J/OL].
+\newblock Cancellation of {Tollmien–Schlichting} waves in direct vicinity of
+  a plasma actuator\allowbreak[J].
 \newblock AIAA Journal, 2018: 1--10.
-\newblock \url{https://doi.org/10.2514/1.J056265}.
 
 \bibitem[Schuele\ et~al.(2013)Schuele, Corke, and Matlis]{schuele2013control}
 Schuele C Y, Corke T C, Matlis E.
@@ -474,11 +459,9 @@ D\"orr P C, Kloker M J.
 
 \bibitem[Choi\ et~al.(2011)Choi, Jukes, and Whalley]{Choi2011}
 Choi K S, Jukes T, Whalley R.
-\newblock Turbulent boundary-layer control with plasma
-  actuators\allowbreak[J/OL].
+\newblock Turbulent boundary-layer control with plasma actuators\allowbreak[J].
 \newblock Philos Trans A Math Phys Eng Sci, 2011, 369\penalty0 (1940):
   1443--58.
-\newblock \url{http://www.ncbi.nlm.nih.gov/pubmed/21382824}.
 
 \bibitem[Whalley\ et~al.(2014)Whalley and Choi]{Whalley2014}
 Whalley R D, Choi K S.
@@ -543,10 +526,8 @@ Gray W.
 \bibitem[Arnal\ et~al.(2000)Arnal and Casalis]{Aranl2000}
 Arnal D, Casalis G.
 \newblock Laminar-turbulent transition prediction in three-dimensional
-  flows\allowbreak[J/OL].
+  flows\allowbreak[J].
 \newblock Progress in Aerospace Sciences, 2000, 36\penalty0 (2): 173--191.
-\newblock
-  \url{http://www.sciencedirect.com/science/article/pii/S0376042100000026}.
 
 \bibitem[Saric\ et~al.(2003)Saric, Reed, and White]{Saric2003}
 Saric W S, Reed H L, White E B.
@@ -739,9 +720,8 @@ Hamilton J M, Kim J, Waleffe F.
   Shiba]{Jimenez2005}
 Jim\'enez J, Kawahara G, Simens M P, et~al.
 \newblock Characterization of near-wall turbulence in terms of equilibrium and
-  “bursting” solutions\allowbreak[J/OL].
+  “bursting” solutions\allowbreak[J].
 \newblock Physics of Fluids, 2005, 17\penalty0 (1): 015105.
-\newblock \url{https://aip.scitation.org/doi/pdf/10.1063/1.1825451}.
 
 \bibitem[Jim\'enez\ et~al.(1999)Jim\'enez and Pinelli]{Jimenez1999}
 Jim\'enez J, Pinelli A.
@@ -769,11 +749,8 @@ Heist D, Hanratty T, Na Y.
 
 \bibitem[Schoppa\ et~al.(2002)Schoppa and Hussain]{Schoppa2002}
 Schoppa W, Hussain F.
-\newblock Coherent structure generation in near-wall
-  turbulence\allowbreak[J/OL].
+\newblock Coherent structure generation in near-wall turbulence\allowbreak[J].
 \newblock Journal of Fluid Mechanics, 2002, 453: 57--108.
-\newblock
-  \url{https://www.cambridge.org/core/article/coherent-structure-generation-in-nearwall-turbulence/F90A8C43AB7DFEAAB4CB4115893255DA}.
 
 \bibitem[White\ et~al.(2008)White and Mungal]{White2008Mechanics}
 White C M, Mungal M G.
@@ -784,12 +761,10 @@ White C M, Mungal M G.
 \bibitem[Garc\'ia-Mayoral\ et~al.(2011)Garc\'ia-Mayoral and
   Jim\'enez]{Garcia2011}
 Garc\'ia-Mayoral R, Jim\'enez J.
-\newblock Drag reduction by riblets\allowbreak[J/OL].
+\newblock Drag reduction by riblets\allowbreak[J].
 \newblock Philosophical Transactions of the Royal Society of London A:
   Mathematical, Physical and Engineering Sciences, 2011, 369\penalty0 (1940):
   1412--1427.
-\newblock
-  \url{http://rsta.royalsocietypublishing.org/content/roypta/369/1940/1412.full.pdf}.
 
 \bibitem[Choi\ et~al.(1994)Choi, Moin, and Kim]{Choi1994}
 Choi H, Moin P, Kim J.
@@ -871,11 +846,11 @@ D{\"o}rr P, Kloker M.
 \newblock Journal of Physics D: Applied Physics, 2015{\natexlab{b}},
   48\penalty0 (28): 285205.
 
-\bibitem[Wang\ et~al.()Wang, Wang, Wang, Xu, and Fu]{wang2018}
+\bibitem[Wang\ et~al.(2018)Wang, Wang, Wang, Xu, and Fu]{wang2018}
 Wang Z, Wang L, Wang Q, et~al.
 \newblock Control of crossflow instability over a swept wing using
   dielectric-barrier-discharge plasma actuators\allowbreak[J].
-\newblock International Journal of Heat and Fluid Flow.
+\newblock International Journal of Heat and Fluid Flow, 2018.
 
 \bibitem[Li\ et~al.(1996)Li and Malik]{LiMalik1996}
 Li F, Malik M R.
@@ -942,27 +917,21 @@ Huynh H T.
 Wang Z, Gao H.
 \newblock A unifying lifting collocation penalty formulation including the
   discontinuous galerkin, spectral volume/difference methods for conservation
-  laws on mixed grids\allowbreak[J/OL].
+  laws on mixed grids\allowbreak[J].
 \newblock Journal of Computational Physics, 2009{\natexlab{a}}, 228\penalty0
   (21): 8161--8186.
-\newblock
-  \url{https://www.sciencedirect.com/science/article/pii/S0021999109004239?via%3Dihub}.
 
 \bibitem[Vincent\ et~al.(2011)Vincent, Castonguay, and Jameson]{Vincent2011}
 Vincent P E, Castonguay P, Jameson A.
 \newblock A new class of high-order energy stable flux reconstruction
-  schemes\allowbreak[J/OL].
+  schemes\allowbreak[J].
 \newblock Journal of Scientific Computing, 2011, 47\penalty0 (1): 50--72.
-\newblock
-  \url{https://link.springer.com/content/pdf/10.1007%2Fs10915-010-9420-z.pdf}.
 
 \bibitem[Jameson\ et~al.(2012)Jameson, Vincent, and Castonguay]{Jameson2012}
 Jameson A, Vincent P E, Castonguay P.
 \newblock On the non-linear stability of flux reconstruction
-  schemes\allowbreak[J/OL].
+  schemes\allowbreak[J].
 \newblock Journal of Scientific Computing, 2012, 50\penalty0 (2): 434--445.
-\newblock
-  \url{https://link.springer.com/content/pdf/10.1007%2Fs10915-011-9490-6.pdf}.
 
 \bibitem[Gao\ et~al.(2013)Gao and Wang]{GaoWang2013}
 Gao H, Wang Z.
@@ -973,17 +942,15 @@ Gao H, Wang Z.
 \bibitem[Zhu\ et~al.(2016)Zhu, Fu, Shi, and Wang]{Zhu2016}
 Zhu H, Fu S, Shi L, et~al.
 \newblock Implicit large-eddy simulation for the high-order flux reconstruction
-  method\allowbreak[J/OL].
+  method\allowbreak[J].
 \newblock AIAA Journal, 2016, 54\penalty0 (9): 2721--2733.
-\newblock \url{https://doi.org/10.2514/1.J054826}.
 
 \bibitem[Zhu\ et~al.(2017)Zhu and Fu]{Zh2017}
 Zhu H, Fu S.
 \newblock Forward-facing steps induced transition in a subsonic boundary
-  layer\allowbreak[J/OL].
+  layer\allowbreak[J].
 \newblock Science China Physics, Mechanics \& Astronomy, 2017, 60\penalty0
   (10): 104712.
-\newblock \url{https://doi.org/10.1007/s11433-017-9069-3}.
 
 \bibitem[Bassi\ et~al.(1997)Bassi and Rebay]{Bassi1997}
 Bassi F, Rebay S.
@@ -996,7 +963,7 @@ Bassi F, Rebay S.
 朱辉.
 \newblock
   基于通量重构方法的高精度湍流模拟研究\allowbreak[\thuphdbib{}].
-\newblock [出版地不详]: 清华大学, 2017.
+\newblock 北京: 清华大学, 2017.
 
 \bibitem[Lin\ et~al.(1996)Lin and Malik]{Lin1996}
 Lin R S, Malik M R.
@@ -1088,10 +1055,9 @@ Reibert M S.
 \bibitem[Saric\ et~al.(2011)Saric, Carpenter, and Reed]{saric2011}
 Saric W S, Carpenter A L, Reed H L.
 \newblock Passive control of transition in three-dimensional boundary layers,
-  with emphasis on discrete roughness elements\allowbreak[J/OL].
+  with emphasis on discrete roughness elements\allowbreak[J].
 \newblock Philosophical Transactions of the Royal Society, Section A, 2011,
   369\penalty0 (1940): 1352--64.
-\newblock \url{http://www.ncbi.nlm.nih.gov/pubmed/21382818}.
 
 \bibitem[Wei\ et~al.(2011)Wei and Pollard]{Wei2011}
 Wei L, Pollard A.
