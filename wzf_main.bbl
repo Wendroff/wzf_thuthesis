@@ -76,12 +76,11 @@ Hoskinson A, Hershkowitz N.
 
 \bibitem[Durscher\ et~al.(2011)Durscher and Roy]{Durscher2011}
 Durscher R, Roy S.
-\newblock Force measurement techniques and preliminary results using aerogels
-  and ferroelectrics for dielectric barrier discharge
-  actuators\allowbreak[C]//\allowbreak{}42nd AIAA Plasmadynamics and Lasers
-  Conference in conjunction with the 18th International Conference on MHD
-  Energy Conversion (ICMHD).
-\newblock [S.l.: s.n.], 2011: 3735.
+\newblock Fluid dynamics and co-located conferences: Force measurement
+  techniques and preliminary results using aerogels and ferroelectrics for
+  dielectric barrier discharge actuators\allowbreak[M].
+\newblock Honolulu, Hawaii, U.S.: American Institute of Aeronautics and
+  Astronautics, 2011
 
 \bibitem[Thomas\ et~al.(2009)Thomas, Corke, Iqbal, Kozlov, and
   Schatzman]{Thomas2009}
@@ -191,17 +190,17 @@ Mertz B E, Corke T C.
 
 \bibitem[Suzen\ et~al.(2005)Suzen, Huang, Jacob, and Ashpis]{suzen2005}
 Suzen Y, Huang G, Jacob J, et~al.
-\newblock Numerical simulations of plasma based flow control
-  applications\allowbreak[C]//\allowbreak{}35th AIAA Fluid Dynamics Conference
-  and Exhibit.
-\newblock [S.l.: s.n.], 2005: 4633.
+\newblock Fluid dynamics and co-located conferences: Numerical simulations of
+  plasma based flow control applications\allowbreak[M].
+\newblock Toronto, Ontario, Canada.: American Institute of Aeronautics and
+  Astronautics, 2005
 
 \bibitem[Suzen\ et~al.(2007)Suzen, Huang, and Ashpis]{suzen2007}
 Suzen Y, Huang G, Ashpis D.
-\newblock Numerical simulations of flow separation control in low-pressure
-  turbines using plasma actuators\allowbreak[C]//\allowbreak{}45th AIAA
-  Aerospace Sciences Meeting and Exhibit.
-\newblock [S.l.: s.n.], 2007: 937.
+\newblock Aerospace sciences meetings: Numerical simulations of flow separation
+  control in low-pressure turbines using plasma actuators\allowbreak[M].
+\newblock Reno, Nevada, U.S.: American Institute of Aeronautics and
+  Astronautics, 2007
 
 \bibitem[Enloe\ et~al.(2006)Enloe, McLaughlin, Font, and Baughn]{enloe2006}
 Enloe C L, McLaughlin T, Font G I, et~al.
@@ -217,10 +216,10 @@ Ibrahim I, Skote M.
 
 \bibitem[Debiasi\ et~al.(2011)Debiasi and Li]{Debiasi2011}
 Debiasi M, Li J M.
-\newblock Experimental study of a dbd-plasma driven channel
-  flow\allowbreak[C]//\allowbreak{}49th AIAA Aerospace Sciences Meeting
-  including the New Horizons Forum and Aerospace Exposition.
-\newblock [S.l.: s.n.], 2011: 954.
+\newblock Aerospace sciences meetings: Experimental study of a dbd-plasma
+  driven channel flow\allowbreak[M].
+\newblock Orlando, Florida, U.S.: American Institute of Aeronautics and
+  Astronautics, 2011
 
 \bibitem[Eltaweel\ et~al.(2014)Eltaweel, Wang, Kim, Thomas, and
   Kozlov]{Eltaweel2014}
@@ -239,8 +238,8 @@ Albrecht T, Weier T, Gerbeth G, et~al.
 \bibitem[Wilke(2009)]{wilke2009aerodynamische}
 Wilke J B.
 \newblock Aerodynamische str{\"o}mungssteuerung mittels dielektrischer
-  barriereentladungs-plasmaaktuatoren\allowbreak[M].
-\newblock [S.l.: s.n.], 2009.
+  barriereentladungs-plasmaaktuatoren\allowbreak[R].
+\newblock 2009.
 
 \bibitem[D{\"o}rr\ et~al.(2015{\natexlab{a}})D{\"o}rr and
   Kloker]{dorr2015numerical}
@@ -334,7 +333,7 @@ Grundmann S, Tropea C.
 Kurz A, Simon B, Tropea C, et~al.
 \newblock Active wave cancellation using plasma actuators in
   flight\allowbreak[C]//\allowbreak{}52nd AIAA Aerospace Sciences Meeting.
-\newblock [S.l.: s.n.], 2014: 1249.
+\newblock 2014: 1249.
 
 \bibitem[Kotsonis\ et~al.(2013)Kotsonis, Giepman, Hulshoff, and
   Veldhuis]{Kotsonis2013}
@@ -381,7 +380,7 @@ Peschke P, Goekce S, Leyland P, et~al.
 \newblock Experimental investigation of pulsed dielectric barrier discharge
   actuators in sub-and transonic flow\allowbreak[C]//\allowbreak{}44th AIAA
   Plasmadynamics and Lasers Conference.
-\newblock [S.l.: s.n.], 2013: 2885.
+\newblock 2013: 2885.
 
 \bibitem[Huang\ et~al.(2006)Huang, Corke, and Thomas]{huang2006}
 Huang J, Corke T C, Thomas F O.
@@ -473,13 +472,13 @@ Whalley R D, Choi K S.
 Morkovin M V.
 \newblock On the many faces of transition\allowbreak[M]//\allowbreak{}Viscous
   drag reduction.
-\newblock [S.l.]: Springer, 1969: 1--31
+\newblock : Springer, 1969: 1--31
 
 \bibitem[Papanastasiou\ et~al.(1999)Papanastasiou, Georgiou, and
   Alexandrou]{papanastasiou1999viscous}
 Papanastasiou T, Georgiou G, Alexandrou A N.
 \newblock Viscous fluid flow\allowbreak[M].
-\newblock [S.l.]: CRC Press, 1999
+\newblock : CRC Press, 1999
 
 \bibitem[Jacobs\ et~al.(2001)Jacobs and Durbin]{jacobs2001simulations}
 Jacobs R, Durbin P.
@@ -490,7 +489,7 @@ Jacobs R, Durbin P.
 Malkiel E, Mayle R.
 \newblock Transition in a separation bubble\allowbreak[C]//\allowbreak{}ASME
   1995 International Gas Turbine and Aeroengine Congress and Exposition.
-\newblock [S.l.]: American Society of Mechanical Engineers, 1995:
+\newblock : American Society of Mechanical Engineers, 1995:
   V001T01A003--V001T01A003.
 
 \bibitem[Walker(1992)]{walker1992role}
@@ -498,7 +497,7 @@ Walker G.
 \newblock The role of laminar-turbulent transition in gas turbine engines: a
   discussion\allowbreak[C]//\allowbreak{}ASME 1992 International Gas Turbine
   and Aeroengine Congress and Exposition.
-\newblock [S.l.]: American Society of Mechanical Engineers, 1992:
+\newblock : American Society of Mechanical Engineers, 1992:
   V001T01A108--V001T01A108.
 
 \bibitem[Bradshaw(1994)]{bradshaw1994turbulence}
@@ -515,7 +514,7 @@ Reshotko E.
 \bibitem[Schlichting(1979)]{Schlichting1979}
 Schlichting H.
 \newblock Boundary layer theory\allowbreak[M].
-\newblock [S.l.]: McGraw-Hill, 1979
+\newblock : McGraw-Hill, 1979
 
 \bibitem[Gray(1952)]{Gray1952}
 Gray W.
@@ -600,7 +599,7 @@ Bonfigli G, Kloker M.
 Duan L, Choudhari M M, Li F, et~al.
 \newblock Direct numerical simulation of transition in a swept wing boundary
   layer\allowbreak[C]//\allowbreak{}43rd AIAA Fluid Dynamics Conference.
-\newblock [S.l.: s.n.], 2013: 2617.
+\newblock 2013: 2617.
 
 \bibitem[Hosseini\ et~al.(2013)Hosseini, Tempelmann, Hanifi, and
   Henningson]{Hosseini2013}
@@ -612,7 +611,7 @@ Hosseini S M, Tempelmann D, Hanifi A, et~al.
 \bibitem[Mack(1984)]{Mack1984}
 Mack L M.
 \newblock Boundary-layer linear stability theory\allowbreak[R].
-\newblock [S.l.]: DTIC Document, 1984.
+\newblock : DTIC Document, 1984.
 
 \bibitem[Herbert\ et~al.(1987)Herbert and Bertolotti]{Herbert1987}
 Herbert T, Bertolotti F.
@@ -627,13 +626,13 @@ Herbert T.
 \bibitem[Herbert(1993)]{Herbert1993}
 Herbert T.
 \newblock Parabolized stability equations: 793(1)\allowbreak[R].
-\newblock [S.l.]: AGARD, 1993: 487--526.
+\newblock : AGARD, 1993: 487--526.
 
 \bibitem[Bertolotti(1991)]{Bertolotti1991}
 Bertolotti F P.
 \newblock Linear and nonlinear stability of boundary layers with streamwise
   varying properties\allowbreak[D].
-\newblock [S.l.]: Ohio State University, 1991.
+\newblock : Ohio State University, 1991.
 
 \bibitem[Bertolotti\ et~al.(1992)Bertolotti, Herbert, and
   Spalart]{Bertolotti1992}
@@ -654,7 +653,7 @@ Saric W, Carrillo R, Jr, Reibert M.
 \newblock Leading-edge roughness as a transition control
   mechanism\allowbreak[C]//\allowbreak{}36th AIAA Aerospace Sciences Meeting
   and Exhibit.
-\newblock [S.l.: s.n.], 1998: 781.
+\newblock 1998: 781.
 
 \bibitem[Wassermann\ et~al.(2002)Wassermann and Kloker]{Wassermann2002}
 Wassermann P, Kloker M.
@@ -667,7 +666,7 @@ Carpenter A, Saric W, Reed H.
 \newblock Laminar flow control on a swept wing with distributed
   roughness\allowbreak[C]//\allowbreak{}26th AIAA Applied Aerodynamics
   Conference.
-\newblock [S.l.: s.n.], 2008: 7335.
+\newblock 2008: 7335.
 
 \bibitem[Li\ et~al.(2009)Li, Choudhari, Chang, Streett, and
   Carpenter]{Li2009roughness}
@@ -788,7 +787,7 @@ Deng B Q, Xu C X.
 Xie W.
 \newblock Turbulence skin-friction reduction by traveling waves: a dns
   study\allowbreak[D].
-\newblock [S.l.: s.n.], 2014.
+\newblock 2014.
 
 \bibitem[Jung\ et~al.(1992)Jung, Mangiavacchi, and Akhavan]{Jung1992}
 Jung W, Mangiavacchi N, Akhavan R.
@@ -850,7 +849,7 @@ D{\"o}rr P, Kloker M.
 Wang Z, Wang L, Wang Q, et~al.
 \newblock Control of crossflow instability over a swept wing using
   dielectric-barrier-discharge plasma actuators\allowbreak[J].
-\newblock International Journal of Heat and Fluid Flow, 2018.
+\newblock Submitted to International Journal of Heat and Fluid Flow, 2018.
 
 \bibitem[Li\ et~al.(1996)Li and Malik]{LiMalik1996}
 Li F, Malik M R.
@@ -911,7 +910,7 @@ Huynh H T.
 \newblock A flux reconstruction approach to high-order schemes including
   discontinuous galerkin methods\allowbreak[C]//\allowbreak{}18th AIAA
   Computational Fluid Dynamics Conference.
-\newblock [S.l.: s.n.], 2007: 4079.
+\newblock 2007: 4079.
 
 \bibitem[Wang\ et~al.(2009{\natexlab{a}})Wang and Gao]{WangGao2009}
 Wang Z, Gao H.
@@ -983,7 +982,7 @@ Joslin R D, Streett C L, Chang C L.
   numerical simulation code: a comparison with linear stability and parabolic
   stability equation theories for boundary-layer transition on a flat
   plate\allowbreak[R].
-\newblock [S.l.: s.n.], 1992.
+\newblock 1992.
 
 \bibitem[Xu\ et~al.(2011{\natexlab{a}})Xu, Xiao, and Fu]{Xu2011a}
 Xu G, Xiao Z, Fu S.
@@ -1036,7 +1035,7 @@ Ren J, Fu S, Hanifi A.
 Dagenhart J, Saric W S.
 \newblock Crossflow stability and transition experiments in swept-wing
   flow\allowbreak[R].
-\newblock [S.l.: s.n.], 1999.
+\newblock 1999.
 
 \bibitem[Wang\ et~al.(2009{\natexlab{b}})Wang and Gao]{WangZJ2009}
 Wang Z J, Gao H.
@@ -1050,7 +1049,7 @@ Wang Z J, Gao H.
 Reibert M S.
 \newblock Nonlinear stability, saturation, and transition in
   crossflow-dominated boundary layers\allowbreak[D].
-\newblock [S.l.]: Arizona State University, 1996.
+\newblock : Arizona State University, 1996.
 
 \bibitem[Saric\ et~al.(2011)Saric, Carpenter, and Reed]{saric2011}
 Saric W S, Carpenter A L, Reed H L.

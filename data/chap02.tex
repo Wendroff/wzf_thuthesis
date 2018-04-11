@@ -1,9 +1,9 @@
 \chapter{理论公式与数值求解方法}
 \label{cha:2}
 \section{等离子体模型}
-在本文的研究中，主要使用了两种等离子体模型。分别是Kriegseis等人\cite{kriegseis2013velocity}用实验数据反推出来的体积力分布模型（之后简称为Kriegseis模型）和在此基础上用解析式近似拟合的Maden模型\cite{Maden2013}。不得不说Kriegseis模型更加精确，但是其仅仅适用于他们实验中测试的那一种几何外形的激发器。而这种尺寸的激发器无法胜任本文之后提到的后掠翼减阻的工作。具体而言，他们实验测量的激发器太大的，远远超过了横流涡的尺寸。所以在后掠翼推迟转捩的研究中本文使用了可以通过改变参数来调整体积力分布的Maden模型。在最后的槽道湍流减阻中，由于这个工况并无实际物理尺寸对应，所以也是使用了较为理想化的Maden模型。
+在本文的研究中，主要使用了两种等离子体模型。分别是Kriegseis等人\cite{kriegseis2013velocity}用实验数据反推出来的体积力分布模型（之后简称为Kriegseis模型）和在此基础上用解析式近似拟合的Maden模型\cite{Maden2013}。其中Kriegseis模型更加精确，但是其仅仅适用于他们实验中测试的那一种几何外形的激发器。而这种尺寸的激发器无法胜任本文之后提到的后掠翼减阻的工作。具体而言，他们实验测量的激发器太大的，远远超过了横流涡的尺寸。所以在后掠翼推迟转捩的研究中本文使用了可以通过改变参数来调整体积力分布的Maden模型。在最后的槽道湍流减阻中，由于这个工况并无实际物理尺寸对应，所以也是使用了较为理想化的Maden模型。
 
-这里先介绍Kriegseis模型。在引言中提到过，从实验的PIV数据反推体积力有一个问题是无法测的空间的压力分布，这就导致方程中多了一个未知量。Albrecht等人\cite{albrecht2011method}提出用涡量方程跳过压力项的方法。他们推导得到的涡量方程为：
+这里先介绍Kriegseis模型。在引言中提到过，从实验的PIV数据反推体积力存在一个问题，就是因为无法测量空间的压力分布，导致未知量个数多于方程的个数。Albrecht等人\cite{albrecht2011method}提出用涡量方程跳过压力项的方法。他们推导得到的涡量方程为：
 \begin{equation}\label{e:force1}
 \frac{1}{\rho} \left( \frac{\partial f_x}{\partial y}-\frac{\partial f_y}{\partial x} \right)=  {u\frac{{\partial \omega_z }}
 {{\partial x}} + v\frac{{\partial \omega_z }}
@@ -12,11 +12,11 @@
 {{\partial x^2 }} + \frac{{\partial ^2 \omega_z }}
 {{\partial y^2 }}} \right)}
 \end{equation}
-其中z方向涡量的定义为：
+其中$f_x,f_y$分别为平行壁面与垂直壁面体积力分量。z方向涡量$\omega_z$的定义为：
 \begin{equation}\label{e:vorticity}
   \omega_z=\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}
 \end{equation}
-但是方程（\ref{e:force1}）中还是有两个未知量：$f_x$和$f_y$。Albrecht等人\cite{albrecht2011method}认为$f_x$比$f_y$要大一个量级，所以便将后者忽略掉。之后在对上式延法向积分，得到：
+但是这时未知量个数（$f_x$和$f_y$）还是多于方程个数。Albrecht等人\cite{albrecht2011method}认为$f_x$比$f_y$要大一个量级，所以便将后者忽略掉。之后在对上式延法向积分，得到：
 \begin{equation}\label{e:force3}
 f_x(x,y) =  - \rho \int_{+\infty} ^y {\left[ {U\frac{{\partial \omega_z }}
 {{\partial x}} + V\frac{{\partial \omega_z }}
@@ -41,7 +41,7 @@ f_x(x,y) =  - \rho \int_{+\infty} ^y {\left[ {U\frac{{\partial \omega_z }}
     f_x(x,y)&=c_{\rm force}X(x)Y(y)&
 \end{align}
 \end{subequations}
-其中的系数$a_0$, $a_1$, $a_2$, $b_0$, $b_1$,  $b_2$ 和 $c_{\rm force}$可以根据需要进行调整。D\"orr和Kloker\cite{dorr2016,dorr2015stabilisation}在他们的等离子体转捩推迟研究中就使用的是这个Maden模型
+其中的系数$a_0$, $a_1$, $a_2$, $b_0$, $b_1$,  $b_2$ 和 $c_{\rm force}$可以根据需要进行调整。$x_{\rm PA}$是激发器介质上电极片边缘位置坐标。D\"orr和Kloker\cite{dorr2016,dorr2015stabilisation}在他们的等离子体转捩推迟研究中就使用的是这个Maden模型
 \section{流动稳定性求解框架}
 在研究等离子体推迟转捩的问题中，本文采用研究稳定性问题的相关数值方法，来解析边界层内扰动的发展情况。稳定性的相关理论虽然并不能给出精确的转捩位置，但是能够从理论方面给出流动失稳特性，并且具有计算效率高，转捩前流动解析精度高的优点。本文中通过研究流动在控制前后稳定性方面的特性变化，来甄别控制是否有效。本文采用的研究边界层流动稳定性的步骤如下：
 \begin{enumerate}
