@@ -1,4 +1,4 @@
-\begin{thebibliography}{170}
+\begin{thebibliography}{171}
 \bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -857,6 +857,45 @@ Li F, Malik M R.
 \newblock Theoretical and Computational Fluid Dynamics, 1996, 8\penalty0 (4):
   253--273.
 
+\bibitem[Ren\ et~al.(2014{\natexlab{a}})Ren and Fu]{Ren2014a}
+Ren J, Fu S.
+\newblock Competition of the multiple g\"ortler modes in hypersonic boundary
+  layer flows\allowbreak[J].
+\newblock Science China Physics, Mechanics and Astronomy, 2014{\natexlab{a}},
+  57\penalty0 (6): 1178--1193.
+
+\bibitem[Ren\ et~al.(2014{\natexlab{b}})Ren and Fu]{Ren2014b}
+Ren J, Fu S.
+\newblock Floquet analysis of fundamental, subharmonic and detuned secondary
+  instabilities of g\"ortler vortices\allowbreak[J].
+\newblock Science China Physics, Mechanics and Astronomy, 2014{\natexlab{b}},
+  57\penalty0 (3): 555--561.
+
+\bibitem[Ren\ et~al.(2014{\natexlab{c}})Ren and Fu]{Ren2014c}
+Ren J, Fu S.
+\newblock Study of the discrete spectrum in a mach 4.5 g\"ortler
+  flow\allowbreak[J].
+\newblock Flow, Turbulence and Combustion, 2014{\natexlab{c}}, 94\penalty0 (2):
+  339--357.
+
+\bibitem[Ren\ et~al.(2015)Ren and Fu]{Ren2015}
+Ren J, Fu S.
+\newblock Secondary instabilities of g\"ortler vortices in high-speed boundary
+  layer flows\allowbreak[J].
+\newblock Journal of Fluid Mechanics, 2015, 781: 388--421.
+
+\bibitem[Ren\ et~al.(2016)Ren, Fu, and Hanifi]{Ren2016}
+Ren J, Fu S, Hanifi A.
+\newblock Stabilization of the hypersonic boundary layer by finite-amplitude
+  streaks\allowbreak[J].
+\newblock Physics of Fluids, 2016, 28\penalty0 (2): 024110.
+
+\bibitem[任杰(2015)]{Renphd}
+任杰.
+\newblock
+  高超声速边界层{G\"ortler}涡二次失稳和转捩控制研究\allowbreak[\thuphdbib{}].
+\newblock 北京: 清华大学, 2015.
+
 \bibitem[Bottaro\ et~al.(2003)Bottaro, Corbett, and Luchini]{Bottaro2003}
 Bottaro A, Corbett P, Luchini P.
 \newblock The effect of base flow variation on flow stability\allowbreak[J].
@@ -997,39 +1036,6 @@ Xu G, Xiao Z, Fu S.
   swept wing\allowbreak[J].
 \newblock Science China Physics, Mechanics and Astronomy, 2011{\natexlab{b}},
   54\penalty0 (11): 2040--2052.
-
-\bibitem[Ren\ et~al.(2014{\natexlab{a}})Ren and Fu]{Ren2014a}
-Ren J, Fu S.
-\newblock Competition of the multiple g\"ortler modes in hypersonic boundary
-  layer flows\allowbreak[J].
-\newblock Science China Physics, Mechanics and Astronomy, 2014{\natexlab{a}},
-  57\penalty0 (6): 1178--1193.
-
-\bibitem[Ren\ et~al.(2014{\natexlab{b}})Ren and Fu]{Ren2014b}
-Ren J, Fu S.
-\newblock Floquet analysis of fundamental, subharmonic and detuned secondary
-  instabilities of g\"ortler vortices\allowbreak[J].
-\newblock Science China Physics, Mechanics and Astronomy, 2014{\natexlab{b}},
-  57\penalty0 (3): 555--561.
-
-\bibitem[Ren\ et~al.(2014{\natexlab{c}})Ren and Fu]{Ren2014c}
-Ren J, Fu S.
-\newblock Study of the discrete spectrum in a mach 4.5 g\"ortler
-  flow\allowbreak[J].
-\newblock Flow, Turbulence and Combustion, 2014{\natexlab{c}}, 94\penalty0 (2):
-  339--357.
-
-\bibitem[Ren\ et~al.(2015)Ren and Fu]{Ren2015}
-Ren J, Fu S.
-\newblock Secondary instabilities of g\"ortler vortices in high-speed boundary
-  layer flows\allowbreak[J].
-\newblock Journal of Fluid Mechanics, 2015, 781: 388--421.
-
-\bibitem[Ren\ et~al.(2016)Ren, Fu, and Hanifi]{Ren2016}
-Ren J, Fu S, Hanifi A.
-\newblock Stabilization of the hypersonic boundary layer by finite-amplitude
-  streaks\allowbreak[J].
-\newblock Physics of Fluids, 2016, 28\penalty0 (2): 024110.
 
 \bibitem[Dagenhart\ et~al.(1999)Dagenhart and Saric]{Dagenhart1999}
 Dagenhart J, Saric W S.
